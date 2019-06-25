@@ -1,10 +1,56 @@
 package br.com.clinica.domain;
 
-public class Remedio {
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
-	private Integer id;
-	private String decricao;
-	private String nome;
-	private Consulta consulta;
+@Entity
+public class Remedio implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+    private String decricao;
+    private String nome;
+    @ManyToOne
+    @JoinColumn(name = "idConsulta")
+    private Consulta consulta;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getDecricao() {
+        return decricao;
+    }
+
+    public void setDecricao(String decricao) {
+        this.decricao = decricao;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Consulta getConsulta() {
+        return consulta;
+    }
+
+    public void setConsulta(Consulta consulta) {
+        this.consulta = consulta;
+    }
 }

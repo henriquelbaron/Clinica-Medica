@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- Configurações de Conexão com o Banco de Dados -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/clinica</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password"></property>
+
+        <!-- Pool de Conexões -->
+        <property name="connection.pool_size">1</property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+
+        <!-- Gerenciamento do Contexto das Sessões -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- Cache de Segundo Nível -->
+        <property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+
+        <!-- Mostra as SQLs Geradas -->
+        <property name="show_sql">true</property>
+
+        <!-- Cria as tabelas do banco de dados -->
+        <!--create/validate/update-->
+        <property name="hbm2ddl.auto">create</property>
+
+		
+        <!-- Mapeamento das entidades -->
+        <mapping class="br.com.clinica.domain.Atendente" />
+        <mapping class="br.com.clinica.domain.Consulta" />
+        <mapping class="br.com.clinica.domain.Doenca" />
+        <mapping class="br.com.clinica.domain.Endereco" />
+        <mapping class="br.com.clinica.domain.Enfermeiro" />
+        <mapping class="br.com.clinica.domain.Especialidade" />
+        <mapping class="br.com.clinica.domain.Exame" />
+        <mapping class="br.com.clinica.domain.Funcao" />
+        <mapping class="br.com.clinica.domain.Medico" />
+        <mapping class="br.com.clinica.domain.Paciente" />
+        <mapping class="br.com.clinica.domain.Pessoa" />
+        <mapping class="br.com.clinica.domain.Plantao" />
+        <mapping class="br.com.clinica.domain.Remedio" />
+        <mapping class="br.com.clinica.domain.Sala" />
+        <mapping class="br.com.clinica.domain.Telefone" />
+        <mapping class="br.com.clinica.domain.Vacina" />
+        
+    </session-factory>
+
+</hibernate-configuration>
