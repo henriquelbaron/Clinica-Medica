@@ -22,29 +22,31 @@ public class Consulta implements Serializable {
     @GeneratedValue
     private Integer id;
 
-    @Temporal(javax.persistence.TemporalType.DATE)
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date data;
-    
-    @Temporal(javax.persistence.TemporalType.DATE)
+
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date dataAgendamento;
-    
+
     @ManyToOne
     @JoinColumn(name = "idMedico")
     private Medico medico;
-    
+
     @ManyToOne
     @JoinColumn(name = "idPaciente")
     private Paciente paciente;
-    
+
     @ManyToOne
     @JoinColumn(name = "idAtendente")
     private Atendente atendente;
     
+    @ManyToOne
+    @JoinColumn(name = "idSala")
     private Sala sala;
-    
+
     @OneToMany(mappedBy = "consulta", targetEntity = Remedio.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Remedio> remedios;
-    
+
     @OneToMany(mappedBy = "consulta", targetEntity = Vacina.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Vacina> vacinas;
 

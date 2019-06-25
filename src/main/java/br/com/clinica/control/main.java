@@ -5,7 +5,7 @@
  */
 package br.com.clinica.control;
 
-import br.com.clinica.dao.banco.HibernateUtil;
+import br.com.clinica.dao.banco.ConnectionFactory;
 import org.hibernate.Session;
 
 /**
@@ -14,8 +14,8 @@ import org.hibernate.Session;
  */
 public class main {
     public static void main(String[] args) {
-        Session sessao = HibernateUtil.getFabricaDeSessoes().openSession();
+        Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
         sessao.close();
-        HibernateUtil.getFabricaDeSessoes().close();
+        ConnectionFactory.getFabricaDeSessoes().close();
     }
 }

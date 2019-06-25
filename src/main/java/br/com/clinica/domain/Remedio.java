@@ -18,6 +18,7 @@ public class Remedio implements Serializable {
     private Integer id;
     private String decricao;
     private String nome;
+
     @ManyToOne
     @JoinColumn(name = "idConsulta")
     private Consulta consulta;

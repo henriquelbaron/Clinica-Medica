@@ -2,37 +2,51 @@ package br.com.clinica.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import org.hibernate.validator.constraints.br.CPF;
 
 @MappedSuperclass
 public class Pessoa implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    protected Integer id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    protected Integer id;
     @Column(length = 50, nullable = false)
     protected String nome;
-    @Temporal(javax.persistence.TemporalType.DATE)
+
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     protected Date dataNascimento;
+
     @Column(length = 14, nullable = false, unique = true)
+    @CPF
     protected String cpf;
+
     @NotEmpty
+    @Email
     protected String email;
+
+    @Column(length = 15)
     protected String telefone;
-    @ManyToOne
-    @JoinColumn(nullable = false)
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "idEndereco")
     protected Endereco endereco;
-    protected String sexo;
-    protected char tipoSanguineo;
+
+    @Enumerated(EnumType.STRING)
+    protected Sexo sexo;
+
+    protected String tipoSanguineo;
 
 }

@@ -6,6 +6,9 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -17,24 +20,43 @@ public class Medico extends Pessoa implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     private String crm;
     private String senha;
-        @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "idEspecialidade")
     private Especialidade especialidade;
-        
+
     @ManyToMany
     @JoinTable(name = "plantao_medico",
             joinColumns = @JoinColumn(name = "idMedico"),
             inverseJoinColumns = @JoinColumn(name = "idPlantao"))
     private List<Plantao> plantaos;
-    
+
     @OneToMany(mappedBy = "medico", targetEntity = Consulta.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Consulta> consultas;
-    
+
     @OneToMany(mappedBy = "medico", targetEntity = Exame.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Exame> exames;
-    
+
+    public Medico() {
+    }
+
+    public Medico(String crm, String senha, Especialidade especialidade) {
+        this.crm = crm;
+        this.senha = senha;
+        this.especialidade = especialidade;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getCrm() {
         return crm;
@@ -82,14 +104,6 @@ public class Medico extends Pessoa implements Serializable {
 
     public void setExames(List<Exame> exames) {
         this.exames = exames;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getNome() {
@@ -140,19 +154,19 @@ public class Medico extends Pessoa implements Serializable {
         this.endereco = endereco;
     }
 
-    public String getSexo() {
+    public Sexo getSexo() {
         return sexo;
     }
 
-    public void setSexo(String sexo) {
+    public void setSexo(Sexo sexo) {
         this.sexo = sexo;
     }
 
-    public char getTipoSanguineo() {
+    public String getTipoSanguineo() {
         return tipoSanguineo;
     }
 
-    public void setTipoSanguineo(char tipoSanguineo) {
+    public void setTipoSanguineo(String tipoSanguineo) {
         this.tipoSanguineo = tipoSanguineo;
     }
 

@@ -25,6 +25,9 @@ public class Sala implements Serializable {
     @OneToMany(mappedBy = "sala", targetEntity = Exame.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Exame> exames;
 
+    @OneToMany(mappedBy = "sala", targetEntity = Consulta.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Consulta> consultas;
+
     private int prioridade;
 
     @ManyToOne
