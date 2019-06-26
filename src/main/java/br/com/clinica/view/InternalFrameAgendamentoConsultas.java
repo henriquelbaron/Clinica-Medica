@@ -29,6 +29,10 @@ public class InternalFrameAgendamentoConsultas extends javax.swing.JInternalFram
 
         TabelaPaciente = new javax.swing.JTable();
 
+        setClosable(true);
+        setIconifiable(true);
+        setTitle("Agendamento de Consulta");
+
         jLabel13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/patient.png"))); // NOI18N
         jLabel13.setText("Paciente");

@@ -28,7 +28,7 @@ public class ConsultaControl {
     private List<Especialidade> especialidades;
 
     public void sendKeysTfListener() {
-
+        
     }
 
     public void buscarPacienteAction() {
