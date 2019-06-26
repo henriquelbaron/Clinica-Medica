@@ -7,7 +7,6 @@ package br.com.clinica.control;
 
 import javax.swing.JFrame;
 
-
 /**
  *
  * @author henrique
@@ -15,7 +14,10 @@ import javax.swing.JFrame;
 public class LoginControl {
 
     private JFrame frame;
-    
+
+    public LoginControl() {
+    }
+
     public void loginAction() {
 
     }
@@ -23,5 +25,5 @@ public class LoginControl {
     public void forgotPasswordAction() {
 
     }
-
+   
 }

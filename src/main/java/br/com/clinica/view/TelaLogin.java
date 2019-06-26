@@ -5,17 +5,23 @@
  */
 package br.com.clinica.view;
 
+import br.com.clinica.control.LoginControl;
+import java.awt.Color;
+
 /**
  *
  * @author Luiza Mistro
  */
 public class TelaLogin extends javax.swing.JFrame {
 
+    LoginControl control;
+
     /**
      * Creates new form TelaLogin
      */
     public TelaLogin() {
         initComponents();
+        control = new LoginControl();
     }
 
     /**
@@ -30,6 +36,11 @@ public class TelaLogin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                DeixarLabelNormal(evt);
+            }
+        });
 
         jLabel4.setText("E-mail");
 
@@ -49,6 +60,11 @@ public class TelaLogin extends javax.swing.JFrame {
         });
 
         lblEsqueciSenha.setText("Esqueci minha senha");
+        lblEsqueciSenha.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                DeixarLabelAzul(evt);
+            }
+        });
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aspek.png"))); // NOI18N
@@ -80,7 +96,7 @@ public class TelaLogin extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -108,6 +124,14 @@ public class TelaLogin extends javax.swing.JFrame {
     private void btLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoginActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btLoginActionPerformed
+
+    private void DeixarLabelAzul(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeixarLabelAzul
+        TelaLogin.lblEsqueciSenha.setForeground(Color.BLUE);
+    }//GEN-LAST:event_DeixarLabelAzul
+
+    private void DeixarLabelNormal(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeixarLabelNormal
+        TelaLogin.lblEsqueciSenha.setForeground(Color.black);
+    }//GEN-LAST:event_DeixarLabelNormal
 
     /**
      * @param args the command line arguments
