@@ -5,9 +5,12 @@
  */
 package br.com.clinica.control;
 
+import br.com.clinica.view.InternalFrameAgendamentoConsultas;
+import br.com.clinica.view.TelaPrincipal;
+import com.sun.glass.events.WindowEvent;
+import java.awt.Frame;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
-
 
 /**
  *
@@ -58,6 +61,18 @@ public class MainControl {
     public void consultaReservaSalaAction(JFrame frame) {
 
     }
-    
-    
+
+    public void chamarTelaAgendamentoConsultas() {
+        agendamentoConsulta = new InternalFrameAgendamentoConsultas();
+        TelaPrincipal.painel.add(agendamentoConsulta);
+        agendamentoConsulta.setVisible(true);
+    }
+
+    void chamarTelaPrincipal() {
+        frame = new TelaPrincipal();
+        frame.setLocationRelativeTo(null);
+        frame.setExtendedState(Frame.MAXIMIZED_BOTH);
+        frame.setVisible(true);
+    }
+
 }

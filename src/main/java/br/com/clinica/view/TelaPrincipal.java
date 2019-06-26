@@ -5,17 +5,22 @@
  */
 package br.com.clinica.view;
 
+import br.com.clinica.control.MainControl;
+
 /**
  *
  * @author Luiza Mistro
  */
 public class TelaPrincipal extends javax.swing.JFrame {
 
+    MainControl control;
+
     /**
      * Creates new form TelaPrincipal
      */
     public TelaPrincipal() {
         initComponents();
+        control = new MainControl();
     }
 
     /**
@@ -32,14 +37,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setForeground(java.awt.Color.white);
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout painelLayout = new javax.swing.GroupLayout(painel);
+        painel.setLayout(painelLayout);
+        painelLayout.setHorizontalGroup(
+            painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        painelLayout.setVerticalGroup(
+            painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 451, Short.MAX_VALUE)
         );
 
@@ -51,6 +56,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         MenuAgendaConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stethoscope.png"))); // NOI18N
         MenuAgendaConsulta.setText("Consultas");
+        MenuAgendaConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuAgendaConsultaActionPerformed(evt);
+            }
+        });
         jMenu1.add(MenuAgendaConsulta);
 
         MenuAgendaExame.setIcon(new javax.swing.ImageIcon(getClass().getResource("/time.png"))); // NOI18N
@@ -133,12 +143,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 864, Short.MAX_VALUE)
-            .addComponent(jDesktopPane1)
+            .addComponent(painel)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jDesktopPane1)
+                .addComponent(painel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1))
         );
@@ -161,6 +171,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void MenuAgendaVacinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuAgendaVacinaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_MenuAgendaVacinaActionPerformed
+
+    private void MenuAgendaConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuAgendaConsultaActionPerformed
+        control.chamarTelaAgendamentoConsultas();
+    }//GEN-LAST:event_MenuAgendaConsultaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,12 +222,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public static final javax.swing.JMenuItem MenuMedicoProntuario = new javax.swing.JMenuItem();
     public static final javax.swing.JMenuItem MenuMedicoReceita = new javax.swing.JMenuItem();
     public static final javax.swing.JMenuItem MenuVacinaAplicacao = new javax.swing.JMenuItem();
-    public static final javax.swing.JDesktopPane jDesktopPane1 = new javax.swing.JDesktopPane();
     public static final javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
     public static final javax.swing.JMenu jMenu1 = new javax.swing.JMenu();
     public static final javax.swing.JMenu jMenu2 = new javax.swing.JMenu();
     public static final javax.swing.JMenu jMenu3 = new javax.swing.JMenu();
     public static final javax.swing.JMenu jMenu4 = new javax.swing.JMenu();
     public static final javax.swing.JMenuBar jMenuBar1 = new javax.swing.JMenuBar();
+    public static final javax.swing.JDesktopPane painel = new javax.swing.JDesktopPane();
     // End of variables declaration//GEN-END:variables
 }

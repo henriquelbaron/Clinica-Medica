@@ -122,7 +122,7 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_tfEmailActionPerformed
 
     private void btLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoginActionPerformed
-        // TODO add your handling code here:
+        control.abreTelaPrincipal();
     }//GEN-LAST:event_btLoginActionPerformed
 
     private void DeixarLabelAzul(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeixarLabelAzul

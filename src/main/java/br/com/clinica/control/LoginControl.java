@@ -5,7 +5,10 @@
  */
 package br.com.clinica.control;
 
+import br.com.clinica.view.TelaLogin;
+import br.com.clinica.view.TelaPrincipal;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,8 +17,12 @@ import javax.swing.JFrame;
 public class LoginControl {
 
     private JFrame frame;
+    Boolean loginIsValido = true;//Trocar por retorno do método de conferência de login
+    MainControl telaPrincipal;
+    TelaLogin telaLogin;
 
     public LoginControl() {
+        telaPrincipal = null;
     }
 
     public void loginAction() {
@@ -25,5 +32,19 @@ public class LoginControl {
     public void forgotPasswordAction() {
 
     }
-   
+
+    public void abreTelaPrincipal() {
+        if (!loginIsValido) {
+            JOptionPane.showMessageDialog(null, "Login Inválido!");
+        } else {
+            if (telaPrincipal != null) {
+                telaPrincipal.chamarTelaPrincipal();
+            } else {
+                telaPrincipal = new MainControl();
+                telaPrincipal.chamarTelaPrincipal();
+            }
+            telaLogin.dispose();
+        }
+
+    }
 }
