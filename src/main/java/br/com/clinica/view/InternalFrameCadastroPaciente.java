@@ -34,6 +34,7 @@ public class InternalFrameCadastroPaciente extends javax.swing.JInternalFrame {
         listaContatoEmergencia = new javax.swing.JList<>();
         listaDoenca = new javax.swing.JList<>();
         listaVacinas = new javax.swing.JList<>();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setResizable(true);
         setVisible(true);
@@ -250,7 +251,7 @@ public class InternalFrameCadastroPaciente extends javax.swing.JInternalFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addComponent(jLabel3)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(DCData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(2, 2, 2)
                         .addComponent(jLabel11)
@@ -295,9 +296,9 @@ public class InternalFrameCadastroPaciente extends javax.swing.JInternalFrame {
                             .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(DCData, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
@@ -372,7 +373,6 @@ public class InternalFrameCadastroPaciente extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static final com.toedter.calendar.JDateChooser DCData = new com.toedter.calendar.JDateChooser();
     private javax.swing.JTable TabelaTelefones;
     public static final javax.swing.JButton btAddContatoEmergencia = new javax.swing.JButton();
     public static final javax.swing.JButton btAddDoenca = new javax.swing.JButton();
@@ -385,6 +385,7 @@ public class InternalFrameCadastroPaciente extends javax.swing.JInternalFrame {
     public static final javax.swing.JComboBox<String> cbTipoSanguineo = new javax.swing.JComboBox<>();
     public static final javax.swing.JComboBox<String> cbTipoTelefone = new javax.swing.JComboBox<>();
     public static final javax.swing.JComboBox<String> cbVacina = new javax.swing.JComboBox<>();
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDayChooser jDayChooser1;
     private javax.swing.JLabel jLabel1;
     public static final javax.swing.JLabel jLabel10 = new javax.swing.JLabel();

@@ -37,6 +37,7 @@ public class InternalFrameAgendamentoConsultas extends javax.swing.JInternalFram
         jLabel12 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setEnabled(false);
 
@@ -168,7 +169,9 @@ public class InternalFrameAgendamentoConsultas extends javax.swing.JInternalFram
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jLabel2)
-                                                .addGap(142, 142, 142)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
                                                 .addComponent(jLabel14)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(jLabel15)
@@ -264,7 +267,8 @@ public class InternalFrameAgendamentoConsultas extends javax.swing.JInternalFram
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(jLabel10)
                                         .addComponent(lblNomeAtendente))
-                                    .addGap(4, 4, 4)))
+                                    .addGap(4, 4, 4))
+                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(7, 7, 7)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -276,7 +280,8 @@ public class InternalFrameAgendamentoConsultas extends javax.swing.JInternalFram
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btCancelar)))
                 .addGap(19, 19, 19)
-                .addComponent(jLabel1))
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -300,6 +305,7 @@ public class InternalFrameAgendamentoConsultas extends javax.swing.JInternalFram
     public static final javax.swing.JComboBox<String> cbEspecialidade = new javax.swing.JComboBox<>();
     public static final javax.swing.JComboBox<String> cbMedico = new javax.swing.JComboBox<>();
     public static final javax.swing.JComboBox<String> cbSala = new javax.swing.JComboBox<>();
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
