@@ -43,7 +43,7 @@ public class LoginControl {
                 telaPrincipal = new MainControl();
                 telaPrincipal.chamarTelaPrincipal();
             }
-            telaLogin.dispose();
+//            telaLogin.dispose();
         }
 
     }

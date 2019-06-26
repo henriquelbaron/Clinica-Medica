@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: br.com.clinica.dao.banco.impl.AtendenteDaoImpTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 1, Skipped: 2, Time elapsed: 1.328 sec <<< FAILURE!
-listar(br.com.clinica.dao.banco.impl.AtendenteDaoImpTest)  Time elapsed: 1.25 sec  <<< ERROR!
+Tests run: 3, Failures: 0, Errors: 1, Skipped: 2, Time elapsed: 2.137 sec <<< FAILURE!
+listar(br.com.clinica.dao.banco.impl.AtendenteDaoImpTest)  Time elapsed: 1.887 sec  <<< ERROR!
 java.lang.ExceptionInInitializerError
 	at br.com.clinica.dao.banco.ConnectionFactory.criarFabricaDeSessoes(ConnectionFactory.java:36)
 	at br.com.clinica.dao.banco.ConnectionFactory.<clinit>(ConnectionFactory.java:19)

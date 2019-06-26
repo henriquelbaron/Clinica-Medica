@@ -17,6 +17,7 @@ public class TelaLogin extends javax.swing.JFrame {
     LoginControl control;
 
     /**
+     * 
      * Creates new form TelaLogin
      */
     public TelaLogin() {

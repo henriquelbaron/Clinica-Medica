@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="br.com.clinica.dao.banco.impl.AtendenteDaoImpTest" time="1.328" errors="1" skipped="2">
+<testsuite tests="3" failures="0" name="br.com.clinica.dao.banco.impl.AtendenteDaoImpTest" time="2.153" errors="1" skipped="2">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_191\jre\bin"/>
@@ -64,7 +64,7 @@
   <testcase classname="br.com.clinica.dao.banco.impl.AtendenteDaoImpTest" name="exluir" time="0">
     <skipped/>
   </testcase>
-  <testcase classname="br.com.clinica.dao.banco.impl.AtendenteDaoImpTest" name="listar" time="1.25">
+  <testcase classname="br.com.clinica.dao.banco.impl.AtendenteDaoImpTest" name="listar" time="1.887">
     <error type="java.lang.ExceptionInInitializerError">java.lang.ExceptionInInitializerError
 	at br.com.clinica.dao.banco.ConnectionFactory.criarFabricaDeSessoes(ConnectionFactory.java:36)
 	at br.com.clinica.dao.banco.ConnectionFactory.&lt;clinit&gt;(ConnectionFactory.java:19)
@@ -151,33 +151,33 @@ Caused by: java.sql.SQLSyntaxErrorException: Unknown database &apos;clinica&apos
 	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:38)
 	... 63 more
 </error>
-    <system-err>jun 26, 2019 3:25:24 PM org.hibernate.Version logVersion
+    <system-err>jun 26, 2019 5:52:48 PM org.hibernate.Version logVersion
 INFO: HHH000412: Hibernate Core {5.4.2.Final}
-jun 26, 2019 3:25:25 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager &lt;clinit&gt;
+jun 26, 2019 5:52:49 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager &lt;clinit&gt;
 INFO: HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-jun 26, 2019 3:25:25 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+jun 26, 2019 5:52:49 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
 WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
 Loading class `com.mysql.jdbc.Driver&apos;. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver&apos;. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
-jun 26, 2019 3:25:25 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+jun 26, 2019 5:52:49 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
 INFO: HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/clinica]
-jun 26, 2019 3:25:25 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+jun 26, 2019 5:52:49 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
 INFO: HHH10001001: Connection properties: {user=root, password=****}
-jun 26, 2019 3:25:25 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+jun 26, 2019 5:52:49 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
 INFO: HHH10001003: Autocommit mode: false
-jun 26, 2019 3:25:25 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections &lt;init&gt;
+jun 26, 2019 5:52:49 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections &lt;init&gt;
 INFO: HHH000115: Hibernate connection pool size: 2 (min=1)
-jun 26, 2019 3:25:25 PM org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator initiateService
+jun 26, 2019 5:52:49 PM org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator initiateService
 WARN: HHH000342: Could not obtain connection to query metadata : null
-jun 26, 2019 3:25:25 PM org.hibernate.dialect.Dialect &lt;init&gt;
+jun 26, 2019 5:52:49 PM org.hibernate.dialect.Dialect &lt;init&gt;
 INFO: HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-jun 26, 2019 3:25:25 PM org.hibernate.engine.jdbc.spi.SqlExceptionHelper logExceptions
+jun 26, 2019 5:52:49 PM org.hibernate.engine.jdbc.spi.SqlExceptionHelper logExceptions
 WARN: SQL Error: 1049, SQLState: 42000
-jun 26, 2019 3:25:25 PM org.hibernate.engine.jdbc.spi.SqlExceptionHelper logExceptions
+jun 26, 2019 5:52:49 PM org.hibernate.engine.jdbc.spi.SqlExceptionHelper logExceptions
 ERROR: Unknown database &apos;clinica&apos;
 A fábrica de sessões não pode ser criada.org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
 </system-err>
   </testcase>
-  <testcase classname="br.com.clinica.dao.banco.impl.AtendenteDaoImpTest" name="salvar" time="1.25">
+  <testcase classname="br.com.clinica.dao.banco.impl.AtendenteDaoImpTest" name="salvar" time="1.887">
     <skipped/>
   </testcase>
 </testsuite>
