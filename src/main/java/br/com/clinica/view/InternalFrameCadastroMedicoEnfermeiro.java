@@ -29,9 +29,6 @@ public class InternalFrameCadastroMedicoEnfermeiro extends javax.swing.JInternal
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
@@ -57,14 +54,8 @@ public class InternalFrameCadastroMedicoEnfermeiro extends javax.swing.JInternal
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel2.setText("Quem você quer cadastrar?");
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/doctor (1).png"))); // NOI18N
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/nurse.png"))); // NOI18N
-
         buttonGroup1.add(rbAtendente);
         rbAtendente.setText("Atendente");
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/avatar.png"))); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel6.setText("Nome");
@@ -143,14 +134,6 @@ public class InternalFrameCadastroMedicoEnfermeiro extends javax.swing.JInternal
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(422, 422, 422)
-                .addComponent(jLabel4)
-                .addGap(142, 142, 142)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(195, 195, 195))
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
@@ -263,13 +246,7 @@ public class InternalFrameCadastroMedicoEnfermeiro extends javax.swing.JInternal
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(rbMedico)
                     .addComponent(jLabel21)
@@ -396,9 +373,6 @@ public class InternalFrameCadastroMedicoEnfermeiro extends javax.swing.JInternal
     public static final javax.swing.JLabel jLabel22 = new javax.swing.JLabel();
     public static final javax.swing.JLabel jLabel23 = new javax.swing.JLabel();
     public static final javax.swing.JLabel jLabel24 = new javax.swing.JLabel();
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     public static final javax.swing.JLabel jLabel6 = new javax.swing.JLabel();
     public static final javax.swing.JLabel jLabel7 = new javax.swing.JLabel();
     public static final javax.swing.JLabel jLabel8 = new javax.swing.JLabel();

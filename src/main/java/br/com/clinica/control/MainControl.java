@@ -28,6 +28,21 @@ public class MainControl {
     private JInternalFrame sala = null;
     private JInternalFrame exame = null;
 
+    public void chamarTelaPlantao() {
+        if (plantao == null) {
+            plantao = new InternalFramePlantao();
+            TelaPrincipal.painel.add(plantao);
+            plantao.setVisible(true);
+        } else {
+            if (plantao.isVisible()) {
+                plantao.pack();
+            } else {
+                TelaPrincipal.painel.add(plantao);
+                plantao.setVisible(true);
+            }
+        }
+    }
+
     public void chamarTelaAgendamentoConsultas() {
         if (agendamentoConsulta == null) {
             agendamentoConsulta = new InternalFrameAgendamentoConsultas();
