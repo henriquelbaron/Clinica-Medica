@@ -1,15 +1,15 @@
 -------------------------------------------------------------------------------
 Test set: br.com.clinica.dao.banco.impl.PacienteDaoImplTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 1, Skipped: 1, Time elapsed: 1.82 sec <<< FAILURE!
-listarPoTermo(br.com.clinica.dao.banco.impl.PacienteDaoImplTest)  Time elapsed: 1.768 sec  <<< ERROR!
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 1, Time elapsed: 0.056 sec <<< FAILURE!
+listarPoTermo(br.com.clinica.dao.banco.impl.PacienteDaoImplTest)  Time elapsed: 0.053 sec  <<< ERROR!
 java.lang.IllegalArgumentException: org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: % near line 1, column 60 [from br.com.clinica.domain.Paciente as p where p.nome like %j%]
 	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:138)
 	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:181)
 	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:188)
 	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:729)
 	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:104)
-	at br.com.clinica.dao.banco.impl.PacienteDaoImpl.findPaciente(PacienteDaoImpl.java:15)
+	at br.com.clinica.dao.banco.impl.PacienteDaoImpl.findPaciente(PacienteDaoImpl.java:17)
 	at br.com.clinica.dao.banco.impl.PacienteDaoImplTest.listarPoTermo(PacienteDaoImplTest.java:52)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)

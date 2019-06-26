@@ -32,6 +32,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
+        menuCadastro = new javax.swing.JMenu();
+        menuPaciente = new javax.swing.JMenuItem();
+        menuFuncionario = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+
+        jMenuItem1.setText("jMenuItem1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -136,6 +145,48 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
+        menuCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital.png"))); // NOI18N
+        menuCadastro.setText("Cadastro");
+
+        menuPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/patient.png"))); // NOI18N
+        menuPaciente.setText("Paciente");
+        menuPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuPacienteActionPerformed(evt);
+            }
+        });
+        menuCadastro.add(menuPaciente);
+
+        menuFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/doctor (1).png"))); // NOI18N
+        menuFuncionario.setText("Funcionário");
+        menuFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuFuncionarioActionPerformed(evt);
+            }
+        });
+        menuCadastro.add(menuFuncionario);
+
+        jMenuBar1.add(menuCadastro);
+
+        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/first-aid-kit (1).png"))); // NOI18N
+        jMenu5.setText("Plantão");
+        jMenu5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu5ActionPerformed(evt);
+            }
+        });
+
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/medical-history (2).png"))); // NOI18N
+        jMenuItem2.setText("Listar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu5);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -157,7 +208,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void MenuAgendaExameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuAgendaExameActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_MenuAgendaExameActionPerformed
 
     private void MenuMedicoProntuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuMedicoProntuarioActionPerformed
@@ -175,6 +226,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void MenuAgendaConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuAgendaConsultaActionPerformed
         control.chamarTelaAgendamentoConsultas();
     }//GEN-LAST:event_MenuAgendaConsultaActionPerformed
+
+    private void menuPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPacienteActionPerformed
+
+    }//GEN-LAST:event_menuPacienteActionPerformed
+
+    private void menuFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFuncionarioActionPerformed
+        control.chamarTelaCadastroFuncionario();
+    }//GEN-LAST:event_menuFuncionarioActionPerformed
+
+    private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
+
+    }//GEN-LAST:event_jMenu5ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        control.chamarTelaPlantao();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -227,7 +294,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public static final javax.swing.JMenu jMenu2 = new javax.swing.JMenu();
     public static final javax.swing.JMenu jMenu3 = new javax.swing.JMenu();
     public static final javax.swing.JMenu jMenu4 = new javax.swing.JMenu();
+    private javax.swing.JMenu jMenu5;
     public static final javax.swing.JMenuBar jMenuBar1 = new javax.swing.JMenuBar();
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenu menuCadastro;
+    private javax.swing.JMenuItem menuFuncionario;
+    private javax.swing.JMenuItem menuPaciente;
     public static final javax.swing.JDesktopPane painel = new javax.swing.JDesktopPane();
     // End of variables declaration//GEN-END:variables
 }

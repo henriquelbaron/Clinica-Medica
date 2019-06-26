@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="2" failures="0" name="br.com.clinica.dao.banco.impl.PacienteDaoImplTest" time="1.819" errors="1" skipped="1">
+<testsuite tests="2" failures="0" name="br.com.clinica.dao.banco.impl.PacienteDaoImplTest" time="0.056" errors="1" skipped="1">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/home/jdk1.8.0_212/jre/lib/amd64"/>
@@ -13,7 +13,6 @@
     <property name="user.country" value="BR"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
-    <property name="test" value="br.com.clinica.dao.banco.impl.PacienteDaoImplTest"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="user.dir" value="/home/henrique/Documentos/Faculdade/Clinica-Medica"/>
     <property name="java.runtime.version" value="1.8.0_212-b10"/>
@@ -36,14 +35,14 @@
     <property name="user.home" value="/home/henrique"/>
     <property name="user.timezone" value="America/Sao_Paulo"/>
     <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
-    <property name="java.specification.version" value="1.8"/>
     <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="1.8"/>
     <property name="user.name" value="henrique"/>
     <property name="java.class.path" value="/home/netbeans/java/maven/boot/plexus-classworlds-2.4.jar"/>
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/home/jdk1.8.0_212/jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=br.com.clinica.dao.banco.impl.PacienteDaoImplTest -Dmaven.ext.class.path=/home/netbeans/java/maven-nblib/netbeans-eventspy.jar surefire:test"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=/home/netbeans/java/maven-nblib/netbeans-eventspy.jar clean install"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="pt"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
@@ -61,14 +60,14 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="br.com.clinica.dao.banco.impl.PacienteDaoImplTest" name="listarPoTermo" time="1.768">
+  <testcase classname="br.com.clinica.dao.banco.impl.PacienteDaoImplTest" name="listarPoTermo" time="0.053">
     <error message="org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: % near line 1, column 60 [from br.com.clinica.domain.Paciente as p where p.nome like %j%]" type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: % near line 1, column 60 [from br.com.clinica.domain.Paciente as p where p.nome like %j%]
 	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:138)
 	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:181)
 	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:188)
 	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:729)
 	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:104)
-	at br.com.clinica.dao.banco.impl.PacienteDaoImpl.findPaciente(PacienteDaoImpl.java:15)
+	at br.com.clinica.dao.banco.impl.PacienteDaoImpl.findPaciente(PacienteDaoImpl.java:17)
 	at br.com.clinica.dao.banco.impl.PacienteDaoImplTest.listarPoTermo(PacienteDaoImplTest.java:52)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -112,30 +111,9 @@ Caused by: org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token
 	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:720)
 	... 32 more
 </error>
-    <system-err>jun 26, 2019 8:12:41 PM org.hibernate.Version logVersion
-INFO: HHH000412: Hibernate Core {5.4.2.Final}
-jun 26, 2019 8:12:41 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager &lt;clinit&gt;
-INFO: HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-jun 26, 2019 8:12:41 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
-WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-Loading class `com.mysql.jdbc.Driver&apos;. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver&apos;. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
-jun 26, 2019 8:12:41 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
-INFO: HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/clinica]
-jun 26, 2019 8:12:41 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
-INFO: HHH10001001: Connection properties: {user=root, password=****}
-jun 26, 2019 8:12:41 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
-INFO: HHH10001003: Autocommit mode: false
-jun 26, 2019 8:12:41 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections &lt;init&gt;
-INFO: HHH000115: Hibernate connection pool size: 2 (min=1)
-jun 26, 2019 8:12:42 PM org.hibernate.dialect.Dialect &lt;init&gt;
-INFO: HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-jun 26, 2019 8:12:42 PM org.hibernate.validator.internal.util.Version &lt;clinit&gt;
-INFO: HV000001: Hibernate Validator 6.0.16.Final
-jun 26, 2019 8:12:43 PM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
-INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@60f70249] for (non-JTA) DDL execution was not in auto-commit mode; the Connection &apos;local transaction&apos; will be committed and the Connection will be set into auto-commit mode.
-jun 26, 2019 8:12:43 PM org.hibernate.hql.internal.ast.ErrorTracker reportError
+    <system-err>jun 26, 2019 8:19:30 PM org.hibernate.hql.internal.ast.ErrorTracker reportError
 ERROR: line 1:60: unexpected token: %
-jun 26, 2019 8:12:43 PM org.hibernate.hql.internal.ast.ErrorTracker reportError
+jun 26, 2019 8:19:30 PM org.hibernate.hql.internal.ast.ErrorTracker reportError
 ERROR: line 1:60: unexpected token: %
 line 1:60: unexpected token: %
 	at org.hibernate.hql.internal.antlr.HqlBaseParser.unaryExpression(HqlBaseParser.java:3408)
@@ -162,7 +140,7 @@ line 1:60: unexpected token: %
 	at org.hibernate.internal.AbstractSharedSessionContract.getQueryPlan(AbstractSharedSessionContract.java:611)
 	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:720)
 	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:104)
-	at br.com.clinica.dao.banco.impl.PacienteDaoImpl.findPaciente(PacienteDaoImpl.java:15)
+	at br.com.clinica.dao.banco.impl.PacienteDaoImpl.findPaciente(PacienteDaoImpl.java:17)
 	at br.com.clinica.dao.banco.impl.PacienteDaoImplTest.listarPoTermo(PacienteDaoImplTest.java:52)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -194,9 +172,9 @@ line 1:60: unexpected token: %
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
 
-jun 26, 2019 8:12:43 PM org.hibernate.hql.internal.ast.ErrorTracker reportError
+jun 26, 2019 8:19:30 PM org.hibernate.hql.internal.ast.ErrorTracker reportError
 ERROR: line 1:61: unexpected token: j
-jun 26, 2019 8:12:43 PM org.hibernate.hql.internal.ast.ErrorTracker reportError
+jun 26, 2019 8:19:30 PM org.hibernate.hql.internal.ast.ErrorTracker reportError
 ERROR: line 1:61: unexpected token: j
 line 1:61: unexpected token: j
 	at org.hibernate.hql.internal.antlr.HqlBaseParser.queryRule(HqlBaseParser.java:787)
@@ -211,7 +189,7 @@ line 1:61: unexpected token: j
 	at org.hibernate.internal.AbstractSharedSessionContract.getQueryPlan(AbstractSharedSessionContract.java:611)
 	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:720)
 	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:104)
-	at br.com.clinica.dao.banco.impl.PacienteDaoImpl.findPaciente(PacienteDaoImpl.java:15)
+	at br.com.clinica.dao.banco.impl.PacienteDaoImpl.findPaciente(PacienteDaoImpl.java:17)
 	at br.com.clinica.dao.banco.impl.PacienteDaoImplTest.listarPoTermo(PacienteDaoImplTest.java:52)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -245,7 +223,7 @@ line 1:61: unexpected token: j
 
 </system-err>
   </testcase>
-  <testcase classname="br.com.clinica.dao.banco.impl.PacienteDaoImplTest" name="testFindPaciente" time="1.769">
+  <testcase classname="br.com.clinica.dao.banco.impl.PacienteDaoImplTest" name="testFindPaciente" time="0.054">
     <skipped/>
   </testcase>
 </testsuite>
