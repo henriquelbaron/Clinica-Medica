@@ -27,24 +27,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDesktopPane1 = new javax.swing.JDesktopPane();
-        jLabel1 = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -58,90 +40,89 @@ public class TelaPrincipal extends javax.swing.JFrame {
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 344, Short.MAX_VALUE)
+            .addGap(0, 451, Short.MAX_VALUE)
         );
 
-        jLabel1.setBackground(new java.awt.Color(255, 0, 204));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Aspek.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aspek.jpg"))); // NOI18N
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/notepad (1).png"))); // NOI18N
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notepad (1).png"))); // NOI18N
         jMenu1.setText("Agendamento");
 
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/stethoscope.png"))); // NOI18N
-        jMenuItem1.setText("Consultas");
-        jMenu1.add(jMenuItem1);
+        MenuAgendaConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stethoscope.png"))); // NOI18N
+        MenuAgendaConsulta.setText("Consultas");
+        jMenu1.add(MenuAgendaConsulta);
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/time.png"))); // NOI18N
-        jMenuItem2.setText("Exames");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        MenuAgendaExame.setIcon(new javax.swing.ImageIcon(getClass().getResource("/time.png"))); // NOI18N
+        MenuAgendaExame.setText("Exames");
+        MenuAgendaExame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                MenuAgendaExameActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        jMenu1.add(MenuAgendaExame);
 
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/syringe (1).png"))); // NOI18N
-        jMenuItem3.setText("Vacinas");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        MenuAgendaVacina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/syringe (1).png"))); // NOI18N
+        MenuAgendaVacina.setText("Vacinas");
+        MenuAgendaVacina.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                MenuAgendaVacinaActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem3);
+        jMenu1.add(MenuAgendaVacina);
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/doctor (1).png"))); // NOI18N
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/doctor (1).png"))); // NOI18N
         jMenu2.setText("Médico");
 
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/medical-history (2).png"))); // NOI18N
-        jMenuItem4.setText("Prontuários");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        MenuMedicoProntuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/medical-history (2).png"))); // NOI18N
+        MenuMedicoProntuario.setText("Prontuários");
+        MenuMedicoProntuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                MenuMedicoProntuarioActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem4);
+        jMenu2.add(MenuMedicoProntuario);
 
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/report.png"))); // NOI18N
-        jMenuItem5.setText("Exames");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        MenuMedicoExame.setIcon(new javax.swing.ImageIcon(getClass().getResource("/report.png"))); // NOI18N
+        MenuMedicoExame.setText("Exames");
+        MenuMedicoExame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
+                MenuMedicoExameActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem5);
+        jMenu2.add(MenuMedicoExame);
 
-        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/cure (1).png"))); // NOI18N
-        jMenuItem6.setText("Receitas");
-        jMenu2.add(jMenuItem6);
+        MenuMedicoReceita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cure (1).png"))); // NOI18N
+        MenuMedicoReceita.setText("Receitas");
+        jMenu2.add(MenuMedicoReceita);
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/syringe (2).png"))); // NOI18N
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/syringe (2).png"))); // NOI18N
         jMenu3.setText("Vacinas");
 
-        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/vaccine.png"))); // NOI18N
-        jMenuItem7.setText("Aplicação");
-        jMenu3.add(jMenuItem7);
+        MenuVacinaAplicacao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vaccine.png"))); // NOI18N
+        MenuVacinaAplicacao.setText("Aplicação");
+        jMenu3.add(MenuVacinaAplicacao);
 
         jMenuBar1.add(jMenu3);
 
-        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/medical-history.png"))); // NOI18N
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/medical-history.png"))); // NOI18N
         jMenu4.setText("Consultas");
 
-        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ambulance.png"))); // NOI18N
-        jMenuItem8.setText("Emergência");
-        jMenu4.add(jMenuItem8);
+        MenuConsultaEmergencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ambulance.png"))); // NOI18N
+        MenuConsultaEmergencia.setText("Emergência");
+        jMenu4.add(MenuConsultaEmergencia);
 
-        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/health-check.png"))); // NOI18N
-        jMenuItem9.setText("Exames");
-        jMenu4.add(jMenuItem9);
+        MenuConsultaExame.setIcon(new javax.swing.ImageIcon(getClass().getResource("/health-check.png"))); // NOI18N
+        MenuConsultaExame.setText("Exames");
+        jMenu4.add(MenuConsultaExame);
 
-        jMenuItem10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/surgery-room.png"))); // NOI18N
-        jMenuItem10.setText("Reserva de salas");
-        jMenu4.add(jMenuItem10);
+        MenuConsultaReservaSala.setIcon(new javax.swing.ImageIcon(getClass().getResource("/surgery-room.png"))); // NOI18N
+        MenuConsultaReservaSala.setText("Reserva de salas");
+        jMenu4.add(MenuConsultaReservaSala);
 
         jMenuBar1.add(jMenu4);
 
@@ -151,7 +132,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 783, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 864, Short.MAX_VALUE)
             .addComponent(jDesktopPane1)
         );
         layout.setVerticalGroup(
@@ -165,21 +146,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void MenuAgendaExameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuAgendaExameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_MenuAgendaExameActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void MenuMedicoProntuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuMedicoProntuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_MenuMedicoProntuarioActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+    private void MenuMedicoExameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuMedicoExameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    }//GEN-LAST:event_MenuMedicoExameActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void MenuAgendaVacinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuAgendaVacinaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_MenuAgendaVacinaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,22 +198,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
+    public static final javax.swing.JMenuItem MenuAgendaConsulta = new javax.swing.JMenuItem();
+    public static final javax.swing.JMenuItem MenuAgendaExame = new javax.swing.JMenuItem();
+    public static final javax.swing.JMenuItem MenuAgendaVacina = new javax.swing.JMenuItem();
+    public static final javax.swing.JMenuItem MenuConsultaEmergencia = new javax.swing.JMenuItem();
+    public static final javax.swing.JMenuItem MenuConsultaExame = new javax.swing.JMenuItem();
+    public static final javax.swing.JMenuItem MenuConsultaReservaSala = new javax.swing.JMenuItem();
+    public static final javax.swing.JMenuItem MenuMedicoExame = new javax.swing.JMenuItem();
+    public static final javax.swing.JMenuItem MenuMedicoProntuario = new javax.swing.JMenuItem();
+    public static final javax.swing.JMenuItem MenuMedicoReceita = new javax.swing.JMenuItem();
+    public static final javax.swing.JMenuItem MenuVacinaAplicacao = new javax.swing.JMenuItem();
+    public static final javax.swing.JDesktopPane jDesktopPane1 = new javax.swing.JDesktopPane();
+    public static final javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
+    public static final javax.swing.JMenu jMenu1 = new javax.swing.JMenu();
+    public static final javax.swing.JMenu jMenu2 = new javax.swing.JMenu();
+    public static final javax.swing.JMenu jMenu3 = new javax.swing.JMenu();
+    public static final javax.swing.JMenu jMenu4 = new javax.swing.JMenu();
+    public static final javax.swing.JMenuBar jMenuBar1 = new javax.swing.JMenuBar();
     // End of variables declaration//GEN-END:variables
 }
