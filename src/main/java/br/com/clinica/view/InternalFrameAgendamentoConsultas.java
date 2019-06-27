@@ -19,11 +19,11 @@ public class InternalFrameAgendamentoConsultas extends javax.swing.JInternalFram
     /**
      * Creates new form InternalFrameAgConsultas
      */
-    private ConsultaControl control;
+//    private ConsultaControl control;
 
     public InternalFrameAgendamentoConsultas() {
         initComponents();
-        control = new ConsultaControl(this);
+//        control = new ConsultaControl(this);
     }
 
     /**
@@ -247,7 +247,7 @@ public class InternalFrameAgendamentoConsultas extends javax.swing.JInternalFram
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void tfPesquisarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPesquisarKeyReleased
-        control.sendKeysTfListener();        // TODO add your handling code here:
+//        control.sendKeysTfListener();        // TODO add your handling code here:
     }//GEN-LAST:event_tfPesquisarKeyReleased
 
     private void tfHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfHoraActionPerformed

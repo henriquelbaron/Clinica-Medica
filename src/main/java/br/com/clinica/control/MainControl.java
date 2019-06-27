@@ -9,8 +9,14 @@ import br.com.clinica.view.InternalFrameAgendaExames;
 import br.com.clinica.view.InternalFrameAgendamentoConsultas;
 import br.com.clinica.view.InternalFrameCadastroMedicoEnfermeiro;
 import br.com.clinica.view.InternalFrameCadastroPaciente;
+import br.com.clinica.view.InternalFrameEmergencia;
+import br.com.clinica.view.InternalFrameExames;
+import br.com.clinica.view.InternalFrameListaExames;
 import br.com.clinica.view.InternalFrameListagemVacina;
 import br.com.clinica.view.InternalFramePlantao;
+import br.com.clinica.view.InternalFrameProntuario;
+import br.com.clinica.view.InternalFrameReceita;
+import br.com.clinica.view.InternalFrameSala;
 import br.com.clinica.view.InternalFrameVacina;
 import br.com.clinica.view.TelaPrincipal;
 import java.awt.Frame;
@@ -28,10 +34,105 @@ public class MainControl {
     private InternalFramePlantao plantao = null;
     private InternalFrameCadastroPaciente cadastroPaciente = null;
     private InternalFrameCadastroMedicoEnfermeiro cadastroFuncionario = null;
-    private JInternalFrame sala = null;
-    private InternalFrameAgendaExames exame = null;
+    private InternalFrameAgendaExames AgendaExame = null;
     private InternalFrameVacina vacina = null;
     private InternalFrameListagemVacina listarVacina = null;
+    private InternalFrameProntuario prontuario = null;
+    private InternalFrameExames exames = null;
+    private InternalFrameReceita receita = null;
+    private InternalFrameEmergencia emergencia = null;
+    private InternalFrameListaExames listaExames = null;
+    private InternalFrameSala sala = null;
+
+    public void ChamarTelaReservaSala() {
+        if (sala == null) {
+            sala = new InternalFrameSala();
+            TelaPrincipal.painel.add(sala);
+            sala.setVisible(true);
+        } else {
+            if (sala.isVisible()) {
+                sala.pack();
+            } else {
+                TelaPrincipal.painel.add(sala);
+                sala.setVisible(true);
+            }
+        }
+    }
+
+    public void ChamarTelaListaExame() {
+        if (listaExames == null) {
+            listaExames = new InternalFrameListaExames();
+            TelaPrincipal.painel.add(listaExames);
+            listaExames.setVisible(true);
+        } else {
+            if (listaExames.isVisible()) {
+                listaExames.pack();
+            } else {
+                TelaPrincipal.painel.add(listaExames);
+                listaExames.setVisible(true);
+            }
+        }
+    }
+
+    public void ChamarTelaEmergencia() {
+        if (emergencia == null) {
+            emergencia = new InternalFrameEmergencia();
+            TelaPrincipal.painel.add(emergencia);
+            emergencia.setVisible(true);
+        } else {
+            if (emergencia.isVisible()) {
+                emergencia.pack();
+            } else {
+                TelaPrincipal.painel.add(emergencia);
+                emergencia.setVisible(true);
+            }
+        }
+    }
+
+    public void ChamarTelaReceita() {
+        if (receita == null) {
+            receita = new InternalFrameReceita();
+            TelaPrincipal.painel.add(receita);
+            receita.setVisible(true);
+        } else {
+            if (receita.isVisible()) {
+                receita.pack();
+            } else {
+                TelaPrincipal.painel.add(receita);
+                receita.setVisible(true);
+            }
+        }
+    }
+
+    public void chamarTelaExame() {
+        if (exames == null) {
+            exames = new InternalFrameExames();
+            TelaPrincipal.painel.add(exames);
+            exames.setVisible(true);
+        } else {
+            if (exames.isVisible()) {
+                exames.pack();
+            } else {
+                TelaPrincipal.painel.add(exames);
+                exames.setVisible(true);
+            }
+        }
+    }
+
+    public void chamarTelaProntuario() {
+        if (prontuario == null) {
+            prontuario = new InternalFrameProntuario();
+            TelaPrincipal.painel.add(prontuario);
+            prontuario.setVisible(true);
+        } else {
+            if (prontuario.isVisible()) {
+                prontuario.pack();
+            } else {
+                TelaPrincipal.painel.add(prontuario);
+                prontuario.setVisible(true);
+            }
+        }
+    }
 
     public void chamarTelaListagemVacina() {
         if (listarVacina == null) {
@@ -94,16 +195,16 @@ public class MainControl {
     }
 
     public void chamarTelaAgendaExames() {
-        if (exame == null) {
-            exame = new InternalFrameAgendaExames();
-            TelaPrincipal.painel.add(exame);
-            exame.setVisible(true);
+        if (AgendaExame == null) {
+            AgendaExame = new InternalFrameAgendaExames();
+            TelaPrincipal.painel.add(AgendaExame);
+            AgendaExame.setVisible(true);
         } else {
-            if (exame.isVisible()) {
-                exame.pack();
+            if (AgendaExame.isVisible()) {
+                AgendaExame.pack();
             } else {
-                TelaPrincipal.painel.add(exame);
-                exame.setVisible(true);
+                TelaPrincipal.painel.add(AgendaExame);
+                AgendaExame.setVisible(true);
             }
         }
     }

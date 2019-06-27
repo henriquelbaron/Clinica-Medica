@@ -2,7 +2,7 @@
 Test set: br.com.clinica.dao.banco.impl.EspecialidadeDaoImplTest
 -------------------------------------------------------------------------------
 Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 sec <<< FAILURE!
-save(br.com.clinica.dao.banco.impl.EspecialidadeDaoImplTest)  Time elapsed: 0.001 sec  <<< ERROR!
+save(br.com.clinica.dao.banco.impl.EspecialidadeDaoImplTest)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.NoClassDefFoundError: Could not initialize class br.com.clinica.dao.banco.ConnectionFactory
 	at br.com.clinica.dao.banco.GenericDAO.salvar(GenericDAO.java:30)
 	at br.com.clinica.dao.banco.impl.EspecialidadeDaoImplTest.save(EspecialidadeDaoImplTest.java:26)

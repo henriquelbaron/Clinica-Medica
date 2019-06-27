@@ -90,6 +90,7 @@ public class InternalFrameAgendaExames extends javax.swing.JInternalFrame {
 
         tfHora.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT))));
         tfHora.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tfHora.setText(":");
         tfHora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfHoraActionPerformed(evt);

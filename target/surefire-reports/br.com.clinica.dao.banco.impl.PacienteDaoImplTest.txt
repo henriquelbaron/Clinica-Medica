@@ -2,7 +2,7 @@
 Test set: br.com.clinica.dao.banco.impl.PacienteDaoImplTest
 -------------------------------------------------------------------------------
 Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.001 sec <<< FAILURE!
-listarPoTermo(br.com.clinica.dao.banco.impl.PacienteDaoImplTest)  Time elapsed: 0.001 sec  <<< ERROR!
+listarPoTermo(br.com.clinica.dao.banco.impl.PacienteDaoImplTest)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.NoClassDefFoundError: Could not initialize class br.com.clinica.dao.banco.ConnectionFactory
 	at br.com.clinica.dao.banco.GenericDAO.listar(GenericDAO.java:48)
 	at br.com.clinica.dao.banco.impl.PacienteDaoImplTest.listarPoTermo(PacienteDaoImplTest.java:54)

@@ -115,6 +115,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         MenuMedicoReceita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cure (1).png"))); // NOI18N
         MenuMedicoReceita.setText("Receitas");
+        MenuMedicoReceita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuMedicoReceitaActionPerformed(evt);
+            }
+        });
         jMenu2.add(MenuMedicoReceita);
 
         jMenuBar1.add(jMenu2);
@@ -138,14 +143,29 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         MenuConsultaEmergencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ambulance.png"))); // NOI18N
         MenuConsultaEmergencia.setText("Emergência");
+        MenuConsultaEmergencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuConsultaEmergenciaActionPerformed(evt);
+            }
+        });
         jMenu4.add(MenuConsultaEmergencia);
 
         MenuConsultaExame.setIcon(new javax.swing.ImageIcon(getClass().getResource("/health-check.png"))); // NOI18N
         MenuConsultaExame.setText("Exames");
+        MenuConsultaExame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuConsultaExameActionPerformed(evt);
+            }
+        });
         jMenu4.add(MenuConsultaExame);
 
         MenuConsultaReservaSala.setIcon(new javax.swing.ImageIcon(getClass().getResource("/surgery-room.png"))); // NOI18N
         MenuConsultaReservaSala.setText("Reserva de salas");
+        MenuConsultaReservaSala.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuConsultaReservaSalaActionPerformed(evt);
+            }
+        });
         jMenu4.add(MenuConsultaReservaSala);
 
         jMenuBar1.add(jMenu4);
@@ -217,11 +237,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuAgendaExameActionPerformed
 
     private void MenuMedicoProntuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuMedicoProntuarioActionPerformed
-        // TODO add your handling code here:
+        control.chamarTelaProntuario();
     }//GEN-LAST:event_MenuMedicoProntuarioActionPerformed
 
     private void MenuMedicoExameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuMedicoExameActionPerformed
-        // TODO add your handling code here:
+        control.chamarTelaExame();
     }//GEN-LAST:event_MenuMedicoExameActionPerformed
 
     private void MenuAgendaVacinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuAgendaVacinaActionPerformed
@@ -251,6 +271,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void MenuVacinaAplicacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuVacinaAplicacaoActionPerformed
         control.chamarTelaListagemVacina();
     }//GEN-LAST:event_MenuVacinaAplicacaoActionPerformed
+
+    private void MenuMedicoReceitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuMedicoReceitaActionPerformed
+        control.ChamarTelaReceita();
+    }//GEN-LAST:event_MenuMedicoReceitaActionPerformed
+
+    private void MenuConsultaEmergenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuConsultaEmergenciaActionPerformed
+        control.ChamarTelaEmergencia();
+    }//GEN-LAST:event_MenuConsultaEmergenciaActionPerformed
+
+    private void MenuConsultaExameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuConsultaExameActionPerformed
+        control.ChamarTelaListaExame();
+    }//GEN-LAST:event_MenuConsultaExameActionPerformed
+
+    private void MenuConsultaReservaSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuConsultaReservaSalaActionPerformed
+        control.ChamarTelaReservaSala();
+    }//GEN-LAST:event_MenuConsultaReservaSalaActionPerformed
 
     /**
      * @param args the command line arguments

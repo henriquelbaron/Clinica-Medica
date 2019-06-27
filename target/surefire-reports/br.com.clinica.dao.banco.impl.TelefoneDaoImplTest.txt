@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: br.com.clinica.dao.banco.impl.TelefoneDaoImplTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 sec <<< FAILURE!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 sec <<< FAILURE!
 testGetTelefonesPaciente(br.com.clinica.dao.banco.impl.TelefoneDaoImplTest)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.NoClassDefFoundError: Could not initialize class br.com.clinica.dao.banco.ConnectionFactory
 	at br.com.clinica.dao.banco.impl.TelefoneDaoImpl.getTelefonesPaciente(TelefoneDaoImpl.java:13)

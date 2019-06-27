@@ -46,7 +46,7 @@ public class ConsultaControl {
         for (Paciente paciente1 : new PacienteDaoImpl().listar()) {
             table.addRow(paciente1);
         }
-        iFrame.tabelaPaciente.setModel(table);
+    iFrame.tabelaPaciente.setModel(table);
         iFrame.cbMedico.setModel(new DefaultComboBoxModel(new MedicoDaoImpl().listar().toArray()));
         iFrame.cbSala.setModel(new DefaultComboBoxModel(new SalaDaoImpl().listar().toArray()));
         iFrame.cbEspecialidade.setModel(new DefaultComboBoxModel(new EspecialidadeDaoImpl().listar().toArray()));
