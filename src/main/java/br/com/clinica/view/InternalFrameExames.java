@@ -52,9 +52,11 @@ public class InternalFrameExames extends javax.swing.JInternalFrame {
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/check.png"))); // NOI18N
         jButton1.setText("Confirmar");
+        jButton1.setBorder(null);
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cross.png"))); // NOI18N
         jButton2.setText("Cancelar");
+        jButton2.setBorder(null);
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/doctor (1).png"))); // NOI18N
@@ -62,6 +64,7 @@ public class InternalFrameExames extends javax.swing.JInternalFrame {
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/medical-history.png"))); // NOI18N
         jButton3.setText("Resultado");
+        jButton3.setBorder(null);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -95,7 +98,7 @@ public class InternalFrameExames extends javax.swing.JInternalFrame {
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(jButton1)
-                .addGap(18, 18, 18)
+                .addGap(42, 42, 42)
                 .addComponent(jButton2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()

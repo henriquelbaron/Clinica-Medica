@@ -122,9 +122,11 @@ public class InternalFrameCadastroMedicoEnfermeiro extends javax.swing.JInternal
 
         btSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/check.png"))); // NOI18N
         btSalvar.setText("Salvar");
+        btSalvar.setBorder(null);
 
         btCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cross.png"))); // NOI18N
         btCancelar.setText("Cancelar");
+        btCancelar.setBorder(null);
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/doctor (1).png"))); // NOI18N
 

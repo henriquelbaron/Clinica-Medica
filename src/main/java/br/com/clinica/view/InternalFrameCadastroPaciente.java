@@ -132,9 +132,11 @@ public class InternalFrameCadastroPaciente extends javax.swing.JInternalFrame {
 
         btSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/check.png"))); // NOI18N
         btSalvar.setText("Salvar");
+        btSalvar.setBorder(null);
 
         btCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cross.png"))); // NOI18N
         btCancelar.setText("Cancelar");
+        btCancelar.setBorder(null);
 
         jLabel12.setText("CEP");
 
