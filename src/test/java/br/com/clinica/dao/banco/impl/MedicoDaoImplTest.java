@@ -37,16 +37,17 @@ public class MedicoDaoImplTest {
     @Test
     public void save() {
         medico.setNome("João");
-        medico.setCpf("186.402.198-23");
+        medico.setCpf("186.402.000-23");
         medico.setDataNascimento(new Date(System.currentTimeMillis()));
-        medico.setSexo(Sexo.M);
+        medico.setSexo(Sexo.MASCULINO);
         medico.setEmail("henrique@gmail.com");
         medico.setEndereco(new Endereco("88131-743", "Braulina Goulart", "48", "RioGrande", "", "SC"));
         medico.setTipoSanguineo("O+");
         medico.setTelefone("48996850323");
         medico.setCrm("123456");
         medico.setEspecialidade(especialidadeDaoImpl.buscar(1));
-        
+//        medico.setPlantaos(new PlantaoDaoImpl().listar());
+        dao.salvar(medico);
     }
     
 }

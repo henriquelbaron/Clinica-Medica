@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: br.com.clinica.dao.banco.impl.AtendenteDaoImpTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 2.351 sec
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 1.848 sec

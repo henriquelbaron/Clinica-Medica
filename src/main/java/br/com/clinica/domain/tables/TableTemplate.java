@@ -2,18 +2,18 @@ package br.com.clinica.domain.tables;
 
 import javax.swing.table.AbstractTableModel;
 
-
 public abstract class TableTemplate<T> extends AbstractTableModel {
 
-	abstract void clearTable() ;
+    public abstract void clearTable();
 
-	abstract T getRow(int row) ;
+    public abstract String getColumnName(int column);
 
-	abstract void addRow(T obj) ;
+    public abstract T getRow(int row);
 
-	abstract void removeRow(int row) ;
+    public abstract void addRow(T obj);
 
-	abstract void updateRow(T obj, int row) ;
+    public abstract void removeRow(int row);
 
+    public abstract void updateRow(T obj, int row);
 
 }

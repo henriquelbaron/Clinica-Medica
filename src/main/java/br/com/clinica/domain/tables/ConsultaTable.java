@@ -8,27 +8,32 @@ public class ConsultaTable extends TableTemplate<Consulta> {
 	private List<Consulta> consultas;
 
     @Override
-    void clearTable() {
+    public void clearTable() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    Consulta getRow(int row) {
+    public String getColumnName(int column) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    void addRow(Consulta obj) {
+    public Consulta getRow(int row) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    void removeRow(int row) {
+    public void addRow(Consulta obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    void updateRow(Consulta obj, int row) {
+    public void removeRow(int row) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void updateRow(Consulta obj, int row) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -46,5 +51,4 @@ public class ConsultaTable extends TableTemplate<Consulta> {
     public Object getValueAt(int rowIndex, int columnIndex) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
 }

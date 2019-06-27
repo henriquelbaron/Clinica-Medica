@@ -1,50 +1,77 @@
 package br.com.clinica.domain.tables;
 
 import br.com.clinica.domain.Exame;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ExameTable extends TableTemplate<Exame> {
 
-	private List<Exame> exames;
+    private List<Exame> exames;
 
     @Override
-    void clearTable() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void clearTable() {
+        exames = new ArrayList();
+        this.fireTableDataChanged();
     }
 
-    @Override
-    Exame getRow(int row) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    static class Constantes {
 
-    @Override
-    void addRow(Exame obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    void removeRow(int row) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    void updateRow(Exame obj, int row) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public int getRowCount() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public int getColumnCount() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        private static final String[] COLUNAS = {"Nome", "Data Nacimento", "Sexo", "Telefone", "CPF"};
+        private static final int NOME = 0;
+        private static final int NASCIMENTO = 1;
+        private static final int SEXO = 2;
+        private static final int TELEFONE = 3;
+        private static final int CPF = 4;
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        switch (columnIndex) {
+            case Constantes.NOME:
+                return exames.get(rowIndex).getNome();
+            default:
+                return null;
+        }
+    }
+
+    @Override
+    public Exame getRow(int row) {
+        return row >= 0 ? exames.get(row) : null;
+    }
+
+    @Override
+    public String getColumnName(int column) {
+        return Constantes.COLUNAS[column];
+    }
+
+    @Override
+    public void addRow(Exame obj) {
+        exames.add(obj);
+        this.fireTableDataChanged();
+    }
+
+    @Override
+    public void removeRow(int row) {
+        exames.remove(row);
+        this.fireTableRowsUpdated(row, row);
+        this.fireTableDataChanged();
+    }
+
+    @Override
+    public void updateRow(Exame obj, int row) {
+        exames.set(row, obj);
+        this.fireTableRowsUpdated(row, row);
+        this.fireTableDataChanged();
+    }
+
+    @Override
+    public int getRowCount() {
+        return exames.size();
+    }
+
+    @Override
+    public int getColumnCount() {
+        return Constantes.COLUNAS.length;
     }
 
 }

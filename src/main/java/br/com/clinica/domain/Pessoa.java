@@ -37,8 +37,8 @@ public class Pessoa implements Serializable {
     @Email
     protected String email;
 
-    @Column(length = 15)
-    protected String telefone;
+//    @Column(length = 15)
+//    protected String telefone;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "idEndereco")

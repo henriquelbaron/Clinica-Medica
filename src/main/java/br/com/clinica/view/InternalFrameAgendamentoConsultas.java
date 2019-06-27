@@ -5,6 +5,11 @@
  */
 package br.com.clinica.view;
 
+import br.com.clinica.control.ConsultaControl;
+import br.com.clinica.domain.Especialidade;
+import br.com.clinica.domain.Medico;
+import br.com.clinica.domain.Sala;
+
 /**
  *
  * @author Luiza Mistro
@@ -14,8 +19,11 @@ public class InternalFrameAgendamentoConsultas extends javax.swing.JInternalFram
     /**
      * Creates new form InternalFrameAgConsultas
      */
+    private ConsultaControl control;
+
     public InternalFrameAgendamentoConsultas() {
         initComponents();
+        control = new ConsultaControl(this);
     }
 
     /**
@@ -27,7 +35,14 @@ public class InternalFrameAgendamentoConsultas extends javax.swing.JInternalFram
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        TabelaPaciente = new javax.swing.JTable();
+        lblPaciente = new javax.swing.JLabel();
+        cbEspecialidade = new javax.swing.JComboBox<>();
+        tfData = new com.toedter.calendar.JDateChooser();
+        cbMedico = new javax.swing.JComboBox<>();
+        cbSala = new javax.swing.JComboBox<>();
+        tabelaPaciente = new javax.swing.JTable();
+        tfPesquisar = new javax.swing.JTextField();
+        tfHora = new javax.swing.JFormattedTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -83,24 +98,7 @@ public class InternalFrameAgendamentoConsultas extends javax.swing.JInternalFram
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/surgery-room.png"))); // NOI18N
         jLabel5.setText("Sala");
 
-        tfHora.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT))));
-        tfHora.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        tfHora.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfHoraActionPerformed(evt);
-            }
-        });
-
-        cbEspecialidade.setEditable(true);
-        cbEspecialidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        cbMedico.setEditable(true);
-        cbMedico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        cbSala.setEditable(true);
-        cbSala.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        TabelaPaciente.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaPaciente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -111,20 +109,32 @@ public class InternalFrameAgendamentoConsultas extends javax.swing.JInternalFram
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(TabelaPaciente);
+        jScrollPane1.setViewportView(tabelaPaciente);
 
         btPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/find-my-friend.png"))); // NOI18N
         btPesquisar.setToolTipText("Pesquisar");
 
         tfPesquisar.setText("Pesquisar paciente");
-        tfPesquisar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfPesquisarActionPerformed(evt);
+        tfPesquisar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfPesquisarKeyReleased(evt);
             }
         });
 
         lblNomeAtendente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/avatar.png"))); // NOI18N
         lblNomeAtendente.setText("Nome da atendente");
+
+        try {
+            tfHora.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        tfHora.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tfHora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfHoraActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -139,15 +149,7 @@ public class InternalFrameAgendamentoConsultas extends javax.swing.JInternalFram
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(24, 24, 24)
-                                .addComponent(jLabel15)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfHora, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -155,11 +157,19 @@ public class InternalFrameAgendamentoConsultas extends javax.swing.JInternalFram
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbMedico, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(cbMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbSala, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(cbSala, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tfData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(24, 24, 24)
+                                .addComponent(jLabel15)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tfHora, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(59, 59, 59)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblNomeAtendente)
@@ -212,12 +222,12 @@ public class InternalFrameAgendamentoConsultas extends javax.swing.JInternalFram
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(lblNomeAtendente)
                                     .addGap(4, 4, 4))
-                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(tfData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(7, 7, 7)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(tfHora, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel15)
+                                    .addComponent(tfHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btConfirmar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -236,25 +246,23 @@ public class InternalFrameAgendamentoConsultas extends javax.swing.JInternalFram
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    private void tfPesquisarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPesquisarKeyReleased
+        control.sendKeysTfListener();        // TODO add your handling code here:
+    }//GEN-LAST:event_tfPesquisarKeyReleased
+
     private void tfHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfHoraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfHoraActionPerformed
 
-    private void tfPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPesquisarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfPesquisarActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable TabelaPaciente;
     public static final javax.swing.JButton btAdicionarPaciente = new javax.swing.JButton();
     public static final javax.swing.JButton btCancelar = new javax.swing.JButton();
     public static final javax.swing.JButton btConfirmar = new javax.swing.JButton();
     public static final javax.swing.JButton btPesquisar = new javax.swing.JButton();
-    public static final javax.swing.JComboBox<String> cbEspecialidade = new javax.swing.JComboBox<>();
-    public static final javax.swing.JComboBox<String> cbMedico = new javax.swing.JComboBox<>();
-    public static final javax.swing.JComboBox<String> cbSala = new javax.swing.JComboBox<>();
-    public static final com.toedter.calendar.JDateChooser jDateChooser1 = new com.toedter.calendar.JDateChooser();
+    public javax.swing.JComboBox<Especialidade> cbEspecialidade;
+    public javax.swing.JComboBox<Medico> cbMedico;
+    public javax.swing.JComboBox<Sala> cbSala;
     public static final javax.swing.JLabel jLabel13 = new javax.swing.JLabel();
     public static final javax.swing.JLabel jLabel15 = new javax.swing.JLabel();
     public static final javax.swing.JLabel jLabel2 = new javax.swing.JLabel();
@@ -264,8 +272,10 @@ public class InternalFrameAgendamentoConsultas extends javax.swing.JInternalFram
     public static final javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
     public static final javax.swing.JTextField jTextField1 = new javax.swing.JTextField();
     public static final javax.swing.JLabel lblNomeAtendente = new javax.swing.JLabel();
-    public static final javax.swing.JLabel lblPaciente = new javax.swing.JLabel();
-    public static final javax.swing.JFormattedTextField tfHora = new javax.swing.JFormattedTextField();
-    public static final javax.swing.JTextField tfPesquisar = new javax.swing.JTextField();
+    public javax.swing.JLabel lblPaciente;
+    public javax.swing.JTable tabelaPaciente;
+    public com.toedter.calendar.JDateChooser tfData;
+    public javax.swing.JFormattedTextField tfHora;
+    public javax.swing.JTextField tfPesquisar;
     // End of variables declaration//GEN-END:variables
 }

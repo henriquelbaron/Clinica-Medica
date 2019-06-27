@@ -5,35 +5,39 @@ import br.com.clinica.domain.Medico;
 import br.com.clinica.domain.Plantao;
 import java.util.List;
 
-
 public class PlantaoTable extends TableTemplate<Plantao> {
 
-	private List<Medico> medicos;
+    private List<Medico> medicos;
 
-	private List<Enfermeiro> enfermeiros;
+    private List<Enfermeiro> enfermeiros;
 
     @Override
-    void clearTable() {
+    public void clearTable() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    Plantao getRow(int row) {
+    public String getColumnName(int column) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    void addRow(Plantao obj) {
+    public Plantao getRow(int row) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    void removeRow(int row) {
+    public void addRow(Plantao obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    void updateRow(Plantao obj, int row) {
+    public void removeRow(int row) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void updateRow(Plantao obj, int row) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -51,5 +55,6 @@ public class PlantaoTable extends TableTemplate<Plantao> {
     public Object getValueAt(int rowIndex, int columnIndex) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
 
 }

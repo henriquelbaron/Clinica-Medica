@@ -28,10 +28,7 @@ public class Enfermeiro extends Pessoa implements Serializable {
     @JoinColumn(name = "idEspecialidade")
     private Especialidade especialidade;
 
-    @ManyToMany
-    @JoinTable(name = "plantao_enfermeiro",
-            joinColumns = @JoinColumn(name = "idEnfermeiro"),
-            inverseJoinColumns = @JoinColumn(name = "idPlantao"))
+    @ManyToMany(mappedBy = "enfermeiros")
     private List<Plantao> plantaos;
 
     @OneToMany(mappedBy = "enfermeiro", targetEntity = Exame.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)

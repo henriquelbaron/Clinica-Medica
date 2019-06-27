@@ -39,14 +39,14 @@ public class AtendenteDaoImpTest {
     }
 
     @Test
-    @Ignore
+//    @Ignore
     public void salvar() {
 
         atendente = new Atendente();
         atendente.setNome("João");
-        atendente.setCpf("186.402.198-23");
+        atendente.setCpf("186.402.178-23");
         atendente.setDataNascimento(new Date(System.currentTimeMillis()));
-        atendente.setSexo(Sexo.M);
+        atendente.setSexo(Sexo.MASCULINO);
         atendente.setEmail("henrique@gmail.com");
         atendente.setEndereco(new Endereco("88131-743", "Braulina Goulart", "48", "RioGrande", "", "SC"));
         atendente.setTipoSanguineo("O+");
@@ -63,7 +63,7 @@ public class AtendenteDaoImpTest {
     }
 
     @Test
-//    @Ignore
+    @Ignore
     public void listar() {
         List<Atendente> atendentes = dao.listar();
         for (Atendente atendente1 : atendentes) {

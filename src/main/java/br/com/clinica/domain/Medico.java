@@ -3,6 +3,7 @@ package br.com.clinica.domain;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -29,10 +30,7 @@ public class Medico extends Pessoa implements Serializable {
     @JoinColumn(name = "idEspecialidade")
     private Especialidade especialidade;
 
-    @ManyToMany
-    @JoinTable(name = "plantao_medico",
-            joinColumns = @JoinColumn(name = "idMedico"),
-            inverseJoinColumns = @JoinColumn(name = "idPlantao"))
+    @ManyToMany(mappedBy = "medicos")
     private List<Plantao> plantaos;
 
     @OneToMany(mappedBy = "medico", targetEntity = Consulta.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -168,6 +166,36 @@ public class Medico extends Pessoa implements Serializable {
 
     public void setTipoSanguineo(String tipoSanguineo) {
         this.tipoSanguineo = tipoSanguineo;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 41 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Medico other = (Medico) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return nome;
     }
 
 }

@@ -7,8 +7,10 @@ package br.com.clinica.dao.banco.impl;
 
 import br.com.clinica.domain.Medico;
 import br.com.clinica.domain.Plantao;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -21,11 +23,16 @@ public class PlantaoDaoImplTest {
 
     public PlantaoDaoImplTest() {
         dao = new PlantaoDaoImpl();
-        plantao = new Plantao();
     }
 
     @Test
     public void save() {
+        plantao = new Plantao();
+        plantao.setData(new Date(System.currentTimeMillis()));
+        List<Medico> medicos = new ArrayList();
+        medicos.add(new MedicoDaoImpl().buscar(1));
+        plantao.setMedicos(medicos);
+        dao.salvar(plantao);
     }
 
 }

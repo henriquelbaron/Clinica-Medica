@@ -30,7 +30,7 @@
 
         <!-- Cria as tabelas do banco de dados -->
         <!--create/validate/update-->
-        <property name="hbm2ddl.auto">update</property>
+        <property name="hbm2ddl.auto">create</property>
 
 		
         <!-- Mapeamento das entidades -->

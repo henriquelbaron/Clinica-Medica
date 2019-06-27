@@ -5,14 +5,14 @@
  */
 package br.com.clinica.dao.banco.impl;
 
-import br.com.clinica.domain.Atendente;
 import br.com.clinica.domain.Endereco;
 import br.com.clinica.domain.Paciente;
 import br.com.clinica.domain.Sexo;
+import br.com.clinica.domain.Telefone;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import org.junit.Ignore;
 
 /**
@@ -31,27 +31,29 @@ public class PacienteDaoImplTest {
      * Test of findPaciente method, of class PacienteDaoImpl.
      */
     @Test
-    @Ignore
+//    @Ignore
     public void testFindPaciente() {
         Paciente paciente = new Paciente();
-        paciente.setNome("João");
-        paciente.setCpf("186.402.198-23");
+        paciente.setNome("Henrique");
+        paciente.setCpf("186.200.191-23");
         paciente.setDataNascimento(new Date(System.currentTimeMillis()));
-        paciente.setSexo(Sexo.M);
+        paciente.setSexo(Sexo.MASCULINO);
         paciente.setEmail("henrique@gmail.com");
         paciente.setEndereco(new Endereco("88131-743", "Braulina Goulart", "48", "RioGrande", "", "SC"));
         paciente.setTipoSanguineo("O+");
-        paciente.setTelefone("48996850323");
-        dao.salvar(paciente);
+        List<Telefone> telefones = new ArrayList();
+        telefones.add(new Telefone("(48)996850323", "Celular", "João", "Irmão", true));
+        telefones.add(new Telefone("(48)996850323", "Celular", "Henrique", "Pai", true));
+        paciente.setTelefones(telefones);
 
+        dao.salvar(paciente);
     }
 
     @Test
-//    @Ignore
     public void listarPoTermo() {
-        List<Paciente> pacientes = dao.findPaciente("j");
+        List<Paciente> pacientes = dao.listar();
         for (Paciente paciente : pacientes) {
-            System.out.println(paciente.getNome());
+            System.out.println(paciente.getTelefones());
         }
 
     }

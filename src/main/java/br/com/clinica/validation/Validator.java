@@ -5,6 +5,10 @@
  */
 package br.com.clinica.validation;
 
+import br.com.clinica.util.Utils;
+import java.time.LocalDate;
+import java.time.ZoneId;
+
 /**
  *
  * @author henrique
@@ -16,7 +20,7 @@ public class Validator {
     }
 
     public static boolean stringValidator(String str) {
-        return false;
+        return str.isEmpty();
     }
 
     public static boolean cpfValidator(String str) {
@@ -32,11 +36,15 @@ public class Validator {
     }
 
     public static boolean stringLenghtValidator(String str, int lenght) {
-        return false;
+        if (str.trim().length() <= lenght) {
+            return false;
+        }
+        return true;
     }
 
-    public static boolean dateValidator(String str) {
-        return false;
+    public static boolean dateIsBefore(String str) {
+        LocalDate date = Utils.stringToDate(str).toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        return date.isBefore(LocalDate.now());
     }
-    
+
 }

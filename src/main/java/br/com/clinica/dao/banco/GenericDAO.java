@@ -21,7 +21,6 @@ public class GenericDAO<Entidade> {
 
     private Class<Entidade> classe;
 
-    @SuppressWarnings("unchecked")
     public GenericDAO() {
         this.classe = (Class<Entidade>) ((ParameterizedType) getClass().getGenericSuperclass())
                 .getActualTypeArguments()[0];
@@ -45,7 +44,6 @@ public class GenericDAO<Entidade> {
         }
     }
 
-    @SuppressWarnings("unchecked")
     public List<Entidade> listar() {
         Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
         try {
@@ -59,7 +57,6 @@ public class GenericDAO<Entidade> {
         }
     }
 
-    @SuppressWarnings("unchecked")
     public Entidade buscar(Integer codigo) {
         Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
         try {

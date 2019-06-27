@@ -10,8 +10,8 @@ package br.com.clinica.domain;
  * @author Henrique Baron
  */
 public enum Sexo {
-    M("Masculino"),
-    F("Feminino"); 
+    MASCULINO("Masculino"),
+    FEMININO("Feminino");
 
     private String label;
 

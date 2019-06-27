@@ -22,16 +22,16 @@ public class Paciente extends Pessoa implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @OneToMany(mappedBy = "paciente", targetEntity = Telefone.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "paciente", orphanRemoval = true, targetEntity = Telefone.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Telefone> telefones;
 
     @ManyToMany(mappedBy = "pacientes")
     private List<Doenca> doencas;
 
-    @OneToMany(mappedBy = "paciente", targetEntity = Consulta.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "paciente", targetEntity = Consulta.class, fetch = FetchType.LAZY)
     private List<Consulta> consultas;
 
-    @OneToMany(mappedBy = "paciente", targetEntity = Exame.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "paciente", targetEntity = Exame.class, fetch = FetchType.LAZY)
     private List<Exame> exames;
 
     public Paciente() {
@@ -107,14 +107,6 @@ public class Paciente extends Pessoa implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
     }
 
     public Endereco getEndereco() {

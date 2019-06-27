@@ -5,30 +5,35 @@ import java.util.List;
 
 public class SalaTable extends TableTemplate<Sala> {
 
-	private List<Sala> salas;
+    private List<Sala> salas;
 
     @Override
-    void clearTable() {
+    public void clearTable() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    Sala getRow(int row) {
+    public String getColumnName(int column) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    void addRow(Sala obj) {
+    public Sala getRow(int row) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    void removeRow(int row) {
+    public void addRow(Sala obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    void updateRow(Sala obj, int row) {
+    public void removeRow(int row) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void updateRow(Sala obj, int row) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -46,6 +51,5 @@ public class SalaTable extends TableTemplate<Sala> {
     public Object getValueAt(int rowIndex, int columnIndex) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
 
 }
