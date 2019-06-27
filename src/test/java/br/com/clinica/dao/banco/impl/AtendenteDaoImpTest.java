@@ -50,7 +50,7 @@ public class AtendenteDaoImpTest {
         atendente.setEmail("henrique@gmail.com");
         atendente.setEndereco(new Endereco("88131-743", "Braulina Goulart", "48", "RioGrande", "", "SC"));
         atendente.setTipoSanguineo("O+");
-        atendente.setTelefone("48996850323");
+//        atendente.setTelefone("48996850323");
 
         dao.salvar(atendente);
     }

@@ -31,6 +31,8 @@ public class InternalFrameCadastroMedicoEnfermeiro extends javax.swing.JInternal
         jLabel1 = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
+        setClosable(true);
+
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Médico/ Enfermeiro/ Atendente");

@@ -124,6 +124,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         MenuVacinaAplicacao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vaccine.png"))); // NOI18N
         MenuVacinaAplicacao.setText("Aplicação");
+        MenuVacinaAplicacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuVacinaAplicacaoActionPerformed(evt);
+            }
+        });
         jMenu3.add(MenuVacinaAplicacao);
 
         jMenuBar1.add(jMenu3);
@@ -168,7 +173,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(menuCadastro);
 
-        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/first-aid-kit (1).png"))); // NOI18N
+        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/first-aid-kit (2).png"))); // NOI18N
         jMenu5.setText("Plantão");
         jMenu5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -208,7 +213,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void MenuAgendaExameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuAgendaExameActionPerformed
-
+        control.chamarTelaAgendaExames();
     }//GEN-LAST:event_MenuAgendaExameActionPerformed
 
     private void MenuMedicoProntuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuMedicoProntuarioActionPerformed
@@ -220,7 +225,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuMedicoExameActionPerformed
 
     private void MenuAgendaVacinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuAgendaVacinaActionPerformed
-        // TODO add your handling code here:
+        control.chamarTelaVacina();
     }//GEN-LAST:event_MenuAgendaVacinaActionPerformed
 
     private void MenuAgendaConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuAgendaConsultaActionPerformed
@@ -228,7 +233,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuAgendaConsultaActionPerformed
 
     private void menuPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPacienteActionPerformed
-
+        control.chamarTelaCadastroPaciente();
     }//GEN-LAST:event_menuPacienteActionPerformed
 
     private void menuFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFuncionarioActionPerformed
@@ -242,6 +247,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         control.chamarTelaPlantao();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void MenuVacinaAplicacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuVacinaAplicacaoActionPerformed
+        control.chamarTelaListagemVacina();
+    }//GEN-LAST:event_MenuVacinaAplicacaoActionPerformed
 
     /**
      * @param args the command line arguments

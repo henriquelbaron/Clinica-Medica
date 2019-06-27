@@ -43,7 +43,7 @@ public class MedicoDaoImplTest {
         medico.setEmail("henrique@gmail.com");
         medico.setEndereco(new Endereco("88131-743", "Braulina Goulart", "48", "RioGrande", "", "SC"));
         medico.setTipoSanguineo("O+");
-        medico.setTelefone("48996850323");
+//        medico.setTelefone("48996850323");
         medico.setCrm("123456");
         medico.setEspecialidade(especialidadeDaoImpl.buscar(1));
 //        medico.setPlantaos(new PlantaoDaoImpl().listar());

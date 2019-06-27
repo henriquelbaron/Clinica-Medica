@@ -41,8 +41,8 @@ public class PacienteTable extends TableTemplate<Paciente> {
                 return pacientes.get(rowIndex).getDataNascimento();
             case Constantes.SEXO:
                 return pacientes.get(rowIndex).getSexo();
-            case Constantes.TELEFONE:
-                return pacientes.get(rowIndex).getTelefone();
+//            case Constantes.TELEFONE:
+//                return pacientes.get(rowIndex).getTelefone();
             case Constantes.CPF:
                 return pacientes.get(rowIndex).getCpf();
             default:

@@ -36,7 +36,7 @@ public class PacienteControl {
 
     private void loadConfig() {
         TelefoneTable table = new TelefoneTable();
-        iFrame.TabelaTelefones.setModel(table);
+//        iFrame.TabelaTelefones.setModel(table);
         iFrame.cbDoencas.setModel(new DefaultComboBoxModel(new DoencaDaoImpl().listar().toArray()));
         
     }

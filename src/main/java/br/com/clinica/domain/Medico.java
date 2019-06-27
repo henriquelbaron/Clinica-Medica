@@ -136,14 +136,6 @@ public class Medico extends Pessoa implements Serializable {
         this.email = email;
     }
 
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
     public Endereco getEndereco() {
         return endereco;
     }
