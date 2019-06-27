@@ -5,10 +5,13 @@
  */
 package br.com.clinica.control;
 
+import br.com.clinica.view.InternalFrameAgendaExames;
 import br.com.clinica.view.InternalFrameAgendamentoConsultas;
 import br.com.clinica.view.InternalFrameCadastroMedicoEnfermeiro;
 import br.com.clinica.view.InternalFrameCadastroPaciente;
+import br.com.clinica.view.InternalFrameListagemVacina;
 import br.com.clinica.view.InternalFramePlantao;
+import br.com.clinica.view.InternalFrameVacina;
 import br.com.clinica.view.TelaPrincipal;
 import java.awt.Frame;
 import javax.swing.JFrame;
@@ -26,7 +29,39 @@ public class MainControl {
     private InternalFrameCadastroPaciente cadastroPaciente = null;
     private InternalFrameCadastroMedicoEnfermeiro cadastroFuncionario = null;
     private JInternalFrame sala = null;
-    private JInternalFrame exame = null;
+    private InternalFrameAgendaExames exame = null;
+    private InternalFrameVacina vacina = null;
+    private InternalFrameListagemVacina listarVacina = null;
+
+    public void chamarTelaListagemVacina() {
+        if (listarVacina == null) {
+            listarVacina = new InternalFrameListagemVacina();
+            TelaPrincipal.painel.add(listarVacina);
+            listarVacina.setVisible(true);
+        } else {
+            if (listarVacina.isVisible()) {
+                listarVacina.pack();
+            } else {
+                TelaPrincipal.painel.add(listarVacina);
+                listarVacina.setVisible(true);
+            }
+        }
+    }
+
+    public void chamarTelaCadastroPaciente() {
+        if (cadastroPaciente == null) {
+            cadastroPaciente = new InternalFrameCadastroPaciente();
+            TelaPrincipal.painel.add(cadastroPaciente);
+            cadastroPaciente.setVisible(true);
+        } else {
+            if (cadastroPaciente.isVisible()) {
+                cadastroPaciente.pack();
+            } else {
+                TelaPrincipal.painel.add(cadastroPaciente);
+                cadastroPaciente.setVisible(true);
+            }
+        }
+    }
 
     public void chamarTelaPlantao() {
         if (plantao == null) {
@@ -39,6 +74,36 @@ public class MainControl {
             } else {
                 TelaPrincipal.painel.add(plantao);
                 plantao.setVisible(true);
+            }
+        }
+    }
+
+    public void chamarTelaVacina() {
+        if (vacina == null) {
+            vacina = new InternalFrameVacina();
+            TelaPrincipal.painel.add(vacina);
+            vacina.setVisible(true);
+        } else {
+            if (vacina.isVisible()) {
+                vacina.pack();
+            } else {
+                TelaPrincipal.painel.add(vacina);
+                vacina.setVisible(true);
+            }
+        }
+    }
+
+    public void chamarTelaAgendaExames() {
+        if (exame == null) {
+            exame = new InternalFrameAgendaExames();
+            TelaPrincipal.painel.add(exame);
+            exame.setVisible(true);
+        } else {
+            if (exame.isVisible()) {
+                exame.pack();
+            } else {
+                TelaPrincipal.painel.add(exame);
+                exame.setVisible(true);
             }
         }
     }
@@ -75,8 +140,8 @@ public class MainControl {
 
     void chamarTelaPrincipal() {
         frame = new TelaPrincipal();
-        frame.setLocationRelativeTo(null);
         frame.setExtendedState(Frame.MAXIMIZED_BOTH);
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 
@@ -115,4 +180,5 @@ public class MainControl {
     public void consultaReservaSalaAction(JFrame frame) {
 
     }
+
 }
