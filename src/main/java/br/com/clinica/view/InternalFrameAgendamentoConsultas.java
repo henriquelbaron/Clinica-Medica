@@ -19,11 +19,11 @@ public class InternalFrameAgendamentoConsultas extends javax.swing.JInternalFram
     /**
      * Creates new form InternalFrameAgConsultas
      */
-    private ConsultaControl control;
+//    private ConsultaControl control;
 
     public InternalFrameAgendamentoConsultas() {
         initComponents();
-        control = new ConsultaControl(this);
+//        control = new ConsultaControl(this);
     }
 
     /**
@@ -54,7 +54,6 @@ public class InternalFrameAgendamentoConsultas extends javax.swing.JInternalFram
 
         btAdicionarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital.png"))); // NOI18N
         btAdicionarPaciente.setToolTipText("Adicionar paciente");
-        btAdicionarPaciente.setBorder(null);
         btAdicionarPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btAdicionarPacienteActionPerformed(evt);
@@ -89,11 +88,6 @@ public class InternalFrameAgendamentoConsultas extends javax.swing.JInternalFram
         btConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/check.png"))); // NOI18N
         btConfirmar.setText("Confimar consulta");
         btConfirmar.setBorder(null);
-        btConfirmar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btConfirmarActionPerformed(evt);
-            }
-        });
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/doctor (1).png"))); // NOI18N
@@ -119,16 +113,10 @@ public class InternalFrameAgendamentoConsultas extends javax.swing.JInternalFram
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tabelaPaciente.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelaPacienteMouseClicked(evt);
-            }
-        });
         jScrollPane1.setViewportView(tabelaPaciente);
 
         btPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/find-my-friend.png"))); // NOI18N
         btPesquisar.setToolTipText("Pesquisar");
-        btPesquisar.setBorder(null);
         btPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btPesquisarActionPerformed(evt);
@@ -257,7 +245,7 @@ public class InternalFrameAgendamentoConsultas extends javax.swing.JInternalFram
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel15)
                             .addComponent(tfHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 36, Short.MAX_VALUE))
+                .addGap(0, 20, Short.MAX_VALUE))
         );
 
         pack();
@@ -272,7 +260,7 @@ public class InternalFrameAgendamentoConsultas extends javax.swing.JInternalFram
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void tfPesquisarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPesquisarKeyReleased
-        control.sendKeysTfListener();        // TODO add your handling code here:
+//        control.sendKeysTfListener();        // TODO add your handling code here:
     }//GEN-LAST:event_tfPesquisarKeyReleased
 
     private void tfHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfHoraActionPerformed
@@ -282,14 +270,6 @@ public class InternalFrameAgendamentoConsultas extends javax.swing.JInternalFram
     private void btPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btPesquisarActionPerformed
-
-    private void btConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConfirmarActionPerformed
-        control.confirmarConsultaAction();        // TODO add your handling code here:
-    }//GEN-LAST:event_btConfirmarActionPerformed
-
-    private void tabelaPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaPacienteMouseClicked
-        control.mouseListenerTable();        // TODO add your handling code here:
-    }//GEN-LAST:event_tabelaPacienteMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
