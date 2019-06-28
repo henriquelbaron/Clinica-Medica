@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: br.com.clinica.dao.banco.impl.MedicoDaoImplTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 sec <<< FAILURE!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 sec <<< FAILURE!
 save(br.com.clinica.dao.banco.impl.MedicoDaoImplTest)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.NoClassDefFoundError: Could not initialize class br.com.clinica.dao.banco.ConnectionFactory
 	at br.com.clinica.dao.banco.GenericDAO.buscar(GenericDAO.java:61)

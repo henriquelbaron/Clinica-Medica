@@ -9,7 +9,8 @@
 
         <!-- Configurações de Conexão com o Banco de Dados -->
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/clinica</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/clinica?useTimezone=true&amp;serverTimezone=UTC</property>
+        <!--<property name="connection.url">jdbc:mysql://localhost:3306/clinica</property>-->
         <property name="connection.username">root</property>
         <property name="connection.password"></property>
 

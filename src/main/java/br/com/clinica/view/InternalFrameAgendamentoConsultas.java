@@ -54,7 +54,6 @@ public class InternalFrameAgendamentoConsultas extends javax.swing.JInternalFram
 
         btAdicionarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital.png"))); // NOI18N
         btAdicionarPaciente.setToolTipText("Adicionar paciente");
-        btAdicionarPaciente.setBorder(null);
         btAdicionarPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btAdicionarPacienteActionPerformed(evt);
@@ -118,7 +117,6 @@ public class InternalFrameAgendamentoConsultas extends javax.swing.JInternalFram
 
         btPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/find-my-friend.png"))); // NOI18N
         btPesquisar.setToolTipText("Pesquisar");
-        btPesquisar.setBorder(null);
         btPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btPesquisarActionPerformed(evt);
@@ -247,7 +245,7 @@ public class InternalFrameAgendamentoConsultas extends javax.swing.JInternalFram
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel15)
                             .addComponent(tfHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 36, Short.MAX_VALUE))
+                .addGap(0, 20, Short.MAX_VALUE))
         );
 
         pack();

@@ -159,15 +159,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu4.add(MenuConsultaExame);
 
-        MenuConsultaReservaSala.setIcon(new javax.swing.ImageIcon(getClass().getResource("/surgery-room.png"))); // NOI18N
-        MenuConsultaReservaSala.setText("Reserva de salas");
-        MenuConsultaReservaSala.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenuConsultaReservaSalaActionPerformed(evt);
-            }
-        });
-        jMenu4.add(MenuConsultaReservaSala);
-
         jMenuBar1.add(jMenu4);
 
         menuCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital.png"))); // NOI18N
@@ -190,6 +181,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         menuCadastro.add(menuFuncionario);
+
+        MenuConsultaReservaSala.setIcon(new javax.swing.ImageIcon(getClass().getResource("/surgery-room.png"))); // NOI18N
+        MenuConsultaReservaSala.setText("Salas");
+        MenuConsultaReservaSala.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuConsultaReservaSalaActionPerformed(evt);
+            }
+        });
+        menuCadastro.add(MenuConsultaReservaSala);
 
         jMenuBar1.add(menuCadastro);
 
