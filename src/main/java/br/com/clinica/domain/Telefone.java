@@ -32,7 +32,8 @@ public class Telefone implements Serializable {
     public Telefone() {
     }
 
-    public Telefone(String numero, String tipo, String nome, String parentesco, boolean isEmergencia) {
+    public Telefone(Paciente paciente, String numero, String tipo, String nome, String parentesco, boolean isEmergencia) {
+        this.paciente = paciente;
         this.numero = numero;
         this.tipo = tipo;
         this.nome = nome;

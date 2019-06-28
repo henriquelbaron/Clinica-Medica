@@ -7,11 +7,13 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Consulta implements Serializable {
@@ -19,29 +21,40 @@ public class Consulta implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    @NotNull
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date data;
 
+    @NotNull
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date dataAgendamento;
 
     @ManyToOne
+    @NotNull
+    @JoinColumn(name = "idEspecialidade")
+    private Especialidade especialidade;
+
+    @ManyToOne
+    @NotNull
     @JoinColumn(name = "idMedico")
     private Medico medico;
 
     @ManyToOne
-    @JoinColumn(name = "idPaciente")
+    @NotNull
+    @JoinColumn(name = "idPaciente", nullable = false)
     private Paciente paciente;
 
     @ManyToOne
-    @JoinColumn(name = "idAtendente")
+    @NotNull
+    @JoinColumn(name = "idAtendente", nullable = false)
     private Atendente atendente;
-    
+
     @ManyToOne
-    @JoinColumn(name = "idSala")
+    @NotNull
+    @JoinColumn(name = "idSala", nullable = false)
     private Sala sala;
 
     @OneToMany(mappedBy = "consulta", targetEntity = Remedio.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -49,6 +62,14 @@ public class Consulta implements Serializable {
 
     @OneToMany(mappedBy = "consulta", targetEntity = Vacina.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Vacina> vacinas;
+
+    public Especialidade getEspecialidade() {
+        return especialidade;
+    }
+
+    public void setEspecialidade(Especialidade especialidade) {
+        this.especialidade = especialidade;
+    }
 
     public Integer getId() {
         return id;

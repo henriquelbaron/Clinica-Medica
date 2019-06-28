@@ -15,8 +15,12 @@ import br.com.clinica.domain.Medico;
 import br.com.clinica.domain.Paciente;
 import br.com.clinica.domain.Sala;
 import br.com.clinica.domain.tables.PacienteTable;
+import br.com.clinica.util.Utils;
+import br.com.clinica.validation.Validator;
 import br.com.clinica.view.InternalFrameAgendamentoConsultas;
 import br.com.clinica.view.TelaPrincipal;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 
@@ -46,7 +50,7 @@ public class ConsultaControl {
         for (Paciente paciente1 : new PacienteDaoImpl().listar()) {
             table.addRow(paciente1);
         }
-    iFrame.tabelaPaciente.setModel(table);
+        iFrame.tabelaPaciente.setModel(table);
         iFrame.cbMedico.setModel(new DefaultComboBoxModel(new MedicoDaoImpl().listar().toArray()));
         iFrame.cbSala.setModel(new DefaultComboBoxModel(new SalaDaoImpl().listar().toArray()));
         iFrame.cbEspecialidade.setModel(new DefaultComboBoxModel(new EspecialidadeDaoImpl().listar().toArray()));
@@ -69,15 +73,19 @@ public class ConsultaControl {
         }
     }
 
-    public void addPacienteAction() {
-        
-    }
-
     public void confirmarConsultaAction() {
-        
+        if (Validator.stringValidator(iFrame.tfHora.getText())) {
+            consulta = new Consulta();
+            consulta.setMedico((Medico) iFrame.cbMedico.getSelectedItem());
+            consulta.setSala((Sala) iFrame.cbSala.getSelectedItem());
+            consulta.setEspecialidade((Especialidade) iFrame.cbEspecialidade.getSelectedItem());
+            consulta.setPaciente(table.getRow(iFrame.tabelaPaciente.getSelectedRow()));
+            consulta.setDataAgendamento(new Date(System.currentTimeMillis()));
+            consulta.setData(Utils.stringToDate(iFrame.tfData.getDate(), iFrame.tfHora.getText()));
+        }
     }
 
     public void cancelarConsultaAction() {
-
+        iFrame.dispose();
     }
 }

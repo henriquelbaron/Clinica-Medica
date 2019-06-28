@@ -27,7 +27,7 @@ public class Especialidade implements Serializable {
 
     @OneToMany(mappedBy = "especialidade", targetEntity = Enfermeiro.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Enfermeiro> enfermeiros;
-
+    
     public Especialidade(String especialidade, String descricao) {
         this.especialidade = especialidade;
         this.descricao = descricao;

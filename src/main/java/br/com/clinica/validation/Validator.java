@@ -8,6 +8,7 @@ package br.com.clinica.validation;
 import br.com.clinica.util.Utils;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.Date;
 
 /**
  *
@@ -16,7 +17,7 @@ import java.time.ZoneId;
 public class Validator {
 
     public static boolean objectValidator(Object obj) {
-        return false;
+        return obj == null;
     }
 
     public static boolean stringValidator(String str) {
@@ -42,9 +43,12 @@ public class Validator {
         return true;
     }
 
-    public static boolean dateIsBefore(String str) {
-        LocalDate date = Utils.stringToDate(str).toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    public static boolean dateIsBefore(Date data) {
+        LocalDate date = data.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         return date.isBefore(LocalDate.now());
     }
 
+//    public static boolean consultaValidator(){
+//        
+//    }
 }

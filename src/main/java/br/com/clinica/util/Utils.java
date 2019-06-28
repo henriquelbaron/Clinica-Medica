@@ -21,9 +21,12 @@ public class Utils {
     private static SimpleDateFormat sdf;
     private static DecimalFormat df;
 
-    public static Date stringToDate(String data, String hora) {
+    public static Date stringToDate(Date data, String hora) {
         try {
-            return new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(data + hora);
+            sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+            sdf.setLenient(false);
+            String dataString = new SimpleDateFormat("dd/MM/yyyy").format(data);
+            return new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(dataString + " " + hora);
         } catch (ParseException e) {
             System.out.println(e.getMessage());
             return null;
