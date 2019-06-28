@@ -14,12 +14,29 @@ import javax.persistence.OneToMany;
 @Entity
 public class Atendente extends Pessoa implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private static final long serialVersionUID = 1L;
+    private String senha;
     @OneToMany(mappedBy = "atendente", targetEntity = Consulta.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Consulta> consultas;
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
 
     public Integer getId() {
         return id;
@@ -60,7 +77,6 @@ public class Atendente extends Pessoa implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-
 
     public Endereco getEndereco() {
         return endereco;

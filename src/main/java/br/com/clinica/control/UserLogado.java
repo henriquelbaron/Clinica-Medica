@@ -5,10 +5,10 @@
  */
 package br.com.clinica.control;
 
+import br.com.clinica.domain.Atendente;
 import br.com.clinica.domain.Enfermeiro;
 import br.com.clinica.domain.Medico;
 import br.com.clinica.domain.Pessoa;
-
 
 /**
  *
@@ -18,6 +18,7 @@ public class UserLogado {
 
     public static Medico medico;
     public static Enfermeiro enfermeiro;
+    public static Atendente atendente;
     public static Pessoa USUARIO_LOGADO;
 
     public static Pessoa getUSUARIO_LOGADO() {
@@ -25,8 +26,6 @@ public class UserLogado {
     }
 
     public static void setUSUARIO_LOGADO(Pessoa USUARIO_LOGADO) {
-        UserLogado.USUARIO_LOGADO = USUARIO_LOGADO;
     }
 
-    
 }

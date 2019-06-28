@@ -6,6 +6,7 @@
 package br.com.clinica.view;
 
 import br.com.clinica.control.MainControl;
+import br.com.clinica.domain.Pessoa;
 
 /**
  *
@@ -13,14 +14,14 @@ import br.com.clinica.control.MainControl;
  */
 public class TelaPrincipal extends javax.swing.JFrame {
 
-    MainControl control;
+    private MainControl control;
 
     /**
      * Creates new form TelaPrincipal
      */
-    public TelaPrincipal() {
+    public TelaPrincipal(Pessoa usuario) {
         initComponents();
-        control = new MainControl();
+        this.control = new MainControl(usuario);
     }
 
     /**
@@ -318,7 +319,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaPrincipal().setVisible(true);
+//                new TelaPrincipal().setVisible(true);
             }
         });
     }

@@ -8,7 +8,7 @@
     <session-factory>
 
         <!-- Configurações de Conexão com o Banco de Dados -->
-        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="connection.url">jdbc:mysql://localhost:3306/clinica?useTimezone=true&amp;serverTimezone=UTC</property>
         <!--<property name="connection.url">jdbc:mysql://localhost:3306/clinica</property>-->
         <property name="connection.username">root</property>
@@ -16,6 +16,8 @@
 
         <!-- Pool de Conexões -->
         <property name="connection.pool_size">2</property>
+        
+        <property name="connection.autocommit">true</property>   
 
         <!-- SQL dialect -->
         <property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
@@ -31,7 +33,7 @@
 
         <!-- Cria as tabelas do banco de dados -->
         <!--create/validate/update-->
-        <property name="hbm2ddl.auto">create</property>
+        <property name="hbm2ddl.auto">update</property>
 
 		
         <!-- Mapeamento das entidades -->

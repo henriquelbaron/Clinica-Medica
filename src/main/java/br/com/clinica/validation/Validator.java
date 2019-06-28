@@ -6,6 +6,7 @@
 package br.com.clinica.validation;
 
 import br.com.clinica.util.Utils;
+import br.com.clinica.view.CadastroDeFuncionadoInternalFrame;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
@@ -21,7 +22,7 @@ public class Validator {
     }
 
     public static boolean stringValidator(String str) {
-        return str.isEmpty();
+        return str.trim().isEmpty();
     }
 
     public static boolean cpfValidator(String str) {
@@ -33,14 +34,14 @@ public class Validator {
     }
 
     public static boolean emailValidator(String str) {
-        return false;
+        return true;
     }
 
     public static boolean stringLenghtValidator(String str, int lenght) {
         if (str.trim().length() <= lenght) {
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 
     public static boolean dateIsBefore(Date data) {
@@ -51,4 +52,13 @@ public class Validator {
 //    public static boolean consultaValidator(){
 //        
 //    }
+    public static boolean validSaveFuncionario(CadastroDeFuncionadoInternalFrame iFrame) {
+        if (stringValidator(iFrame.tfNome.getText())) {
+            return false;
+        }
+        if (stringLenghtValidator(iFrame.tfEmail.getText(), 10)) {
+
+        }
+        return true;
+    }
 }

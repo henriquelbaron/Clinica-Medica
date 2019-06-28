@@ -160,6 +160,14 @@ public class Medico extends Pessoa implements Serializable {
         this.tipoSanguineo = tipoSanguineo;
     }
 
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
     @Override
     public int hashCode() {
         int hash = 5;

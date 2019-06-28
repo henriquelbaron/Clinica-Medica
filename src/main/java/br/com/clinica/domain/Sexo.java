@@ -13,13 +13,18 @@ public enum Sexo {
     MASCULINO("Masculino"),
     FEMININO("Feminino");
 
-    private String label;
+    private String sexo;
 
     private Sexo(String label) {
-        this.label = label;
+        this.sexo = label;
     }
 
     public String getLabel() {
-        return label;
+        return sexo;
+    }
+
+    @Override
+    public String toString() {
+        return sexo;
     }
 }

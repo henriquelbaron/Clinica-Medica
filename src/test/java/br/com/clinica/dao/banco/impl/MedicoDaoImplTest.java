@@ -13,41 +13,51 @@ import java.util.Date;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 
 /**
  *
  * @author Henrique Baron
  */
 public class MedicoDaoImplTest {
-    
+
     private MedicoDaoImpl dao;
     private static Medico medico;
     private EspecialidadeDaoImpl especialidadeDaoImpl;
-    
+
     public MedicoDaoImplTest() {
         dao = new MedicoDaoImpl();
         especialidadeDaoImpl = new EspecialidadeDaoImpl();
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
-        medico = new Medico();
     }
-    
+
     @Test
+    @Ignore
     public void save() {
+        medico = new Medico();
+
         medico.setNome("João");
-        medico.setCpf("186.402.000-23");
+        medico.setCpf("186.402.484-23");
         medico.setDataNascimento(new Date(System.currentTimeMillis()));
         medico.setSexo(Sexo.MASCULINO);
-        medico.setEmail("henrique@gmail.com");
+        medico.setEmail("henrique");
         medico.setEndereco(new Endereco("88131-743", "Braulina Goulart", "48", "RioGrande", "", "SC"));
         medico.setTipoSanguineo("O+");
-//        medico.setTelefone("48996850323");
+        medico.setTelefone("48996850323");
         medico.setCrm("123456");
-        medico.setEspecialidade(especialidadeDaoImpl.buscar(1));
+        medico.setSenha("123");
+        medico.setEspecialidade(especialidadeDaoImpl.buscar(49));
 //        medico.setPlantaos(new PlantaoDaoImpl().listar());
         dao.salvar(medico);
     }
-    
+
+    @Test
+//    @Ignore
+    public void buscar() {
+        medico = dao.medicoLogar("henrique", "123");
+        System.out.println(medico.getNome());
+    }
 }

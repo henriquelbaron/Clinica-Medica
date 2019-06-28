@@ -52,13 +52,12 @@ public class PacienteDaoImplTest {
         }
     }
 
-    @Test
+//    @Test
     public void listarPoTermo() {
         List<Paciente> pacientes = dao.listar();
         for (Paciente paciente : pacientes) {
             System.out.println(paciente.getTelefones());
         }
-
     }
-
+    
 }

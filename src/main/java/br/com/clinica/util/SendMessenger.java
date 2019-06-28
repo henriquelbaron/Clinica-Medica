@@ -5,6 +5,8 @@
  */
 package br.com.clinica.util;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Henrique Baron
@@ -15,9 +17,11 @@ public class SendMessenger {
     }
 
     public static void error(String str) {
+        JOptionPane.showMessageDialog(null, str, "Atenção", JOptionPane.ERROR_MESSAGE);
     }
 
     public static void success(String str) {
+        JOptionPane.showMessageDialog(null, str);
     }
 
     public static int confirmAction(String str) {

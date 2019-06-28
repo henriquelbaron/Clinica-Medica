@@ -2,6 +2,7 @@ package br.com.clinica.dao.banco.impl;
 
 import br.com.clinica.dao.banco.ConnectionFactory;
 import br.com.clinica.dao.banco.GenericDAO;
+import br.com.clinica.domain.Paciente;
 import br.com.clinica.domain.Telefone;
 import java.util.List;
 import javax.persistence.Query;
@@ -12,7 +13,8 @@ public class TelefoneDaoImpl extends GenericDAO<Telefone> {
     public List<Telefone> getTelefonesPaciente(int id) {
         Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
         try {
-            Query crit = sessao.createQuery("Select Telefone FROM Telefone as t where t.idPessoa =" + id);
+            Query crit = sessao.createQuery("Select t FROM Telefone as t where t.paciente.id =:idPessoa");
+            crit.setParameter("idPessoa", id);
             return crit.getResultList();
         } catch (RuntimeException erro) {
             throw erro;
@@ -22,3 +24,8 @@ public class TelefoneDaoImpl extends GenericDAO<Telefone> {
     }
 
 }
+//  Criteria crit = sessao.createCriteria(Paciente.class);
+//            crit.add(Restrictions.like("nome", "%" + termo + "%"));
+//            return crit.list();
+
+//            return (List<Telefone>) sessao.createSQLQuery("Select * from Telefone where idPessoa =" + id).list();

@@ -25,7 +25,7 @@ public class Telefone implements Serializable {
     private String parentesco;
     private boolean isEmergencia;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, targetEntity = Paciente.class)
     @JoinColumn(name = "idPaciente")
     private Paciente paciente;
 

@@ -7,7 +7,7 @@ package br.com.clinica.control;
 
 import br.com.clinica.view.InternalFrameAgendaExames;
 import br.com.clinica.view.InternalFrameAgendamentoConsultas;
-import br.com.clinica.view.InternalFrameCadastroMedicoEnfermeiro;
+import br.com.clinica.view.CadastroDeFuncionadoInternalFrame;
 import br.com.clinica.view.InternalFrameCadastroPaciente;
 import br.com.clinica.view.InternalFrameEmergencia;
 import br.com.clinica.view.InternalFrameExames;
@@ -33,7 +33,7 @@ public class MainControl {
     private InternalFrameAgendamentoConsultas agendamentoConsulta = null;
     private InternalFramePlantao plantao = null;
     private InternalFrameCadastroPaciente cadastroPaciente = null;
-    private InternalFrameCadastroMedicoEnfermeiro cadastroFuncionario = null;
+    private CadastroDeFuncionadoInternalFrame cadastroFuncionario = null;
     private InternalFrameAgendaExames AgendaExame = null;
     private InternalFrameVacina vacina = null;
     private InternalFrameListagemVacina listarVacina = null;
@@ -44,6 +44,12 @@ public class MainControl {
     private InternalFrameListaExames listaExames = null;
     private InternalFrameSala sala = null;
 
+    public MainControl(Object usuario) {
+        
+    }
+
+    
+    
     public void ChamarTelaReservaSala() {
         if (sala == null) {
             sala = new InternalFrameSala();
@@ -226,7 +232,7 @@ public class MainControl {
 
     public void chamarTelaCadastroFuncionario() {
         if (cadastroFuncionario == null) {
-            cadastroFuncionario = new InternalFrameCadastroMedicoEnfermeiro();
+            cadastroFuncionario = new CadastroDeFuncionadoInternalFrame();
             TelaPrincipal.painel.add(cadastroFuncionario);
             cadastroFuncionario.setVisible(true);
         } else {
@@ -239,12 +245,12 @@ public class MainControl {
         }
     }
 
-    void chamarTelaPrincipal() {
-        frame = new TelaPrincipal();
-        frame.setExtendedState(Frame.MAXIMIZED_BOTH);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-    }
+//    void chamarTelaPrincipal() {
+//        frame = new TelaPrincipal();
+//        frame.setExtendedState(Frame.MAXIMIZED_BOTH);
+//        frame.setLocationRelativeTo(null);
+//        frame.setVisible(true);
+//    }
 
     public void agendamentoConsultaAction(JFrame frame) {
 

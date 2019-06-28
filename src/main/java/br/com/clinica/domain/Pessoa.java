@@ -16,17 +16,12 @@ import javax.validation.constraints.NotEmpty;
 import org.hibernate.validator.constraints.br.CPF;
 
 @MappedSuperclass
-public class Pessoa implements Serializable {
+public class Pessoa {
 
-    private static final long serialVersionUID = 1L;
-
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-//    protected Integer id;
     @Column(length = 50, nullable = false)
     protected String nome;
 
-    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    @Temporal(javax.persistence.TemporalType.DATE)
     protected Date dataNascimento;
 
     @Column(length = 14, nullable = false, unique = true)
@@ -37,9 +32,8 @@ public class Pessoa implements Serializable {
     @Email
     protected String email;
 
-//    @Column(length = 15)
-//    protected String telefone;
-
+    @Column(length = 15)
+    protected String telefone;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "idEndereco")
     protected Endereco endereco;

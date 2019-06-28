@@ -9,29 +9,37 @@ import br.com.clinica.domain.Telefone;
 import java.util.List;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Ignore;
 
 /**
  *
  * @author Henrique Baron
  */
 public class TelefoneDaoImplTest {
-    
+
+    private TelefoneDaoImpl dao;
+
     public TelefoneDaoImplTest() {
+        dao = new TelefoneDaoImpl();
     }
 
     /**
      * Test of getTelefonesPaciente method, of class TelefoneDaoImpl.
      */
     @Test
+//    @Ignore
     public void testGetTelefonesPaciente() {
-        System.out.println("getTelefonesPaciente");
-        int id = 0;
-        TelefoneDaoImpl instance = new TelefoneDaoImpl();
-        List<Telefone> expResult = null;
-        List<Telefone> result = instance.getTelefonesPaciente(id);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        PacienteDaoImpl pacienteDaoImpl = new PacienteDaoImpl();
+        for (Telefone t : dao.getTelefonesPaciente(37)) {
+            System.out.println(t.getNome());
+        }
     }
-    
+
+    @Test
+//    @Ignore
+    public void listar() {
+        for (Telefone telefone : dao.listar()) {
+            System.out.println(telefone.getPaciente().getNome());
+        }
+    }
 }

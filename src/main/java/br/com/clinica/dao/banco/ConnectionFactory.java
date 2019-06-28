@@ -27,9 +27,7 @@ public class ConnectionFactory {
             Configuration configuracao = new Configuration().configure();
 
             ServiceRegistry registro = new StandardServiceRegistryBuilder().applySettings(configuracao.getProperties()).build();
-
             SessionFactory fabrica = configuracao.buildSessionFactory();
-
             return fabrica;
         } catch (Throwable ex) {
             System.err.println("A fábrica de sessões não pode ser criada." + ex);

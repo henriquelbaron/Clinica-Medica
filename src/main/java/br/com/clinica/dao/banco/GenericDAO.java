@@ -26,7 +26,7 @@ public class GenericDAO<Entidade> {
                 .getActualTypeArguments()[0];
     }
 
-    public void salvar(Entidade entidade) {
+    public boolean salvar(Entidade entidade) {
         Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
         Transaction transacao = null;
 
@@ -34,11 +34,13 @@ public class GenericDAO<Entidade> {
             transacao = sessao.beginTransaction();
             sessao.save(entidade);
             transacao.commit();
+            return true;
         } catch (RuntimeException erro) {
             if (transacao != null) {
                 transacao.rollback();
             }
-            throw erro;
+            System.out.println(erro.getMessage());
+            return false;
         } finally {
             sessao.close();
         }
