@@ -26,12 +26,14 @@ public class Sala implements Serializable {
     @Column(nullable = false, unique = true)
     private String numero;
 
+    private String descrição;
+
     @OneToMany(mappedBy = "sala", targetEntity = Exame.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Exame> exames;
 
     @OneToMany(mappedBy = "sala", targetEntity = Consulta.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Consulta> consultas;
-    
+
     private int prioridade;
 
     @ManyToOne
@@ -44,6 +46,14 @@ public class Sala implements Serializable {
     public Sala(String numero, int prioridade) {
         this.numero = numero;
         this.prioridade = prioridade;
+    }
+
+    public String getDescrição() {
+        return descrição;
+    }
+
+    public void setDescrição(String descrição) {
+        this.descrição = descrição;
     }
 
     public Integer getId() {

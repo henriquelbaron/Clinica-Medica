@@ -92,7 +92,7 @@ public class GenericDAO<Entidade> {
         }
     }
 
-    public void editar(Entidade entidade) {
+    public boolean editar(Entidade entidade) {
         Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
         Transaction transacao = null;
 
@@ -100,13 +100,16 @@ public class GenericDAO<Entidade> {
             transacao = sessao.beginTransaction();
             sessao.update(entidade);
             transacao.commit();
+            return true;
         } catch (RuntimeException erro) {
             if (transacao != null) {
                 transacao.rollback();
             }
-            throw erro;
+            erro.printStackTrace();
+            return false;
         } finally {
             sessao.close();
         }
     }
+
 }

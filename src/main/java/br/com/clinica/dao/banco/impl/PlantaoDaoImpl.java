@@ -11,11 +11,23 @@ import org.hibernate.Session;
 
 public class PlantaoDaoImpl extends GenericDAO<Plantao> {
 
-    public List<Medico> getPlantoesDia(Date data) {
+    public List<Medico> getPlantoesDia(Date dataDesejada) {
         Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
         try {
-            Query q = sessao.createSQLQuery("Select m.* FROM Plantao as p JOIN plantao_medico as pm ON p.id = pm.idMedico JOIN Medico as m on m.id = pm.idPlantao WHERE p.data = '29/06/2019'");
-//            q.setParameter("data", data);
+            Query q = sessao.createQuery("Select m from Medico as m LEFT JOIN m.plantaos as p WHERE p.data= :data");
+            q.setParameter("data", dataDesejada);
+            return (List<Medico>) q.getResultList();
+        } catch (RuntimeException erro) {
+            throw erro;
+        } finally {
+            sessao.close();
+        }
+    }
+
+    public List<Medico> getPlantoesMedicos() {
+        Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
+        try {
+            Query q = sessao.createQuery("Select m from Medico as m LEFT JOIN m.plantaos");
             return (List<Medico>) q.getResultList();
         } catch (RuntimeException erro) {
             throw erro;

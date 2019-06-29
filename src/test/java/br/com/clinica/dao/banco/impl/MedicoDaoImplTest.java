@@ -38,22 +38,22 @@ public class MedicoDaoImplTest {
 //    @Ignore
     public void save() {
         for (int i = 0; i < 10; i++) {
-            
-        medico = new Medico();
 
-        medico.setNome("João"+i);
-        medico.setCpf("186.402.484-2"+i);
-        medico.setDataNascimento(new Date(System.currentTimeMillis()));
-        medico.setSexo(Sexo.MASCULINO);
-        medico.setEmail("henrique");
-        medico.setEndereco(new Endereco("88131-743", "Braulina Goulart", "48", "RioGrande", "", "SC"));
-        medico.setTipoSanguineo("O+");
-        medico.setTelefone("48996850323");
-        medico.setCrm("123456");
-        medico.setSenha("123");
-        medico.setEspecialidade(especialidadeDaoImpl.buscar(1));
+            medico = new Medico();
+
+            medico.setNome("João" + i);
+            medico.setCpf("186.402.484-2" + i);
+            medico.setDataNascimento(new Date(System.currentTimeMillis()));
+            medico.setSexo(Sexo.MASCULINO);
+            medico.setEmail("jose"+i);
+            medico.setEndereco(new Endereco("88131-743", "Braulina Goulart", "48", "RioGrande", "", "SC"));
+            medico.setTipoSanguineo("O+");
+            medico.setTelefone("48996850323");
+            medico.setCrm("123456"+i);
+            medico.setSenha("123");
+            medico.setEspecialidade(especialidadeDaoImpl.buscar(1));
 //        medico.setPlantaos(new PlantaoDaoImpl().listar());
-        dao.salvar(medico);
+            dao.salvar(medico);
         }
     }
 

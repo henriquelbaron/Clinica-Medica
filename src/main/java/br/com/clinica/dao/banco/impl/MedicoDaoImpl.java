@@ -3,12 +3,10 @@ package br.com.clinica.dao.banco.impl;
 import br.com.clinica.dao.banco.ConnectionFactory;
 import br.com.clinica.dao.banco.GenericDAO;
 import br.com.clinica.domain.Medico;
-import br.com.clinica.domain.Paciente;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Query;
-import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.criterion.Restrictions;
 
 public class MedicoDaoImpl extends GenericDAO<Medico> {
 
@@ -26,4 +24,28 @@ public class MedicoDaoImpl extends GenericDAO<Medico> {
         }
     }
 
+    public List<Medico> getPlantoesDia(Date dataDesejada) {
+        Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
+        try {
+            Query q = sessao.createQuery("Select m from Medico as m LEFT JOIN m.plantaos as p WHERE p.data= :data");
+            q.setParameter("data", dataDesejada);
+            return (List<Medico>) q.getResultList();
+        } catch (RuntimeException erro) {
+            throw erro;
+        } finally {
+            sessao.close();
+        }
+    }
+
+    public List<Medico> getPlantoes() {
+        Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
+        try {
+            Query q = sessao.createQuery("Select m from Medico as m LEFT JOIN m.plantaos");
+            return (List<Medico>) q.getResultList();
+        } catch (RuntimeException erro) {
+            throw erro;
+        } finally {
+            sessao.close();
+        }
+    }
 }
