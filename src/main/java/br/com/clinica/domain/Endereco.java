@@ -2,7 +2,6 @@ package br.com.clinica.domain;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 @Entity
 public class Endereco implements Serializable {
@@ -10,20 +9,13 @@ public class Endereco implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Column
     private String numero;
-    @Column
-    @NotNull
+    @Column(length = 9, nullable = false)
     private String cep;
-    @Column
     private String logradouro;
-    @Column
     private String complemento;
-    @Column
     private String bairro;
-    @Column
     private String localidade;
-    @Column
     private String uf;
 
     public Endereco(String cep, String logradouro, String complemento, String bairro, String localidade, String UF) {
@@ -37,7 +29,6 @@ public class Endereco implements Serializable {
 
     public Endereco() {
     }
-
 
     public String getNumero() {
         return numero;

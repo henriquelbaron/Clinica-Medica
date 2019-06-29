@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,14 +26,15 @@ public class Plantao implements Serializable {
     private Integer id;
 
     @Temporal(TemporalType.DATE)
+    @Column(nullable = false, unique = true)
     private Date data;
-    
+
     @ManyToMany
     @JoinTable(name = "plantao_medico",
             joinColumns = @JoinColumn(name = "idPlantao"),
             inverseJoinColumns = @JoinColumn(name = "idMedico"))
     private List<Medico> medicos;
-    
+
     @ManyToMany
     @JoinTable(name = "plantao_enfermeiro",
             joinColumns = @JoinColumn(name = "idPlantao"),

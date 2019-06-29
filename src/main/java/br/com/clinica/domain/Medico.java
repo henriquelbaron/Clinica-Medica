@@ -1,17 +1,18 @@
 package br.com.clinica.domain;
 
+import com.sun.istack.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -24,10 +25,15 @@ public class Medico extends Pessoa implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+    
+    @Column(unique = true, nullable = false)
     private String crm;
+    
+    @Column(nullable = false)
     private String senha;
+    
     @ManyToOne
-    @JoinColumn(name = "idEspecialidade")
+    @JoinColumn(name = "idEspecialidade", nullable = false)
     private Especialidade especialidade;
 
     @ManyToMany(mappedBy = "medicos", targetEntity = Plantao.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)

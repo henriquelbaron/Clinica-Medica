@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -19,6 +20,8 @@ public class Especialidade implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+    
+    @Column(unique = true, nullable = false)
     private String especialidade;
     private String descricao;
 
@@ -27,7 +30,7 @@ public class Especialidade implements Serializable {
 
     @OneToMany(mappedBy = "especialidade", targetEntity = Enfermeiro.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Enfermeiro> enfermeiros;
-    
+
     public Especialidade(String especialidade, String descricao) {
         this.especialidade = especialidade;
         this.descricao = descricao;

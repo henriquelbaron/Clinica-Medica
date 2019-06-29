@@ -1,10 +1,8 @@
 package br.com.clinica.domain;
 
-import com.sun.corba.se.impl.oa.toa.TOA;
 import java.io.Serializable;
 import java.util.Objects;
-import java.util.logging.Logger;
-import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -21,6 +19,8 @@ public class Telefone implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
+    @Column(nullable = false)
     private String numero;
     private String tipo;
     private String nome;
@@ -28,7 +28,7 @@ public class Telefone implements Serializable {
     private boolean isEmergencia;
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Paciente.class)
-    @JoinColumn(name = "idPaciente")
+    @JoinColumn(name = "idPaciente", nullable = false)
     private Paciente paciente;
 
     public Telefone() {

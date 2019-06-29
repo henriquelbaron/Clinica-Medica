@@ -39,16 +39,16 @@ public class PessoaTable extends TableTemplate<Plantao> {
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch (columnIndex) {
-            case Constantes.NOME:
-                return plantaos.get(rowIndex).getNome();
-            case Constantes.NASCIMENTO:
-                return plantaos.get(rowIndex).getDataNascimento();
-            case Constantes.SEXO:
-                return plantaos.get(rowIndex).getSexo();
-            case Constantes.TELEFONE:
-                return plantaos.get(rowIndex).getTelefones().get(0);
-            case Constantes.CPF:
-                return plantaos.get(rowIndex).getCpf();
+//            case Constantes.NOME:
+//                return plantaos.get(rowIndex).getNome();
+//            case Constantes.NASCIMENTO:
+//                return plantaos.get(rowIndex).getDataNascimento();
+//            case Constantes.SEXO:
+//                return plantaos.get(rowIndex).getSexo();
+//            case Constantes.TELEFONE:
+//                return plantaos.get(rowIndex).getTelefones().get(0);
+//            case Constantes.CPF:
+//                return plantaos.get(rowIndex).getCpf();
             default:
                 return null;
         }
@@ -57,16 +57,16 @@ public class PessoaTable extends TableTemplate<Plantao> {
     private Object getMedico(int rowIndex, int columnIndex) {
         
         switch (columnIndex) {
-            case Constantes.NOME:
-                return plantaos.get(rowIndex).getMedicos()();
-            case Constantes.ESPECIALIDADE:
-                return plantaos.get(rowIndex).getEspecialidade();
-            case Constantes.DATA:
-                return plantaos.get(rowIndex).getPlantaos().get(rowIndex);
-            case Constantes.TELEFONE:
-                return plantaos.get(rowIndex).getTelefones().get(0);
-            case Constantes.CPF:
-                return plantaos.get(rowIndex).getCpf();
+//            case Constantes.NOME:
+//                return plantaos.get(rowIndex).getMedicos()();
+//            case Constantes.ESPECIALIDADE:
+//                return plantaos.get(rowIndex).getEspecialidade();
+//            case Constantes.DATA:
+//                return plantaos.get(rowIndex).getPlantaos().get(rowIndex);
+//            case Constantes.TELEFONE:
+//                return plantaos.get(rowIndex).getTelefones().get(0);
+//            case Constantes.CPF:
+//                return plantaos.get(rowIndex).getCpf();
             default:
                 return null;
         }

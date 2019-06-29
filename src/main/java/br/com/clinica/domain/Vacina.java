@@ -2,6 +2,7 @@ package br.com.clinica.domain;
 
 import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,17 +19,22 @@ public class Vacina implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @NotEmpty
+    
+    @Column(nullable = false)
     private String nome;
+    
     @ManyToOne
-    @JoinColumn(name = "idPaciente")
+    @JoinColumn(name = "idPaciente", nullable = false)
     private Paciente paciente;
+    
     @ManyToOne
     @JoinColumn(name = "idEnfermeiro")
     private Enfermeiro enfermeiro;
+    
     @ManyToOne
     @JoinColumn(name = "idConsulta")
     private Consulta consulta;
+    
     private String observacao;
 
     public Vacina() {

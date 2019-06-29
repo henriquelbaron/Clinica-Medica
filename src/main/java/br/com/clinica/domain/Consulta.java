@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -13,7 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
-import javax.validation.constraints.NotNull;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Consulta implements Serializable {
@@ -23,37 +24,32 @@ public class Consulta implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
-    @NotNull
-    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    
+    @Column(nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date data;
 
-    @NotNull
-    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    @Column(nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dataAgendamento;
 
     @ManyToOne
-    @NotNull
     @JoinColumn(name = "idEspecialidade")
     private Especialidade especialidade;
 
     @ManyToOne
-    @NotNull
     @JoinColumn(name = "idMedico")
     private Medico medico;
 
     @ManyToOne
-    @NotNull
     @JoinColumn(name = "idPaciente", nullable = false)
     private Paciente paciente;
 
     @ManyToOne
-    @NotNull
     @JoinColumn(name = "idAtendente", nullable = false)
     private Atendente atendente;
 
     @ManyToOne
-    @NotNull
     @JoinColumn(name = "idSala", nullable = false)
     private Sala sala;
 

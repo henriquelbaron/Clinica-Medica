@@ -1,6 +1,5 @@
 package br.com.clinica.domain;
 
-import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,36 +10,35 @@ import javax.persistence.JoinColumn;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import org.hibernate.validator.constraints.br.CPF;
+import javax.persistence.TemporalType;
 
 @MappedSuperclass
 public class Pessoa {
 
-    @Column(length = 50, nullable = false)
+    @Column(nullable = false)
     protected String nome;
 
-    @Temporal(javax.persistence.TemporalType.DATE)
+    @Temporal(TemporalType.DATE)
     protected Date dataNascimento;
 
     @Column(length = 14, nullable = false, unique = true)
-    @CPF
     protected String cpf;
 
-    @NotEmpty
-    @Email
+    @Column(nullable = false, unique = true)
     protected String email;
 
     @Column(length = 15)
     protected String telefone;
+
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "idEndereco")
     protected Endereco endereco;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     protected Sexo sexo;
 
+    @Column(nullable = false)
     protected String tipoSanguineo;
 
 }

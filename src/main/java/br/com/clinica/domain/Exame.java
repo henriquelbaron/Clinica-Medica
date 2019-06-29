@@ -3,6 +3,7 @@ package br.com.clinica.domain;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Exame implements Serializable {
@@ -19,24 +21,34 @@ public class Exame implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
+    @Column(nullable = false)
     private String nome;
-    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+
+    @Column(nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date data;
+
     private String resultado;
+    
     @ManyToOne
-    @JoinColumn(name = "idPaciente")
+    @JoinColumn(name = "idPaciente", nullable = false)
     private Paciente paciente;
+    
     @ManyToOne
     @JoinColumn(name = "idMedico")
     private Medico medico;
+    
     @ManyToOne
     @JoinColumn(name = "idEnfermeiro")
     private Enfermeiro enfermeiro;
+    
     @ManyToOne
-    @JoinColumn(name = "idSala")
+    @JoinColumn(name = "idSala", nullable = false)
     private Sala sala;
+    
     @ManyToOne
-    @JoinColumn(name = "idFuncao")
+    @JoinColumn(name = "idFuncao", nullable = false)
     private Funcao funcao;
 
     public Exame() {

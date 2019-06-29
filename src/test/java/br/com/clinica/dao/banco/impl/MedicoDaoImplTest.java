@@ -35,12 +35,14 @@ public class MedicoDaoImplTest {
     }
 
     @Test
-    @Ignore
+//    @Ignore
     public void save() {
+        for (int i = 0; i < 10; i++) {
+            
         medico = new Medico();
 
-        medico.setNome("João");
-        medico.setCpf("186.402.484-23");
+        medico.setNome("João"+i);
+        medico.setCpf("186.402.484-2"+i);
         medico.setDataNascimento(new Date(System.currentTimeMillis()));
         medico.setSexo(Sexo.MASCULINO);
         medico.setEmail("henrique");
@@ -49,13 +51,14 @@ public class MedicoDaoImplTest {
         medico.setTelefone("48996850323");
         medico.setCrm("123456");
         medico.setSenha("123");
-        medico.setEspecialidade(especialidadeDaoImpl.buscar(49));
+        medico.setEspecialidade(especialidadeDaoImpl.buscar(1));
 //        medico.setPlantaos(new PlantaoDaoImpl().listar());
         dao.salvar(medico);
+        }
     }
 
     @Test
-//    @Ignore
+    @Ignore
     public void buscar() {
         medico = dao.medicoLogar("henrique", "123");
         System.out.println(medico.getPlantaos());
