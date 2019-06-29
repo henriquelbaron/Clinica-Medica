@@ -19,6 +19,7 @@ import br.com.clinica.view.InternalFrameProntuario;
 import br.com.clinica.view.InternalFrameReceita;
 import br.com.clinica.view.InternalFrameSala;
 import br.com.clinica.view.InternalFrameVacina;
+import br.com.clinica.view.PacientesInternalFrame;
 import br.com.clinica.view.TelaPrincipal;
 import javax.swing.JFrame;
 
@@ -31,7 +32,7 @@ public class MainControl {
     private JFrame frame = null;
     private InternalFrameAgendamentoConsultas agendamentoConsulta = null;
     private InternalFramePlantao plantao = null;
-    private InternalFrameCadastroPaciente cadastroPaciente = null;
+    private PacientesInternalFrame pacientesInternalFrame = null;
     private CadastroDeFuncionadoInternalFrame cadastroFuncionario = null;
     private InternalFrameAgendaExames AgendaExame = null;
     private InternalFrameVacina vacina = null;
@@ -43,8 +44,24 @@ public class MainControl {
     private InternalFrameListaExames listaExames = null;
     private InternalFrameSala sala = null;
 
-    public MainControl(Pessoa usuario) {
-       UserLogado.setUSUARIO_LOGADO(usuario);
+    public MainControl(Pessoa usuario, JFrame pai) {
+        UserLogado.setUSUARIO_LOGADO(usuario);
+        this.frame = pai;
+    }
+
+    public void chamarTelaPacientes() {
+        if (pacientesInternalFrame == null) {
+            pacientesInternalFrame = new PacientesInternalFrame(frame);
+            TelaPrincipal.painel.add(pacientesInternalFrame);
+            pacientesInternalFrame.setVisible(true);
+        } else {
+            if (pacientesInternalFrame.isVisible()) {
+                pacientesInternalFrame.pack();
+            } else {
+                TelaPrincipal.painel.add(pacientesInternalFrame);
+                pacientesInternalFrame.setVisible(true);
+            }
+        }
     }
 
     public void ChamarTelaReservaSala() {
@@ -148,21 +165,6 @@ public class MainControl {
             } else {
                 TelaPrincipal.painel.add(listarVacina);
                 listarVacina.setVisible(true);
-            }
-        }
-    }
-
-    public void chamarTelaCadastroPaciente() {
-        if (cadastroPaciente == null) {
-            cadastroPaciente = new InternalFrameCadastroPaciente();
-            TelaPrincipal.painel.add(cadastroPaciente);
-            cadastroPaciente.setVisible(true);
-        } else {
-            if (cadastroPaciente.isVisible()) {
-                cadastroPaciente.pack();
-            } else {
-                TelaPrincipal.painel.add(cadastroPaciente);
-                cadastroPaciente.setVisible(true);
             }
         }
     }

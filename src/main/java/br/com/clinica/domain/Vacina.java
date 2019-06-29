@@ -1,15 +1,16 @@
 package br.com.clinica.domain;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotEmpty;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Vacina implements Serializable {
@@ -19,32 +20,28 @@ public class Vacina implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    
+
     @Column(nullable = false)
     private String nome;
-    
-    @ManyToOne
-    @JoinColumn(name = "idPaciente", nullable = false)
-    private Paciente paciente;
-    
-    @ManyToOne
-    @JoinColumn(name = "idEnfermeiro")
-    private Enfermeiro enfermeiro;
-    
-    @ManyToOne
-    @JoinColumn(name = "idConsulta")
-    private Consulta consulta;
+
+    @OneToMany(mappedBy = "vacina", targetEntity = VacinaAplicada.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<VacinaAplicada> vacinas;
     
     private String observacao;
 
     public Vacina() {
     }
 
-    public Vacina(String nome, Paciente paciente, Enfermeiro enfermeiro, Consulta consulta, String observacao) {
+    public List<VacinaAplicada> getVacinas() {
+        return vacinas;
+    }
+
+    public void setVacinas(List<VacinaAplicada> vacinas) {
+        this.vacinas = vacinas;
+    }
+
+    public Vacina(String nome, String observacao) {
         this.nome = nome;
-        this.paciente = paciente;
-        this.enfermeiro = enfermeiro;
-        this.consulta = consulta;
         this.observacao = observacao;
     }
 
@@ -62,30 +59,6 @@ public class Vacina implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public Paciente getPaciente() {
-        return paciente;
-    }
-
-    public void setPaciente(Paciente paciente) {
-        this.paciente = paciente;
-    }
-
-    public Enfermeiro getEnfermeiro() {
-        return enfermeiro;
-    }
-
-    public void setEnfermeiro(Enfermeiro enfermeiro) {
-        this.enfermeiro = enfermeiro;
-    }
-
-    public Consulta getConsulta() {
-        return consulta;
-    }
-
-    public void setConsulta(Consulta consulta) {
-        this.consulta = consulta;
     }
 
     public String getObservacao() {

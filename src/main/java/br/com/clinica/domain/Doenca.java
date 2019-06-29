@@ -3,8 +3,10 @@ package br.com.clinica.domain;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,10 +26,8 @@ public class Doenca implements Serializable {
     private String nome;
     private String descricao;
     private String medicacao;
-    @ManyToMany
-    @JoinTable(name = "doenca_paciente",
-            joinColumns = @JoinColumn(name = "idDoenca"),
-            inverseJoinColumns = @JoinColumn(name = "idPaciente"))
+
+    @ManyToMany(mappedBy = "doencas", targetEntity = Paciente.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Paciente> pacientes;
 
     public Doenca() {

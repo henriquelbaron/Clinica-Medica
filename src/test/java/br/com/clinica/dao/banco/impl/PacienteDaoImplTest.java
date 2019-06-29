@@ -5,15 +5,17 @@
  */
 package br.com.clinica.dao.banco.impl;
 
+import br.com.clinica.domain.Doenca;
 import br.com.clinica.domain.Endereco;
 import br.com.clinica.domain.Paciente;
 import br.com.clinica.domain.Sexo;
 import br.com.clinica.domain.Telefone;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import org.junit.Test;
-import org.junit.Ignore;
 
 /**
  *
@@ -36,18 +38,20 @@ public class PacienteDaoImplTest {
         for (int i = 0; i < 10; i++) {
 
             Paciente paciente = new Paciente();
-            paciente.setNome("Henrique" + i);
-            paciente.setCpf("186.200.191-2" + i);
+            paciente.setNome("amanda" + i);
+            paciente.setCpf("000.200.191-2" + i);
             paciente.setDataNascimento(new Date(System.currentTimeMillis()));
             paciente.setSexo(Sexo.MASCULINO);
-            paciente.setEmail("henrique@gmail.com");
+            paciente.setEmail("heerique@gmail.com" + i);
             paciente.setEndereco(new Endereco("88131-743", "Braulina Goulart", "48", "RioGrande", "", "SC"));
             paciente.setTipoSanguineo("O+");
             List<Telefone> telefones = new ArrayList();
             telefones.add(new Telefone(paciente, "(48)996850323", "Celular", "João", "Irmão", true));
             telefones.add(new Telefone(paciente, "(48)996850323", "Celular", "Henrique", "Pai", true));
             paciente.setTelefones(telefones);
-
+            Set<Doenca> doencas = new HashSet();
+            doencas.add(new DoencaDaoImpl().buscar(1));
+            paciente.setDoencas(doencas);
             dao.salvar(paciente);
         }
     }
@@ -59,5 +63,5 @@ public class PacienteDaoImplTest {
             System.out.println(paciente.getTelefones());
         }
     }
-    
+
 }

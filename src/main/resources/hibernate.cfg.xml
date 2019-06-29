@@ -53,6 +53,7 @@
         <mapping class="br.com.clinica.domain.Sala" />
         <mapping class="br.com.clinica.domain.Telefone" />
         <mapping class="br.com.clinica.domain.Vacina" />
+        <mapping class="br.com.clinica.domain.VacinaAplicada" />
         
     </session-factory>
 

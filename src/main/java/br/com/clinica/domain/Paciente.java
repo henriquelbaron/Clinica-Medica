@@ -4,14 +4,19 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 public class Paciente extends Pessoa implements Serializable {
@@ -25,8 +30,12 @@ public class Paciente extends Pessoa implements Serializable {
     @OneToMany(mappedBy = "paciente", orphanRemoval = true, targetEntity = Telefone.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Telefone> telefones;
 
-    @ManyToMany(mappedBy = "pacientes")
-    private List<Doenca> doencas;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "doenca_paciente",
+            joinColumns = @JoinColumn(name = "idPaciente"),
+            inverseJoinColumns = @JoinColumn(name = "idDoenca"))
+    @Fetch(value = FetchMode.SUBSELECT)
+    private Set<Doenca> doencas;
 
     @OneToMany(mappedBy = "paciente", targetEntity = Consulta.class, fetch = FetchType.LAZY)
     private List<Consulta> consultas;
@@ -34,7 +43,18 @@ public class Paciente extends Pessoa implements Serializable {
     @OneToMany(mappedBy = "paciente", targetEntity = Exame.class, fetch = FetchType.LAZY)
     private List<Exame> exames;
 
+    @OneToMany(mappedBy = "paciente", targetEntity = VacinaAplicada.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Set<VacinaAplicada> vacinaAplicada;
+
     public Paciente() {
+    }
+
+    public Set<VacinaAplicada> getVacinaAplicada() {
+        return vacinaAplicada;
+    }
+
+    public void setVacinaAplicada(Set<VacinaAplicada> vacinaAplicada) {
+        this.vacinaAplicada = vacinaAplicada;
     }
 
     public Integer getId() {
@@ -53,11 +73,11 @@ public class Paciente extends Pessoa implements Serializable {
         this.telefones = telefones;
     }
 
-    public List<Doenca> getDoencas() {
+    public Set<Doenca> getDoencas() {
         return doencas;
     }
 
-    public void setDoencas(List<Doenca> doencas) {
+    public void setDoencas(Set<Doenca> doencas) {
         this.doencas = doencas;
     }
 

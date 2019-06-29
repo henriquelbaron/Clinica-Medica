@@ -56,8 +56,8 @@ public class Consulta implements Serializable {
     @OneToMany(mappedBy = "consulta", targetEntity = Remedio.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Remedio> remedios;
 
-    @OneToMany(mappedBy = "consulta", targetEntity = Vacina.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Vacina> vacinas;
+    @OneToMany(mappedBy = "consulta", targetEntity = VacinaAplicada.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<VacinaAplicada> vacinasAplicadas;
 
     public Especialidade getEspecialidade() {
         return especialidade;
@@ -131,12 +131,12 @@ public class Consulta implements Serializable {
         this.remedios = remedios;
     }
 
-    public List<Vacina> getVacinas() {
-        return vacinas;
+    public List<VacinaAplicada> getVacinasAplicadas() {
+        return vacinasAplicadas;
     }
 
-    public void setVacinas(List<Vacina> vacinas) {
-        this.vacinas = vacinas;
+    public void setVacinasAplicadas(List<VacinaAplicada> vacinasAplicadas) {
+        this.vacinasAplicadas = vacinasAplicadas;
     }
 
 }

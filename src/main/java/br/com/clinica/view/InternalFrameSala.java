@@ -50,6 +50,7 @@ public class InternalFrameSala extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setClosable(true);
+        setIconifiable(true);
         setTitle("Cadastro de Salas");
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N

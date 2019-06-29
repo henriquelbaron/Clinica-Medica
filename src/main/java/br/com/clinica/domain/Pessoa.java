@@ -31,7 +31,7 @@ public class Pessoa {
     protected String telefone;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "idEndereco")
+    @JoinColumn(name = "idEndereco", nullable = false)
     protected Endereco endereco;
 
     @Enumerated(EnumType.STRING)

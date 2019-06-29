@@ -23,13 +23,13 @@ public class Enfermeiro extends Pessoa implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    
+
     @Column(unique = true, nullable = false)
     private String corenCofen;
-    
+
     @Column(nullable = false)
     private String senha;
-    
+
     @ManyToOne
     @JoinColumn(name = "idEspecialidade")
     private Especialidade especialidade;
@@ -40,8 +40,8 @@ public class Enfermeiro extends Pessoa implements Serializable {
     @OneToMany(mappedBy = "enfermeiro", targetEntity = Exame.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Exame> exames;
 
-    @OneToMany(mappedBy = "enfermeiro", targetEntity = Vacina.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Vacina> vacinas;
+    @OneToMany(mappedBy = "enfermeiro", targetEntity = VacinaAplicada.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<VacinaAplicada> vacinas;
 
     public Integer getId() {
         return id;
@@ -91,11 +91,11 @@ public class Enfermeiro extends Pessoa implements Serializable {
         this.exames = exames;
     }
 
-    public List<Vacina> getVacinas() {
+    public List<VacinaAplicada> getVacinas() {
         return vacinas;
     }
 
-    public void setVacinas(List<Vacina> vacinas) {
+    public void setVacinas(List<VacinaAplicada> vacinas) {
         this.vacinas = vacinas;
     }
 

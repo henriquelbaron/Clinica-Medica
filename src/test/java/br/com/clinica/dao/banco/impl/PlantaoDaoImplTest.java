@@ -28,18 +28,18 @@ public class PlantaoDaoImplTest {
     }
 
     @Test
-    @Ignore
+//    @Ignore
     public void save() {
         plantao = new Plantao();
         plantao.setData(new Date(System.currentTimeMillis()));
         List<Medico> medicos = new ArrayList();
-        medicos.add(new MedicoDaoImpl().buscar(2));
+        medicos.add(new MedicoDaoImpl().buscar(62));
         plantao.setMedicos(medicos);
         dao.salvar(plantao);
     }
 
     @Test
-//    @Ignore
+    @Ignore
     public void plantaoDoDia() {
 //        List<Medico> medicos = dao.getPlantoesDia(new Date(System.currentTimeMillis()));
         List<Medico> medicos = dao.getPlantoesMedicos();

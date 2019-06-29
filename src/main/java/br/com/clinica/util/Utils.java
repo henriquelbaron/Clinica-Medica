@@ -33,8 +33,8 @@ public class Utils {
         }
     }
 
-    public static String dateToStringSQL(Date data) {
-        sdf = new SimpleDateFormat("yyyy-MM-dd");
+    public static String dateToString(Date data) {
+        sdf = new SimpleDateFormat("dd/MM/yyyy");
         return sdf.format(data);
 
     }

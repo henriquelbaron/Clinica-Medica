@@ -8,6 +8,10 @@ public class TelefoneTable extends TableTemplate<Telefone> {
 
     private List<Telefone> telefones;
 
+    public List<Telefone> getTelefones() {
+        return telefones;
+    }
+
     public TelefoneTable() {
         telefones = new ArrayList();
     }

@@ -21,7 +21,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
      */
     public TelaPrincipal(Pessoa usuario) {
         initComponents();
-        this.control = new MainControl(usuario);
+        this.control = new MainControl(usuario,this);
     }
 
     /**
@@ -254,7 +254,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuAgendaConsultaActionPerformed
 
     private void menuPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPacienteActionPerformed
-        control.chamarTelaCadastroPaciente();
+        control.chamarTelaPacientes();
     }//GEN-LAST:event_menuPacienteActionPerformed
 
     private void menuFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFuncionarioActionPerformed

@@ -12,19 +12,19 @@ import br.com.clinica.domain.Vacina;
 
 /**
  *
- * @author Luiza Mistro
+ * @author Henrique Baron
  */
-public class InternalFrameCadastroPaciente extends javax.swing.JInternalFrame {
+public class PacienteCRUDDialog extends javax.swing.JDialog {
 
     /**
-     * Creates new form InternalFrameCadastroPaciente
+     * Creates new form PacienteCRUDDialog
      */
     private CadastrarEditarPaciente control;
 
-    public InternalFrameCadastroPaciente(Paciente p) {
+    public PacienteCRUDDialog(java.awt.Frame parent, boolean modal, Paciente p) {
+        super(parent, modal);
         initComponents();
-//        control = new CadastrarEditarPaciente(this, p);
-
+        control = new CadastrarEditarPaciente(this, p);
     }
 
     /**
@@ -36,21 +36,6 @@ public class InternalFrameCadastroPaciente extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDayChooser1 = new com.toedter.calendar.JDayChooser();
-        jSpinField1 = new com.toedter.components.JSpinField();
-        jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        tfNome = new javax.swing.JTextField();
-        cbSexo = new javax.swing.JComboBox<>();
-        tfEmail = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaTelefones = new javax.swing.JTable();
         tfTelefone = new javax.swing.JTextField();
@@ -72,17 +57,29 @@ public class InternalFrameCadastroPaciente extends javax.swing.JInternalFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        tfLogradouro = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        tfRua = new javax.swing.JTextField();
         tfBairro = new javax.swing.JTextField();
         tfCidade = new javax.swing.JTextField();
         tfEstado = new javax.swing.JTextField();
         tfComplemento = new javax.swing.JTextField();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel19 = new javax.swing.JLabel();
-        tfComplemento1 = new javax.swing.JTextField();
+        tfNumero = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        tfNome = new javax.swing.JTextField();
         cbSangue = new javax.swing.JComboBox<>();
+        cbSexo = new javax.swing.JComboBox<>();
         btAddTelefone1 = new javax.swing.JButton();
+        tfEmail = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         btRemoveVacina = new javax.swing.JButton();
         btRemoveDoenca = new javax.swing.JButton();
@@ -92,49 +89,7 @@ public class InternalFrameCadastroPaciente extends javax.swing.JInternalFrame {
         tfNomeTelefone = new javax.swing.JTextField();
         cbParentesco = new javax.swing.JComboBox<>();
 
-        jButton1.setText("jButton1");
-
-        setClosable(true);
-        setIconifiable(true);
-        setTitle("Cadastro De Paciente");
-        setMaximumSize(new java.awt.Dimension(744, 454));
-        setMinimumSize(new java.awt.Dimension(744, 454));
-        setPreferredSize(new java.awt.Dimension(744, 454));
-        setVisible(true);
-
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel2.setText("Nome");
-
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel3.setText("Nascimento");
-
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel4.setText("Sexo");
-
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel6.setText("Telefone");
-
-        jLabel7.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel7.setText("Endereço");
-
-        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel8.setText("CPF");
-
-        jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel9.setText("E-mail");
-
-        jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel10.setText("Sangue");
-
-        jLabel11.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel11.setText("Doenças");
-
-        cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cbSexo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbSexoActionPerformed(evt);
-            }
-        });
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         tabelaTelefones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -203,10 +158,20 @@ public class InternalFrameCadastroPaciente extends javax.swing.JInternalFrame {
         btSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/check.png"))); // NOI18N
         btSalvar.setText("Salvar");
         btSalvar.setBorder(null);
+        btSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSalvarActionPerformed(evt);
+            }
+        });
 
         btCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cross.png"))); // NOI18N
         btCancelar.setText("Cancelar");
         btCancelar.setBorder(null);
+        btCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCancelarActionPerformed(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabel12.setText("Rua");
@@ -223,12 +188,18 @@ public class InternalFrameCadastroPaciente extends javax.swing.JInternalFrame {
         jLabel17.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabel17.setText("Estado");
 
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel2.setText("Nome");
+
         jLabel18.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabel18.setText("Complemento");
 
-        tfLogradouro.addActionListener(new java.awt.event.ActionListener() {
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel3.setText("Nascimento");
+
+        tfRua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfLogradouroActionPerformed(evt);
+                tfRuaActionPerformed(evt);
             }
         });
 
@@ -241,11 +212,39 @@ public class InternalFrameCadastroPaciente extends javax.swing.JInternalFrame {
         jLabel19.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabel19.setText("N°");
 
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel4.setText("Sexo");
+
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel6.setText("Telefone");
+
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabel7.setText("Endereço");
+
+        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel8.setText("CPF");
+
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel9.setText("E-mail");
+
+        jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel10.setText("Sangue");
+
+        jLabel11.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel11.setText("Doenças");
+
         cbSangue.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "O+", "O-", "B+", "B-", "A+", "A-", "AB+", "AB-" }));
         cbSangue.setToolTipText("");
         cbSangue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbSangueActionPerformed(evt);
+            }
+        });
+
+        cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbSexo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbSexoActionPerformed(evt);
             }
         });
 
@@ -319,7 +318,7 @@ public class InternalFrameCadastroPaciente extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel12)
                                 .addGap(8, 8, 8)
-                                .addComponent(tfLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(tfRua, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel14)
                                 .addGap(18, 18, 18)
@@ -327,7 +326,7 @@ public class InternalFrameCadastroPaciente extends javax.swing.JInternalFrame {
                                 .addGap(6, 6, 6)
                                 .addComponent(jLabel19)
                                 .addGap(6, 6, 6)
-                                .addComponent(tfComplemento1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(tfNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel15)
                                 .addGap(12, 12, 12)
@@ -484,7 +483,7 @@ public class InternalFrameCadastroPaciente extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(7, 7, 7)
                                 .addComponent(jLabel12))
-                            .addComponent(tfLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tfRua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(5, 5, 5)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -494,7 +493,7 @@ public class InternalFrameCadastroPaciente extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addComponent(jLabel19))
-                            .addComponent(tfComplemento1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tfNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(5, 5, 5)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -563,47 +562,56 @@ public class InternalFrameCadastroPaciente extends javax.swing.JInternalFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void tfBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfBairroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfBairroActionPerformed
-
-    private void tfLogradouroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfLogradouroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfLogradouroActionPerformed
-
-    private void cbSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSexoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbSexoActionPerformed
-
-    private void cbSangueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSangueActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbSangueActionPerformed
-
-    private void tfCepKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfCepKeyReleased
-        control.keyReleasedCep();        // TODO add your handling code here:
-    }//GEN-LAST:event_tfCepKeyReleased
-
-    private void btAddDoencaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddDoencaActionPerformed
-        control.addDoencaAction();        // TODO add your handling code here:
-    }//GEN-LAST:event_btAddDoencaActionPerformed
-
-    private void btRemoveVacinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRemoveVacinaActionPerformed
-        control.removeVacinasAction();// TODO add your handling code here:
-    }//GEN-LAST:event_btRemoveVacinaActionPerformed
 
     private void btAddTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddTelefoneActionPerformed
         control.addTelefoneAction();        // TODO add your handling code here:
     }//GEN-LAST:event_btAddTelefoneActionPerformed
 
+    private void btAddVacinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddVacinaActionPerformed
+        control.addVacinasAction();        // TODO add your handling code here:
+    }//GEN-LAST:event_btAddVacinaActionPerformed
+
+    private void btAddDoencaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddDoencaActionPerformed
+        control.addDoencaAction();        // TODO add your handling code here:
+    }//GEN-LAST:event_btAddDoencaActionPerformed
+
+    private void cbTipoTelefoneItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbTipoTelefoneItemStateChanged
+        control.cbTipoTelefoneAction();        // TODO add your handling code here:
+    }//GEN-LAST:event_cbTipoTelefoneItemStateChanged
+
+    private void cbTipoTelefoneMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbTipoTelefoneMouseReleased
+
+    }//GEN-LAST:event_cbTipoTelefoneMouseReleased
+
+    private void cbTipoTelefonePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_cbTipoTelefonePropertyChange
+
+    }//GEN-LAST:event_cbTipoTelefonePropertyChange
+
+    private void tfRuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfRuaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfRuaActionPerformed
+
+    private void tfBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfBairroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfBairroActionPerformed
+
+    private void cbSangueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSangueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbSangueActionPerformed
+
+    private void cbSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSexoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbSexoActionPerformed
+
     private void btAddTelefone1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddTelefone1ActionPerformed
         control.removeTelefoneAction(); // TODO add your handling code here:
     }//GEN-LAST:event_btAddTelefone1ActionPerformed
 
-    private void btAddVacinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddVacinaActionPerformed
-        control.addVacinasAction();        // TODO add your handling code here:
-    }//GEN-LAST:event_btAddVacinaActionPerformed
+    private void btRemoveVacinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRemoveVacinaActionPerformed
+        control.removeVacinasAction();// TODO add your handling code here:
+    }//GEN-LAST:event_btRemoveVacinaActionPerformed
 
     private void btRemoveDoencaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRemoveDoencaActionPerformed
         control.removeDoencaAction(); // TODO add your handling code here:
@@ -613,20 +621,63 @@ public class InternalFrameCadastroPaciente extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfCepActionPerformed
 
+    private void tfCepKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfCepKeyReleased
+        control.keyReleasedCep();        // TODO add your handling code here:
+    }//GEN-LAST:event_tfCepKeyReleased
+
     private void tfNomeTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomeTelefoneActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfNomeTelefoneActionPerformed
 
-    private void cbTipoTelefonePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_cbTipoTelefonePropertyChange
-    }//GEN-LAST:event_cbTipoTelefonePropertyChange
+    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
+        control.salvarAction();        // TODO add your handling code here:
+    }//GEN-LAST:event_btSalvarActionPerformed
 
-    private void cbTipoTelefoneMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbTipoTelefoneMouseReleased
-    }//GEN-LAST:event_cbTipoTelefoneMouseReleased
+    private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
+control.close();        // TODO add your handling code here:
+    }//GEN-LAST:event_btCancelarActionPerformed
 
-    private void cbTipoTelefoneItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbTipoTelefoneItemStateChanged
-        control.cbTipoTelefoneAction();        // TODO add your handling code here:
-    }//GEN-LAST:event_cbTipoTelefoneItemStateChanged
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(PacienteCRUDDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(PacienteCRUDDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(PacienteCRUDDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(PacienteCRUDDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
 
+        /* Create and display the dialog */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+//                PacienteCRUDDialog dialog = new PacienteCRUDDialog(new javax.swing.JFrame(), true);
+//                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+//                    @Override
+//                    public void windowClosing(java.awt.event.WindowEvent e) {
+//                        System.exit(0);
+//                    }
+//                });
+//                dialog.setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btAddDoenca;
@@ -643,9 +694,7 @@ public class InternalFrameCadastroPaciente extends javax.swing.JInternalFrame {
     public javax.swing.JComboBox<String> cbSexo;
     public javax.swing.JComboBox<String> cbTipoTelefone;
     public javax.swing.JComboBox<String> cbVacina;
-    private javax.swing.JButton jButton1;
     public com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDayChooser jDayChooser1;
     public javax.swing.JLabel jLabel10;
     public javax.swing.JLabel jLabel11;
     public javax.swing.JLabel jLabel12;
@@ -666,7 +715,6 @@ public class InternalFrameCadastroPaciente extends javax.swing.JInternalFrame {
     public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JScrollPane jScrollPane3;
     public javax.swing.JScrollPane jScrollPane4;
-    private com.toedter.components.JSpinField jSpinField1;
     public javax.swing.JLabel lblNomeTelefone;
     public javax.swing.JLabel lblParentesco;
     public javax.swing.JList<Doenca> listaDoenca;
@@ -677,12 +725,12 @@ public class InternalFrameCadastroPaciente extends javax.swing.JInternalFrame {
     public javax.swing.JFormattedTextField tfCep;
     public javax.swing.JTextField tfCidade;
     public javax.swing.JTextField tfComplemento;
-    public javax.swing.JTextField tfComplemento1;
     public javax.swing.JTextField tfEmail;
     public javax.swing.JTextField tfEstado;
-    public javax.swing.JTextField tfLogradouro;
     public javax.swing.JTextField tfNome;
     public javax.swing.JTextField tfNomeTelefone;
+    public javax.swing.JTextField tfNumero;
+    public javax.swing.JTextField tfRua;
     public javax.swing.JTextField tfTelefone;
     // End of variables declaration//GEN-END:variables
 }
