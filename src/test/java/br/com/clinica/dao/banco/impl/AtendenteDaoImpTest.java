@@ -39,7 +39,7 @@ public class AtendenteDaoImpTest {
     }
 
     @Test
-//    @Ignore
+    @Ignore
     public void salvar() {
 
         atendente = new Atendente();
@@ -63,7 +63,7 @@ public class AtendenteDaoImpTest {
     }
 
     @Test
-    @Ignore
+//    @Ignore
     public void listar() {
         List<Atendente> atendentes = dao.listar();
         for (Atendente atendente1 : atendentes) {

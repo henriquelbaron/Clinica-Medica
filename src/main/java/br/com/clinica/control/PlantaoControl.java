@@ -7,10 +7,10 @@ package br.com.clinica.control;
 
 import br.com.clinica.domain.Enfermeiro;
 import br.com.clinica.domain.Medico;
+import br.com.clinica.view.InternalFramePlantao;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
-
 
 /**
  *
@@ -18,40 +18,17 @@ import javax.swing.JInternalFrame;
  */
 public class PlantaoControl {
 
-    private JFrame frame;
+    private InternalFramePlantao iFrame;
     private JInternalFrame internalFrame;
     private List<Medico> medicos;
     private List<Enfermeiro> enfermeiros;
 
+    public PlantaoControl(InternalFramePlantao frame) {
+        this.iFrame = frame;
+        loadTable();
+    }
+
     public void loadTable() {
-
-    }
-
-    public void clickTableListener() {
-
-    }
-
-    public void sendKeysComboBoxListener() {
-
-    }
-
-    public void sendKeysTfListener() {
-
-    }
-
-    public void buscarFuncionarioAction() {
-
-    }
-
-    public void clickRadioButtonListener() {
-
-    }
-
-    public void addPlantaoAction() {
-
-    }
-
-    public void deletePlantaoAction() {
 
     }
 

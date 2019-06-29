@@ -24,19 +24,19 @@ public class Plantao implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date data;
     
     @ManyToMany
     @JoinTable(name = "plantao_medico",
-            joinColumns = @JoinColumn(name = "idMedico"),
-            inverseJoinColumns = @JoinColumn(name = "idPlantao"))
+            joinColumns = @JoinColumn(name = "idPlantao"),
+            inverseJoinColumns = @JoinColumn(name = "idMedico"))
     private List<Medico> medicos;
     
     @ManyToMany
     @JoinTable(name = "plantao_enfermeiro",
-            joinColumns = @JoinColumn(name = "idEnfermeiro"),
-            inverseJoinColumns = @JoinColumn(name = "idPlantao"))
+            joinColumns = @JoinColumn(name = "idPlantao"),
+            inverseJoinColumns = @JoinColumn(name = "idEnfermeiro"))
     private List<Enfermeiro> enfermeiros;
 
     public Plantao() {

@@ -5,6 +5,7 @@
  */
 package br.com.clinica.control;
 
+import br.com.clinica.domain.Pessoa;
 import br.com.clinica.view.InternalFrameAgendaExames;
 import br.com.clinica.view.InternalFrameAgendamentoConsultas;
 import br.com.clinica.view.CadastroDeFuncionadoInternalFrame;
@@ -19,9 +20,7 @@ import br.com.clinica.view.InternalFrameReceita;
 import br.com.clinica.view.InternalFrameSala;
 import br.com.clinica.view.InternalFrameVacina;
 import br.com.clinica.view.TelaPrincipal;
-import java.awt.Frame;
 import javax.swing.JFrame;
-import javax.swing.JInternalFrame;
 
 /**
  *
@@ -44,12 +43,10 @@ public class MainControl {
     private InternalFrameListaExames listaExames = null;
     private InternalFrameSala sala = null;
 
-    public MainControl(Object usuario) {
-        
+    public MainControl(Pessoa usuario) {
+       UserLogado.setUSUARIO_LOGADO(usuario);
     }
 
-    
-    
     public void ChamarTelaReservaSala() {
         if (sala == null) {
             sala = new InternalFrameSala();
@@ -243,49 +240,6 @@ public class MainControl {
                 cadastroFuncionario.setVisible(true);
             }
         }
-    }
-
-//    void chamarTelaPrincipal() {
-//        frame = new TelaPrincipal();
-//        frame.setExtendedState(Frame.MAXIMIZED_BOTH);
-//        frame.setLocationRelativeTo(null);
-//        frame.setVisible(true);
-//    }
-
-    public void agendamentoConsultaAction(JFrame frame) {
-
-    }
-
-    public void agendamentoExameAction(JFrame frame) {
-
-    }
-
-    public void agendamentoVacinaAction(JFrame frame) {
-
-    }
-
-    public void medicoProntuarioAction(JFrame frame) {
-
-    }
-
-    public void medicoExameAction(JFrame frame) {
-
-    }
-
-    public void medicoReceitaAction(JFrame frame) {
-
-    }
-
-    public void consultaEmergenciaAction(JFrame frame) {
-
-    }
-
-    public void consultaExameAction(JFrame frame) {
-
-    }
-
-    public void consultaReservaSalaAction(JFrame frame) {
-
     }
 
 }

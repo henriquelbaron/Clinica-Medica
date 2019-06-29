@@ -17,7 +17,7 @@ public class EnfermeiroDaoImpl extends GenericDAO<Enfermeiro> {
             q.setParameter("senha", senha);
             return (Enfermeiro) q.getSingleResult();
         } catch (RuntimeException erro) {
-            throw erro;
+            return null;
         } finally {
             sessao.close();
         }

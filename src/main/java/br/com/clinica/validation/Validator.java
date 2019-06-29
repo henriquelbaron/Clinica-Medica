@@ -22,7 +22,7 @@ public class Validator {
     }
 
     public static boolean stringValidator(String str) {
-        return str.trim().isEmpty();
+        return !str.trim().isEmpty();
     }
 
     public static boolean cpfValidator(String str) {
@@ -39,9 +39,9 @@ public class Validator {
 
     public static boolean stringLenghtValidator(String str, int lenght) {
         if (str.trim().length() <= lenght) {
-            return true;
+            return false;
         }
-        return false;
+        return true;
     }
 
     public static boolean dateIsBefore(Date data) {

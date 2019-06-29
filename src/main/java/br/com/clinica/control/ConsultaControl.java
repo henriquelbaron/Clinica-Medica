@@ -5,6 +5,7 @@
  */
 package br.com.clinica.control;
 
+import br.com.clinica.dao.banco.impl.ConsultaDaoImpl;
 import br.com.clinica.dao.banco.impl.EspecialidadeDaoImpl;
 import br.com.clinica.dao.banco.impl.MedicoDaoImpl;
 import br.com.clinica.dao.banco.impl.PacienteDaoImpl;
@@ -15,6 +16,7 @@ import br.com.clinica.domain.Medico;
 import br.com.clinica.domain.Paciente;
 import br.com.clinica.domain.Sala;
 import br.com.clinica.domain.tables.PacienteTable;
+import br.com.clinica.util.SendMessenger;
 import br.com.clinica.util.Utils;
 import br.com.clinica.validation.Validator;
 import br.com.clinica.view.InternalFrameAgendamentoConsultas;
@@ -29,7 +31,7 @@ import javax.swing.DefaultComboBoxModel;
  * @author henrique
  */
 public class ConsultaControl {
-
+    
     private InternalFrameAgendamentoConsultas iFrame;
     private TelaPrincipal frame;
     private Paciente paciente;
@@ -39,32 +41,32 @@ public class ConsultaControl {
     private List<Especialidade> especialidades;
     private PacienteTable table;
     private Integer rowTable;
-
+    
     public ConsultaControl(InternalFrameAgendamentoConsultas frame) {
         this.iFrame = frame;
         loadConfig();
     }
-
+    
     private void loadConfig() {
         table = new PacienteTable();
         for (Paciente paciente1 : new PacienteDaoImpl().listar()) {
             table.addRow(paciente1);
         }
+        iFrame.lblAtendente.setText(UserLogado.getATENDENTE().getNome());
         iFrame.tabelaPaciente.setModel(table);
         iFrame.cbMedico.setModel(new DefaultComboBoxModel(new MedicoDaoImpl().listar().toArray()));
         iFrame.cbSala.setModel(new DefaultComboBoxModel(new SalaDaoImpl().listar().toArray()));
         iFrame.cbEspecialidade.setModel(new DefaultComboBoxModel(new EspecialidadeDaoImpl().listar().toArray()));
-
+        
     }
-
+    
     public void sendKeysTfListener() {
         table.clearTable();
-        PacienteDaoImpl dao = new PacienteDaoImpl();
-        for (Paciente paciente : dao.findPaciente(iFrame.tfPesquisar.getText())) {
+        for (Paciente paciente : new PacienteDaoImpl().findPaciente(iFrame.tfPesquisar.getText())) {
             table.addRow(paciente);
         }
     }
-
+    
     public void mouseListenerTable() {
         rowTable = iFrame.tabelaPaciente.getSelectedRow();
         if (rowTable >= 0) {
@@ -72,7 +74,7 @@ public class ConsultaControl {
             iFrame.lblPaciente.setText(paciente.getNome());
         }
     }
-
+    
     public void confirmarConsultaAction() {
         if (Validator.stringValidator(iFrame.tfHora.getText())) {
             consulta = new Consulta();
@@ -82,9 +84,16 @@ public class ConsultaControl {
             consulta.setPaciente(table.getRow(iFrame.tabelaPaciente.getSelectedRow()));
             consulta.setDataAgendamento(new Date(System.currentTimeMillis()));
             consulta.setData(Utils.stringToDate(iFrame.tfData.getDate(), iFrame.tfHora.getText()));
+            consulta.setAtendente(UserLogado.getATENDENTE());
+            consulta.setPaciente(paciente);
+            if (new ConsultaDaoImpl().salvar(consulta)) {
+                SendMessenger.success("Consulta Agendada Com Sucesso!");
+            }
+        } else {
+            SendMessenger.error("Complete os campos Corretamente!");
         }
     }
-
+    
     public void cancelarConsultaAction() {
         iFrame.dispose();
     }

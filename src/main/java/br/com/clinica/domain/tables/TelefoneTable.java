@@ -24,9 +24,10 @@ public class TelefoneTable extends TableTemplate<Telefone> {
 
     static class Constantes {
 
-        private static final String[] COLUNAS = {"Número", "Tipo"};
+        private static final String[] COLUNAS = {"Número", "Tipo", "Emergência"};
         private static final int NUMERO = 0;
         private static final int TIPO = 1;
+        private static final int EMERGENCIA = 2;
     }
 
     @Override
@@ -36,6 +37,8 @@ public class TelefoneTable extends TableTemplate<Telefone> {
                 return telefones.get(rowIndex).getNumero();
             case Constantes.TIPO:
                 return telefones.get(rowIndex).getTipo();
+            case Constantes.EMERGENCIA:
+                return telefones.get(rowIndex).isEmergencia() ? "Sim" : "Não";
             default:
                 return null;
         }

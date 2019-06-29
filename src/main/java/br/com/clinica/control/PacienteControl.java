@@ -19,6 +19,7 @@ import br.com.clinica.validation.Validator;
 import br.com.clinica.view.InternalFrameCadastroPaciente;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 
 /**
@@ -33,8 +34,9 @@ public class PacienteControl {
     private Endereco endereco;
     private TelefoneTable table;
     private List<Telefone> telefones;
-    private List<Doenca> doencas;
-    private List<Vacina> vacinas;
+    private DefaultListModel<Doenca> doencasList;
+    private DefaultListModel<Vacina> vacinasList;
+    private DefaultListModel<Telefone> telefoneList;
 
     public PacienteControl(InternalFrameCadastroPaciente iFrame) {
         this.iFrame = iFrame;
@@ -47,6 +49,11 @@ public class PacienteControl {
         iFrame.cbDoencas.setModel(new DefaultComboBoxModel(new DoencaDaoImpl().listar().toArray()));
         iFrame.cbVacina.setModel(new DefaultComboBoxModel(new VacinaDaoImpl().listar().toArray()));
         iFrame.cbSexo.setModel(new DefaultComboBoxModel(Sexo.values()));
+        doencasList = new DefaultListModel();
+        iFrame.listaDoenca.setModel(doencasList);
+        vacinasList = new DefaultListModel();
+        iFrame.listaVacinas.setModel(vacinasList);
+        setVisible(false);
     }
 
     public void keyReleasedCep() {
@@ -66,6 +73,14 @@ public class PacienteControl {
             telefone = new Telefone();
             telefone.setNumero(telefoneTela);
             telefone.setTipo(iFrame.cbTipoTelefone.getSelectedItem().toString());
+            if (telefone.getTipo().equals("Emergência")) {
+                String nomeEmergencia = iFrame.tfNomeTelefone.getText();
+                if (Validator.stringLenghtValidator(nomeEmergencia, 2)) {
+                    telefone.setIsEmergencia(true);
+                    telefone.setNome(nomeEmergencia);
+                    telefone.setParentesco(iFrame.cbParentesco.getSelectedItem().toString());
+                }
+            }
             table.addRow(telefone);
         }
     }
@@ -78,6 +93,45 @@ public class PacienteControl {
     }
 
     public void addDoencaAction() {
+        Doenca doenca = (Doenca) iFrame.cbDoencas.getSelectedItem();
+        if (!doencasList.contains(doenca)) {
+            doencasList.addElement(doenca);
+        }
+    }
 
+    public void removeDoencaAction() {
+        int index = iFrame.listaDoenca.getSelectedIndex();
+        if (index >= 0) {
+            doencasList.remove(index);
+        }
+    }
+
+    public void addVacinasAction() {
+        Vacina vacina = (Vacina) iFrame.cbVacina.getSelectedItem();
+        if (!vacinasList.contains(vacina)) {
+            vacinasList.addElement(vacina);
+        }
+    }
+
+    public void removeVacinasAction() {
+        int index = iFrame.listaVacinas.getSelectedIndex();
+        if (index >= 0) {
+            vacinasList.remove(index);
+        }
+    }
+
+    public void cbTipoTelefoneAction() {
+        if (iFrame.cbTipoTelefone.getSelectedItem().equals("Emergência")) {
+            setVisible(true);
+        }else{
+            setVisible(false);
+        }
+    }
+
+    private void setVisible(boolean b) {
+        iFrame.tfNomeTelefone.setVisible(b);
+        iFrame.cbParentesco.setVisible(b);
+        iFrame.lblParentesco.setVisible(b);
+        iFrame.lblNomeTelefone.setVisible(b);
     }
 }

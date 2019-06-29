@@ -20,7 +20,7 @@ public class MedicoDaoImpl extends GenericDAO<Medico> {
             q.setParameter("senha", senha);
             return (Medico) q.getSingleResult();
         } catch (RuntimeException erro) {
-            throw erro;
+            return null;
         } finally {
             sessao.close();
         }

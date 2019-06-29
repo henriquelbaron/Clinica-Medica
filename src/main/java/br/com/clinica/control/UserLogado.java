@@ -16,16 +16,37 @@ import br.com.clinica.domain.Pessoa;
  */
 public class UserLogado {
 
-    public static Medico medico;
-    public static Enfermeiro enfermeiro;
-    public static Atendente atendente;
+    public static Medico MEDICO;
+    public static Enfermeiro ENFERMEIRO;
+    public static Atendente ATENDENTE;
     public static Pessoa USUARIO_LOGADO;
 
-    public static Pessoa getUSUARIO_LOGADO() {
-        return USUARIO_LOGADO;
+    public UserLogado(Pessoa usuario) {
+        USUARIO_LOGADO = usuario;
     }
 
     public static void setUSUARIO_LOGADO(Pessoa USUARIO_LOGADO) {
+        if (USUARIO_LOGADO instanceof Medico) {
+            MEDICO = (Medico) USUARIO_LOGADO;
+        }
+        if (USUARIO_LOGADO instanceof Enfermeiro) {
+            ENFERMEIRO = (Enfermeiro) USUARIO_LOGADO;
+        }
+        if (USUARIO_LOGADO instanceof Atendente) {
+            ATENDENTE = (Atendente) USUARIO_LOGADO;
+        }
+    }
+
+    public static Medico getMEDICO() {
+        return MEDICO;
+    }
+
+    public static Enfermeiro getENFERMEIRO() {
+        return ENFERMEIRO;
+    }
+
+    public static Atendente getATENDENTE() {
+        return ATENDENTE;
     }
 
 }

@@ -35,7 +35,7 @@ public class LoginControl {
     public void loginAction() {
         String email = frame.tfEmail.getText();
         String senha = String.valueOf(frame.tfSenha.getPassword());
-        if (Validator.emailValidator(email) && Validator.stringLenghtValidator(senha, 3)) {
+        if (Validator.emailValidator(email) && Validator.stringLenghtValidator(senha, 2)) {
             Medico medico = new MedicoDaoImpl().medicoLogar(email, senha);
             if (medico != null) {
                 abreTelaPrincipal(medico);

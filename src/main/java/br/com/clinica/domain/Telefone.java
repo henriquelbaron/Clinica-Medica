@@ -1,7 +1,9 @@
 package br.com.clinica.domain;
 
+import com.sun.corba.se.impl.oa.toa.TOA;
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.logging.Logger;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -25,7 +27,7 @@ public class Telefone implements Serializable {
     private String parentesco;
     private boolean isEmergencia;
 
-    @ManyToOne(fetch = FetchType.EAGER, targetEntity = Paciente.class)
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Paciente.class)
     @JoinColumn(name = "idPaciente")
     private Paciente paciente;
 
@@ -81,7 +83,7 @@ public class Telefone implements Serializable {
         this.parentesco = parentesco;
     }
 
-    public boolean isIsEmergencia() {
+    public boolean isEmergencia() {
         return isEmergencia;
     }
 
@@ -126,5 +128,4 @@ public class Telefone implements Serializable {
         }
         return true;
     }
-
 }

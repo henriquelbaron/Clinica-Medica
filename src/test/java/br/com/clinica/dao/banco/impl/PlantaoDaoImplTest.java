@@ -10,6 +10,7 @@ import br.com.clinica.domain.Plantao;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -26,13 +27,25 @@ public class PlantaoDaoImplTest {
     }
 
     @Test
+    @Ignore
     public void save() {
         plantao = new Plantao();
         plantao.setData(new Date(System.currentTimeMillis()));
         List<Medico> medicos = new ArrayList();
-        medicos.add(new MedicoDaoImpl().buscar(1));
+        medicos.add(new MedicoDaoImpl().buscar(50));
         plantao.setMedicos(medicos);
         dao.salvar(plantao);
     }
 
+    @Test
+    public void plantaoDoDia() {
+        List<Medico> plantaos = dao.getPlantoesDia(new Date(System.currentTimeMillis()));
+        System.out.println(plantaos.size());
+        System.out.println(plantaos.size());
+        System.out.println(plantaos.size());
+        System.out.println(plantaos.size());
+        System.out.println(plantaos.size());
+        System.out.println(plantaos.size());
+        System.out.println(plantaos.size());
+    }
 }

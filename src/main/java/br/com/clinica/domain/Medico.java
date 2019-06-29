@@ -30,7 +30,7 @@ public class Medico extends Pessoa implements Serializable {
     @JoinColumn(name = "idEspecialidade")
     private Especialidade especialidade;
 
-    @ManyToMany(mappedBy = "medicos")
+    @ManyToMany(mappedBy = "medicos", targetEntity = Plantao.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Plantao> plantaos;
 
     @OneToMany(mappedBy = "medico", targetEntity = Consulta.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)

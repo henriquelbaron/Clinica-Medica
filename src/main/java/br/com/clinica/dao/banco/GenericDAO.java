@@ -7,6 +7,7 @@ package br.com.clinica.dao.banco;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
+import javax.persistence.Query;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;

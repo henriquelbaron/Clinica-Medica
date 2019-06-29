@@ -58,6 +58,6 @@ public class MedicoDaoImplTest {
 //    @Ignore
     public void buscar() {
         medico = dao.medicoLogar("henrique", "123");
-        System.out.println(medico.getNome());
+        System.out.println(medico.getPlantaos());
     }
 }
