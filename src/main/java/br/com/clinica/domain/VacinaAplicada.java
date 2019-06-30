@@ -6,14 +6,18 @@
 package br.com.clinica.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -28,9 +32,23 @@ public class VacinaAplicada implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    @Column(nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date data;
+
+    @Column(nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dataAgendamento;
+
+    private boolean aplicada;
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idPaciente", nullable = false)
     private Paciente paciente;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idSala", nullable = false)
+    private Sala sala;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idAtendente", nullable = false)
@@ -44,11 +62,39 @@ public class VacinaAplicada implements Serializable {
     @JoinColumn(name = "idVacina", nullable = false)
     private Vacina vacina;
 
-    @ManyToOne(cascade = CascadeType.ALL, targetEntity = Consulta.class)
-    @JoinColumn(name = "idConsulta")
-    private Consulta consulta;
-
     public VacinaAplicada() {
+    }
+
+    public Date getDataAgendamento() {
+        return dataAgendamento;
+    }
+
+    public void setDataAgendamento(Date dataAgendamento) {
+        this.dataAgendamento = dataAgendamento;
+    }
+
+    public Sala getSala() {
+        return sala;
+    }
+
+    public void setSala(Sala sala) {
+        this.sala = sala;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    public boolean isAplicada() {
+        return aplicada;
+    }
+
+    public void setAplicada(boolean aplicada) {
+        this.aplicada = aplicada;
     }
 
     public Atendente getAtendente() {
@@ -89,14 +135,6 @@ public class VacinaAplicada implements Serializable {
 
     public void setVacina(Vacina vacina) {
         this.vacina = vacina;
-    }
-
-    public Consulta getConsulta() {
-        return consulta;
-    }
-
-    public void setConsulta(Consulta consulta) {
-        this.consulta = consulta;
     }
 
     @Override

@@ -18,15 +18,17 @@ import java.util.Date;
  */
 public class Utils {
 
+    private static final String dataFormat = "dd/MM/yyyy";
+    private static final String dataHoraFormat = "dd/MM/yyyy HH:mm";
+    private static final String horaFormat = "HH:mm";
     private static SimpleDateFormat sdf;
-    private static DecimalFormat df;
 
     public static Date stringToDate(Date data, String hora) {
         try {
-            sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+            sdf = new SimpleDateFormat(dataHoraFormat);
             sdf.setLenient(false);
-            String dataString = new SimpleDateFormat("dd/MM/yyyy").format(data);
-            return new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(dataString + " " + hora);
+            String dataString = new SimpleDateFormat(dataFormat).format(data);
+            return sdf.parse(dataString + " " + hora);
         } catch (ParseException e) {
             System.out.println(e.getMessage());
             return null;
@@ -34,35 +36,26 @@ public class Utils {
     }
 
     public static String dateToString(Date data) {
-        sdf = new SimpleDateFormat("dd/MM/yyyy");
+        sdf = new SimpleDateFormat(dataFormat);
         return sdf.format(data);
 
     }
 
     public static Date stringToDate(String data) {
         try {
-            return new SimpleDateFormat("dd/MM/yyyy").parse(data);
+            return new SimpleDateFormat(dataFormat).parse(data);
         } catch (ParseException e) {
             System.out.println(e.getMessage());
             return null;
         }
     }
 
-    public static Double stringToDouble(String str) {
-        return null;
+    public static String horaAtual() {
+        return new SimpleDateFormat(horaFormat).format(new Date().getTime());
     }
 
-    public static String formatNumber(Double d) {
-        return null;
-    }
-
-    public static LocalDate formatDate(String data) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return LocalDate.parse(data, formatter);
-    }
-
-    public static Date getDateNow() {
-        return null;
+    public static String dataAutal() {
+        return new SimpleDateFormat(dataFormat).format(new Date().getTime());
     }
 
     public static boolean dateBeforeToday(Date date) {

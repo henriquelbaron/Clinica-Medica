@@ -34,6 +34,9 @@ public class Sala implements Serializable {
     @OneToMany(mappedBy = "sala", targetEntity = Consulta.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Consulta> consultas;
 
+    @OneToMany(mappedBy = "sala", targetEntity = VacinaAplicada.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<VacinaAplicada> vacinas;
+
     private int prioridade;
 
     @ManyToOne
@@ -46,6 +49,14 @@ public class Sala implements Serializable {
     public Sala(String numero, int prioridade) {
         this.numero = numero;
         this.prioridade = prioridade;
+    }
+
+    public List<VacinaAplicada> getVacinas() {
+        return vacinas;
+    }
+
+    public void setVacinas(List<VacinaAplicada> vacinas) {
+        this.vacinas = vacinas;
     }
 
     public String getDescrição() {

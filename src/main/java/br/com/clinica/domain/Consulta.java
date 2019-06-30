@@ -24,7 +24,7 @@ public class Consulta implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    
+
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date data;
@@ -55,9 +55,6 @@ public class Consulta implements Serializable {
 
     @OneToMany(mappedBy = "consulta", targetEntity = Remedio.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Remedio> remedios;
-
-    @OneToMany(mappedBy = "consulta", targetEntity = VacinaAplicada.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<VacinaAplicada> vacinasAplicadas;
 
     public Especialidade getEspecialidade() {
         return especialidade;
@@ -129,14 +126,6 @@ public class Consulta implements Serializable {
 
     public void setRemedios(List<Remedio> remedios) {
         this.remedios = remedios;
-    }
-
-    public List<VacinaAplicada> getVacinasAplicadas() {
-        return vacinasAplicadas;
-    }
-
-    public void setVacinasAplicadas(List<VacinaAplicada> vacinasAplicadas) {
-        this.vacinasAplicadas = vacinasAplicadas;
     }
 
 }

@@ -11,6 +11,7 @@ import br.com.clinica.domain.tables.PacienteTable;
 import br.com.clinica.util.SendMessenger;
 import br.com.clinica.view.AgendamentoConsultaDialog;
 import br.com.clinica.view.AgendamentoExamesDialog;
+import br.com.clinica.view.AgendamentoVacinaDialog;
 import br.com.clinica.view.PacienteCRUDDialog;
 import br.com.clinica.view.PacientesInternalFrame;
 import javax.swing.JFrame;
@@ -105,8 +106,8 @@ public class PacienteControl {
         rowTable = iFrame.tabelaPaciente.getSelectedRow();
         if (rowTable >= 0) {
             paciente = table.getRow(rowTable);
-//            AgendamentoConsultaDialog dlg = new AgendamentoConsultaDialog(frame, true, paciente);
-//            dlg.setVisible(true);
+            AgendamentoVacinaDialog dlg = new AgendamentoVacinaDialog(frame, true, paciente);
+            dlg.setVisible(true);
         } else {
             SendMessenger.error("Selecione o Paciente que deseja Marcar Vacina!");
         }
