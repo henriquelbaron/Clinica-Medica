@@ -48,4 +48,17 @@ public class MedicoDaoImpl extends GenericDAO<Medico> {
             sessao.close();
         }
     }
+
+    public List<Medico> findPaciente(String termo) {
+        Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
+        try {
+            Query q = sessao.createQuery("Select p From Medico as p where p.nome like :termo");
+            q.setParameter("termo", "%" + termo + "%");
+            return q.getResultList();
+        } catch (RuntimeException erro) {
+            return null;
+        } finally {
+            sessao.close();
+        }
+    }
 }

@@ -25,4 +25,16 @@ public class AtendenteDaoImp extends GenericDAO<Atendente> {
         }
     }
 
+    public List<Atendente> findPaciente(String termo) {
+        Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
+        try {
+            Query q = sessao.createQuery("Select p From Atendente as p where p.nome like :termo");
+            q.setParameter("termo", "%" + termo + "%");
+            return q.getResultList();
+        } catch (RuntimeException erro) {
+            return null;
+        } finally {
+            sessao.close();
+        }
+    }
 }

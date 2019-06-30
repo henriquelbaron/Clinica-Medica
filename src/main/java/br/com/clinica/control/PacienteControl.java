@@ -6,17 +6,11 @@
 package br.com.clinica.control;
 
 import br.com.clinica.dao.banco.impl.PacienteDaoImpl;
-import br.com.clinica.dao.banco.impl.SalaDaoImpl;
 import br.com.clinica.domain.Paciente;
 import br.com.clinica.domain.tables.PacienteTable;
 import br.com.clinica.util.SendMessenger;
-import br.com.clinica.view.InternalFrameCadastroPaciente;
 import br.com.clinica.view.PacienteCRUDDialog;
 import br.com.clinica.view.PacientesInternalFrame;
-import br.com.clinica.view.TelaPrincipal;
-import java.beans.PropertyVetoException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -29,7 +23,6 @@ public class PacienteControl {
     private Paciente paciente;
     private int rowTable;
     private PacienteTable table;
-    private PacienteCRUDDialog cadastroPaciente;
     private JFrame frame;
 
     public PacienteControl(PacientesInternalFrame aThis, JFrame frame) {

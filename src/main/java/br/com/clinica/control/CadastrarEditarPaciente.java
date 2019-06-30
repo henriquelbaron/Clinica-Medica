@@ -34,7 +34,7 @@ import javax.swing.DefaultListModel;
 public class CadastrarEditarPaciente {
 
     private Paciente paciente;
-    private final PacienteCRUDDialog iFrame;
+    private final PacienteCRUDDialog dlg;
     private Telefone telefone;
     private Endereco endereco;
     private TelefoneTable table;
@@ -42,7 +42,7 @@ public class CadastrarEditarPaciente {
     private DefaultListModel<Vacina> vacinasList;
 
     public CadastrarEditarPaciente(PacienteCRUDDialog dialog, Paciente paciente) {
-        this.iFrame = dialog;
+        this.dlg = dialog;
         loadConfig(paciente);
     }
 
@@ -56,40 +56,40 @@ public class CadastrarEditarPaciente {
         for (Doenca doenca : p.getDoencas()) {
             doencasList.addElement(doenca);
         }
-        iFrame.jDateChooser1.setDate(p.getDataNascimento());
-        iFrame.tfNome.setText(p.getNome());
-        iFrame.tfCPF.setText(p.getCpf());
-        iFrame.tfEmail.setText(p.getEmail());
+        dlg.jDateChooser1.setDate(p.getDataNascimento());
+        dlg.tfNome.setText(p.getNome());
+        dlg.tfCPF.setText(p.getCpf());
+        dlg.tfEmail.setText(p.getEmail());
 
-        iFrame.tfRua.setText(p.getEndereco().getLogradouro());
-        iFrame.tfCep.setText(p.getEndereco().getCep());
-        iFrame.tfNumero.setText(p.getEndereco().getNumero());
-        iFrame.tfBairro.setText(p.getEndereco().getBairro());
-        iFrame.tfCidade.setText(p.getEndereco().getLocalidade());
-        iFrame.tfEstado.setText(p.getEndereco().getUF());
-        iFrame.tfComplemento.setText(p.getEndereco().getComplemento());
-        iFrame.cbSexo.setSelectedItem(p.getSexo());
-        iFrame.cbTipoTelefone.setSelectedItem(p.getTipoSanguineo());
+        dlg.tfRua.setText(p.getEndereco().getLogradouro());
+        dlg.tfCep.setText(p.getEndereco().getCep());
+        dlg.tfNumero.setText(p.getEndereco().getNumero());
+        dlg.tfBairro.setText(p.getEndereco().getBairro());
+        dlg.tfCidade.setText(p.getEndereco().getLocalidade());
+        dlg.tfEstado.setText(p.getEndereco().getUF());
+        dlg.tfComplemento.setText(p.getEndereco().getComplemento());
+        dlg.cbSexo.setSelectedItem(p.getSexo());
+        dlg.cbTipoTelefone.setSelectedItem(p.getTipoSanguineo());
 
     }
 
     private void loadConfig(Paciente p) {
         table = new TelefoneTable();
-        iFrame.tabelaTelefones.setModel(table);
-        iFrame.cbDoencas.setModel(new DefaultComboBoxModel(new DoencaDaoImpl().listar().toArray()));
-        iFrame.cbVacina.setModel(new DefaultComboBoxModel(new VacinaDaoImpl().listar().toArray()));
-        iFrame.cbSexo.setModel(new DefaultComboBoxModel(Sexo.values()));
+        dlg.tabelaTelefones.setModel(table);
+        dlg.cbDoencas.setModel(new DefaultComboBoxModel(new DoencaDaoImpl().listar().toArray()));
+        dlg.cbVacina.setModel(new DefaultComboBoxModel(new VacinaDaoImpl().listar().toArray()));
+        dlg.cbSexo.setModel(new DefaultComboBoxModel(Sexo.values()));
         doencasList = new DefaultListModel();
-        iFrame.listaDoenca.setModel(doencasList);
+        dlg.listaDoenca.setModel(doencasList);
         vacinasList = new DefaultListModel();
-        iFrame.listaVacinas.setModel(vacinasList);
+        dlg.listaVacinas.setModel(vacinasList);
         setVisible(false);
         if (p != null) {
-            iFrame.setTitle("Editar Cadastro de " + p.getNome());
+            dlg.setTitle("Editar Cadastro de " + p.getNome());
             paciente = p;
             loadPaciente(p);
         } else {
-            iFrame.setTitle("Cadastrar Novo Paciente");
+            dlg.setTitle("Cadastrar Novo Paciente");
             paciente = new Paciente();
         }
     }
@@ -121,19 +121,19 @@ public class CadastrarEditarPaciente {
     }
 
     private Paciente popularAtributos(Paciente p) {
-        p.setNome(iFrame.tfNome.getText());
-        p.setCpf(iFrame.tfCPF.getText());
-        p.setEmail(iFrame.tfEmail.getText());
-        p.setDataNascimento(iFrame.jDateChooser1.getDate());
-        p.setSexo((Sexo) iFrame.cbSexo.getSelectedItem());
-        p.setTipoSanguineo(iFrame.cbSangue.getSelectedItem().toString());
-        p.getEndereco().setNumero(iFrame.tfNumero.getText());
-        p.getEndereco().setComplemento(iFrame.tfComplemento.getText());
-        p.getEndereco().setLogradouro(iFrame.tfRua.getText());
-        p.getEndereco().setBairro(iFrame.tfBairro.getText());
-        p.getEndereco().setLocalidade(iFrame.tfCidade.getText());
-        p.getEndereco().setUF(iFrame.tfEstado.getText());
-        p.getEndereco().setCep(iFrame.tfCep.getText());
+        p.setNome(dlg.tfNome.getText());
+        p.setCpf(dlg.tfCPF.getText());
+        p.setEmail(dlg.tfEmail.getText());
+        p.setDataNascimento(dlg.jDateChooser1.getDate());
+        p.setSexo((Sexo) dlg.cbSexo.getSelectedItem());
+        p.setTipoSanguineo(dlg.cbSangue.getSelectedItem().toString());
+        p.getEndereco().setNumero(dlg.tfNumero.getText());
+        p.getEndereco().setComplemento(dlg.tfComplemento.getText());
+        p.getEndereco().setLogradouro(dlg.tfRua.getText());
+        p.getEndereco().setBairro(dlg.tfBairro.getText());
+        p.getEndereco().setLocalidade(dlg.tfCidade.getText());
+        p.getEndereco().setUF(dlg.tfEstado.getText());
+        p.getEndereco().setCep(dlg.tfCep.getText());
         Set<Doenca> doencas = new HashSet();
         for (int i = 0; i < doencasList.size(); i++) {
             doencas.add(doencasList.getElementAt(i));
@@ -152,30 +152,30 @@ public class CadastrarEditarPaciente {
     }
 
     public void keyReleasedCep() {
-        if (iFrame.tfCep.getText().trim().length() == 9) {
-            endereco = EnderecoDaoServer.getEndereco(iFrame.tfCep.getText());
-            iFrame.tfRua.setText(endereco.getLogradouro());
-            iFrame.tfBairro.setText(endereco.getBairro());
-            iFrame.tfCidade.setText(endereco.getLocalidade());
-            iFrame.tfEstado.setText(endereco.getUF());
-            iFrame.tfRua.setText(endereco.getLogradouro());
+        if (dlg.tfCep.getText().trim().length() == 9) {
+            endereco = EnderecoDaoServer.getEndereco(dlg.tfCep.getText());
+            dlg.tfRua.setText(endereco.getLogradouro());
+            dlg.tfBairro.setText(endereco.getBairro());
+            dlg.tfCidade.setText(endereco.getLocalidade());
+            dlg.tfEstado.setText(endereco.getUF());
+            dlg.tfRua.setText(endereco.getLogradouro());
             paciente.setEndereco(endereco);
         }
     }
 
     public void addTelefoneAction() {
-        String telefoneTela = iFrame.tfTelefone.getText();
+        String telefoneTela = dlg.tfTelefone.getText();
         if (Validator.stringLenghtValidator(telefoneTela, 8)) {
             telefone = new Telefone();
             telefone.setPaciente(paciente);
             telefone.setNumero(telefoneTela);
-            telefone.setTipo(iFrame.cbTipoTelefone.getSelectedItem().toString());
+            telefone.setTipo(dlg.cbTipoTelefone.getSelectedItem().toString());
             if (telefone.getTipo().equals("Emergência")) {
-                String nomeEmergencia = iFrame.tfNomeTelefone.getText();
+                String nomeEmergencia = dlg.tfNomeTelefone.getText();
                 if (Validator.stringLenghtValidator(nomeEmergencia, 2)) {
                     telefone.setIsEmergencia(true);
                     telefone.setNome(nomeEmergencia);
-                    telefone.setParentesco(iFrame.cbParentesco.getSelectedItem().toString());
+                    telefone.setParentesco(dlg.cbParentesco.getSelectedItem().toString());
                 }
             }
             table.addRow(telefone);
@@ -185,42 +185,42 @@ public class CadastrarEditarPaciente {
     }
 
     public void removeTelefoneAction() {
-        int rowTable = iFrame.tabelaTelefones.getSelectedRow();
+        int rowTable = dlg.tabelaTelefones.getSelectedRow();
         if (rowTable >= 0) {
             table.removeRow(rowTable);
         }
     }
 
     public void addDoencaAction() {
-        Doenca doenca = (Doenca) iFrame.cbDoencas.getSelectedItem();
+        Doenca doenca = (Doenca) dlg.cbDoencas.getSelectedItem();
         if (!doencasList.contains(doenca)) {
             doencasList.addElement(doenca);
         }
     }
 
     public void removeDoencaAction() {
-        int index = iFrame.listaDoenca.getSelectedIndex();
+        int index = dlg.listaDoenca.getSelectedIndex();
         if (index >= 0) {
             doencasList.remove(index);
         }
     }
 
     public void addVacinasAction() {
-        Vacina vacina = (Vacina) iFrame.cbVacina.getSelectedItem();
+        Vacina vacina = (Vacina) dlg.cbVacina.getSelectedItem();
         if (!vacinasList.contains(vacina)) {
             vacinasList.addElement(vacina);
         }
     }
 
     public void removeVacinasAction() {
-        int index = iFrame.listaVacinas.getSelectedIndex();
+        int index = dlg.listaVacinas.getSelectedIndex();
         if (index >= 0) {
             vacinasList.remove(index);
         }
     }
 
     public void cbTipoTelefoneAction() {
-        if (iFrame.cbTipoTelefone.getSelectedItem().equals("Emergência")) {
+        if (dlg.cbTipoTelefone.getSelectedItem().equals("Emergência")) {
             setVisible(true);
         } else {
             setVisible(false);
@@ -228,14 +228,14 @@ public class CadastrarEditarPaciente {
     }
 
     private void setVisible(boolean b) {
-        iFrame.tfNomeTelefone.setVisible(b);
-        iFrame.cbParentesco.setVisible(b);
-        iFrame.lblParentesco.setVisible(b);
-        iFrame.lblNomeTelefone.setVisible(b);
+        dlg.tfNomeTelefone.setVisible(b);
+        dlg.cbParentesco.setVisible(b);
+        dlg.lblParentesco.setVisible(b);
+        dlg.lblNomeTelefone.setVisible(b);
     }
 
     public void close() {
-        iFrame.dispose();
+        dlg.dispose();
     }
 
 }

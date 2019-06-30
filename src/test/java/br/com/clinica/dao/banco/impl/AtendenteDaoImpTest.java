@@ -7,8 +7,8 @@ package br.com.clinica.dao.banco.impl;
 
 import br.com.clinica.domain.Atendente;
 import br.com.clinica.domain.Endereco;
+import br.com.clinica.domain.Pessoa;
 import br.com.clinica.domain.Sexo;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import org.junit.AfterClass;
@@ -56,14 +56,19 @@ public class AtendenteDaoImpTest {
     }
 
     @Test
-    @Ignore
+//    @Ignore
     public void exluir() {
-        atendente = dao.buscar(1);
-        dao.excluir(atendente);
+        atendente = new Atendente();
+        atendente.setSenha("sdsad");
+        atendente.setNome("henrique");
+        Pessoa p = atendente;
+        Atendente a = (Atendente) p;
+        System.out.println(a.getSenha());
+        System.out.println(a.getNome());
     }
 
     @Test
-//    @Ignore
+    @Ignore
     public void listar() {
         List<Atendente> atendentes = dao.listar();
         for (Atendente atendente1 : atendentes) {

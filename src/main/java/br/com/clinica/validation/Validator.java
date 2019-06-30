@@ -5,8 +5,7 @@
  */
 package br.com.clinica.validation;
 
-import br.com.clinica.util.Utils;
-import br.com.clinica.view.CadastroDeFuncionadoInternalFrame;
+import br.com.clinica.view.FuncionarioCRUDDialog;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
@@ -52,12 +51,12 @@ public class Validator {
 //    public static boolean consultaValidator(){
 //        
 //    }
-    public static boolean validSaveFuncionario(CadastroDeFuncionadoInternalFrame iFrame) {
-        if (stringValidator(iFrame.tfNome.getText())) {
+    public static boolean validSaveFuncionario(FuncionarioCRUDDialog dlg) {
+        if (!stringValidator(dlg.tfNome.getText())) {
             return false;
         }
-        if (stringLenghtValidator(iFrame.tfEmail.getText(), 10)) {
-
+        if (!stringLenghtValidator(dlg.tfEmail.getText(), 10)) {
+            return false;
         }
         return true;
     }

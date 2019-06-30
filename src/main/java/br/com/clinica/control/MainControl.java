@@ -8,8 +8,7 @@ package br.com.clinica.control;
 import br.com.clinica.domain.Pessoa;
 import br.com.clinica.view.InternalFrameAgendaExames;
 import br.com.clinica.view.InternalFrameAgendamentoConsultas;
-import br.com.clinica.view.CadastroDeFuncionadoInternalFrame;
-import br.com.clinica.view.InternalFrameCadastroPaciente;
+import br.com.clinica.view.FuncionariosInternalFrame;
 import br.com.clinica.view.InternalFrameEmergencia;
 import br.com.clinica.view.InternalFrameExames;
 import br.com.clinica.view.InternalFrameListaExames;
@@ -33,7 +32,7 @@ public class MainControl {
     private InternalFrameAgendamentoConsultas agendamentoConsulta = null;
     private InternalFramePlantao plantao = null;
     private PacientesInternalFrame pacientesInternalFrame = null;
-    private CadastroDeFuncionadoInternalFrame cadastroFuncionario = null;
+    private FuncionariosInternalFrame cadastroFuncionario = null;
     private InternalFrameAgendaExames AgendaExame = null;
     private InternalFrameVacina vacina = null;
     private InternalFrameListagemVacina listarVacina = null;
@@ -231,7 +230,7 @@ public class MainControl {
 
     public void chamarTelaCadastroFuncionario() {
         if (cadastroFuncionario == null) {
-            cadastroFuncionario = new CadastroDeFuncionadoInternalFrame();
+            cadastroFuncionario = new FuncionariosInternalFrame(frame);
             TelaPrincipal.painel.add(cadastroFuncionario);
             cadastroFuncionario.setVisible(true);
         } else {
