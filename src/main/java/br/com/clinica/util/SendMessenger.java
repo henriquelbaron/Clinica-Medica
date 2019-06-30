@@ -25,7 +25,7 @@ public class SendMessenger {
     }
 
     public static int confirmAction(String str) {
-        return 0;
+        return JOptionPane.showConfirmDialog(null, str, "ATENÇÃO", JOptionPane.YES_NO_OPTION);
     }
 
     public static String input(String str) {

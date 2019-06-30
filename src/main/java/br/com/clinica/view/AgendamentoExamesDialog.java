@@ -46,6 +46,7 @@ public class AgendamentoExamesDialog extends javax.swing.JDialog {
         lblPaciente = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Agendamento de Exame");
 
         lblAtendente.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
         lblAtendente.setText(":");
@@ -57,7 +58,6 @@ public class AgendamentoExamesDialog extends javax.swing.JDialog {
         btConfirmar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/check.png"))); // NOI18N
         btConfirmar.setText("Confimar");
-        btConfirmar.setBorder(null);
         btConfirmar.setMaximumSize(new java.awt.Dimension(190, 44));
         btConfirmar.setMinimumSize(new java.awt.Dimension(190, 44));
         btConfirmar.setPreferredSize(new java.awt.Dimension(190, 44));
@@ -80,7 +80,6 @@ public class AgendamentoExamesDialog extends javax.swing.JDialog {
         btCancelar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cross.png"))); // NOI18N
         btCancelar.setText("Cancelar ");
-        btCancelar.setBorder(null);
         btCancelar.setMaximumSize(new java.awt.Dimension(190, 44));
         btCancelar.setMinimumSize(new java.awt.Dimension(190, 44));
         btCancelar.setPreferredSize(new java.awt.Dimension(190, 44));
@@ -205,6 +204,7 @@ public class AgendamentoExamesDialog extends javax.swing.JDialog {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConfirmarActionPerformed

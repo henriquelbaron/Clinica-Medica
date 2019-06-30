@@ -25,6 +25,10 @@ public class Consulta implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    private boolean realizada;
+
+    private String diagnostico;
+
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date data;
@@ -55,6 +59,22 @@ public class Consulta implements Serializable {
 
     @OneToMany(mappedBy = "consulta", targetEntity = Remedio.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Remedio> remedios;
+
+    public boolean isRealizada() {
+        return realizada;
+    }
+
+    public void setRealizada(boolean realizada) {
+        this.realizada = realizada;
+    }
+
+    public String getDiagnostico() {
+        return diagnostico;
+    }
+
+    public void setDiagnostico(String diagnostico) {
+        this.diagnostico = diagnostico;
+    }
 
     public Especialidade getEspecialidade() {
         return especialidade;

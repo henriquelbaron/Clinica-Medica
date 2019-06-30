@@ -21,18 +21,17 @@ import javax.swing.DefaultComboBoxModel;
  * @author Henrique Baron
  */
 public class SalaControl {
-    
+
     private InternalFrameSala iFrame;
-    private List<Sala> salas;
     private SalaTable table;
     private Sala sala;
     private int rowTable;
-    
+
     public SalaControl(InternalFrameSala iFrame) {
         this.iFrame = iFrame;
         loadConfig();
     }
-    
+
     private void loadConfig() {
         table = new SalaTable();
         for (Sala sala1 : new SalaDaoImpl().listar()) {
@@ -41,7 +40,7 @@ public class SalaControl {
         iFrame.tableSala.setModel(table);
         iFrame.cbFuncao.setModel(new DefaultComboBoxModel(new FuncaoDaoImpl().listar().toArray()));
     }
-    
+
     public void saveAction() {
         String tfSala = iFrame.tfNome.getText();
         if (Validator.stringValidator(tfSala)) {
@@ -60,25 +59,27 @@ public class SalaControl {
             SendMessenger.error("O campo Sala é obrigatorio!");
         }
     }
-    
+
     private void salvar() {
         if (new SalaDaoImpl().salvar(sala)) {
             table.addRow(sala);
             iFrame.tfDescricao.setText("");
             iFrame.tfNome.setText("");
             SendMessenger.success("Salvo com sucesso!");
+            sala = null;
         }
     }
-    
+
     private void alterar() {
         if (new SalaDaoImpl().editar(sala)) {
             table.updateRow(sala, rowTable);
             iFrame.tfDescricao.setText("");
             iFrame.tfNome.setText("");
             SendMessenger.success("Alterado com sucesso!");
+            sala = null;
         }
     }
-    
+
     public void deleteAction() {
         rowTable = iFrame.tableSala.getSelectedRow();
         if (rowTable >= 0) {
@@ -89,7 +90,7 @@ public class SalaControl {
             table.removeRow(rowTable);
         }
     }
-    
+
     public void editAction() {
         rowTable = iFrame.tableSala.getSelectedRow();
         if (rowTable >= 0) {

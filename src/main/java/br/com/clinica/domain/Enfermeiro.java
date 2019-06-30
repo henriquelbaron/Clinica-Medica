@@ -165,7 +165,11 @@ public class Enfermeiro extends Pessoa implements Serializable {
 
     @Override
     public String toString() {
-        return nome + " - " + especialidade;
+        if (Sexo.FEMININO.equals(getSexo())) {
+            return nome + " - " + especialidade + " - Enfermeira";
+        } else {
+            return nome + " - " + especialidade + " - Enfermeiro";
+        }
     }
 
 }

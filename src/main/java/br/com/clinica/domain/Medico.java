@@ -201,7 +201,11 @@ public class Medico extends Pessoa implements Serializable {
 
     @Override
     public String toString() {
-        return nome + " - " + especialidade ;
+        if (Sexo.FEMININO.equals(getSexo())) {
+            return nome + " - " + especialidade + " - Médica";
+        } else {
+            return nome + " - " + especialidade + " - Médico";
+        }
     }
 
 }

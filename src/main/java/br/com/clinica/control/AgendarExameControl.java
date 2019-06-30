@@ -47,10 +47,10 @@ public class AgendarExameControl {
         dlg.lblPaciente.setText(paciente.getNome());
         cbModel = new DefaultComboBoxModel();
         for (Medico medico : new MedicoDaoImpl().listar()) {
-            cbModel.addElement(medico + " - Médico");
+            cbModel.addElement(medico);
         }
         for (Enfermeiro enfermeiro : new EnfermeiroDaoImpl().listar()) {
-            cbModel.addElement(enfermeiro + " - Enfermeiro");
+            cbModel.addElement(enfermeiro);
         }
         dlg.cbResponsavel.setModel(cbModel);
         dlg.cbSala.setModel(new DefaultComboBoxModel(new SalaDaoImpl().listar().toArray()));

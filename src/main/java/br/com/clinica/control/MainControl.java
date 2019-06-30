@@ -6,6 +6,7 @@
 package br.com.clinica.control;
 
 import br.com.clinica.domain.Pessoa;
+import br.com.clinica.view.ConsultasDialog;
 import br.com.clinica.view.FuncionariosInternalFrame;
 import br.com.clinica.view.InternalFrameEmergencia;
 import br.com.clinica.view.InternalFrameExames;
@@ -135,18 +136,8 @@ public class MainControl {
     }
 
     public void chamarTelaProntuario() {
-        if (prontuario == null) {
-            prontuario = new InternalFrameProntuario();
-            TelaPrincipal.painel.add(prontuario);
-            prontuario.setVisible(true);
-        } else {
-            if (prontuario.isVisible()) {
-                prontuario.pack();
-            } else {
-                TelaPrincipal.painel.add(prontuario);
-                prontuario.setVisible(true);
-            }
-        }
+        ConsultasDialog dlg = new ConsultasDialog(frame, true);
+        dlg.setVisible(true);
     }
 
     public void chamarTelaListagemVacina() {

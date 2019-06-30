@@ -91,6 +91,9 @@ public class FuncionariosControl {
     private void chamaCRUD(Pessoa obj) {
         FuncionarioCRUDDialog dlg = new FuncionarioCRUDDialog(frame, true, obj);
         dlg.setVisible(true);
+        atendente = null;
+        medico = null;
+        enfermeiro = null;
         loadTables();
     }
 

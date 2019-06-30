@@ -44,7 +44,7 @@ public class PacientesInternalFrame extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
-        setTitle("Consultar");
+        setTitle("Pacientes Cadastrados");
         setToolTipText("");
 
         jLabel13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N

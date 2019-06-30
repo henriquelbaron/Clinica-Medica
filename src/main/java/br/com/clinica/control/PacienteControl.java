@@ -88,6 +88,7 @@ public class PacienteControl {
     private void chamaTelaCadastro(Paciente p) {
         PacienteCRUDDialog dlg = new PacienteCRUDDialog(frame, true, p);
         dlg.setVisible(true);
+        paciente = null;
         refreshTable();
     }
 
