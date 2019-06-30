@@ -6,8 +6,6 @@
 package br.com.clinica.control;
 
 import br.com.clinica.domain.Pessoa;
-import br.com.clinica.view.InternalFrameAgendaExames;
-import br.com.clinica.view.InternalFrameAgendamentoConsultas;
 import br.com.clinica.view.FuncionariosInternalFrame;
 import br.com.clinica.view.InternalFrameEmergencia;
 import br.com.clinica.view.InternalFrameExames;
@@ -29,11 +27,9 @@ import javax.swing.JFrame;
 public class MainControl {
 
     private JFrame frame = null;
-    private InternalFrameAgendamentoConsultas agendamentoConsulta = null;
     private InternalFramePlantao plantao = null;
     private PacientesInternalFrame pacientesInternalFrame = null;
     private FuncionariosInternalFrame cadastroFuncionario = null;
-    private InternalFrameAgendaExames AgendaExame = null;
     private InternalFrameVacina vacina = null;
     private InternalFrameListagemVacina listarVacina = null;
     private InternalFrameProntuario prontuario = null;
@@ -194,36 +190,6 @@ public class MainControl {
             } else {
                 TelaPrincipal.painel.add(vacina);
                 vacina.setVisible(true);
-            }
-        }
-    }
-
-    public void chamarTelaAgendaExames() {
-        if (AgendaExame == null) {
-            AgendaExame = new InternalFrameAgendaExames();
-            TelaPrincipal.painel.add(AgendaExame);
-            AgendaExame.setVisible(true);
-        } else {
-            if (AgendaExame.isVisible()) {
-                AgendaExame.pack();
-            } else {
-                TelaPrincipal.painel.add(AgendaExame);
-                AgendaExame.setVisible(true);
-            }
-        }
-    }
-
-    public void chamarTelaAgendamentoConsultas() {
-        if (agendamentoConsulta == null) {
-            agendamentoConsulta = new InternalFrameAgendamentoConsultas();
-            TelaPrincipal.painel.add(agendamentoConsulta);
-            agendamentoConsulta.setVisible(true);
-        } else {
-            if (agendamentoConsulta.isVisible()) {
-                agendamentoConsulta.pack();
-            } else {
-                TelaPrincipal.painel.add(agendamentoConsulta);
-                agendamentoConsulta.setVisible(true);
             }
         }
     }

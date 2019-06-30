@@ -1,17 +1,15 @@
 package br.com.clinica.domain;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Exame implements Serializable {
@@ -25,38 +23,16 @@ public class Exame implements Serializable {
     @Column(nullable = false)
     private String nome;
 
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date data;
+    private String descrição;
 
-    private String resultado;
-    
-    @ManyToOne
-    @JoinColumn(name = "idPaciente", nullable = false)
-    private Paciente paciente;
-    
-    @ManyToOne
-    @JoinColumn(name = "idMedico")
-    private Medico medico;
-    
-    @ManyToOne
-    @JoinColumn(name = "idEnfermeiro")
-    private Enfermeiro enfermeiro;
-    
-    @ManyToOne
-    @JoinColumn(name = "idSala", nullable = false)
-    private Sala sala;
-    
-    @ManyToOne
-    @JoinColumn(name = "idFuncao", nullable = false)
-    private Funcao funcao;
+    @OneToMany(mappedBy = "exame", targetEntity = ExamePaciente.class, fetch = FetchType.LAZY)
+    private List<ExamePaciente> examePacientes;
 
     public Exame() {
     }
 
-    public Exame(String nome, Date data) {
+    public Exame(String nome) {
         this.nome = nome;
-        this.data = data;
     }
 
     public Integer getId() {
@@ -75,60 +51,20 @@ public class Exame implements Serializable {
         this.nome = nome;
     }
 
-    public Date getData() {
-        return data;
+    public String getDescrição() {
+        return descrição;
     }
 
-    public void setData(Date data) {
-        this.data = data;
+    public void setDescrição(String descrição) {
+        this.descrição = descrição;
     }
 
-    public String getResultado() {
-        return resultado;
+    public List<ExamePaciente> getExamePacientes() {
+        return examePacientes;
     }
 
-    public void setResultado(String resultado) {
-        this.resultado = resultado;
-    }
-
-    public Paciente getPaciente() {
-        return paciente;
-    }
-
-    public void setPaciente(Paciente paciente) {
-        this.paciente = paciente;
-    }
-
-    public Medico getMedico() {
-        return medico;
-    }
-
-    public void setMedico(Medico medico) {
-        this.medico = medico;
-    }
-
-    public Enfermeiro getEnfermeiro() {
-        return enfermeiro;
-    }
-
-    public void setEnfermeiro(Enfermeiro enfermeiro) {
-        this.enfermeiro = enfermeiro;
-    }
-
-    public Sala getSala() {
-        return sala;
-    }
-
-    public void setSala(Sala sala) {
-        this.sala = sala;
-    }
-
-    public Funcao getFuncao() {
-        return funcao;
-    }
-
-    public void setFuncao(Funcao funcao) {
-        this.funcao = funcao;
+    public void setExamePacientes(List<ExamePaciente> examePacientes) {
+        this.examePacientes = examePacientes;
     }
 
     @Override

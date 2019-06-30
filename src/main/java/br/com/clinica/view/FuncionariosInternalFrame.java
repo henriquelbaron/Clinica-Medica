@@ -46,6 +46,8 @@ public class FuncionariosInternalFrame extends javax.swing.JInternalFrame {
         lblFuncionario = new javax.swing.JLabel();
         tabelaFuncionario = new javax.swing.JTable();
 
+        setClosable(true);
+        setIconifiable(true);
         setTitle("Gerenciamento de Funcionarios");
         setMinimumSize(new java.awt.Dimension(679, 498));
         setPreferredSize(new java.awt.Dimension(679, 498));
@@ -220,7 +222,7 @@ public class FuncionariosInternalFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_rbAtendenteActionPerformed
 
     private void tabelaFuncionarioMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaFuncionarioMouseReleased
-        // TODO add your handling code here:
+        control.mouseListenerTable();        // TODO add your handling code here:
     }//GEN-LAST:event_tabelaFuncionarioMouseReleased
 
 

@@ -17,8 +17,9 @@ public class AtendenteDaoImp extends GenericDAO<Atendente> {
             Query q = sessao.createQuery("Select a FROM Atendente as a where a.senha = :senha AND a.email = :email");
             q.setParameter("email", email);
             q.setParameter("senha", senha);
-            return (Atendente) q.getSingleResult();
+            return (Atendente)q.getSingleResult();
         } catch (RuntimeException erro) {
+            System.out.println(erro.getMessage());
             return null;
         } finally {
             sessao.close();

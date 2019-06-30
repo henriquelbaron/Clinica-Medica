@@ -110,22 +110,14 @@ public class FuncionariosControl {
 
     private void loadTablesTermo() {
         funcionarioTable.clearTable();
-        switch (flag) {
-            case 1:
-                for (Enfermeiro obj : new EnfermeiroDaoImpl().findPaciente(iFrame.tfPesquisar.getText())) {
-                    funcionarioTable.addRow(obj);
-                }
-                break;
-            case 2:
-                for (Medico obj : new MedicoDaoImpl().findPaciente(iFrame.tfPesquisar.getText())) {
-                    funcionarioTable.addRow(obj);
-                }
-                break;
-            case 3:
-                for (Atendente obj : new AtendenteDaoImp().findPaciente(iFrame.tfPesquisar.getText())) {
-                    funcionarioTable.addRow(obj);
-                }
-                break;
+        for (Enfermeiro obj : new EnfermeiroDaoImpl().findPaciente(iFrame.tfPesquisar.getText())) {
+            funcionarioTable.addRow(obj);
+        }
+        for (Medico obj : new MedicoDaoImpl().findPaciente(iFrame.tfPesquisar.getText())) {
+            funcionarioTable.addRow(obj);
+        }
+        for (Atendente obj : new AtendenteDaoImp().findPaciente(iFrame.tfPesquisar.getText())) {
+            funcionarioTable.addRow(obj);
         }
     }
 

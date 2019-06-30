@@ -3,6 +3,7 @@ package br.com.clinica.domain;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,10 +20,34 @@ public class Atendente extends Pessoa implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
     @Column(nullable = false)
     private String senha;
+
     @OneToMany(mappedBy = "atendente", targetEntity = Consulta.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Consulta> consultas;
+
+    @OneToMany(mappedBy = "atendente", targetEntity = ExamePaciente.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<ExamePaciente> examePacientes;
+
+    @OneToMany(mappedBy = "atendente", targetEntity = VacinaAplicada.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<VacinaAplicada> vacinaPacientes;
+
+    public List<ExamePaciente> getExamePacientes() {
+        return examePacientes;
+    }
+
+    public void setExamePacientes(List<ExamePaciente> examePacientes) {
+        this.examePacientes = examePacientes;
+    }
+
+    public List<VacinaAplicada> getVacinaPacientes() {
+        return vacinaPacientes;
+    }
+
+    public void setVacinaPacientes(List<VacinaAplicada> vacinaPacientes) {
+        this.vacinaPacientes = vacinaPacientes;
+    }
 
     public String getSenha() {
         return senha;
@@ -110,6 +135,36 @@ public class Atendente extends Pessoa implements Serializable {
 
     public void setTipoSanguineo(String tipoSanguineo) {
         this.tipoSanguineo = tipoSanguineo;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 97 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Atendente other = (Atendente) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return nome;
     }
 
 }

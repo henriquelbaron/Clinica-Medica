@@ -9,6 +9,8 @@ import br.com.clinica.dao.banco.impl.PacienteDaoImpl;
 import br.com.clinica.domain.Paciente;
 import br.com.clinica.domain.tables.PacienteTable;
 import br.com.clinica.util.SendMessenger;
+import br.com.clinica.view.AgendamentoConsultaDialog;
+import br.com.clinica.view.AgendamentoExamesDialog;
 import br.com.clinica.view.PacienteCRUDDialog;
 import br.com.clinica.view.PacientesInternalFrame;
 import javax.swing.JFrame;
@@ -67,26 +69,59 @@ public class PacienteControl {
         }
     }
 
-
     public void chamaTelaCadastro() {
         chamaTelaCadastro(null);
     }
 
-    public void chamaTelaCadastro(Paciente p) {
+    public void chamaAgendamentoConsultaAction() {
+        rowTable = iFrame.tabelaPaciente.getSelectedRow();
+        if (rowTable >= 0) {
+            paciente = table.getRow(rowTable);
+            AgendamentoConsultaDialog dlg = new AgendamentoConsultaDialog(frame, true, paciente);
+            dlg.setVisible(true);
+        } else {
+            SendMessenger.error("Selecione o Paciente que deseja Marcar Consulta!");
+        }
+    }
+
+    private void chamaTelaCadastro(Paciente p) {
         PacienteCRUDDialog dlg = new PacienteCRUDDialog(frame, true, p);
         dlg.setVisible(true);
         refreshTable();
     }
-    
-    private void refreshTable(){
+
+    public void chamaAgendamentoExameAction() {
+        rowTable = iFrame.tabelaPaciente.getSelectedRow();
+        if (rowTable >= 0) {
+            paciente = table.getRow(rowTable);
+            AgendamentoExamesDialog dlg = new AgendamentoExamesDialog(frame, true, paciente);
+            dlg.setVisible(true);
+        } else {
+            SendMessenger.error("Selecione o Paciente que deseja Marcar Exame!");
+        }
+    }
+
+    public void chamaAgendamentoVacinaAction() {
+        rowTable = iFrame.tabelaPaciente.getSelectedRow();
+        if (rowTable >= 0) {
+            paciente = table.getRow(rowTable);
+//            AgendamentoConsultaDialog dlg = new AgendamentoConsultaDialog(frame, true, paciente);
+//            dlg.setVisible(true);
+        } else {
+            SendMessenger.error("Selecione o Paciente que deseja Marcar Vacina!");
+        }
+    }
+
+    private void refreshTable() {
         for (Paciente paciente1 : new PacienteDaoImpl().listar()) {
             table.addRow(paciente1);
         }
     }
+
     private void loadConfig() {
         table = new PacienteTable();
         refreshTable();
         iFrame.tabelaPaciente.setModel(table);
     }
-            
+
 }

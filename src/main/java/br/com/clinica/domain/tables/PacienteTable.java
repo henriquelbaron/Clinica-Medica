@@ -42,7 +42,7 @@ public class PacienteTable extends TableTemplate<Paciente> {
             case Constantes.SEXO:
                 return pacientes.get(rowIndex).getSexo();
             case Constantes.TELEFONE:
-                return pacientes.get(rowIndex).getTelefones().get(0);
+                return pacientes.get(rowIndex).getTelefones().size() > 0 ? pacientes.get(rowIndex).getTelefones().get(0): "";
             case Constantes.CPF:
                 return pacientes.get(rowIndex).getCpf();
             default:

@@ -40,8 +40,8 @@ public class Paciente extends Pessoa implements Serializable {
     @OneToMany(mappedBy = "paciente", targetEntity = Consulta.class, fetch = FetchType.LAZY)
     private List<Consulta> consultas;
 
-    @OneToMany(mappedBy = "paciente", targetEntity = Exame.class, fetch = FetchType.LAZY)
-    private List<Exame> exames;
+    @OneToMany(mappedBy = "paciente", targetEntity = ExamePaciente.class, fetch = FetchType.LAZY)
+    private Set<ExamePaciente> examePacientes;
 
     @OneToMany(mappedBy = "paciente", targetEntity = VacinaAplicada.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<VacinaAplicada> vacinaAplicada;
@@ -89,12 +89,12 @@ public class Paciente extends Pessoa implements Serializable {
         this.consultas = consultas;
     }
 
-    public List<Exame> getExames() {
-        return exames;
+    public Set<ExamePaciente> getExamePacientes() {
+        return examePacientes;
     }
 
-    public void setExames(List<Exame> exames) {
-        this.exames = exames;
+    public void setExamePacientes(Set<ExamePaciente> examePacientes) {
+        this.examePacientes = examePacientes;
     }
 
     public String getNome() {

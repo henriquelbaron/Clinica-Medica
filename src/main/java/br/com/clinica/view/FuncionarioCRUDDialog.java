@@ -114,6 +114,12 @@ public class FuncionarioCRUDDialog extends javax.swing.JDialog {
 
         cbSexo.setToolTipText("");
 
+        tfConfirmarSenha.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfConfirmarSenhaFocusLost(evt);
+            }
+        });
+
         cbSangue.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "O+", "O-", "B+", "B-", "A+", "A-", "AB+", "AB-" }));
         cbSangue.setToolTipText("");
         cbSangue.addActionListener(new java.awt.event.ActionListener() {
@@ -432,6 +438,10 @@ public class FuncionarioCRUDDialog extends javax.swing.JDialog {
     private void tfNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfNomeActionPerformed
+
+    private void tfConfirmarSenhaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfConfirmarSenhaFocusLost
+control.confirmSenhaFocusLost();        // TODO add your handling code here:
+    }//GEN-LAST:event_tfConfirmarSenhaFocusLost
 
     /**
      * @param args the command line arguments

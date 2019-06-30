@@ -20,6 +20,7 @@ import br.com.clinica.domain.Sexo;
 import br.com.clinica.util.SendMessenger;
 import br.com.clinica.validation.Validator;
 import br.com.clinica.view.FuncionarioCRUDDialog;
+import java.awt.Color;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -47,16 +48,25 @@ public class CadastrarEditarFuncionarioControl {
             flag = 1;
             enfermeiro = (Enfermeiro) obj;
             dlg.lblCorenCRM.setText("Coren/Cofen");
+            if (enfermeiro.getId() != null) {
+                loadEnfermeiro();
+            }
         }
         if (obj instanceof Medico) {
             flag = 2;
             medico = (Medico) obj;
             dlg.lblCorenCRM.setText("CRM");
+            if (medico.getId() != null) {
+                loadMedico();
+            }
         }
         if (obj instanceof Atendente) {
             flag = 3;
             atendente = (Atendente) obj;
             setViseble(false);
+            if (atendente.getId() != null) {
+                loadAtendente();
+            }
         }
     }
 
@@ -187,5 +197,25 @@ public class CadastrarEditarFuncionarioControl {
 
     public void close() {
         dlg.dispose();
+    }
+
+    private void loadEnfermeiro() {
+        dlg.tfNome.setText(enfermeiro.getNome());
+    }
+
+    private void loadMedico() {
+    }
+
+    private void loadAtendente() {
+    }
+
+    public void confirmSenhaFocusLost() {
+        if (!String.valueOf(dlg.tfSenha.getPassword()).equals(String.valueOf(dlg.tfConfirmarSenha.getPassword()))) {
+            dlg.tfConfirmarSenha.setBackground(Color.red);
+            dlg.tfSenha.setBackground(Color.red);
+        } else {
+            dlg.tfConfirmarSenha.setBackground(Color.WHITE);
+            dlg.tfSenha.setBackground(Color.WHITE);
+        }
     }
 }

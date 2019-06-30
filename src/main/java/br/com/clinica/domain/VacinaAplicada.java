@@ -33,6 +33,10 @@ public class VacinaAplicada implements Serializable {
     private Paciente paciente;
 
     @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idAtendente", nullable = false)
+    private Atendente atendente;
+
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idEnfermeiro")
     private Enfermeiro enfermeiro;
 
@@ -45,6 +49,14 @@ public class VacinaAplicada implements Serializable {
     private Consulta consulta;
 
     public VacinaAplicada() {
+    }
+
+    public Atendente getAtendente() {
+        return atendente;
+    }
+
+    public void setAtendente(Atendente atendente) {
+        this.atendente = atendente;
     }
 
     public Integer getId() {

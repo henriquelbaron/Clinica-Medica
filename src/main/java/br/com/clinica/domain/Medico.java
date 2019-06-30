@@ -25,13 +25,13 @@ public class Medico extends Pessoa implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    
+
     @Column(unique = true, nullable = false)
     private String crm;
-    
+
     @Column(nullable = false)
     private String senha;
-    
+
     @ManyToOne
     @JoinColumn(name = "idEspecialidade", nullable = false)
     private Especialidade especialidade;
@@ -42,8 +42,8 @@ public class Medico extends Pessoa implements Serializable {
     @OneToMany(mappedBy = "medico", targetEntity = Consulta.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Consulta> consultas;
 
-    @OneToMany(mappedBy = "medico", targetEntity = Exame.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Exame> exames;
+    @OneToMany(mappedBy = "medico", targetEntity = ExamePaciente.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<ExamePaciente> exames;
 
     public Medico() {
     }
@@ -52,6 +52,14 @@ public class Medico extends Pessoa implements Serializable {
         this.crm = crm;
         this.senha = senha;
         this.especialidade = especialidade;
+    }
+
+    public List<ExamePaciente> getExames() {
+        return exames;
+    }
+
+    public void setExames(List<ExamePaciente> exames) {
+        this.exames = exames;
     }
 
     public Integer getId() {
@@ -100,14 +108,6 @@ public class Medico extends Pessoa implements Serializable {
 
     public void setConsultas(List<Consulta> consultas) {
         this.consultas = consultas;
-    }
-
-    public List<Exame> getExames() {
-        return exames;
-    }
-
-    public void setExames(List<Exame> exames) {
-        this.exames = exames;
     }
 
     public String getNome() {
@@ -201,7 +201,7 @@ public class Medico extends Pessoa implements Serializable {
 
     @Override
     public String toString() {
-        return nome;
+        return nome + " - " + especialidade ;
     }
 
 }

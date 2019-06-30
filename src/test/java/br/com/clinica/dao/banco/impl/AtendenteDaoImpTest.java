@@ -39,24 +39,24 @@ public class AtendenteDaoImpTest {
     }
 
     @Test
-    @Ignore
+//    @Ignore
     public void salvar() {
 
         atendente = new Atendente();
-        atendente.setNome("João");
+        atendente.setNome("hike");
         atendente.setCpf("186.402.178-23");
         atendente.setDataNascimento(new Date(System.currentTimeMillis()));
         atendente.setSexo(Sexo.MASCULINO);
-        atendente.setEmail("henrique@gmail.com");
+        atendente.setEmail("hike");
         atendente.setEndereco(new Endereco("88131-743", "Braulina Goulart", "48", "RioGrande", "", "SC"));
         atendente.setTipoSanguineo("O+");
-//        atendente.setTelefone("48996850323");
-
+        atendente.setTelefone("48996850323");
+        atendente.setSenha("123");
         dao.salvar(atendente);
     }
 
     @Test
-//    @Ignore
+    @Ignore
     public void exluir() {
         atendente = new Atendente();
         atendente.setSenha("sdsad");

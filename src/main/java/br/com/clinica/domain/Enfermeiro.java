@@ -37,8 +37,8 @@ public class Enfermeiro extends Pessoa implements Serializable {
     @ManyToMany(mappedBy = "enfermeiros")
     private List<Plantao> plantaos;
 
-    @OneToMany(mappedBy = "enfermeiro", targetEntity = Exame.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Exame> exames;
+    @OneToMany(mappedBy = "enfermeiro", targetEntity = ExamePaciente.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<ExamePaciente> exames;
 
     @OneToMany(mappedBy = "enfermeiro", targetEntity = VacinaAplicada.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<VacinaAplicada> vacinas;
@@ -83,11 +83,11 @@ public class Enfermeiro extends Pessoa implements Serializable {
         this.plantaos = plantaos;
     }
 
-    public List<Exame> getExames() {
+    public List<ExamePaciente> getExames() {
         return exames;
     }
 
-    public void setExames(List<Exame> exames) {
+    public void setExames(List<ExamePaciente> exames) {
         this.exames = exames;
     }
 
@@ -161,6 +161,11 @@ public class Enfermeiro extends Pessoa implements Serializable {
 
     public void setTipoSanguineo(String tipoSanguineo) {
         this.tipoSanguineo = tipoSanguineo;
+    }
+
+    @Override
+    public String toString() {
+        return nome + " - " + especialidade;
     }
 
 }

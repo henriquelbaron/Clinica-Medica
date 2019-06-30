@@ -23,8 +23,6 @@ public class Funcao implements Serializable {
     @Column(nullable = false, unique = true)
     private String nome;
 
-    @OneToMany(mappedBy = "funcao", targetEntity = Exame.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Exame> exames;
 
     @OneToMany(mappedBy = "funcao", targetEntity = Sala.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Sala> salas;
@@ -48,13 +46,6 @@ public class Funcao implements Serializable {
         this.nome = nome;
     }
 
-    public List<Exame> getExames() {
-        return exames;
-    }
-
-    public void setExames(List<Exame> exames) {
-        this.exames = exames;
-    }
 
     public List<Sala> getSalas() {
         return salas;

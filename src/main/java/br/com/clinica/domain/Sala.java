@@ -28,8 +28,8 @@ public class Sala implements Serializable {
 
     private String descrição;
 
-    @OneToMany(mappedBy = "sala", targetEntity = Exame.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Exame> exames;
+    @OneToMany(mappedBy = "sala", targetEntity = ExamePaciente.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<ExamePaciente> exames;
 
     @OneToMany(mappedBy = "sala", targetEntity = Consulta.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Consulta> consultas;
@@ -72,11 +72,11 @@ public class Sala implements Serializable {
         this.numero = numero;
     }
 
-    public List<Exame> getExames() {
+    public List<ExamePaciente> getExames() {
         return exames;
     }
 
-    public void setExames(List<Exame> exames) {
+    public void setExames(List<ExamePaciente> exames) {
         this.exames = exames;
     }
 
