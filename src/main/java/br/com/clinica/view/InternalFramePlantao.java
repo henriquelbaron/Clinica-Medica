@@ -5,6 +5,8 @@
  */
 package br.com.clinica.view;
 
+import br.com.clinica.control.PlantaoControl;
+
 /**
  *
  * @author Luiza Mistro
@@ -14,8 +16,11 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
     /**
      * Creates new form InternalFramePlantao
      */
+    private PlantaoControl control;
+
     public InternalFramePlantao() {
         initComponents();
+        control = new PlantaoControl(this);
     }
 
     /**
@@ -32,7 +37,7 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        TabelaEspecialistas = new javax.swing.JTable();
+        tabelaEspecialistas = new javax.swing.JTable();
         tfPesquisa = new javax.swing.JTextField();
         btPesquisar = new javax.swing.JButton();
         btExcluir = new javax.swing.JButton();
@@ -62,7 +67,7 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4th-of-july.png"))); // NOI18N
         jLabel2.setText("Data");
 
-        TabelaEspecialistas.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaEspecialistas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -73,8 +78,8 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
                 "Nome", "Especialidade", "Horário de serviço"
             }
         ));
-        TabelaEspecialistas.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(TabelaEspecialistas);
+        tabelaEspecialistas.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tabelaEspecialistas);
 
         tfPesquisa.setText("Pesquisar por nome");
 
@@ -128,16 +133,6 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rbMedico)
-                .addGap(80, 80, 80)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rbEnfermeira)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -167,8 +162,17 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
                         .addComponent(btPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 835, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(10, 10, 10))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 835, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(rbMedico)
+                        .addGap(80, 80, 80)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(rbEnfermeira)))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,14 +185,7 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
                         .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(tfPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(rbEnfermeira, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel9))
-                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(rbMedico, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(50, 50, 50)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,7 +196,13 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
                             .addComponent(btExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(46, 46, 46))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(rbEnfermeira, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel9))
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(rbMedico, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cbNomes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
@@ -223,7 +226,6 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable TabelaEspecialistas;
     public javax.swing.JButton btExcluir;
     public javax.swing.JButton btPesquisar;
     public javax.swing.JButton btSalvar;
@@ -241,6 +243,7 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
     public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JRadioButton rbEnfermeira;
     public javax.swing.JRadioButton rbMedico;
+    public javax.swing.JTable tabelaEspecialistas;
     public javax.swing.JFormattedTextField tfHora;
     public javax.swing.JTextField tfPesquisa;
     // End of variables declaration//GEN-END:variables

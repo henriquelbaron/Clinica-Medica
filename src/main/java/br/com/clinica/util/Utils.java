@@ -10,6 +10,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -35,10 +36,24 @@ public class Utils {
         }
     }
 
+    public static Date addDiaData(Date data, int dias) {
+        Calendar c = Calendar.getInstance();
+        c.setTime(data);
+        c.add(Calendar.DATE, dias);
+        return c.getTime();
+    }
+
+    public static String dateHoraToString(Date data) {
+        return new SimpleDateFormat(dataHoraFormat).format(data);
+    }
+
     public static String dateToString(Date data) {
         sdf = new SimpleDateFormat(dataFormat);
         return sdf.format(data);
+    }
 
+    public static String formatDateToHQL(Date data) {
+        return new SimpleDateFormat("yyyy-MM-dd HH:mm").format(data);
     }
 
     public static Date stringToDate(String data) {
@@ -54,7 +69,7 @@ public class Utils {
         return new SimpleDateFormat(horaFormat).format(new Date().getTime());
     }
 
-    public static String dataAutal() {
+    public static String dataAtual() {
         return new SimpleDateFormat(dataFormat).format(new Date().getTime());
     }
 

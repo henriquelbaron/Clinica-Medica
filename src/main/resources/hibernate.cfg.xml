@@ -34,6 +34,7 @@
         <!-- Cria as tabelas do banco de dados -->
         <!--create/validate/update-->
         <property name="hbm2ddl.auto">update</property>
+        <property name="hibernate.query.substitutions">true 1, false 0</property>
 
 		
         <!-- Mapeamento das entidades -->

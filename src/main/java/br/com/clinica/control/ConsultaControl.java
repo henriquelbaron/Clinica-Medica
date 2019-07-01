@@ -13,6 +13,7 @@ import br.com.clinica.util.SendMessenger;
 import br.com.clinica.view.ConsultasDialog;
 import br.com.clinica.view.EfeturarConsulta;
 import java.awt.Frame;
+import java.util.Date;
 
 /**
  *
@@ -37,7 +38,21 @@ public class ConsultaControl {
     }
 
     public void sendKeysTfListener() {
+        table.clearTable();
+        String tfNome = dlg.tfPesquisar.getText();
+        for (Consulta object : new ConsultaDaoImpl().consultaDoMedicoNome(medico.getId(), tfNome)) {
+            table.addRow(object);
+        }
+    }
 
+    public void pesquisarPorDataAction() {
+        table.clearTable();
+        Date data = dlg.tfData.getDate();
+        if (data != null) {
+            for (Consulta object : new ConsultaDaoImpl().consultaDoMedicoData(medico.getId(), data)) {
+                table.addRow(object);
+            }
+        }
     }
 
     public void realizarConsulta() {

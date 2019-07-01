@@ -6,6 +6,7 @@
 package br.com.clinica.view;
 
 import br.com.clinica.control.LoginControl;
+import br.com.clinica.dao.banco.ConnectionFactory;
 import java.awt.Color;
 
 /**
@@ -22,6 +23,7 @@ public class TelaLogin extends javax.swing.JFrame {
      */
     public TelaLogin() {
         initComponents();
+        ConnectionFactory.getFabricaDeSessoes();
         control = new LoginControl(this);
     }
 

@@ -6,7 +6,6 @@
 package br.com.clinica.control;
 
 import br.com.clinica.dao.banco.impl.EnfermeiroDaoImpl;
-import br.com.clinica.dao.banco.impl.EspecialidadeDaoImpl;
 import br.com.clinica.dao.banco.impl.ExameDaoImpl;
 import br.com.clinica.dao.banco.impl.ExamePacienteDaoImpl;
 import br.com.clinica.dao.banco.impl.MedicoDaoImpl;
@@ -16,7 +15,6 @@ import br.com.clinica.domain.Exame;
 import br.com.clinica.domain.ExamePaciente;
 import br.com.clinica.domain.Medico;
 import br.com.clinica.domain.Paciente;
-import br.com.clinica.domain.Pessoa;
 import br.com.clinica.domain.Sala;
 import br.com.clinica.util.SendMessenger;
 import br.com.clinica.util.Utils;

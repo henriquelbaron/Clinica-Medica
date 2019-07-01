@@ -155,7 +155,7 @@ public class ConsultasDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_tfPesquisarKeyReleased
 
     private void btAdicionarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarPacienteActionPerformed
-
+        control.pesquisarPorDataAction();
     }//GEN-LAST:event_btAdicionarPacienteActionPerformed
 
     private void tableConsultaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableConsultaMouseReleased
