@@ -1,10 +1,8 @@
 package br.com.clinica.domain.tables;
 
-import br.com.clinica.domain.Atendente;
 import br.com.clinica.domain.Enfermeiro;
 import br.com.clinica.domain.Medico;
 import br.com.clinica.domain.Pessoa;
-import br.com.clinica.domain.Plantao;
 import br.com.clinica.util.Utils;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +36,7 @@ public class PlantaoTable extends TableTemplate<Pessoa> {
             funcao = "Médico";
             Medico m = (Medico) pessoa.get(rowIndex);
             identificador = m.getCrm();
-            horarioPlantao = Utils.dateHoraToString(m.getPlantaos().get(0).getData());
+//            horarioPlantao = Utils.dateHoraToString(m.getPlantaos());
         }
         if (pessoa.get(rowIndex) instanceof Enfermeiro) {
             funcao = "Enfermeiro";

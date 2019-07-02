@@ -16,7 +16,6 @@ import br.com.clinica.view.InternalFramePlantao;
 import br.com.clinica.view.InternalFrameProntuario;
 import br.com.clinica.view.InternalFrameReceita;
 import br.com.clinica.view.InternalFrameSala;
-import br.com.clinica.view.InternalFrameVacina;
 import br.com.clinica.view.PacientesInternalFrame;
 import br.com.clinica.view.TelaPrincipal;
 import javax.swing.JFrame;
@@ -31,7 +30,6 @@ public class MainControl {
     private InternalFramePlantao plantao = null;
     private PacientesInternalFrame pacientesInternalFrame = null;
     private FuncionariosInternalFrame cadastroFuncionario = null;
-    private InternalFrameVacina vacina = null;
     private InternalFrameListagemVacina listarVacina = null;
     private InternalFrameProntuario prontuario = null;
     private InternalFrameExames exames = null;
@@ -122,7 +120,7 @@ public class MainControl {
 
     public void chamarTelaExame() {
         if (exames == null) {
-            exames = new InternalFrameExames();
+            exames = new InternalFrameExames(frame);
             TelaPrincipal.painel.add(exames);
             exames.setVisible(true);
         } else {
@@ -142,7 +140,7 @@ public class MainControl {
 
     public void chamarTelaListagemVacina() {
         if (listarVacina == null) {
-            listarVacina = new InternalFrameListagemVacina();
+            listarVacina = new InternalFrameListagemVacina(frame);
             TelaPrincipal.painel.add(listarVacina);
             listarVacina.setVisible(true);
         } else {
@@ -166,21 +164,6 @@ public class MainControl {
             } else {
                 TelaPrincipal.painel.add(plantao);
                 plantao.setVisible(true);
-            }
-        }
-    }
-
-    public void chamarTelaVacina() {
-        if (vacina == null) {
-            vacina = new InternalFrameVacina();
-            TelaPrincipal.painel.add(vacina);
-            vacina.setVisible(true);
-        } else {
-            if (vacina.isVisible()) {
-                vacina.pack();
-            } else {
-                TelaPrincipal.painel.add(vacina);
-                vacina.setVisible(true);
             }
         }
     }

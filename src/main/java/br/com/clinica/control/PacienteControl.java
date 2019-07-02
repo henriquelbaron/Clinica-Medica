@@ -7,6 +7,7 @@ package br.com.clinica.control;
 
 import br.com.clinica.dao.banco.impl.PacienteDaoImpl;
 import br.com.clinica.domain.Paciente;
+import br.com.clinica.domain.VacinaAplicada;
 import br.com.clinica.domain.tables.PacienteTable;
 import br.com.clinica.util.SendMessenger;
 import br.com.clinica.view.AgendamentoConsultaDialog;
@@ -107,7 +108,9 @@ public class PacienteControl {
         rowTable = iFrame.tabelaPaciente.getSelectedRow();
         if (rowTable >= 0) {
             paciente = table.getRow(rowTable);
-            AgendamentoVacinaDialog dlg = new AgendamentoVacinaDialog(frame, true, paciente);
+            VacinaAplicada va = new VacinaAplicada();
+            va.setPaciente(paciente);
+            AgendamentoVacinaDialog dlg = new AgendamentoVacinaDialog(frame, true, va);
             dlg.setVisible(true);
         } else {
             SendMessenger.error("Selecione o Paciente que deseja Marcar Vacina!");

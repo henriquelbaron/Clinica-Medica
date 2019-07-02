@@ -7,10 +7,9 @@ package br.com.clinica.view;
 
 import br.com.clinica.control.AgendamentoVacinaControl;
 import br.com.clinica.domain.Enfermeiro;
-import br.com.clinica.domain.Paciente;
 import br.com.clinica.domain.Sala;
 import br.com.clinica.domain.Vacina;
-import static java.awt.SystemColor.control;
+import br.com.clinica.domain.VacinaAplicada;
 
 /**
  *
@@ -23,10 +22,10 @@ public class AgendamentoVacinaDialog extends javax.swing.JDialog {
      */
     private AgendamentoVacinaControl control;
 
-    public AgendamentoVacinaDialog(java.awt.Frame parent, boolean modal, Paciente p) {
+    public AgendamentoVacinaDialog(java.awt.Frame parent, boolean modal, VacinaAplicada va) {
         super(parent, modal);
         initComponents();
-        control = new AgendamentoVacinaControl(this, p);
+        control = new AgendamentoVacinaControl(this, va);
     }
 
     /**
@@ -38,13 +37,11 @@ public class AgendamentoVacinaDialog extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel7 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lblIcon = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         cbVacina = new javax.swing.JComboBox<>();
         cbSala = new javax.swing.JComboBox<>();
-        cbEnfermeiro = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -56,11 +53,7 @@ public class AgendamentoVacinaDialog extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Agendamento de Vacinas");
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/question.png"))); // NOI18N
-
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nurse.png"))); // NOI18N
-        jLabel5.setText("Responsável");
+        lblIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/question.png"))); // NOI18N
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/surgery-room.png"))); // NOI18N
         jLabel6.setText("Sala");
@@ -135,10 +128,6 @@ public class AgendamentoVacinaDialog extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(cbSala, 0, 167, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbEnfermeiro, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -147,7 +136,7 @@ public class AgendamentoVacinaDialog extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(tfHora, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel7)
+                        .addComponent(lblIcon)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(checkBox)
                         .addGap(26, 26, 26)
@@ -176,18 +165,14 @@ public class AgendamentoVacinaDialog extends javax.swing.JDialog {
                     .addComponent(jLabel6)
                     .addComponent(cbVacina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(cbEnfermeiro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblIcon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton1)
                         .addComponent(jButton2)
                         .addComponent(checkBox)))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();
@@ -256,7 +241,6 @@ public class AgendamentoVacinaDialog extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JComboBox<Enfermeiro> cbEnfermeiro;
     public javax.swing.JComboBox<Sala> cbSala;
     public javax.swing.JComboBox<Vacina> cbVacina;
     public javax.swing.JCheckBox checkBox;
@@ -266,9 +250,8 @@ public class AgendamentoVacinaDialog extends javax.swing.JDialog {
     public javax.swing.JLabel jLabel2;
     public javax.swing.JLabel jLabel3;
     public javax.swing.JLabel jLabel4;
-    public javax.swing.JLabel jLabel5;
     public javax.swing.JLabel jLabel6;
-    public javax.swing.JLabel jLabel7;
+    public javax.swing.JLabel lblIcon;
     public javax.swing.JFormattedTextField tfHora;
     // End of variables declaration//GEN-END:variables
 }

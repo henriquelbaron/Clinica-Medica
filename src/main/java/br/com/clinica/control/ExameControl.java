@@ -5,13 +5,13 @@
  */
 package br.com.clinica.control;
 
+import br.com.clinica.dao.banco.impl.ExamePacienteDaoImpl;
 import br.com.clinica.domain.Exame;
+import br.com.clinica.domain.ExamePaciente;
+import br.com.clinica.domain.tables.ExameTable;
+import br.com.clinica.view.ExameDialog;
 import br.com.clinica.view.InternalFrameExames;
-import br.com.clinica.view.InternalFrameResultado;
-import br.com.clinica.view.TelaPrincipal;
-import java.util.List;
 import javax.swing.JFrame;
-import javax.swing.JInternalFrame;
 
 /**
  *
@@ -20,22 +20,29 @@ import javax.swing.JInternalFrame;
 public class ExameControl {
 
     private JFrame frame;
-    private JInternalFrame internalFrame;
-    private List<Exame> exames;
-    private InternalFrameResultado resultado = null;
+    private InternalFrameExames iFrame;
+    private ExameTable table;
 
-    public void chamarTelaExame() {
-        if (resultado == null) {
-            resultado = new InternalFrameResultado();
-            TelaPrincipal.painel.add(resultado);
-            resultado.setVisible(true);
-        } else {
-            if (resultado.isVisible()) {
-                resultado.pack();
-            } else {
-                TelaPrincipal.painel.add(resultado);
-                resultado.setVisible(true);
-            }
+    public ExameControl(JFrame frame, InternalFrameExames aThis) {
+        this.iFrame = aThis;
+        this.frame = frame;
+        loadConfig();
+
+    }
+
+    private void loadConfig() {
+        table = new ExameTable();
+        for (ExamePaciente ep : new ExamePacienteDaoImpl().listar()) {
+            table.addRow(ep);
+        }
+        iFrame.tableExame.setModel(table);
+    }
+
+    public void resultadoExame() {
+        int rowTable = iFrame.tableExame.getSelectedRow();
+        if (rowTable >= 0) {
+            ExameDialog dlg = new ExameDialog(frame, true,table.getRow(rowTable));
+            dlg.setVisible(true);
         }
     }
 

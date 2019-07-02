@@ -20,10 +20,10 @@ public class Remedio implements Serializable {
     @Column(nullable = false)
     private String nome;
 
-    private String decricao;
+    private String decricao; 
 
     @ManyToOne
-    @JoinColumn(name = "idConsulta")
+    @JoinColumn(name = "idConsulta",nullable = false)
     private Consulta consulta;
 
     public Integer getId() {

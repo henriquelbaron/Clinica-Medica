@@ -1,7 +1,6 @@
 package br.com.clinica.domain.tables;
 
 import br.com.clinica.domain.Sala;
-import br.com.clinica.domain.Sala;
 import java.util.ArrayList;
 import java.util.List;
 

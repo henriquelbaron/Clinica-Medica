@@ -247,7 +247,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuMedicoExameActionPerformed
 
     private void MenuAgendaVacinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuAgendaVacinaActionPerformed
-        control.chamarTelaVacina();
     }//GEN-LAST:event_MenuAgendaVacinaActionPerformed
 
     private void MenuAgendaConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuAgendaConsultaActionPerformed

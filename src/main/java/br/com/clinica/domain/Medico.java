@@ -40,7 +40,7 @@ public class Medico extends Pessoa implements Serializable {
 
     @ManyToMany(mappedBy = "medicos", targetEntity = Plantao.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @Fetch(value = FetchMode.SUBSELECT)
-    private List<Plantao> plantaos;
+    private Set<Plantao> plantaos;
 
     @OneToMany(mappedBy = "medico", targetEntity = Consulta.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Consulta> consultas;
@@ -97,11 +97,11 @@ public class Medico extends Pessoa implements Serializable {
         this.especialidade = especialidade;
     }
 
-    public List<Plantao> getPlantaos() {
+    public Set<Plantao> getPlantaos() {
         return plantaos;
     }
 
-    public void setPlantaos(List<Plantao> plantaos) {
+    public void setPlantaos(Set<Plantao> plantaos) {
         this.plantaos = plantaos;
     }
 

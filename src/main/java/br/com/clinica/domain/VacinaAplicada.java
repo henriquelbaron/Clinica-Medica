@@ -51,7 +51,7 @@ public class VacinaAplicada implements Serializable {
     private Sala sala;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idAtendente", nullable = false)
+    @JoinColumn(name = "idAtendente")
     private Atendente atendente;
 
     @ManyToOne(cascade = CascadeType.ALL)

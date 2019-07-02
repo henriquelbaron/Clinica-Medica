@@ -28,11 +28,10 @@ public class AgendamentoVacinaControl {
 
     private AgendamentoVacinaDialog dlg;
     private VacinaAplicada vacinaAplicada;
-    private Paciente paciente;
 
-    public AgendamentoVacinaControl(AgendamentoVacinaDialog aThis, Paciente p) {
+    public AgendamentoVacinaControl(AgendamentoVacinaDialog aThis, VacinaAplicada va) {
         this.dlg = aThis;
-        this.paciente = p;
+        this.vacinaAplicada = va;
         loadConfig();
     }
 
@@ -41,28 +40,35 @@ public class AgendamentoVacinaControl {
     }
 
     public void salvarAction() {
-        vacinaAplicada = new VacinaAplicada();
-        vacinaAplicada.setAtendente(UserLogado.getATENDENTE());
-        vacinaAplicada.setEnfermeiro((Enfermeiro) dlg.cbEnfermeiro.getSelectedItem());
+        if (UserLogado.getATENDENTE() != null) {
+            vacinaAplicada.setAtendente(UserLogado.getATENDENTE());
+        }
+        if (UserLogado.getENFERMEIRO() != null) {
+            vacinaAplicada.setEnfermeiro(UserLogado.getENFERMEIRO());
+        }
         vacinaAplicada.setVacina((Vacina) dlg.cbVacina.getSelectedItem());
         vacinaAplicada.setSala((Sala) dlg.cbSala.getSelectedItem());
         vacinaAplicada.setDataAgendamento(new Date(System.currentTimeMillis()));
         vacinaAplicada.setData(Utils.stringToDate(dlg.jDateChooser1.getDate(), dlg.tfHora.getText()));
         vacinaAplicada.setAplicada(dlg.checkBox.isSelected());
-        vacinaAplicada.setPaciente(paciente);
-        if (new VacinaAplicadaDaoImpl().salvar(vacinaAplicada)) {
-            SendMessenger.success(dlg.checkBox.isSelected() ? "Vacina Aplicada!" : "Vacina Agendada!");
-            close();
+        if (vacinaAplicada.getId() == null) {
+            if (new VacinaAplicadaDaoImpl().salvar(vacinaAplicada)) {
+                SendMessenger.success(dlg.checkBox.isSelected() ? "Vacina Aplicada!" : "Vacina Agendada!");
+                close();
+            }
         } else {
-            SendMessenger.error("Verifique os campos!");
+            if (new VacinaAplicadaDaoImpl().editar(vacinaAplicada)) {
+                SendMessenger.success("Vacina aplicada!");
+                close();
+            }
         }
+
+        SendMessenger.error("Verifique os campos!");
     }
 
     public void aplicarAgoraAction() {
-        if (dlg.checkBox.isSelected()) {
-            dlg.tfHora.setText(Utils.horaAtual());
-            dlg.jDateChooser1.setDate(new Date(System.currentTimeMillis()));
-        }
+        dlg.tfHora.setText(Utils.horaAtual());
+        dlg.jDateChooser1.setDate(new Date(System.currentTimeMillis()));
     }
 
     private void close() {
@@ -70,8 +76,17 @@ public class AgendamentoVacinaControl {
     }
 
     private void loadConfig() {
-        dlg.cbEnfermeiro.setModel(new DefaultComboBoxModel(new EnfermeiroDaoImpl().listar().toArray()));
         dlg.cbSala.setModel(new DefaultComboBoxModel(new SalaDaoImpl().listar().toArray()));
         dlg.cbVacina.setModel(new DefaultComboBoxModel(new VacinaDaoImpl().listar().toArray()));
+        if (vacinaAplicada.getId() != null) {
+            dlg.cbSala.setSelectedItem(vacinaAplicada.getSala());
+            dlg.cbVacina.setSelectedItem(vacinaAplicada.getVacina());
+            dlg.checkBox.setSelected(true);
+            aplicarAgoraAction();
+        }
+        if (UserLogado.getENFERMEIRO() == null) {
+            dlg.lblIcon.setVisible(false);
+            dlg.checkBox.setVisible(false);
+        }
     }
 }
