@@ -56,7 +56,8 @@
         <mapping class="br.com.clinica.domain.Vacina" />
         <mapping class="br.com.clinica.domain.VacinaAplicada" />
         <mapping class="br.com.clinica.domain.ExamePaciente" />
-        
+        <mapping class="br.com.clinica.domain.Usuario" />
+            
     </session-factory>
 
 </hibernate-configuration>

@@ -9,7 +9,7 @@ import br.com.clinica.dao.banco.impl.ExamePacienteDaoImpl;
 import br.com.clinica.domain.ExamePaciente;
 import br.com.clinica.util.SendMessenger;
 import br.com.clinica.util.Utils;
-import br.com.clinica.view.ExameDialog;
+import br.com.clinica.view.PacienteExameDialog;
 
 /**
  *
@@ -17,10 +17,10 @@ import br.com.clinica.view.ExameDialog;
  */
 public class ExamePacienteControl {
 
-    private ExameDialog dlg;
+    private PacienteExameDialog dlg;
     private ExamePaciente ep;
 
-    public ExamePacienteControl(ExameDialog aThis, ExamePaciente ep) {
+    public ExamePacienteControl(PacienteExameDialog aThis, ExamePaciente ep) {
         this.dlg = aThis;
         this.ep = ep;
         loadConfig();
@@ -41,10 +41,10 @@ public class ExamePacienteControl {
         dlg.lblPaciente.setText(ep.getPaciente().getNome());
         dlg.lblSala.setText(ep.getSala().getNumero());
         if (ep.getMedico() != null) {
-            dlg.lblResponsavel.setText(ep.getMedico().getNome());
+            dlg.lblResponsavel.setText("Dr(a). " + ep.getMedico().getNome());
         }
         if (ep.getEnfermeiro() != null) {
-            dlg.lblResponsavel.setText(ep.getEnfermeiro().getNome());
+            dlg.lblResponsavel.setText("Enfermeiro(a) " + ep.getEnfermeiro().getNome());
         }
     }
 

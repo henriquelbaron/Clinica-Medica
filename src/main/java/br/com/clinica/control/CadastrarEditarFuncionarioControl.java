@@ -17,6 +17,7 @@ import br.com.clinica.domain.Especialidade;
 import br.com.clinica.domain.Medico;
 import br.com.clinica.domain.Pessoa;
 import br.com.clinica.domain.Sexo;
+import br.com.clinica.domain.Usuario;
 import br.com.clinica.util.SendMessenger;
 import br.com.clinica.validation.Validator;
 import br.com.clinica.view.FuncionarioCRUDDialog;
@@ -34,6 +35,7 @@ public class CadastrarEditarFuncionarioControl {
     private Medico medico;
     private Enfermeiro enfermeiro;
     private Endereco endereco;
+    private Usuario usuario;
     private int flag;
 
     public CadastrarEditarFuncionarioControl(FuncionarioCRUDDialog dlg, Pessoa obj) {
@@ -50,6 +52,7 @@ public class CadastrarEditarFuncionarioControl {
             dlg.lblCorenCRM.setText("Coren/Cofen");
             if (enfermeiro.getId() != null) {
                 loadEnfermeiro();
+                usuario = enfermeiro.getUsuario();
             }
         }
         if (obj instanceof Medico) {
@@ -58,6 +61,7 @@ public class CadastrarEditarFuncionarioControl {
             dlg.lblCorenCRM.setText("CRM");
             if (medico.getId() != null) {
                 loadMedico();
+                usuario = medico.getUsuario();
             }
         }
         if (obj instanceof Atendente) {
@@ -66,6 +70,7 @@ public class CadastrarEditarFuncionarioControl {
             setViseble(false);
             if (atendente.getId() != null) {
                 loadAtendente();
+                usuario = atendente.getUsuario();
             }
         }
     }
@@ -81,29 +86,22 @@ public class CadastrarEditarFuncionarioControl {
     }
 
     public void saveAction() {
+        usuario.setLogin(dlg.tfEmail.getText());
+        usuario.setSenha(String.valueOf(dlg.tfSenha.getPassword()));
         boolean salvo = false;
         if (Validator.validSaveFuncionario(dlg)) {
             switch (flag) {
                 case 1:
-                    if (enfermeiro.getId() == null) {
-                        salvo = new EnfermeiroDaoImpl().salvar(populateEnfermeiro());
-                    } else {
-                        salvo = new EnfermeiroDaoImpl().editar(populateEnfermeiro());
-                    }
+                    EnfermeiroDaoImpl enfermeiroDao = new EnfermeiroDaoImpl();
+                    salvo = enfermeiro.getId() == null ? new EnfermeiroDaoImpl().salvar(populateEnfermeiro()) : enfermeiroDao.editar(populateEnfermeiro());
                     break;
                 case 2:
-                    if (medico.getId() == null) {
-                        salvo = new MedicoDaoImpl().salvar(populateMedico());
-                    } else {
-                        salvo = new MedicoDaoImpl().editar(populateMedico());
-                    }
+                    MedicoDaoImpl medicoDao = new MedicoDaoImpl();
+                    salvo = medico.getId() == null ? medicoDao.salvar(populateMedico()) : medicoDao.editar(populateMedico());
                     break;
                 case 3:
-                    if (atendente.getId() == null) {
-                        salvo = new AtendenteDaoImp().salvar(populateAtendente());
-                    } else {
-                        salvo = new AtendenteDaoImp().editar(populateAtendente());
-                    }
+                    AtendenteDaoImp atendenteDao = new AtendenteDaoImp();
+                    salvo = atendente.getId() == null ? atendenteDao.salvar(populateAtendente()) : atendenteDao.editar(populateAtendente());
                     break;
             }
         } else {
@@ -125,9 +123,9 @@ public class CadastrarEditarFuncionarioControl {
     }
 
     private Enfermeiro populateEnfermeiro() {
+        usuario.setEnfermeiro(enfermeiro);
         enfermeiro.setCorenCofen(dlg.tfCRMCorenCofen.getText());
         enfermeiro.setEspecialidade((Especialidade) dlg.cbEspecialidade.getSelectedItem());
-        enfermeiro.setSenha(String.valueOf(dlg.tfSenha.getPassword()));
         enfermeiro.setTipoSanguineo(dlg.cbSangue.getSelectedItem().toString());
         enfermeiro.setNome(dlg.tfNome.getText());
         enfermeiro.setDataNascimento(dlg.jDateChooser1.getDate());
@@ -150,9 +148,9 @@ public class CadastrarEditarFuncionarioControl {
     }
 
     private Medico populateMedico() {
+        usuario.setMedico(medico);
         medico.setCrm(dlg.tfCRMCorenCofen.getText());
         medico.setEspecialidade((Especialidade) dlg.cbEspecialidade.getSelectedItem());
-        medico.setSenha(String.valueOf(dlg.tfSenha.getPassword()));
         medico.setTipoSanguineo(dlg.cbSangue.getSelectedItem().toString());
         medico.setNome(dlg.tfNome.getText());
         medico.setDataNascimento(dlg.jDateChooser1.getDate());
@@ -174,7 +172,7 @@ public class CadastrarEditarFuncionarioControl {
     }
 
     private Atendente populateAtendente() {
-        atendente.setSenha(String.valueOf(dlg.tfSenha.getPassword()));
+        usuario.setAtendente(atendente);
         atendente.setTipoSanguineo(dlg.cbSangue.getSelectedItem().toString());
         atendente.setNome(dlg.tfNome.getText());
         atendente.setDataNascimento(dlg.jDateChooser1.getDate());

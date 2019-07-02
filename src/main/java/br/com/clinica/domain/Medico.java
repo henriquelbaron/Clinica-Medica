@@ -16,6 +16,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -28,11 +29,12 @@ public class Medico extends Pessoa implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "idUsuario", nullable = false)
+    private Usuario usuario;
+
     @Column(unique = true, nullable = false)
     private String crm;
-
-    @Column(nullable = false)
-    private String senha;
 
     @ManyToOne
     @JoinColumn(name = "idEspecialidade", nullable = false)
@@ -51,10 +53,12 @@ public class Medico extends Pessoa implements Serializable {
     public Medico() {
     }
 
-    public Medico(String crm, String senha, Especialidade especialidade) {
-        this.crm = crm;
-        this.senha = senha;
-        this.especialidade = especialidade;
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public List<ExamePaciente> getExames() {
@@ -79,14 +83,6 @@ public class Medico extends Pessoa implements Serializable {
 
     public void setCrm(String crm) {
         this.crm = crm;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
 
     public Especialidade getEspecialidade() {

@@ -13,8 +13,6 @@ import br.com.clinica.view.InternalFrameExames;
 import br.com.clinica.view.InternalFrameListaExames;
 import br.com.clinica.view.InternalFrameListagemVacina;
 import br.com.clinica.view.InternalFramePlantao;
-import br.com.clinica.view.InternalFrameProntuario;
-import br.com.clinica.view.InternalFrameReceita;
 import br.com.clinica.view.InternalFrameSala;
 import br.com.clinica.view.PacientesInternalFrame;
 import br.com.clinica.view.TelaPrincipal;
@@ -31,9 +29,7 @@ public class MainControl {
     private PacientesInternalFrame pacientesInternalFrame = null;
     private FuncionariosInternalFrame cadastroFuncionario = null;
     private InternalFrameListagemVacina listarVacina = null;
-    private InternalFrameProntuario prontuario = null;
     private InternalFrameExames exames = null;
-    private InternalFrameReceita receita = null;
     private InternalFrameEmergencia emergencia = null;
     private InternalFrameListaExames listaExames = null;
     private InternalFrameSala sala = null;
@@ -99,21 +95,6 @@ public class MainControl {
             } else {
                 TelaPrincipal.painel.add(emergencia);
                 emergencia.setVisible(true);
-            }
-        }
-    }
-
-    public void ChamarTelaReceita() {
-        if (receita == null) {
-            receita = new InternalFrameReceita();
-            TelaPrincipal.painel.add(receita);
-            receita.setVisible(true);
-        } else {
-            if (receita.isVisible()) {
-                receita.pack();
-            } else {
-                TelaPrincipal.painel.add(receita);
-                receita.setVisible(true);
             }
         }
     }

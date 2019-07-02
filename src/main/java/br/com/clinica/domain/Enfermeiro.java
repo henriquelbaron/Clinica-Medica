@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Enfermeiro extends Pessoa implements Serializable {
@@ -27,8 +28,9 @@ public class Enfermeiro extends Pessoa implements Serializable {
     @Column(unique = true, nullable = false)
     private String corenCofen;
 
-    @Column(nullable = false)
-    private String senha;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "idUsuario", nullable = false)
+    private Usuario usuario;
 
     @ManyToOne
     @JoinColumn(name = "idEspecialidade")
@@ -51,20 +53,20 @@ public class Enfermeiro extends Pessoa implements Serializable {
         this.id = id;
     }
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
     public String getCorenCofen() {
         return corenCofen;
     }
 
     public void setCorenCofen(String corenCofen) {
         this.corenCofen = corenCofen;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
 
     public Especialidade getEspecialidade() {

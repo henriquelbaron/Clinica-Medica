@@ -5,10 +5,11 @@
  */
 package br.com.clinica.dao.banco.impl;
 
-import br.com.clinica.domain.Atendente;
 import br.com.clinica.domain.Endereco;
+import br.com.clinica.domain.Especialidade;
 import br.com.clinica.domain.Medico;
 import br.com.clinica.domain.Sexo;
+import br.com.clinica.domain.Usuario;
 import java.util.Date;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -35,7 +36,7 @@ public class MedicoDaoImplTest {
     }
 
     @Test
-//    @Ignore
+    @Ignore
     public void save() {
         for (int i = 0; i < 10; i++) {
 
@@ -45,16 +46,40 @@ public class MedicoDaoImplTest {
             medico.setCpf("186.402.484-2" + i);
             medico.setDataNascimento(new Date(System.currentTimeMillis()));
             medico.setSexo(Sexo.MASCULINO);
-            medico.setEmail("jose"+i);
+            medico.setEmail("jose" + i);
             medico.setEndereco(new Endereco("88131-743", "Braulina Goulart", "48", "RioGrande", "", "SC"));
             medico.setTipoSanguineo("O+");
             medico.setTelefone("48996850323");
-            medico.setCrm("123456"+i);
-            medico.setSenha("123");
+            medico.setCrm("123456" + i);
             medico.setEspecialidade(especialidadeDaoImpl.buscar(1));
 //        medico.setPlantaos(new PlantaoDaoImpl().listar());
             dao.salvar(medico);
         }
+    }
+
+    @Test
+//    @Ignore
+    public void saveTest() {
+        medico = new Medico();
+        Especialidade e = new Especialidade("dsd", "blanlsdfsdfs");
+        especialidadeDaoImpl.salvar(e);
+        medico.setNome("Henrique");
+        medico.setCpf("186.402.484-32");
+        medico.setDataNascimento(new Date(System.currentTimeMillis()));
+        medico.setSexo(Sexo.MASCULINO);
+        medico.setEmail("henrique1@gmail.com");
+        medico.setEndereco(new Endereco("88131-743", "Braulina Goulart", "48", "RioGrande", "", "SC"));
+        medico.setTipoSanguineo("O+");
+        medico.setTelefone("48990323");
+        medico.setCrm("2313");
+        medico.setEspecialidade(e);
+        Usuario usuario = new Usuario();
+        usuario.setLogin("henrique1");
+        usuario.setSenha("123");
+        usuario.setMedico(medico);
+        medico.setUsuario(usuario);
+//        medico.setPlantaos(new PlantaoDaoImpl().listar());
+        dao.salvar(medico);
     }
 
     @Test

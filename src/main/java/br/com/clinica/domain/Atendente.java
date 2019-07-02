@@ -5,13 +5,14 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Atendente extends Pessoa implements Serializable {
@@ -21,8 +22,9 @@ public class Atendente extends Pessoa implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column(nullable = false)
-    private String senha;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "idUsuario", nullable = false)
+    private Usuario usuario;
 
     @OneToMany(mappedBy = "atendente", targetEntity = Consulta.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Consulta> consultas;
@@ -41,20 +43,20 @@ public class Atendente extends Pessoa implements Serializable {
         this.examePacientes = examePacientes;
     }
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
     public List<VacinaAplicada> getVacinaPacientes() {
         return vacinaPacientes;
     }
 
     public void setVacinaPacientes(List<VacinaAplicada> vacinaPacientes) {
         this.vacinaPacientes = vacinaPacientes;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
 
     public String getTelefone() {

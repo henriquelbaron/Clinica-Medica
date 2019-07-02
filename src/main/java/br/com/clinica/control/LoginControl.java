@@ -8,10 +8,12 @@ package br.com.clinica.control;
 import br.com.clinica.dao.banco.impl.AtendenteDaoImp;
 import br.com.clinica.dao.banco.impl.EnfermeiroDaoImpl;
 import br.com.clinica.dao.banco.impl.MedicoDaoImpl;
+import br.com.clinica.dao.banco.impl.UsuarioDaoImpl;
 import br.com.clinica.domain.Atendente;
 import br.com.clinica.domain.Enfermeiro;
 import br.com.clinica.domain.Medico;
 import br.com.clinica.domain.Pessoa;
+import br.com.clinica.domain.Usuario;
 import br.com.clinica.validation.Validator;
 import br.com.clinica.view.TelaLogin;
 import br.com.clinica.view.TelaPrincipal;
@@ -36,24 +38,15 @@ public class LoginControl {
         String email = frame.tfEmail.getText();
         String senha = String.valueOf(frame.tfSenha.getPassword());
         if (Validator.emailValidator(email) && Validator.stringLenghtValidator(senha, 2)) {
-            Medico medico = new MedicoDaoImpl().medicoLogar(email, senha);
-            if (medico != null) {
-                abreTelaPrincipal(medico);
+            Usuario usuarioLogado = new UsuarioDaoImpl().logarUsuario(email, senha);
+            if (usuarioLogado != null) {
+                abreTelaPrincipal(usuarioLogado.getMedico() != null ? usuarioLogado.getMedico() : 
+                        (usuarioLogado.getAtendente() != null ? usuarioLogado.getAtendente() : usuarioLogado.getEnfermeiro()));
             } else {
-                Enfermeiro enfermeiro = new EnfermeiroDaoImpl().enfermeiroLogar(email, senha);
-                if (enfermeiro != null) {
-                    abreTelaPrincipal(enfermeiro);
-                } else {
-                    Atendente atendente = new AtendenteDaoImp().atendenteLogar(email, senha);
-                    if (atendente != null) {
-                        abreTelaPrincipal(atendente);
-                    } else {
-                        frame.labelAlerta.setText("Email ou Senha incorreta!");
-                        frame.labelAlerta.setVisible(true);
-                        frame.tfEmail.setText("");
-                        frame.tfSenha.setText("");
-                    }
-                }
+                frame.labelAlerta.setText("Email ou Senha incorreta!");
+                frame.labelAlerta.setVisible(true);
+                frame.tfEmail.setText("");
+                frame.tfSenha.setText("");
             }
         } else {
             frame.labelAlerta.setText("Preencha os campos corretamente!");

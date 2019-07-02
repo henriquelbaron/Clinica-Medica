@@ -12,14 +12,14 @@ import br.com.clinica.domain.ExamePaciente;
  *
  * @author Henrique Baron
  */
-public class ExameDialog extends javax.swing.JDialog {
+public class PacienteExameDialog extends javax.swing.JDialog {
 
     /**
-     * Creates new form ExameDialog
+     * Creates new form PacienteExameDialog
      */
     private ExamePacienteControl control;
 
-    public ExameDialog(java.awt.Frame parent, boolean modal, ExamePaciente ep) {
+    public PacienteExameDialog(java.awt.Frame parent, boolean modal, ExamePaciente ep) {
         super(parent, modal);
         initComponents();
         control = new ExamePacienteControl(this, ep);
@@ -54,7 +54,6 @@ public class ExameDialog extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Exame");
         setMinimumSize(new java.awt.Dimension(335, 433));
-        setResizable(false);
 
         jLabel1.setText("Data");
 
@@ -87,7 +86,7 @@ public class ExameDialog extends javax.swing.JDialog {
         jScrollPane1.setViewportView(tfResultado);
 
         lblExame.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblExame.setText("jLabel7");
+        lblExame.setText("nome do exame");
 
         jButton1.setText("Confirmar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -200,20 +199,21 @@ public class ExameDialog extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ExameDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PacienteExameDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ExameDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PacienteExameDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ExameDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PacienteExameDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ExameDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PacienteExameDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-//                ExameDialog dialog = new ExameDialog(new javax.swing.JFrame(), true);
+//                PacienteExameDialog dialog = new PacienteExameDialog(new javax.swing.JFrame(), true);
 //                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
 //                    @Override
 //                    public void windowClosing(java.awt.event.WindowEvent e) {
