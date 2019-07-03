@@ -17,7 +17,13 @@ import br.com.clinica.domain.Usuario;
 import br.com.clinica.validation.Validator;
 import br.com.clinica.view.TelaLogin;
 import br.com.clinica.view.TelaPrincipal;
+import java.awt.Desktop;
 import java.awt.Frame;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -40,8 +46,8 @@ public class LoginControl {
         if (Validator.emailValidator(email) && Validator.stringLenghtValidator(senha, 2)) {
             Usuario usuarioLogado = new UsuarioDaoImpl().logarUsuario(email, senha);
             if (usuarioLogado != null) {
-                abreTelaPrincipal(usuarioLogado.getMedico() != null ? usuarioLogado.getMedico() : 
-                        (usuarioLogado.getAtendente() != null ? usuarioLogado.getAtendente() : usuarioLogado.getEnfermeiro()));
+                abreTelaPrincipal(usuarioLogado.getMedico() != null ? usuarioLogado.getMedico()
+                        : (usuarioLogado.getAtendente() != null ? usuarioLogado.getAtendente() : usuarioLogado.getEnfermeiro()));
             } else {
                 frame.labelAlerta.setText("Email ou Senha incorreta!");
                 frame.labelAlerta.setVisible(true);
@@ -67,4 +73,29 @@ public class LoginControl {
         frame.dispose();
 
     }
+
+    public void abreEmail(String endereco) {
+        try {
+            Desktop desktop = null;
+            //Primeiro verificamos se é possível a integração com o desktop
+            if (!Desktop.isDesktopSupported()) {
+                throw new IllegalStateException("Erro ao acessar sua area de Trabalho , Contate o administrador do sistema.");
+            }
+            desktop = Desktop.getDesktop();
+            //Agora vemos se é possível disparar o browser default.
+            if (!desktop.isSupported(Desktop.Action.BROWSE)) {
+                throw new IllegalStateException("Navegador Padrão não encontrado!");
+            }
+            URI uri = new URI(endereco);
+            desktop.browse(uri);
+            //Dispara o browser default, que pode ser o Explorer, Firefox ou outro.
+        } catch (IllegalStateException illegalStateException) {
+
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(LoginControl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(LoginControl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }

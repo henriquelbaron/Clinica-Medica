@@ -18,7 +18,7 @@ public class TelaLogin extends javax.swing.JFrame {
     LoginControl control;
 
     /**
-     * 
+     *
      * Creates new form TelaLogin
      */
     public TelaLogin() {
@@ -161,7 +161,7 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_DeixarLabelNormal
 
     private void tfSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSenhaActionPerformed
-        // TODO add your handling code here:
+        control.abreEmail(("mailto:ajuda@aspekmed.com.br"));
     }//GEN-LAST:event_tfSenhaActionPerformed
 
     /**
