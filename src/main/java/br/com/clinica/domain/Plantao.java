@@ -7,6 +7,7 @@ import java.util.Objects;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,8 +16,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 
 @Entity
 public class Plantao implements Serializable {
@@ -28,10 +27,10 @@ public class Plantao implements Serializable {
     private Integer id;
 
     @Temporal(TemporalType.DATE)
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private Date data;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "plantao_medico",
             joinColumns = @JoinColumn(name = "idPlantao"),
             inverseJoinColumns = @JoinColumn(name = "idMedico"))
@@ -42,6 +41,10 @@ public class Plantao implements Serializable {
             joinColumns = @JoinColumn(name = "idPlantao"),
             inverseJoinColumns = @JoinColumn(name = "idEnfermeiro"))
     private List<Enfermeiro> enfermeiros;
+
+    public Plantao(Date data) {
+        this.data = data;
+    }
 
     public Plantao() {
     }

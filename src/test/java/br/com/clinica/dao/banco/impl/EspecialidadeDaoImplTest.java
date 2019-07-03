@@ -22,8 +22,19 @@ public class EspecialidadeDaoImplTest {
 
     @Test
     public void save() {
-       Especialidade especialidade = new Especialidade("Cirurgião","Faz Cirurgia");
-       dao.salvar(especialidade);
+       dao.salvar(new Especialidade("Cirurgia Geral","Faz Cirurgia"));
+       dao.salvar(new Especialidade("Obstétrica",""));
+       dao.salvar(new Especialidade("Oncológica"," "));
+       dao.salvar(new Especialidade("Nefrologia"," "));
+       dao.salvar(new Especialidade("Clínica Médica"," "));
+       dao.salvar(new Especialidade("Dermatologia"," "));
+       dao.salvar(new Especialidade("Endoscopia"," "));
+       dao.salvar(new Especialidade("Infectologia"," "));
+       dao.salvar(new Especialidade("Endoscopia"," "));
+       dao.salvar(new Especialidade("Oftalmologia"," "));
+       dao.salvar(new Especialidade("Ortopedia"," "));
+       dao.salvar(new Especialidade("Traumatologia"," "));
+       dao.salvar(new Especialidade("Psiquiatria"," "));
     }
 
 }

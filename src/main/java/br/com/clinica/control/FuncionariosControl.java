@@ -5,6 +5,7 @@
  */
 package br.com.clinica.control;
 
+import br.com.clinica.dao.banco.GenericDAO;
 import br.com.clinica.dao.banco.impl.AtendenteDaoImp;
 import br.com.clinica.dao.banco.impl.EnfermeiroDaoImpl;
 import br.com.clinica.dao.banco.impl.MedicoDaoImpl;
@@ -82,7 +83,7 @@ public class FuncionariosControl {
     public void editAction() {
         rowTable = iFrame.tabelaFuncionario.getSelectedRow();
         if (rowTable >= 0) {
-            chamaAlterar();
+            chamaCRUD(funcionarioTable.getRow(rowTable));
         } else {
             SendMessenger.error("Selecione o Paciente que deseja Editar!");
         }
@@ -140,20 +141,6 @@ public class FuncionariosControl {
                 break;
         }
         funcionarioTable.removeRow(rowTable);
-    }
-
-    private void chamaAlterar() {
-        switch (flag) {
-            case 1:
-                chamaCRUD(funcionarioTable.getRow(rowTable));
-                break;
-            case 2:
-                chamaCRUD(funcionarioTable.getRow(rowTable));
-                break;
-            case 3:
-                chamaCRUD(funcionarioTable.getRow(rowTable));
-                break;
-        }
     }
 
     private void cadastrar() {

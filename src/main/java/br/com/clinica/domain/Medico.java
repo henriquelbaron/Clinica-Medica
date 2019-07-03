@@ -41,7 +41,6 @@ public class Medico extends Pessoa implements Serializable {
     private Especialidade especialidade;
 
     @ManyToMany(mappedBy = "medicos", targetEntity = Plantao.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @Fetch(value = FetchMode.SUBSELECT)
     private Set<Plantao> plantaos;
 
     @OneToMany(mappedBy = "medico", targetEntity = Consulta.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)

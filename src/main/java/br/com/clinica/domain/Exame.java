@@ -31,9 +31,11 @@ public class Exame implements Serializable {
     public Exame() {
     }
 
-    public Exame(String nome) {
+    public Exame(String nome, String descrição) {
         this.nome = nome;
+        this.descrição = descrição;
     }
+
 
     public Integer getId() {
         return id;

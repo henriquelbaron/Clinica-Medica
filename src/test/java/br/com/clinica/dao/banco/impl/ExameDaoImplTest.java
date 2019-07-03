@@ -5,12 +5,8 @@
  */
 package br.com.clinica.dao.banco.impl;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import br.com.clinica.domain.Exame;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import org.junit.Ignore;
 
 /**
@@ -19,30 +15,16 @@ import org.junit.Ignore;
  */
 public class ExameDaoImplTest {
 
+    private ExameDaoImpl dao;
+
     public ExameDaoImplTest() {
-    }
-
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
+        dao = new ExameDaoImpl();
     }
 
     @Test
     @Ignore
     public void testSomeMethod() {
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        dao.salvar(new Exame("Sangue", ""));
     }
 
 }

@@ -20,7 +20,7 @@ public class Especialidade implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    
+
     @Column(unique = true, nullable = false)
     private String especialidade;
     private String descricao;
