@@ -48,10 +48,11 @@ public class PlantaoDaoImplTest {
 //    @Ignore
     public void plantaoDoDia() {
 //        List<Medico> medicos = dao.getPlantoesDia(new Date(System.currentTimeMillis()));
-        List<Medico> medicos = dao.getPlantoesMedicos();
-//        List<Plantao> plantaos = dao.getPlantoesDia(Utils.stringToDate("12/07/2019"));
-        for (Medico medico : medicos) {
-            for (Plantao plantao : medico.getPlantaos()) {
+//        List<Medico> medicos = dao.getPlantoesMedicos();
+//        List<Plantao> plantaos = dao.getPlantoesMedicos();
+        List<Plantao> plantaos = dao.getPlantoesDia(Utils.stringToDate("12/07/2019"));
+        for (Plantao plantao : plantaos) {
+            for (Medico medico : plantao.getMedicos()) {
                 System.out.println(plantao.getData());
                 System.out.println(medico.getNome());
             }

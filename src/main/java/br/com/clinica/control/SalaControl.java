@@ -13,7 +13,6 @@ import br.com.clinica.domain.tables.SalaTable;
 import br.com.clinica.util.SendMessenger;
 import br.com.clinica.validation.Validator;
 import br.com.clinica.view.InternalFrameSala;
-import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 
 /**

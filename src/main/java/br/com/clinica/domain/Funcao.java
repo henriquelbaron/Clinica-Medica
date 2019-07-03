@@ -20,14 +20,18 @@ public class Funcao implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
     @Column(nullable = false, unique = true)
     private String nome;
-
 
     @OneToMany(mappedBy = "funcao", targetEntity = Sala.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Sala> salas;
 
     public Funcao() {
+    }
+
+    public Funcao(String nome) {
+        this.nome = nome;
     }
 
     public Integer getId() {
@@ -45,7 +49,6 @@ public class Funcao implements Serializable {
     public void setNome(String nome) {
         this.nome = nome;
     }
-
 
     public List<Sala> getSalas() {
         return salas;
