@@ -110,7 +110,7 @@ public class AgendamentoExamesDialog extends javax.swing.JDialog {
         jLabel5.setText("Sala");
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stethoscope (2).png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/health-check.png"))); // NOI18N
         jLabel3.setText("Exame");
 
         lblPaciente.setText("Nome do paciente selecionado");

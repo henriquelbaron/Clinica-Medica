@@ -65,6 +65,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notepad (1).png"))); // NOI18N
         jMenu1.setText("Agendamento");
 
+        MenuAgendaConsulta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         MenuAgendaConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stethoscope.png"))); // NOI18N
         MenuAgendaConsulta.setText("Consultas");
         MenuAgendaConsulta.addActionListener(new java.awt.event.ActionListener() {
@@ -74,6 +75,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu1.add(MenuAgendaConsulta);
 
+        MenuAgendaExame.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
         MenuAgendaExame.setIcon(new javax.swing.ImageIcon(getClass().getResource("/time.png"))); // NOI18N
         MenuAgendaExame.setText("Exames");
         MenuAgendaExame.addActionListener(new java.awt.event.ActionListener() {
@@ -83,6 +85,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu1.add(MenuAgendaExame);
 
+        MenuAgendaVacina.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_MASK));
         MenuAgendaVacina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/syringe (1).png"))); // NOI18N
         MenuAgendaVacina.setText("Vacinas");
         MenuAgendaVacina.addActionListener(new java.awt.event.ActionListener() {
@@ -97,6 +100,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/doctor (1).png"))); // NOI18N
         jMenu2.setText("Médico");
 
+        MenuMedicoProntuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_MASK));
         MenuMedicoProntuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/medical-history (2).png"))); // NOI18N
         MenuMedicoProntuario.setText("Consultas");
         MenuMedicoProntuario.addActionListener(new java.awt.event.ActionListener() {
@@ -106,6 +110,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu2.add(MenuMedicoProntuario);
 
+        MenuMedicoExame.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
         MenuMedicoExame.setIcon(new javax.swing.ImageIcon(getClass().getResource("/report.png"))); // NOI18N
         MenuMedicoExame.setText("Exames");
         MenuMedicoExame.addActionListener(new java.awt.event.ActionListener() {
@@ -115,6 +120,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu2.add(MenuMedicoExame);
 
+        MenuMedicoReceita.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
         MenuMedicoReceita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cure (1).png"))); // NOI18N
         MenuMedicoReceita.setText("Receitas");
         MenuMedicoReceita.addActionListener(new java.awt.event.ActionListener() {
@@ -129,6 +135,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/syringe (2).png"))); // NOI18N
         jMenu3.setText("Vacinas");
 
+        MenuVacinaAplicacao.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         MenuVacinaAplicacao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vaccine.png"))); // NOI18N
         MenuVacinaAplicacao.setText("Aplicação");
         MenuVacinaAplicacao.addActionListener(new java.awt.event.ActionListener() {
@@ -143,6 +150,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/medical-history.png"))); // NOI18N
         jMenu4.setText("Consultas");
 
+        MenuConsultaEmergencia.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         MenuConsultaEmergencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ambulance.png"))); // NOI18N
         MenuConsultaEmergencia.setText("Emergência");
         MenuConsultaEmergencia.addActionListener(new java.awt.event.ActionListener() {
@@ -152,6 +160,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu4.add(MenuConsultaEmergencia);
 
+        MenuConsultaExame.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.SHIFT_MASK));
         MenuConsultaExame.setIcon(new javax.swing.ImageIcon(getClass().getResource("/health-check.png"))); // NOI18N
         MenuConsultaExame.setText("Exames");
         MenuConsultaExame.addActionListener(new java.awt.event.ActionListener() {
@@ -166,6 +175,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital.png"))); // NOI18N
         menuCadastro.setText("Cadastro");
 
+        menuPaciente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
         menuPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/patient.png"))); // NOI18N
         menuPaciente.setText("Paciente");
         menuPaciente.addActionListener(new java.awt.event.ActionListener() {
@@ -175,6 +185,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         menuCadastro.add(menuPaciente);
 
+        menuFuncionario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
         menuFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/doctor (1).png"))); // NOI18N
         menuFuncionario.setText("Funcionário");
         menuFuncionario.addActionListener(new java.awt.event.ActionListener() {
@@ -184,6 +195,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         menuCadastro.add(menuFuncionario);
 
+        MenuConsultaReservaSala.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         MenuConsultaReservaSala.setIcon(new javax.swing.ImageIcon(getClass().getResource("/surgery-room.png"))); // NOI18N
         MenuConsultaReservaSala.setText("Salas");
         MenuConsultaReservaSala.addActionListener(new java.awt.event.ActionListener() {
@@ -203,6 +215,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/medical-history (2).png"))); // NOI18N
         jMenuItem2.setText("Listar");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
