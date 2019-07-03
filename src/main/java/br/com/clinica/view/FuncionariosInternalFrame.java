@@ -66,7 +66,7 @@ public class FuncionariosInternalFrame extends javax.swing.JInternalFrame {
                 rbMedicoActionPerformed(evt);
             }
         });
-        getContentPane().add(rbMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 18, 110, -1));
+        getContentPane().add(rbMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 110, -1));
 
         groupB.add(rbEnfermeira);
         rbEnfermeira.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
@@ -81,7 +81,7 @@ public class FuncionariosInternalFrame extends javax.swing.JInternalFrame {
                 rbEnfermeiraActionPerformed(evt);
             }
         });
-        getContentPane().add(rbEnfermeira, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 18, 130, -1));
+        getContentPane().add(rbEnfermeira, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, 130, -1));
 
         groupB.add(rbAtendente);
         rbAtendente.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
@@ -96,19 +96,19 @@ public class FuncionariosInternalFrame extends javax.swing.JInternalFrame {
                 rbAtendenteActionPerformed(evt);
             }
         });
-        getContentPane().add(rbAtendente, new org.netbeans.lib.awtextra.AbsoluteConstraints(492, 18, 130, -1));
+        getContentPane().add(rbAtendente, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, 130, -1));
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/doctor (1).png"))); // NOI18N
-        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 18, -1, -1));
+        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nurse.png"))); // NOI18N
-        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(257, 18, -1, -1));
+        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, -1));
 
         jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/avatar.png"))); // NOI18N
-        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(454, 18, -1, -1));
+        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/patient.png"))); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/id-card.png"))); // NOI18N
         jLabel13.setText("Funcionario:");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, -1, -1));
 
@@ -119,7 +119,7 @@ public class FuncionariosInternalFrame extends javax.swing.JInternalFrame {
                 btAdicionarPacienteActionPerformed(evt);
             }
         });
-        getContentPane().add(btAdicionarPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 50, -1, -1));
+        getContentPane().add(btAdicionarPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 48, 70, 50));
 
         tfPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

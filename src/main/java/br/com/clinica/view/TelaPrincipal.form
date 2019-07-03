@@ -25,6 +25,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="MenuAgendaConsulta">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+C"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/stethoscope.png"/>
                 </Property>
@@ -39,6 +42,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="MenuAgendaExame">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+E"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/time.png"/>
                 </Property>
@@ -53,6 +59,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="MenuAgendaVacina">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+V"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/syringe (1).png"/>
                 </Property>
@@ -80,6 +89,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="MenuMedicoProntuario">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+M"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/medical-history (2).png"/>
                 </Property>
@@ -94,6 +106,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="MenuMedicoExame">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+X"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/report.png"/>
                 </Property>
@@ -108,6 +123,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="MenuMedicoReceita">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+R"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/cure (1).png"/>
                 </Property>
@@ -135,6 +153,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="MenuVacinaAplicacao">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+C"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/vaccine.png"/>
                 </Property>
@@ -162,6 +183,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="MenuConsultaEmergencia">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Shift+Ctrl+E"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/ambulance.png"/>
                 </Property>
@@ -176,6 +200,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="MenuConsultaExame">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Shift+E"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/health-check.png"/>
                 </Property>
@@ -200,6 +227,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menuPaciente">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+P"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/patient.png"/>
                 </Property>
@@ -211,6 +241,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuFuncionario">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+F"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/doctor (1).png"/>
                 </Property>
@@ -222,6 +255,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="MenuConsultaReservaSala">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+S"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/surgery-room.png"/>
                 </Property>
@@ -249,6 +285,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+L"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/medical-history (2).png"/>
                 </Property>

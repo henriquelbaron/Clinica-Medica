@@ -74,21 +74,25 @@ public class LoginControl {
 
     }
 
-    public void abreEmail(String endereco) {
+    public void abreEmail() {
+        String destinatário = "ajuda@aspekmed.com";
+        String assunto = "Esqueci%20minha%20senha";
+        String corpoEmail = "Preciso%20recuperar%20a%20senha%20para%20o%20meu%20acesso%20no%20sistema%20AspekMed.";
+
         try {
             Desktop desktop = null;
-            //Primeiro verificamos se é possível a integração com o desktop
+            //Verificar se é possível a integração com o desktop.
             if (!Desktop.isDesktopSupported()) {
-                throw new IllegalStateException("Erro ao acessar sua area de Trabalho , Contate o administrador do sistema.");
+                throw new IllegalStateException("Erro ao acessar sua área de trabalho. Contate o administrador do sistema.");
             }
             desktop = Desktop.getDesktop();
-            //Agora vemos se é possível disparar o browser default.
+            //Verificar se é possível disparar o browser default.
             if (!desktop.isSupported(Desktop.Action.BROWSE)) {
-                throw new IllegalStateException("Navegador Padrão não encontrado!");
+                throw new IllegalStateException("Navegador padrão não encontrado!");
             }
-            URI uri = new URI(endereco);
+            URI uri = new URI("mailto:" + destinatário + "?subject=" + assunto + "&body=" + corpoEmail);
             desktop.browse(uri);
-            //Dispara o browser default, que pode ser o Explorer, Firefox ou outro.
+            //Disparar o browser default.
         } catch (IllegalStateException illegalStateException) {
 
         } catch (URISyntaxException ex) {
