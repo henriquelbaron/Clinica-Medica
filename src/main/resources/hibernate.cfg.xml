@@ -33,7 +33,7 @@
 
         <!-- Cria as tabelas do banco de dados -->
         <!--create/validate/update-->
-        <property name="hbm2ddl.auto">update</property>
+        <property name="hbm2ddl.auto">create</property>
         <property name="hibernate.query.substitutions">true 1, false 0</property>
 
 		
@@ -57,6 +57,8 @@
         <mapping class="br.com.clinica.domain.VacinaAplicada" />
         <mapping class="br.com.clinica.domain.ExamePaciente" />
         <mapping class="br.com.clinica.domain.Usuario" />
+        <mapping class="br.com.clinica.domain.PlantaoMedico" />
+        <mapping class="br.com.clinica.domain.PlantaoEnfermeiro" />
             
     </session-factory>
 

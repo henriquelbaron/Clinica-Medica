@@ -36,8 +36,8 @@ public class Enfermeiro extends Pessoa implements Serializable {
     @JoinColumn(name = "idEspecialidade")
     private Especialidade especialidade;
 
-    @ManyToMany(mappedBy = "enfermeiros")
-    private List<Plantao> plantaos;
+    @OneToMany(mappedBy = "enfermeiro", targetEntity = PlantaoEnfermeiro.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<PlantaoEnfermeiro> plantaos;
 
     @OneToMany(mappedBy = "enfermeiro", targetEntity = ExamePaciente.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<ExamePaciente> exames;
@@ -77,11 +77,11 @@ public class Enfermeiro extends Pessoa implements Serializable {
         this.especialidade = especialidade;
     }
 
-    public List<Plantao> getPlantaos() {
+    public List<PlantaoEnfermeiro> getPlantaos() {
         return plantaos;
     }
 
-    public void setPlantaos(List<Plantao> plantaos) {
+    public void setPlantaos(List<PlantaoEnfermeiro> plantaos) {
         this.plantaos = plantaos;
     }
 

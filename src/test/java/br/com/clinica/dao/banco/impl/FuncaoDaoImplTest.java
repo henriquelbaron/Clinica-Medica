@@ -23,12 +23,9 @@ public class FuncaoDaoImplTest {
 
     @Test
     public void testSomeMethod() {
-//        dao.salvar(new Funcao("Cirurgia"));
-//        dao.salvar(new Funcao("Coleta de Sangue"));
-//        dao.salvar(new Funcao("Cirurgião"));
-//        dao.salvar(new Funcao("Técnico"));
-//        dao.salvar(new Funcao("Instrumentador"));
-//        dao.salvar(new Funcao("Assistente"));
+        dao.salvar(new Funcao("Cirurgia"));
+        dao.salvar(new Funcao("Coleta de Sangue"));
+        dao.salvar(new Funcao("Atendimento"));
     }
 
 }

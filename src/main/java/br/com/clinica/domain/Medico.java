@@ -13,12 +13,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 
 @Entity
 public class Medico extends Pessoa implements Serializable {
@@ -40,8 +37,8 @@ public class Medico extends Pessoa implements Serializable {
     @JoinColumn(name = "idEspecialidade", nullable = false)
     private Especialidade especialidade;
 
-    @ManyToMany(mappedBy = "medicos", targetEntity = Plantao.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Set<Plantao> plantaos;
+    @OneToMany(mappedBy = "medico", targetEntity = PlantaoMedico.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Set<PlantaoMedico> plantaos;
 
     @OneToMany(mappedBy = "medico", targetEntity = Consulta.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Consulta> consultas;
@@ -50,6 +47,14 @@ public class Medico extends Pessoa implements Serializable {
     private List<ExamePaciente> exames;
 
     public Medico() {
+    }
+
+    public Set<PlantaoMedico> getPlantaos() {
+        return plantaos;
+    }
+
+    public void setPlantaos(Set<PlantaoMedico> plantaos) {
+        this.plantaos = plantaos;
     }
 
     public Usuario getUsuario() {
@@ -90,14 +95,6 @@ public class Medico extends Pessoa implements Serializable {
 
     public void setEspecialidade(Especialidade especialidade) {
         this.especialidade = especialidade;
-    }
-
-    public Set<Plantao> getPlantaos() {
-        return plantaos;
-    }
-
-    public void setPlantaos(Set<Plantao> plantaos) {
-        this.plantaos = plantaos;
     }
 
     public List<Consulta> getConsultas() {

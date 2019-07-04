@@ -36,7 +36,6 @@ public class PacienteDaoImplTest {
 //    @Ignore
     public void testFindPaciente() {
         for (int i = 0; i < 10; i++) {
-
             Paciente paciente = new Paciente();
             paciente.setNome("amanda" + i);
             paciente.setCpf("000.200.191-2" + i);

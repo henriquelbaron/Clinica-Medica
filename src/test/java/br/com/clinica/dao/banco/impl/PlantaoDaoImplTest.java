@@ -28,34 +28,24 @@ public class PlantaoDaoImplTest {
     }
 
     @Test
-    @Ignore
+//    @Ignore
     public void save() {
-        dao.salvar(new Plantao(Utils.stringToDate("1/07/2019")));
-        dao.salvar(new Plantao(Utils.stringToDate("2/07/2019")));
-        dao.salvar(new Plantao(Utils.stringToDate("3/07/2019")));
-        dao.salvar(new Plantao(Utils.stringToDate("4/07/2019")));
-        dao.salvar(new Plantao(Utils.stringToDate("5/07/2019")));
-        dao.salvar(new Plantao(Utils.stringToDate("6/07/2019")));
-        dao.salvar(new Plantao(Utils.stringToDate("7/07/2019")));
-        dao.salvar(new Plantao(Utils.stringToDate("8/07/2019")));
-        dao.salvar(new Plantao(Utils.stringToDate("9/07/2019")));
-        dao.salvar(new Plantao(Utils.stringToDate("10/07/2019")));
-        dao.salvar(new Plantao(Utils.stringToDate("11/07/2019")));
-        dao.salvar(new Plantao(Utils.stringToDate("12/07/2019")));
+        dao.salvar(new Plantao(Utils.stringToDate("1/07/2019", "07:00")));
+        dao.salvar(new Plantao(Utils.stringToDate("2/07/2019", "19:00")));
     }
 
     @Test
-//    @Ignore
+    @Ignore
     public void plantaoDoDia() {
 //        List<Medico> medicos = dao.getPlantoesDia(new Date(System.currentTimeMillis()));
 //        List<Medico> medicos = dao.getPlantoesMedicos();
 //        List<Plantao> plantaos = dao.getPlantoesMedicos();
         List<Plantao> plantaos = dao.getPlantoesDia(Utils.stringToDate("12/07/2019"));
         for (Plantao plantao : plantaos) {
-            for (Medico medico : plantao.getMedicos()) {
-                System.out.println(plantao.getData());
-                System.out.println(medico.getNome());
-            }
+//            for (Medico medico : plantao.getMedicos()) {
+//                System.out.println(plantao.getData());
+//                System.out.println(medico.getNome());
+//            }
         }
     }
 
@@ -64,9 +54,9 @@ public class PlantaoDaoImplTest {
     public void adicionarMedicosPlantao() {
         MedicoDaoImpl medicoDaoImpl = new MedicoDaoImpl();
         Set<Medico> medicos = new HashSet();
-        medicos.add(medicoDaoImpl.buscar(16));
+        medicos.add(medicoDaoImpl.buscar(14));
         Plantao p = dao.buscar(4);
-        p.setMedicos(medicos);
+//        p.setMedicos(medicos);
         dao.editar(p);
     }
 }

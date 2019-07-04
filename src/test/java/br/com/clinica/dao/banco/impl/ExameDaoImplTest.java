@@ -22,7 +22,7 @@ public class ExameDaoImplTest {
     }
 
     @Test
-    @Ignore
+//    @Ignore
     public void testSomeMethod() {
         dao.salvar(new Exame("Sangue", ""));
     }

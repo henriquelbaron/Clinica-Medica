@@ -12,7 +12,6 @@ import br.com.clinica.domain.Sexo;
 import br.com.clinica.domain.Usuario;
 import java.util.Date;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 
@@ -61,13 +60,13 @@ public class MedicoDaoImplTest {
 //    @Ignore
     public void saveTest() {
         medico = new Medico();
-        Especialidade e = new Especialidade("dsd", "blanlsdfsdfs");
+        Especialidade e = new Especialidade("Ortopedista", "");
         especialidadeDaoImpl.salvar(e);
         medico.setNome("Henrique");
         medico.setCpf("186.402.484-32");
         medico.setDataNascimento(new Date(System.currentTimeMillis()));
         medico.setSexo(Sexo.MASCULINO);
-        medico.setEmail("henrique1@gmail.com");
+        medico.setEmail("henrique");
         medico.setEndereco(new Endereco("88131-743", "Braulina Goulart", "48", "RioGrande", "", "SC"));
         medico.setTipoSanguineo("O+");
         medico.setTelefone("48990323");

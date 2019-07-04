@@ -14,15 +14,16 @@ import javax.swing.JFrame;
  */
 public class InternalFrameExames extends javax.swing.JInternalFrame {
 
-    ExameControl control;
-
     /**
      * Creates new form InternalFrameExames
+     *
      * @param frame
      */
+    private ExameControl control;
+
     public InternalFrameExames(JFrame frame) {
         initComponents();
-        control = new ExameControl(frame,this);
+        control = new ExameControl(frame, this);
     }
 
     /**
@@ -115,7 +116,7 @@ public class InternalFrameExames extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-control.resultadoExame();
+        control.resultadoExame();
     }//GEN-LAST:event_jButton3ActionPerformed
 
 
