@@ -93,15 +93,15 @@
 	<columnHeader>
 		<band height="38" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="61" height="20" uuid="9c8c363d-d0f6-48d0-9cbf-8ea93126be4c"/>
+				<reportElement x="0" y="0" width="27" height="20" uuid="9c8c363d-d0f6-48d0-9cbf-8ea93126be4c"/>
 				<text><![CDATA[id]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="61" y="0" width="61" height="20" uuid="a887c648-fb21-4e38-81db-6bfb34346ba3"/>
+				<reportElement x="27" y="0" width="76" height="20" uuid="a887c648-fb21-4e38-81db-6bfb34346ba3"/>
 				<text><![CDATA[cpf]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="122" y="0" width="61" height="20" uuid="67f77cd9-8fa6-4192-a806-bdcbed10ef52"/>
+				<reportElement x="103" y="0" width="80" height="20" uuid="67f77cd9-8fa6-4192-a806-bdcbed10ef52"/>
 				<text><![CDATA[dataNascimento]]></text>
 			</staticText>
 			<staticText>
@@ -124,60 +124,10 @@
 				<reportElement x="427" y="0" width="61" height="20" uuid="72a9da12-a9c4-4674-a3b4-f47785278629"/>
 				<text><![CDATA[tipoSanguineo]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="488" y="0" width="61" height="20" uuid="e0e49cfd-4102-4e5c-8208-905b2b8f82ce"/>
-				<text><![CDATA[idEndereco]]></text>
-			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="20" splitType="Stretch">
-			<textField>
-				<reportElement x="0" y="0" width="61" height="20" uuid="2bbb4818-ed7f-4ec6-90de-595e0d3237ac"/>
-				<textElement textAlignment="Center"/>
-				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="61" y="0" width="61" height="20" uuid="435d957e-9a87-47b3-bc76-49ddc37e8208"/>
-				<textElement textAlignment="Center"/>
-				<textFieldExpression><![CDATA[$F{cpf}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="122" y="0" width="61" height="20" uuid="34ce0c59-288a-4336-a458-fef7784cea9a"/>
-				<textElement textAlignment="Center"/>
-				<textFieldExpression><![CDATA[$F{dataNascimento}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="183" y="0" width="61" height="20" uuid="a72d6cd6-0b0e-4b37-9b93-aef1344bec72"/>
-				<textElement textAlignment="Center"/>
-				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="244" y="0" width="61" height="20" uuid="9eca46f8-fa90-40d2-a660-37189a44db36"/>
-				<textElement textAlignment="Center"/>
-				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="305" y="0" width="61" height="20" uuid="ce947a2b-60b9-4e1d-be9c-8aee454d8813"/>
-				<textElement textAlignment="Center"/>
-				<textFieldExpression><![CDATA[$F{sexo}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="366" y="0" width="61" height="20" uuid="9b9009f4-7c8f-4849-b1b0-a9950d001ea0"/>
-				<textElement textAlignment="Center"/>
-				<textFieldExpression><![CDATA[$F{telefone}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="427" y="0" width="61" height="20" uuid="eb4cc450-6daf-4ae5-bb0a-dd81a7827bea"/>
-				<textElement textAlignment="Center"/>
-				<textFieldExpression><![CDATA[$F{tipoSanguineo}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="488" y="0" width="61" height="20" uuid="04768863-3272-41be-a1a5-da4b322ab0bf"/>
-				<textElement textAlignment="Center"/>
-				<textFieldExpression><![CDATA[$F{idEndereco}]]></textFieldExpression>
-			</textField>
-		</band>
+		<band height="20" splitType="Stretch"/>
 	</detail>
 	<columnFooter>
 		<band height="45" splitType="Stretch"/>
