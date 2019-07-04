@@ -24,7 +24,7 @@ import org.junit.Ignore;
 public class EnfermeiroDaoImplTest {
 
     private EnfermeiroDaoImpl dao;
-    private Enfermeiro enferemeiro;
+    private Enfermeiro enfermeiro;
     private EspecialidadeDaoImpl especialidadeDaoImpl;
 
     public EnfermeiroDaoImplTest() {
@@ -40,44 +40,49 @@ public class EnfermeiroDaoImplTest {
     public void testEnfermeiroLogar() {
         for (int i = 0; i < 10; i++) {
 
-            enferemeiro = new Enfermeiro();
+            enfermeiro = new Enfermeiro();
 
-            enferemeiro.setNome("Maria" + i);
-            enferemeiro.setCpf("186.402.484-2" + i);
-            enferemeiro.setDataNascimento(new Date(System.currentTimeMillis()));
-            enferemeiro.setSexo(Sexo.MASCULINO);
-            enferemeiro.setEmail("jose" + i);
-            enferemeiro.setEndereco(new Endereco("88131-743", "Braulina Goulart", "48", "RioGrande", "", "SC"));
-            enferemeiro.setTipoSanguineo("O+");
-            enferemeiro.setTelefone("48996850323");
-            enferemeiro.setCorenCofen("123456" + i);
-            enferemeiro.setEspecialidade(especialidadeDaoImpl.buscar(1));
+            enfermeiro.setNome("Maria" + i);
+            enfermeiro.setCpf("186.402.484-2" + i);
+            enfermeiro.setDataNascimento(new Date(System.currentTimeMillis()));
+            enfermeiro.setSexo(Sexo.MASCULINO);
+            enfermeiro.setEmail("jose" + i);
+            enfermeiro.setEndereco(new Endereco("88131-743", "Braulina Goulart", "48", "RioGrande", "", "SC"));
+            enfermeiro.setTipoSanguineo("O+");
+            enfermeiro.setTelefone("48996850323");
+            enfermeiro.setCorenCofen("123456" + i);
+            enfermeiro.setEspecialidade(especialidadeDaoImpl.buscar(1));
 //        enferemeiro.setPlantaos(new PlantaoDaoImpl().listar());
-            dao.salvar(enferemeiro);
+  Usuario u = new Usuario();
+  u.setEnfermeiro(enfermeiro);
+  u.setLogin("");
+  u.setSenha("");
+            dao.salvar(enfermeiro);
         }
     }
 
     @Test
 //    @Ignore
     public void saveTest() {
-        enferemeiro = new Enfermeiro();
-        enferemeiro.setNome("Henrique");
-        enferemeiro.setCpf("186.402.484-32");
-        enferemeiro.setDataNascimento(new Date(System.currentTimeMillis()));
-        enferemeiro.setSexo(Sexo.MASCULINO);
-        enferemeiro.setEmail("henrique1@gmail.com");
-        enferemeiro.setEndereco(new Endereco("88131-743", "Braulina Goulart", "48", "RioGrande", "", "SC"));
-        enferemeiro.setTipoSanguineo("O+");
-        enferemeiro.setTelefone("48990323");
-        enferemeiro.setCorenCofen("2313");
-        enferemeiro.setEspecialidade(especialidadeDaoImpl.buscar(1));
+        enfermeiro = new Enfermeiro();
+        enfermeiro.setNome("Henrique");
+        enfermeiro.setCpf("186.402.484-32");
+        enfermeiro.setDataNascimento(new Date(System.currentTimeMillis()));
+        enfermeiro.setSexo(Sexo.MASCULINO);
+        enfermeiro.setEmail("henrique1@gmail.com");
+        enfermeiro.setEndereco(new Endereco("88131-743", "Braulina Goulart", "48", "RioGrande", "", "SC"));
+        enfermeiro.setTipoSanguineo("O+");
+        enfermeiro.setTelefone("48990323");
+        enfermeiro.setCorenCofen("2313");
+        enfermeiro.setEspecialidade(especialidadeDaoImpl.buscar(1));
+        
         Usuario usuario = new Usuario();
         usuario.setLogin("3213123123");
         usuario.setSenha("123");
-        usuario.setEnfermeiro(enferemeiro);
-        enferemeiro.setUsuario(usuario);
+        usuario.setEnfermeiro(enfermeiro);
+        enfermeiro.setUsuario(usuario);
 //        medico.setPlantaos(new PlantaoDaoImpl().listar());
-        dao.salvar(enferemeiro);
+        dao.salvar(enfermeiro);
     }
 
     /**

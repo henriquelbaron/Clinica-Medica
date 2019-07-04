@@ -33,7 +33,7 @@
 
         <!-- Cria as tabelas do banco de dados -->
         <!--create/validate/update-->
-        <property name="hbm2ddl.auto">create</property>
+        <property name="hbm2ddl.auto">validate</property>
         <property name="hibernate.query.substitutions">true 1, false 0</property>
 
 		

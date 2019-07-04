@@ -118,6 +118,7 @@ public class PacienteControl {
     }
 
     private void refreshTable() {
+        table.clearTable();
         for (Paciente paciente1 : new PacienteDaoImpl().listar()) {
             table.addRow(paciente1);
         }
