@@ -199,12 +199,61 @@ public class CadastrarEditarFuncionarioControl {
 
     private void loadEnfermeiro() {
         dlg.tfNome.setText(enfermeiro.getNome());
+        dlg.jDateChooser1.setDate(enfermeiro.getDataNascimento());
+        dlg.cbSangue.setSelectedItem(enfermeiro.getTipoSanguineo());
+        dlg.cbSexo.setSelectedItem(enfermeiro.getSexo());
+        dlg.tfTelefone.setText(enfermeiro.getTelefone());
+        dlg.tfCPF.setText(enfermeiro.getCpf());
+        dlg.tfEmail.setText(enfermeiro.getUsuario().getLogin());
+        dlg.tfSenha.setText(enfermeiro.getUsuario().getSenha());
+        dlg.cbEspecialidade.setSelectedItem(enfermeiro.getEspecialidade());
+        dlg.tfCRMCorenCofen.setText(enfermeiro.getCorenCofen());
+        dlg.tfCep.setText(enfermeiro.getEndereco().getCep());
+        dlg.tfLogradouro.setText(enfermeiro.getEndereco().getLogradouro());
+        dlg.tfBairro.setText(enfermeiro.getEndereco().getBairro());
+        dlg.tfCidade.setText(enfermeiro.getEndereco().getLocalidade());
+        dlg.tfEstado.setText(enfermeiro.getEndereco().getUF());
+        dlg.tfNumero.setText(enfermeiro.getEndereco().getNumero());
+        dlg.tfComplemento.setText(enfermeiro.getEndereco().getComplemento());
+
     }
 
     private void loadMedico() {
+        dlg.tfNome.setText(medico.getNome());
+        dlg.jDateChooser1.setDate(medico.getDataNascimento());
+        dlg.cbSangue.setSelectedItem(medico.getTipoSanguineo());
+        dlg.cbSexo.setSelectedItem(medico.getSexo());
+        dlg.tfTelefone.setText(medico.getTelefone());
+        dlg.tfCPF.setText(medico.getCpf());
+        dlg.tfEmail.setText(medico.getUsuario().getLogin());
+        dlg.tfSenha.setText(medico.getUsuario().getSenha());
+        dlg.cbEspecialidade.setSelectedItem(medico.getEspecialidade());
+        dlg.tfCRMCorenCofen.setText(medico.getCrm());
+        dlg.tfCep.setText(medico.getEndereco().getCep());
+        dlg.tfLogradouro.setText(medico.getEndereco().getLogradouro());
+        dlg.tfBairro.setText(medico.getEndereco().getBairro());
+        dlg.tfCidade.setText(medico.getEndereco().getLocalidade());
+        dlg.tfEstado.setText(medico.getEndereco().getUF());
+        dlg.tfNumero.setText(medico.getEndereco().getNumero());
+        dlg.tfComplemento.setText(medico.getEndereco().getComplemento());
     }
 
     private void loadAtendente() {
+        dlg.tfNome.setText(atendente.getNome());
+        dlg.jDateChooser1.setDate(atendente.getDataNascimento());
+        dlg.cbSangue.setSelectedItem(atendente.getTipoSanguineo());
+        dlg.cbSexo.setSelectedItem(atendente.getSexo());
+        dlg.tfTelefone.setText(atendente.getTelefone());
+        dlg.tfCPF.setText(atendente.getCpf());
+        dlg.tfEmail.setText(atendente.getUsuario().getLogin());
+        dlg.tfSenha.setText(atendente.getUsuario().getSenha());
+        dlg.tfCep.setText(atendente.getEndereco().getCep());
+        dlg.tfLogradouro.setText(atendente.getEndereco().getLogradouro());
+        dlg.tfBairro.setText(atendente.getEndereco().getBairro());
+        dlg.tfCidade.setText(atendente.getEndereco().getLocalidade());
+        dlg.tfEstado.setText(atendente.getEndereco().getUF());
+        dlg.tfNumero.setText(atendente.getEndereco().getNumero());
+        dlg.tfComplemento.setText(atendente.getEndereco().getComplemento());
     }
 
     public void confirmSenhaFocusLost() {
