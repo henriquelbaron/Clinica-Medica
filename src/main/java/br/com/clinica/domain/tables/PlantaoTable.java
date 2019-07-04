@@ -1,66 +1,73 @@
 package br.com.clinica.domain.tables;
 
-import br.com.clinica.domain.Enfermeiro;
-import br.com.clinica.domain.Medico;
-import br.com.clinica.domain.Pessoa;
+import br.com.clinica.domain.PlantaoEnfermeiro;
+import br.com.clinica.domain.PlantaoMedico;
 import br.com.clinica.util.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlantaoTable extends TableTemplate<Pessoa> {
+public class PlantaoTable extends TableTemplate<Object> {
 
-    private List<Pessoa> pessoa;
+    private List<Object> plantaos;
+    private PlantaoMedico pm;
+    private PlantaoEnfermeiro pe;
+    private String nome;
+    private String identificar;
+    private String data;
+    private String funcao;
+
+    public PlantaoTable() {
+        plantaos = new ArrayList();
+    }
 
     @Override
     public void clearTable() {
-        pessoa = new ArrayList();
+        plantaos = new ArrayList();
         this.fireTableDataChanged();
     }
 
     static class Constantes {
 
-        private static final String[] COLUNAS = {"Nome", "Data Nacimento", "Telefone", "Identificador", "Função"};
+        private static final String[] COLUNAS = {"Nome", "Data", "Identificador", "Função"};
         private static final int NOME = 0;
-        private static final int NASCIMENTO = 1;
-        private static final int TELEFONE = 2;
-        private static final int IDENTIFICADOR = 3;
-        private static final int FUNCAO = 4;
+        private static final int DATA = 1;
+        private static final int IDENTIFICADOR = 2;
+        private static final int FUNCAO = 3;
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        String funcao = "";
-        String identificador = "";
-        String horarioPlantao = "";
-        if (pessoa.get(rowIndex) instanceof Medico) {
+        if (plantaos.get(rowIndex) instanceof PlantaoMedico) {
+            pm = (PlantaoMedico) plantaos.get(rowIndex);
+            nome = pm.getMedico().getNome();
+            identificar = pm.getMedico().getCrm();
+            data = Utils.dateHoraToString(pm.getPlantao().getData());
             funcao = "Médico";
-            Medico m = (Medico) pessoa.get(rowIndex);
-            identificador = m.getCrm();
-//            horarioPlantao = Utils.dateHoraToString(m.getPlantaos());
         }
-        if (pessoa.get(rowIndex) instanceof Enfermeiro) {
+        if (plantaos.get(rowIndex) instanceof PlantaoEnfermeiro) {
+            pe = (PlantaoEnfermeiro) plantaos.get(rowIndex);
+            nome = pe.getEnfermeiro().getNome();
+            identificar = pe.getEnfermeiro().getCorenCofen();
+            data = Utils.dateHoraToString(pe.getPlantao().getData());
             funcao = "Enfermeiro";
-            identificador = ((Enfermeiro) pessoa.get(rowIndex)).getCorenCofen();
         }
         switch (columnIndex) {
             case Constantes.NOME:
-                return pessoa.get(rowIndex).getNome();
-            case Constantes.NASCIMENTO:
-                return Utils.dateToString(pessoa.get(rowIndex).getDataNascimento());
-            case Constantes.TELEFONE:
-                return pessoa.get(rowIndex).getTelefone();
-            case Constantes.IDENTIFICADOR:
-                return identificador;
+                return nome;
             case Constantes.FUNCAO:
                 return funcao;
+            case Constantes.IDENTIFICADOR:
+                return identificar;
+            case Constantes.DATA:
+                return data;
             default:
                 return null;
         }
     }
 
     @Override
-    public Pessoa getRow(int row) {
-        return row >= 0 ? pessoa.get(row) : null;
+    public Object getRow(int row) {
+        return row >= 0 ? plantaos.get(row) : null;
     }
 
     @Override
@@ -69,28 +76,28 @@ public class PlantaoTable extends TableTemplate<Pessoa> {
     }
 
     @Override
-    public void addRow(Pessoa obj) {
-        pessoa.add(obj);
+    public void addRow(Object obj) {
+        plantaos.add(obj);
         this.fireTableDataChanged();
     }
 
     @Override
     public void removeRow(int row) {
-        pessoa.remove(row);
+        plantaos.remove(row);
         this.fireTableRowsUpdated(row, row);
         this.fireTableDataChanged();
     }
 
     @Override
-    public void updateRow(Pessoa obj, int row) {
-        pessoa.set(row, obj);
+    public void updateRow(Object obj, int row) {
+        plantaos.set(row, obj);
         this.fireTableRowsUpdated(row, row);
         this.fireTableDataChanged();
     }
 
     @Override
     public int getRowCount() {
-        return pessoa.size();
+        return plantaos.size();
     }
 
     @Override

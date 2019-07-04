@@ -57,6 +57,8 @@
         <mapping class="br.com.clinica.domain.VacinaAplicada" />
         <mapping class="br.com.clinica.domain.ExamePaciente" />
         <mapping class="br.com.clinica.domain.Usuario" />
+        <mapping class="br.com.clinica.domain.PlantaoMedico" />
+        <mapping class="br.com.clinica.domain.PlantaoEnfermeiro" />
             
     </session-factory>
 

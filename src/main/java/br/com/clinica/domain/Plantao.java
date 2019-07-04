@@ -5,15 +5,14 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -26,21 +25,15 @@ public class Plantao implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = false, unique = true)
     private Date data;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "plantao_medico",
-            joinColumns = @JoinColumn(name = "idPlantao"),
-            inverseJoinColumns = @JoinColumn(name = "idMedico"))
-    private Set<Medico> medicos;
+    @OneToMany(mappedBy = "plantao", targetEntity = PlantaoMedico.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Set<PlantaoMedico> medicos;
 
-    @ManyToMany
-    @JoinTable(name = "plantao_enfermeiro",
-            joinColumns = @JoinColumn(name = "idPlantao"),
-            inverseJoinColumns = @JoinColumn(name = "idEnfermeiro"))
-    private List<Enfermeiro> enfermeiros;
+    @OneToMany(mappedBy = "plantao", targetEntity = PlantaoMedico.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<PlantaoEnfermeiro> enfermeiros;
 
     public Plantao(Date data) {
         this.data = data;
@@ -90,19 +83,19 @@ public class Plantao implements Serializable {
         this.data = data;
     }
 
-    public Set<Medico> getMedicos() {
+    public Set<PlantaoMedico> getMedicos() {
         return medicos;
     }
 
-    public void setMedicos(Set<Medico> medicos) {
+    public void setMedicos(Set<PlantaoMedico> medicos) {
         this.medicos = medicos;
     }
 
-    public List<Enfermeiro> getEnfermeiros() {
+    public List<PlantaoEnfermeiro> getEnfermeiros() {
         return enfermeiros;
     }
 
-    public void setEnfermeiros(List<Enfermeiro> enfermeiros) {
+    public void setEnfermeiros(List<PlantaoEnfermeiro> enfermeiros) {
         this.enfermeiros = enfermeiros;
     }
 

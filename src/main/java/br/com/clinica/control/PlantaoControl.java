@@ -5,15 +5,12 @@
  */
 package br.com.clinica.control;
 
-import br.com.clinica.dao.banco.impl.PlantaoDaoImpl;
-import br.com.clinica.domain.Enfermeiro;
-import br.com.clinica.domain.Medico;
-import br.com.clinica.domain.Plantao;
-import br.com.clinica.domain.tables.FuncionarioTable;
+import br.com.clinica.dao.banco.impl.PlantaoEnfermeiroDaoImpl;
+import br.com.clinica.dao.banco.impl.PlantaoMedicoDaoImpl;
+import br.com.clinica.domain.PlantaoEnfermeiro;
+import br.com.clinica.domain.PlantaoMedico;
+import br.com.clinica.domain.tables.PlantaoTable;
 import br.com.clinica.view.InternalFramePlantao;
-import java.util.List;
-import java.util.Set;
-import javax.swing.JInternalFrame;
 
 /**
  *
@@ -22,25 +19,25 @@ import javax.swing.JInternalFrame;
 public class PlantaoControl {
 
     private InternalFramePlantao iFrame;
-    private JInternalFrame internalFrame;
-    private List<Medico> medicos;
-    private List<Enfermeiro> enfermeiros;
-    private FuncionarioTable table;
+    private PlantaoTable table;
 
     public PlantaoControl(InternalFramePlantao frame) {
         this.iFrame = frame;
         loadTable();
     }
 
-    public void loadTable() {
-        table = new FuncionarioTable();
-        for (Medico m : new PlantaoDaoImpl().getPlantoesMedicos()) {
+    public void addPlantao(){
+        
+    }
+    private void loadTable() {
+        table = new PlantaoTable();
+        for (PlantaoMedico m : new PlantaoMedicoDaoImpl().getPlantoesMedico()) {
             table.addRow(m);
         }
-        for (Enfermeiro plantoesEnfermeiro : new PlantaoDaoImpl().getPlantoesEnfermeiros()) {
+        for (PlantaoEnfermeiro plantoesEnfermeiro : new PlantaoEnfermeiroDaoImpl().getPlantoesEnfermeiro()) {
             table.addRow(plantoesEnfermeiro);
         }
-        iFrame.tabelaEspecialistas.setModel(table);
+        iFrame.tabelaPlantao.setModel(table);
     }
-
+    
 }

@@ -6,6 +6,7 @@
 package br.com.clinica.view;
 
 import br.com.clinica.control.PlantaoControl;
+import br.com.clinica.domain.Pessoa;
 
 /**
  *
@@ -37,21 +38,21 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabelaEspecialistas = new javax.swing.JTable();
+        tabelaPlantao = new javax.swing.JTable();
         tfPesquisa = new javax.swing.JTextField();
         btPesquisar = new javax.swing.JButton();
         btExcluir = new javax.swing.JButton();
         btSalvar = new javax.swing.JButton();
         rbEnfermeira = new javax.swing.JRadioButton();
         rbMedico = new javax.swing.JRadioButton();
-        cbNomes = new javax.swing.JComboBox<>();
+        cbFuncionario = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        tfHora = new javax.swing.JFormattedTextField();
-        jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jLabel5 = new javax.swing.JLabel();
+        cbPeriodo = new javax.swing.JComboBox<>();
 
         jCheckBox1.setText("jCheckBox1");
 
@@ -67,7 +68,7 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4th-of-july.png"))); // NOI18N
         jLabel2.setText("Data");
 
-        tabelaEspecialistas.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaPlantao.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -78,8 +79,8 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
                 "Nome", "Especialidade", "Horário de serviço"
             }
         ));
-        tabelaEspecialistas.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(tabelaEspecialistas);
+        tabelaPlantao.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tabelaPlantao);
 
         tfPesquisa.setText("Pesquisar por nome");
 
@@ -105,25 +106,17 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
         rbMedico.setSelected(true);
         rbMedico.setText("Médico");
 
-        cbNomes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setText("Data");
-
-        tfHora.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT))));
-        tfHora.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfHoraActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/duration.png"))); // NOI18N
-        jLabel3.setText("Hora");
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/doctor (1).png"))); // NOI18N
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nurse.png"))); // NOI18N
+
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel5.setText("Periodo");
+
+        cbPeriodo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Diurno", "Noturno" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -163,10 +156,10 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jLabel3)
+                            .addComponent(jLabel5)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(tfHora, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(cbNomes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(cbPeriodo, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cbFuncionario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -186,7 +179,7 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(rbEnfermeira, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -201,22 +194,18 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
                             .addComponent(btExcluir)))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbNomes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel3)
-                            .addComponent(tfHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(12, Short.MAX_VALUE))
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)
+                            .addComponent(cbPeriodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void tfHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfHoraActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfHoraActionPerformed
 
     private void btExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirActionPerformed
         // TODO add your handling code here:
@@ -228,21 +217,21 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
     public javax.swing.JButton btPesquisar;
     public javax.swing.JButton btSalvar;
     private javax.swing.ButtonGroup buttonGroup1;
-    public javax.swing.JComboBox<String> cbNomes;
+    public javax.swing.JComboBox<Pessoa> cbFuncionario;
+    public javax.swing.JComboBox<String> cbPeriodo;
     private javax.swing.JCheckBox jCheckBox1;
     public com.toedter.calendar.JDateChooser jDateChooser1;
     public com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel2;
-    public javax.swing.JLabel jLabel3;
     public javax.swing.JLabel jLabel4;
+    public javax.swing.JLabel jLabel5;
     public javax.swing.JLabel jLabel7;
     public javax.swing.JLabel jLabel9;
     public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JRadioButton rbEnfermeira;
     public javax.swing.JRadioButton rbMedico;
-    public javax.swing.JTable tabelaEspecialistas;
-    public javax.swing.JFormattedTextField tfHora;
+    public javax.swing.JTable tabelaPlantao;
     public javax.swing.JTextField tfPesquisa;
     // End of variables declaration//GEN-END:variables
 }

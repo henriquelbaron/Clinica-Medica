@@ -13,8 +13,8 @@ import javax.persistence.Query;
 import org.hibernate.Session;
 
 public class PlantaoDaoImpl extends GenericDAO<Plantao> {
-    
-     public List<Plantao> getPlantoesDia(Date dataDesejada) {
+
+    public List<Plantao> getPlantoesDia(Date dataDesejada) {
         Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
         try {
             Query q = sessao.createQuery("Select p from Plantao as p LEFT JOIN Medico as m WHERE p.data BETWEEN :data AND :amanha");
@@ -27,7 +27,7 @@ public class PlantaoDaoImpl extends GenericDAO<Plantao> {
             sessao.close();
         }
     }
-    
+
     public List<Medico> getPlantoesMedicoDia(Date dataDesejada) {
         Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
         try {
@@ -57,9 +57,8 @@ public class PlantaoDaoImpl extends GenericDAO<Plantao> {
             sessao.close();
         }
     }
-    
+
 //"Select m from M as m WHERE m.id= :idMedico AND c.realizada = 0 AND c.data BETWEEN :data AND :amanha"
-    
     public List<Medico> getPlantoesMedicos() {
         Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
         try {
@@ -77,6 +76,18 @@ public class PlantaoDaoImpl extends GenericDAO<Plantao> {
         try {
             Query q = sessao.createQuery("Select e from Enfermeiro as e LEFT JOIN e.plantaos");
             return (List<Enfermeiro>) q.getResultList();
+        } catch (RuntimeException erro) {
+            throw erro;
+        } finally {
+            sessao.close();
+        }
+    }
+
+    public List<Plantao> getPlantaos() {
+        Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
+        try {
+            Query q = sessao.createQuery("Select p.id,m.id from Plantao as p LEFT JOIN p.medicos AS m");
+            return (List<Plantao>) q.getResultList();
         } catch (RuntimeException erro) {
             throw erro;
         } finally {

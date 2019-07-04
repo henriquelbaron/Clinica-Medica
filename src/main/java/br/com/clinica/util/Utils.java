@@ -5,13 +5,13 @@
  */
 package br.com.clinica.util;
 
-import java.text.DecimalFormat;
+import java.awt.Dimension;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
+import javax.swing.JDesktopPane;
+import javax.swing.JInternalFrame;
 
 /**
  *
@@ -36,10 +36,28 @@ public class Utils {
         }
     }
 
+    public static Date stringToDate(String data, String hora) {
+        try {
+            sdf = new SimpleDateFormat(dataHoraFormat);
+            sdf.setLenient(false);
+            return sdf.parse(data + " " + hora);
+        } catch (ParseException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
     public static Date addDiaData(Date data, int dias) {
         Calendar c = Calendar.getInstance();
         c.setTime(data);
         c.add(Calendar.DATE, dias);
+        return c.getTime();
+    }
+
+    public static Date addHorasData(Date data, int hora) {
+        Calendar c = Calendar.getInstance();
+        c.setTime(data);
+        c.add(Calendar.HOUR, hora);
         return c.getTime();
     }
 
@@ -76,4 +94,12 @@ public class Utils {
     public static boolean dateBeforeToday(Date date) {
         return false;
     }
+
+    public static void centralizarInternalFrame(JInternalFrame frame, JDesktopPane desktopPane) {
+        Dimension desktopSize = desktopPane.getSize();
+        Dimension jInternalFrameSize = frame.getSize();
+        frame.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
+                (desktopSize.height - jInternalFrameSize.height) / 2);
+    }
+
 }

@@ -1,19 +1,26 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package br.com.clinica.domain;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.Objects;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
+/**
+ *
+ * @author Henrique Baron
+ */
 @Entity
-public class Funcao implements Serializable {
+public class PlantaoMedico implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -21,17 +28,20 @@ public class Funcao implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column(nullable = false, unique = true)
-    private String nome;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "idMedico")
+    private Medico medico;
 
-    @OneToMany(mappedBy = "funcao", targetEntity = Sala.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Sala> salas;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "idPlantao")
+    private Plantao plantao;
 
-    public Funcao() {
+    public Plantao getPlantao() {
+        return plantao;
     }
 
-    public Funcao(String nome) {
-        this.nome = nome;
+    public void setPlantao(Plantao plantao) {
+        this.plantao = plantao;
     }
 
     public Integer getId() {
@@ -42,26 +52,18 @@ public class Funcao implements Serializable {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public Medico getMedico() {
+        return medico;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public List<Sala> getSalas() {
-        return salas;
-    }
-
-    public void setSalas(List<Sala> salas) {
-        this.salas = salas;
+    public void setMedico(Medico medico) {
+        this.medico = medico;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 43 * hash + Objects.hashCode(this.id);
+        int hash = 3;
+        hash = 61 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -76,16 +78,11 @@ public class Funcao implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Funcao other = (Funcao) obj;
+        final PlantaoMedico other = (PlantaoMedico) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
         return true;
-    }
-
-    @Override
-    public String toString() {
-        return nome;
     }
 
 }

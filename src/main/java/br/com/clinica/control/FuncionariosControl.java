@@ -5,7 +5,6 @@
  */
 package br.com.clinica.control;
 
-import br.com.clinica.dao.banco.GenericDAO;
 import br.com.clinica.dao.banco.impl.AtendenteDaoImp;
 import br.com.clinica.dao.banco.impl.EnfermeiroDaoImpl;
 import br.com.clinica.dao.banco.impl.MedicoDaoImpl;
