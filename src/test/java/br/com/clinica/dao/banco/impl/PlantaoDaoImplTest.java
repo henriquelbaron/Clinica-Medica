@@ -30,8 +30,8 @@ public class PlantaoDaoImplTest {
     @Test
 //    @Ignore
     public void save() {
-        dao.salvar(new Plantao(Utils.stringToDate("1/07/2019", "07:00")));
-        dao.salvar(new Plantao(Utils.stringToDate("2/07/2019", "19:00")));
+        dao.salvar(new Plantao(Utils.stringToDate("13/07/2019", "07:00")));
+        dao.salvar(new Plantao(Utils.stringToDate("14/07/2019", "19:00")));
     }
 
     @Test
