@@ -5,6 +5,10 @@
  */
 package br.com.clinica.dao.banco;
 
+import com.fasterxml.classmate.AnnotationConfiguration;
+import java.sql.Connection;
+import java.sql.SQLException;
+import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -22,7 +26,7 @@ public class ConnectionFactory {
         return fabricaDeSessoes;
     }
 
-    private static SessionFactory criarFabricaDeSessoes() {
+   private static SessionFactory criarFabricaDeSessoes() {
         try {
             Configuration configuracao = new Configuration().configure();
 
