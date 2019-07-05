@@ -5,6 +5,8 @@
  */
 package br.com.clinica.view;
 
+import br.com.clinica.util.Utils;
+
 /**
  *
  * @author Luiza Mistro
@@ -50,6 +52,15 @@ public class InternalFrameResultado extends javax.swing.JInternalFrame {
         jTextArea1.setRows(5);
         jTextArea1.setText("Sintoma de morte");
         jScrollPane1.setViewportView(jTextArea1);
+
+        jTextField1.setEditable(false);
+        jTextField1.setForeground(new java.awt.Color(102, 102, 102));
+        jTextField1.setText("Pesquisar paciente");
+        jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField1FocusGained(evt);
+            }
+        });
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/find-my-friend.png"))); // NOI18N
 
@@ -98,15 +109,12 @@ public class InternalFrameResultado extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel4)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -120,6 +128,10 @@ public class InternalFrameResultado extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusGained
+        Utils.campoPesquisa(jTextField1);
+    }//GEN-LAST:event_jTextField1FocusGained
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

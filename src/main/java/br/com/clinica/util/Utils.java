@@ -5,6 +5,7 @@
  */
 package br.com.clinica.util;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -12,6 +13,7 @@ import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
+import javax.swing.JTextField;
 
 /**
  *
@@ -102,4 +104,9 @@ public class Utils {
                 (desktopSize.height - jInternalFrameSize.height) / 2);
     }
 
+    public static void campoPesquisa(JTextField tf) {
+        tf.setEditable(true);
+        tf.setText("");
+        tf.setForeground(Color.BLACK);
+    }
 }

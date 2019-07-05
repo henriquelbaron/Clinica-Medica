@@ -69,11 +69,9 @@ public class InternalFrameEmergencia extends javax.swing.JInternalFrame {
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/check.png"))); // NOI18N
         jButton1.setText("Confirmar");
-        jButton1.setBorder(null);
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cross.png"))); // NOI18N
         jButton2.setText("Cancelar");
-        jButton2.setBorder(null);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

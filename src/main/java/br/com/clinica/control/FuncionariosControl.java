@@ -84,7 +84,7 @@ public class FuncionariosControl {
         if (rowTable >= 0) {
             chamaCRUD(funcionarioTable.getRow(rowTable));
         } else {
-            SendMessenger.error("Selecione o Paciente que deseja Editar!");
+            SendMessenger.error("Selecione o Funcionário que deseja Editar!");
         }
     }
 

@@ -193,8 +193,15 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="tfPesquisar">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="66" red="66" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Pesquisar funcion&#xe1;rio"/>
+      </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfPesquisarActionPerformed"/>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="tfPesquisarFocusGained"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfPesquisarKeyReleased"/>
       </Events>
       <AuxValues>

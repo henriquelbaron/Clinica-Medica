@@ -51,7 +51,6 @@ public class AgendamentoConsultaDialog extends javax.swing.JDialog {
         btConfirmar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/check.png"))); // NOI18N
         btConfirmar.setText("Confimar");
-        btConfirmar.setBorder(null);
         btConfirmar.setMaximumSize(new java.awt.Dimension(190, 44));
         btConfirmar.setMinimumSize(new java.awt.Dimension(190, 44));
         btConfirmar.setPreferredSize(new java.awt.Dimension(190, 44));
@@ -70,7 +69,6 @@ public class AgendamentoConsultaDialog extends javax.swing.JDialog {
         btCancelar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cross.png"))); // NOI18N
         btCancelar.setText("Cancelar ");
-        btCancelar.setBorder(null);
         btCancelar.setMaximumSize(new java.awt.Dimension(190, 44));
         btCancelar.setMinimumSize(new java.awt.Dimension(190, 44));
         btCancelar.setPreferredSize(new java.awt.Dimension(190, 44));

@@ -18,6 +18,7 @@
               <Image iconType="3" name="/notepad (1).png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Agendamento"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="25"/>
@@ -363,7 +364,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="451" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="457" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>

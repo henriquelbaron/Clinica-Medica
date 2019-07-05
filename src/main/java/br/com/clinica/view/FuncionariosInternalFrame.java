@@ -6,6 +6,7 @@
 package br.com.clinica.view;
 
 import br.com.clinica.control.FuncionariosControl;
+import br.com.clinica.util.Utils;
 import javax.swing.JFrame;
 
 /**
@@ -121,9 +122,12 @@ public class FuncionariosInternalFrame extends javax.swing.JInternalFrame {
         });
         getContentPane().add(btAdicionarPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 48, 70, 50));
 
-        tfPesquisar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfPesquisarActionPerformed(evt);
+        tfPesquisar.setEditable(false);
+        tfPesquisar.setForeground(new java.awt.Color(102, 102, 102));
+        tfPesquisar.setText("Pesquisar funcionário");
+        tfPesquisar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tfPesquisarFocusGained(evt);
             }
         });
         tfPesquisar.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -201,10 +205,6 @@ public class FuncionariosInternalFrame extends javax.swing.JInternalFrame {
         control.adicionarNovoAction();
     }//GEN-LAST:event_btAdicionarPacienteActionPerformed
 
-    private void tfPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPesquisarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfPesquisarActionPerformed
-
     private void tfPesquisarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPesquisarKeyReleased
         control.sendKeysTfListener();        // TODO add your handling code here:
     }//GEN-LAST:event_tfPesquisarKeyReleased
@@ -224,6 +224,10 @@ public class FuncionariosInternalFrame extends javax.swing.JInternalFrame {
     private void tabelaFuncionarioMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaFuncionarioMouseReleased
         control.mouseListenerTable();        // TODO add your handling code here:
     }//GEN-LAST:event_tabelaFuncionarioMouseReleased
+
+    private void tfPesquisarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfPesquisarFocusGained
+        Utils.campoPesquisa(tfPesquisar);
+    }//GEN-LAST:event_tfPesquisarFocusGained
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
