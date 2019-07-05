@@ -28,7 +28,7 @@ public class PlantaoDaoImplTest {
     }
 
     @Test
-//    @Ignore
+    @Ignore
     public void save() {
         dao.salvar(new Plantao(Utils.stringToDate("1/07/2019", "07:00")));
         dao.salvar(new Plantao(Utils.stringToDate("2/07/2019", "19:00")));
@@ -50,12 +50,12 @@ public class PlantaoDaoImplTest {
     }
 
     @Test
-    @Ignore
+//    @Ignore
     public void adicionarMedicosPlantao() {
         MedicoDaoImpl medicoDaoImpl = new MedicoDaoImpl();
         Set<Medico> medicos = new HashSet();
-        medicos.add(medicoDaoImpl.buscar(14));
-        Plantao p = dao.buscar(4);
+        medicos.add(medicoDaoImpl.buscar(2));
+        Plantao p = dao.buscar(5);
 //        p.setMedicos(medicos);
         dao.editar(p);
     }

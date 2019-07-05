@@ -49,7 +49,7 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        dataAgendar = new com.toedter.calendar.JDateChooser();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jLabel5 = new javax.swing.JLabel();
         cbPeriodo = new javax.swing.JComboBox<>();
@@ -100,11 +100,21 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
         buttonGroup1.add(rbEnfermeira);
         rbEnfermeira.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         rbEnfermeira.setText("Enfermeira");
+        rbEnfermeira.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                rbEnfermeiraItemStateChanged(evt);
+            }
+        });
 
         buttonGroup1.add(rbMedico);
         rbMedico.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         rbMedico.setSelected(true);
         rbMedico.setText("Médico");
+        rbMedico.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                rbMedicoItemStateChanged(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setText("Data");
@@ -154,7 +164,7 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel4)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(dataAgendar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jLabel5)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -198,7 +208,7 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                             .addComponent(jLabel4)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dataAgendar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5)
                             .addComponent(cbPeriodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(16, Short.MAX_VALUE))
@@ -211,16 +221,24 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btExcluirActionPerformed
 
+    private void rbEnfermeiraItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rbEnfermeiraItemStateChanged
+        control.listenerGroupButton();        // TODO add your handling code here:
+    }//GEN-LAST:event_rbEnfermeiraItemStateChanged
+
+    private void rbMedicoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rbMedicoItemStateChanged
+        control.listenerGroupButton();        // TODO add your handling code here:
+    }//GEN-LAST:event_rbMedicoItemStateChanged
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btExcluir;
     public javax.swing.JButton btPesquisar;
     public javax.swing.JButton btSalvar;
-    private javax.swing.ButtonGroup buttonGroup1;
+    public javax.swing.ButtonGroup buttonGroup1;
     public javax.swing.JComboBox<Pessoa> cbFuncionario;
     public javax.swing.JComboBox<String> cbPeriodo;
+    public com.toedter.calendar.JDateChooser dataAgendar;
     private javax.swing.JCheckBox jCheckBox1;
-    public com.toedter.calendar.JDateChooser jDateChooser1;
     public com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel2;

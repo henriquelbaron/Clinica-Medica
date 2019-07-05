@@ -36,8 +36,8 @@ public class PlantaoMedicoDaoImplTest {
     @Ignore
     public void testGetPlantoesMedicoDia() {
         PlantaoMedico pm = new PlantaoMedico();
-        pm.setMedico(daoMedico.buscar(14));
-        pm.setPlantao(daoPlantao.buscar(1));
+        pm.setMedico(daoMedico.buscar(2));
+        pm.setPlantao(daoPlantao.buscar(5));
         dao.salvar(pm);
     }
 
@@ -45,7 +45,7 @@ public class PlantaoMedicoDaoImplTest {
      * Test of getPlantoesMedico method, of class PlantaoMedicoDaoImpl.
      */
     @Test
-//    @Ignore
+    @Ignore
     public void testGetPlantoesMedico() {
         Date a = Utils.addHorasData(new Date(System.currentTimeMillis()), 22);
     }

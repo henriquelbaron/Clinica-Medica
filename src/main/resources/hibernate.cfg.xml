@@ -9,7 +9,7 @@
 
         <!-- Configurações de Conexão com o Banco de Dados -->
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/clinica?useTimezone=true&amp;serverTimezone=UTC</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/clinica?serverTimezone=America/Sao_Paulo</property>
         <!--<property name="connection.url">jdbc:mysql://localhost:3306/clinica</property>-->
         <property name="connection.username">root</property>
         <property name="connection.password"></property>
@@ -33,9 +33,8 @@
 
         <!-- Cria as tabelas do banco de dados -->
         <!--create/validate/update-->
-        <property name="hbm2ddl.auto">validate</property>
+        <property name="hbm2ddl.auto">update</property>
         <property name="hibernate.query.substitutions">true 1, false 0</property>
-
 		
         <!-- Mapeamento das entidades -->
         <mapping class="br.com.clinica.domain.Atendente" />
