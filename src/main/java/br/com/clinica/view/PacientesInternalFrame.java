@@ -6,6 +6,7 @@
 package br.com.clinica.view;
 
 import br.com.clinica.control.PacienteControl;
+import br.com.clinica.util.Utils;
 import javax.swing.JFrame;
 
 /**
@@ -80,9 +81,16 @@ public class PacientesInternalFrame extends javax.swing.JInternalFrame {
         lblPaciente.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         lblPaciente.setText(":");
 
-        tfPesquisar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfPesquisarActionPerformed(evt);
+        tfPesquisar.setEditable(false);
+        tfPesquisar.setText("Pesquisar paciente");
+        tfPesquisar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tfPesquisarFocusGained(evt);
+            }
+        });
+        tfPesquisar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tfPesquisarMouseClicked(evt);
             }
         });
         tfPesquisar.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -213,10 +221,6 @@ public class PacientesInternalFrame extends javax.swing.JInternalFrame {
         control.editAction();       // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void tfPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPesquisarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfPesquisarActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         control.chamaAgendamentoExameAction();       // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -228,6 +232,14 @@ public class PacientesInternalFrame extends javax.swing.JInternalFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         control.chamaAgendamentoVacinaAction();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void tfPesquisarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfPesquisarFocusGained
+        Utils.campoPesquisa(tfPesquisar);
+    }//GEN-LAST:event_tfPesquisarFocusGained
+
+    private void tfPesquisarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfPesquisarMouseClicked
+        tfPesquisar.setEditable(true);
+    }//GEN-LAST:event_tfPesquisarMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -7,6 +7,7 @@ package br.com.clinica.view;
 
 import br.com.clinica.control.PlantaoControl;
 import br.com.clinica.domain.Pessoa;
+import br.com.clinica.util.Utils;
 
 /**
  *
@@ -82,7 +83,19 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
         tabelaPlantao.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tabelaPlantao);
 
+        tfPesquisa.setEditable(false);
+        tfPesquisa.setForeground(new java.awt.Color(153, 153, 153));
         tfPesquisa.setText("Pesquisar por nome");
+        tfPesquisa.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tfPesquisaFocusGained(evt);
+            }
+        });
+        tfPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfPesquisaActionPerformed(evt);
+            }
+        });
 
         btPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/find-my-friend.png"))); // NOI18N
 
@@ -124,7 +137,7 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nurse.png"))); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel5.setText("Periodo");
+        jLabel5.setText("Período");
 
         cbPeriodo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Diurno", "Noturno" }));
 
@@ -183,10 +196,10 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btPesquisar)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(tfPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(tfPesquisa, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jDateChooser2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
@@ -228,6 +241,14 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
     private void rbMedicoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rbMedicoItemStateChanged
         control.listenerGroupButton();        // TODO add your handling code here:
     }//GEN-LAST:event_rbMedicoItemStateChanged
+
+    private void tfPesquisaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfPesquisaFocusGained
+        Utils.campoPesquisa(tfPesquisa);
+    }//GEN-LAST:event_tfPesquisaFocusGained
+
+    private void tfPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPesquisaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfPesquisaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -5,6 +5,7 @@
  */
 package br.com.clinica.util;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -12,6 +13,7 @@ import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
+import javax.swing.JTextField;
 
 /**
  *
@@ -109,12 +111,4 @@ public class DataUtils {
     public static boolean dateAfterTomorrow(Date date) {
         return date.after(addDiaData(date, 1));
     }
-
-    public static void centralizarInternalFrame(JInternalFrame frame, JDesktopPane desktopPane) {
-        Dimension desktopSize = desktopPane.getSize();
-        Dimension jInternalFrameSize = frame.getSize();
-        frame.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
-                (desktopSize.height - jInternalFrameSize.height) / 2);
-    }
-
 }

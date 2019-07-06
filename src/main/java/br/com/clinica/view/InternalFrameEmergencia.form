@@ -194,9 +194,6 @@
           <Image iconType="3" name="/check.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Confirmar"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="null"/>
-        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton2">
@@ -205,9 +202,6 @@
           <Image iconType="3" name="/cross.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="null"/>
-        </Property>
       </Properties>
     </Component>
   </SubComponents>

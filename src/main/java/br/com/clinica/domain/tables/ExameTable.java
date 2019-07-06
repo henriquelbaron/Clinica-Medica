@@ -21,7 +21,7 @@ public class ExameTable extends TableTemplate<ExamePaciente> {
 
     static class Constantes {
 
-        private static final String[] COLUNAS = {"Paciente", "Exame", "Sala", "Responsavel", "Resultado"};
+        private static final String[] COLUNAS = {"Paciente", "Exame", "Sala", "Responsável", "Resultado"};
         private static final int PACIENTE = 0;
         private static final int EXAME = 1;
         private static final int SALA = 2;

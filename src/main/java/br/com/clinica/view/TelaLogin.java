@@ -7,6 +7,7 @@ package br.com.clinica.view;
 
 import br.com.clinica.control.LoginControl;
 import br.com.clinica.dao.banco.ConnectionFactory;
+import br.com.clinica.util.Utils;
 import java.awt.Color;
 
 /**
@@ -36,11 +37,6 @@ public class TelaLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        tfEmail = new javax.swing.JTextField();
-        btLogin = new javax.swing.JButton();
-        tfSenha = new javax.swing.JPasswordField();
-        labelAlerta = new javax.swing.JLabel();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
@@ -54,9 +50,13 @@ public class TelaLogin extends javax.swing.JFrame {
 
         jLabel5.setText("Senha");
 
-        tfEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfEmailActionPerformed(evt);
+        tfEmail.setEditable(false);
+        tfEmail.setForeground(new java.awt.Color(102, 102, 102));
+        tfEmail.setText("Digite seu e-mail");
+        tfEmail.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        tfEmail.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tfEmailMouseClicked(evt);
             }
         });
 
@@ -83,9 +83,13 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aspek.png"))); // NOI18N
 
-        tfSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfSenhaActionPerformed(evt);
+        tfSenha.setEditable(false);
+        tfSenha.setForeground(new java.awt.Color(102, 102, 102));
+        tfSenha.setText("Digiteasenha");
+        tfSenha.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        tfSenha.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tfSenhaMouseClicked(evt);
             }
         });
 
@@ -109,16 +113,16 @@ public class TelaLogin extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelAlerta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(tfSenha, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(tfEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(42, 42, 42))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,10 +149,6 @@ public class TelaLogin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tfEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfEmailActionPerformed
-
     private void btLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoginActionPerformed
         control.loginAction();
     }//GEN-LAST:event_btLoginActionPerformed
@@ -161,13 +161,17 @@ public class TelaLogin extends javax.swing.JFrame {
         TelaLogin.lblEsqueciSenha.setForeground(Color.black);
     }//GEN-LAST:event_DeixarLabelNormal
 
-    private void tfSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSenhaActionPerformed
-    }//GEN-LAST:event_tfSenhaActionPerformed
-
     private void lblEsqueciSenhaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEsqueciSenhaMouseClicked
         control.abreEmail();
     }//GEN-LAST:event_lblEsqueciSenhaMouseClicked
 
+    private void tfEmailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfEmailMouseClicked
+        Utils.campoPesquisa(tfEmail);
+    }//GEN-LAST:event_tfEmailMouseClicked
+
+    private void tfSenhaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfSenhaMouseClicked
+        Utils.campoPesquisa(tfSenha);
+    }//GEN-LAST:event_tfSenhaMouseClicked
     /**
      * @param args the command line arguments
      */
@@ -204,13 +208,13 @@ public class TelaLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btLogin;
+    public static final javax.swing.JButton btLogin = new javax.swing.JButton();
     public static final javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
     public static final javax.swing.JLabel jLabel4 = new javax.swing.JLabel();
     public static final javax.swing.JLabel jLabel5 = new javax.swing.JLabel();
-    public javax.swing.JLabel labelAlerta;
+    public static final javax.swing.JLabel labelAlerta = new javax.swing.JLabel();
     public static final javax.swing.JLabel lblEsqueciSenha = new javax.swing.JLabel();
-    public javax.swing.JTextField tfEmail;
-    public javax.swing.JPasswordField tfSenha;
+    public static final javax.swing.JTextField tfEmail = new javax.swing.JTextField();
+    public static final javax.swing.JPasswordField tfSenha = new javax.swing.JPasswordField();
     // End of variables declaration//GEN-END:variables
 }

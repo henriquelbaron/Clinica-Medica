@@ -6,6 +6,7 @@
 package br.com.clinica.view;
 
 import br.com.clinica.control.ConsultaControl;
+import br.com.clinica.util.Utils;
 
 /**
  *
@@ -62,9 +63,12 @@ public class ConsultasDialog extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tableConsulta);
 
-        tfPesquisar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfPesquisarActionPerformed(evt);
+        tfPesquisar.setEditable(false);
+        tfPesquisar.setForeground(new java.awt.Color(102, 102, 102));
+        tfPesquisar.setText("Pesquisar consulta");
+        tfPesquisar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tfPesquisarFocusGained(evt);
             }
         });
         tfPesquisar.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -147,10 +151,6 @@ public class ConsultasDialog extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tfPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPesquisarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfPesquisarActionPerformed
-
     private void tfPesquisarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPesquisarKeyReleased
         control.sendKeysTfListener();        // TODO add your handling code here:
     }//GEN-LAST:event_tfPesquisarKeyReleased
@@ -166,6 +166,10 @@ public class ConsultasDialog extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         control.realizarConsulta();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void tfPesquisarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfPesquisarFocusGained
+        Utils.campoPesquisa(tfPesquisar);
+    }//GEN-LAST:event_tfPesquisarFocusGained
 
     /**
      * @param args the command line arguments
