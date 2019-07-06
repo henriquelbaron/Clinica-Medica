@@ -8,7 +8,7 @@ package br.com.clinica.dao.banco.impl;
 import br.com.clinica.dao.banco.ConnectionFactory;
 import br.com.clinica.dao.banco.GenericDAO;
 import br.com.clinica.domain.PlantaoMedico;
-import br.com.clinica.util.Utils;
+import br.com.clinica.util.DataUtils;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Query;
@@ -25,7 +25,7 @@ public class PlantaoMedicoDaoImpl extends GenericDAO<PlantaoMedico> {
         try {
             Query q = sessao.createQuery("Select pm from PlantaoMedico as pm WHERE p.data BETWEEN :data AND :amanha");
             q.setParameter("data", dataDesejada);
-            q.setParameter("amanha", Utils.addDiaData(dataDesejada, 1));
+            q.setParameter("amanha", DataUtils.addDiaData(dataDesejada, 1));
             return (List<PlantaoMedico>) q.getResultList();
         } catch (RuntimeException erro) {
             throw erro;

@@ -3,7 +3,7 @@ package br.com.clinica.domain.tables;
 import br.com.clinica.domain.Enfermeiro;
 import br.com.clinica.domain.Medico;
 import br.com.clinica.domain.Plantao;
-import br.com.clinica.util.Utils;
+import br.com.clinica.util.DataUtils;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +37,7 @@ public class PlantaoTable1 extends TableTemplate<Plantao> {
 //            case Constantes.NOME:
 //                return pessoa.get(rowIndex).getNome();
 //            case Constantes.NASCIMENTO:
-//                return Utils.dateToString(pessoa.get(rowIndex).getDataNascimento());
+//                return DataUtils.dateToString(pessoa.get(rowIndex).getDataNascimento());
 //            case Constantes.TELEFONE:
 //                return pessoa.get(rowIndex).getTelefone();
 //            case Constantes.IDENTIFICADOR:

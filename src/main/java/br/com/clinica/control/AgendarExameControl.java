@@ -9,15 +9,17 @@ import br.com.clinica.dao.banco.impl.EnfermeiroDaoImpl;
 import br.com.clinica.dao.banco.impl.ExameDaoImpl;
 import br.com.clinica.dao.banco.impl.ExamePacienteDaoImpl;
 import br.com.clinica.dao.banco.impl.MedicoDaoImpl;
+import br.com.clinica.dao.banco.impl.OcupacaoSalaDaoImpl;
 import br.com.clinica.dao.banco.impl.SalaDaoImpl;
 import br.com.clinica.domain.Enfermeiro;
 import br.com.clinica.domain.Exame;
 import br.com.clinica.domain.ExamePaciente;
 import br.com.clinica.domain.Medico;
+import br.com.clinica.domain.OcupacaoSala;
 import br.com.clinica.domain.Paciente;
 import br.com.clinica.domain.Sala;
+import br.com.clinica.util.DataUtils;
 import br.com.clinica.util.SendMessenger;
-import br.com.clinica.util.Utils;
 import br.com.clinica.validation.Validator;
 import br.com.clinica.view.AgendamentoExamesDialog;
 import java.util.Date;
@@ -33,6 +35,7 @@ public class AgendarExameControl {
     private final Paciente paciente;
     private ExamePaciente examePaciente;
     private DefaultComboBoxModel cbModel;
+    private OcupacaoSala ocupacaoSala;
 
     public AgendarExameControl(AgendamentoExamesDialog aThis, Paciente p) {
         this.dlg = aThis;
@@ -57,7 +60,7 @@ public class AgendarExameControl {
     }
 
     public void confirmarExameAction() {
-        if (Validator.stringValidator(dlg.tfHora.getText())) {
+        if (verificaOcupacaoSala()) {
             examePaciente = new ExamePaciente();
             examePaciente.setAtendente(UserLogado.getATENDENTE());
             if (dlg.cbResponsavel.getSelectedItem() instanceof Medico) {
@@ -66,10 +69,10 @@ public class AgendarExameControl {
             if (dlg.cbResponsavel.getSelectedItem() instanceof Enfermeiro) {
                 examePaciente.setEnfermeiro((Enfermeiro) dlg.cbResponsavel.getSelectedItem());
             }
-            examePaciente.setSala((Sala) dlg.cbSala.getSelectedItem());
             examePaciente.setExame((Exame) dlg.cbExame.getSelectedItem());
-            examePaciente.setDataAgendamento(new Date(System.currentTimeMillis()));
-            examePaciente.setData(Utils.stringToDate(dlg.tfData.getDate(), dlg.tfHora.getText()));
+            examePaciente.setDataAgendamento(DataUtils.dataAtual());
+            ocupacaoSala.setExame(examePaciente);
+            examePaciente.setSala(ocupacaoSala);
             examePaciente.setPaciente(paciente);
             if (new ExamePacienteDaoImpl().salvar(examePaciente)) {
                 SendMessenger.success("Exame Agendada Com Sucesso!");
@@ -77,8 +80,6 @@ public class AgendarExameControl {
             } else {
                 SendMessenger.error("Erro ao salvar!");
             }
-        } else {
-            SendMessenger.error("Complete os campos Corretamente!");
         }
     }
 
@@ -90,4 +91,19 @@ public class AgendarExameControl {
         dlg.dispose();
     }
 
+    private boolean verificaOcupacaoSala() {
+        if (dlg.tfData.getDate() != null && Validator.validarHora(dlg.tfHora.getText())) {
+            Sala sala = (Sala) dlg.cbSala.getSelectedItem();
+            Date data = DataUtils.stringToDate(dlg.tfData.getDate(), dlg.tfHora.getText());
+            if (new OcupacaoSalaDaoImpl().getOcupacaoSala(sala, data)) {
+                ocupacaoSala = new OcupacaoSala();
+                ocupacaoSala.setData(data);
+                ocupacaoSala.setSala(sala);
+                return true;
+            } else {
+                SendMessenger.error("Sala ocupada neste horario!");
+            }
+        }
+        return false;
+    }
 }

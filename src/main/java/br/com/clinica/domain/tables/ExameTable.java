@@ -37,7 +37,7 @@ public class ExameTable extends TableTemplate<ExamePaciente> {
             case Constantes.EXAME:
                 return exames.get(rowIndex).getExame().getNome();
             case Constantes.SALA:
-                return exames.get(rowIndex).getSala().getNumero();
+                return exames.get(rowIndex).getSala().getSala().getNumero();
             case Constantes.RESPONSAVEL:
                 return exames.get(rowIndex).getMedico() != null ? exames.get(rowIndex).getMedico().getNome()
                         : exames.get(rowIndex).getEnfermeiro().getNome();

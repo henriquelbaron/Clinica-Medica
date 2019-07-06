@@ -1,7 +1,7 @@
 package br.com.clinica.domain.tables;
 
 import br.com.clinica.domain.Paciente;
-import br.com.clinica.util.Utils;
+import br.com.clinica.util.DataUtils;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +38,7 @@ public class PacienteTable extends TableTemplate<Paciente> {
             case Constantes.NOME:
                 return pacientes.get(rowIndex).getNome();
             case Constantes.NASCIMENTO:
-                return Utils.dateToString(pacientes.get(rowIndex).getDataNascimento());
+                return DataUtils.dateToString(pacientes.get(rowIndex).getDataNascimento());
             case Constantes.SEXO:
                 return pacientes.get(rowIndex).getSexo();
             case Constantes.TELEFONE:

@@ -6,7 +6,7 @@
 package br.com.clinica.dao.banco.impl;
 
 import br.com.clinica.domain.PlantaoMedico;
-import br.com.clinica.util.Utils;
+import br.com.clinica.util.DataUtils;
 import java.util.Date;
 import java.util.List;
 import org.junit.Test;
@@ -47,7 +47,7 @@ public class PlantaoMedicoDaoImplTest {
     @Test
     @Ignore
     public void testGetPlantoesMedico() {
-        Date a = Utils.addHorasData(new Date(System.currentTimeMillis()), 22);
+        Date a = DataUtils.addHorasData(new Date(System.currentTimeMillis()), 22);
     }
 
 }

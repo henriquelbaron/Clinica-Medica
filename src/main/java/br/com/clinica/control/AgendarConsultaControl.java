@@ -8,21 +8,19 @@ package br.com.clinica.control;
 import br.com.clinica.dao.banco.impl.ConsultaDaoImpl;
 import br.com.clinica.dao.banco.impl.EspecialidadeDaoImpl;
 import br.com.clinica.dao.banco.impl.MedicoDaoImpl;
-import br.com.clinica.dao.banco.impl.PacienteDaoImpl;
+import br.com.clinica.dao.banco.impl.OcupacaoSalaDaoImpl;
 import br.com.clinica.dao.banco.impl.SalaDaoImpl;
 import br.com.clinica.domain.Consulta;
 import br.com.clinica.domain.Especialidade;
 import br.com.clinica.domain.Medico;
+import br.com.clinica.domain.OcupacaoSala;
 import br.com.clinica.domain.Paciente;
 import br.com.clinica.domain.Sala;
-import br.com.clinica.domain.tables.PacienteTable;
+import br.com.clinica.util.DataUtils;
 import br.com.clinica.util.SendMessenger;
-import br.com.clinica.util.Utils;
 import br.com.clinica.validation.Validator;
 import br.com.clinica.view.AgendamentoConsultaDialog;
-import br.com.clinica.view.TelaPrincipal;
 import java.util.Date;
-import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -34,6 +32,7 @@ public class AgendarConsultaControl {
     private final AgendamentoConsultaDialog dlg;
     private final Paciente paciente;
     private Consulta consulta;
+    private OcupacaoSala ocupacaoSala;
 
     public AgendarConsultaControl(AgendamentoConsultaDialog frame, Paciente paciente) {
         this.dlg = frame;
@@ -51,14 +50,14 @@ public class AgendarConsultaControl {
     }
 
     public void confirmarConsultaAction() {
-        if (Validator.stringValidator(dlg.tfHora.getText())) {
+        if (verificaOcupacaoSala()) {
             consulta = new Consulta();
             consulta.setMedico((Medico) dlg.cbMedico.getSelectedItem());
-            consulta.setSala((Sala) dlg.cbSala.getSelectedItem());
             consulta.setEspecialidade((Especialidade) dlg.cbEspecialidade.getSelectedItem());
-            consulta.setDataAgendamento(new Date(System.currentTimeMillis()));
-            consulta.setData(Utils.stringToDate(dlg.tfData.getDate(), dlg.tfHora.getText()));
+            consulta.setDataAgendamento(DataUtils.dataAtual());
             consulta.setAtendente(UserLogado.getATENDENTE());
+            consulta.setSala(ocupacaoSala);
+            ocupacaoSala.setConsulta(consulta);
             consulta.setPaciente(paciente);
             if (new ConsultaDaoImpl().salvar(consulta)) {
                 SendMessenger.success("Consulta Agendada Com Sucesso!");
@@ -66,8 +65,6 @@ public class AgendarConsultaControl {
             } else {
                 SendMessenger.error("Erro ao salvar!");
             }
-        } else {
-            SendMessenger.error("Complete os campos Corretamente!");
         }
     }
 
@@ -77,5 +74,21 @@ public class AgendarConsultaControl {
 
     private void close() {
         dlg.dispose();
+    }
+
+    private boolean verificaOcupacaoSala() {
+        if (dlg.tfData.getDate() != null && Validator.validarHora(dlg.tfHora.getText())) {
+            Sala sala = (Sala) dlg.cbSala.getSelectedItem();
+            Date data = DataUtils.stringToDate(dlg.tfData.getDate(), dlg.tfHora.getText());
+            if (new OcupacaoSalaDaoImpl().getOcupacaoSala(sala, data)) {
+                ocupacaoSala = new OcupacaoSala();
+                ocupacaoSala.setData(data);
+                ocupacaoSala.setSala(sala);
+                return true;
+            } else {
+                SendMessenger.error("Sala ocupada neste horario!");
+            }
+        }
+        return false;
     }
 }

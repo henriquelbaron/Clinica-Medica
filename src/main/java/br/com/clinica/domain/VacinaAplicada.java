@@ -16,6 +16,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -34,10 +35,6 @@ public class VacinaAplicada implements Serializable {
 
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
-    private Date data;
-
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
     private Date dataAgendamento;
 
     private boolean aplicada;
@@ -46,9 +43,9 @@ public class VacinaAplicada implements Serializable {
     @JoinColumn(name = "idPaciente", nullable = false)
     private Paciente paciente;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idSala", nullable = false)
-    private Sala sala;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idOcupacaoSala", nullable = false)
+    private OcupacaoSala ocupacaoSala;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idAtendente")
@@ -73,20 +70,12 @@ public class VacinaAplicada implements Serializable {
         this.dataAgendamento = dataAgendamento;
     }
 
-    public Sala getSala() {
-        return sala;
+    public OcupacaoSala getSala() {
+        return ocupacaoSala;
     }
 
-    public void setSala(Sala sala) {
-        this.sala = sala;
-    }
-
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
+    public void setSala(OcupacaoSala sala) {
+        this.ocupacaoSala = sala;
     }
 
     public boolean isAplicada() {

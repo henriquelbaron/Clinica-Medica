@@ -5,7 +5,7 @@ import br.com.clinica.dao.banco.GenericDAO;
 import br.com.clinica.domain.Enfermeiro;
 import br.com.clinica.domain.Medico;
 import br.com.clinica.domain.Plantao;
-import br.com.clinica.util.Utils;
+import br.com.clinica.util.DataUtils;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -19,7 +19,7 @@ public class PlantaoDaoImpl extends GenericDAO<Plantao> {
         try {
             Query q = sessao.createQuery("Select p from Plantao as p LEFT JOIN Medico as m WHERE p.data BETWEEN :data AND :amanha");
             q.setParameter("data", dataDesejada);
-            q.setParameter("amanha", Utils.addDiaData(dataDesejada, 1));
+            q.setParameter("amanha", DataUtils.addDiaData(dataDesejada, 1));
             return (List<Plantao>) q.getResultList();
         } catch (RuntimeException erro) {
             throw erro;
@@ -34,7 +34,7 @@ public class PlantaoDaoImpl extends GenericDAO<Plantao> {
 //            Query q = sessao.createQuery("Select m from Medico as m LEFT JOIN m.plantaos as p WHERE p.data= :data");
             Query q = sessao.createQuery("Select m from Medico as m LEFT JOIN m.plantaos as p WHERE p.data BETWEEN :data AND :amanha");
             q.setParameter("data", dataDesejada);
-            q.setParameter("amanha", Utils.addDiaData(dataDesejada, 1));
+            q.setParameter("amanha", DataUtils.addDiaData(dataDesejada, 1));
             return (List<Medico>) q.getResultList();
         } catch (RuntimeException erro) {
             throw erro;
@@ -49,7 +49,7 @@ public class PlantaoDaoImpl extends GenericDAO<Plantao> {
 //            Query q = sessao.createQuery("Select m from Medico as m LEFT JOIN m.plantaos as p WHERE p.data= :data");
             Query q = sessao.createQuery("Select e from Enfermeiro as e LEFT JOIN e.plantaos as p WHERE p.data BETWEEN :data AND :amanha");
             q.setParameter("data", dataDesejada);
-            q.setParameter("amanha", Utils.addDiaData(dataDesejada, 1));
+            q.setParameter("amanha", DataUtils.addDiaData(dataDesejada, 1));
             return (List<Enfermeiro>) q.getResultList();
         } catch (RuntimeException erro) {
             throw erro;

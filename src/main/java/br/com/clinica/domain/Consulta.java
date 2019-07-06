@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -28,10 +29,6 @@ public class Consulta implements Serializable {
     private boolean realizada;
 
     private String diagnostico;
-
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date data;
 
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
@@ -53,9 +50,9 @@ public class Consulta implements Serializable {
     @JoinColumn(name = "idAtendente", nullable = false)
     private Atendente atendente;
 
-    @ManyToOne
-    @JoinColumn(name = "idSala", nullable = false)
-    private Sala sala;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idOcupacaoSala", nullable = false)
+    private OcupacaoSala ocupacaoSala;
 
     @OneToMany(mappedBy = "consulta", targetEntity = Remedio.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Remedio> remedios;
@@ -92,14 +89,6 @@ public class Consulta implements Serializable {
         this.id = id;
     }
 
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
-    }
-
     public Date getDataAgendamento() {
         return dataAgendamento;
     }
@@ -132,12 +121,12 @@ public class Consulta implements Serializable {
         this.atendente = atendente;
     }
 
-    public Sala getSala() {
-        return sala;
+    public OcupacaoSala getSala() {
+        return ocupacaoSala;
     }
 
-    public void setSala(Sala sala) {
-        this.sala = sala;
+    public void setSala(OcupacaoSala sala) {
+        this.ocupacaoSala = sala;
     }
 
     public List<Remedio> getRemedios() {

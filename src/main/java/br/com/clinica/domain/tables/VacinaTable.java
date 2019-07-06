@@ -7,7 +7,7 @@ package br.com.clinica.domain.tables;
 
 import br.com.clinica.domain.Paciente;
 import br.com.clinica.domain.VacinaAplicada;
-import br.com.clinica.util.Utils;
+import br.com.clinica.util.DataUtils;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,9 +51,9 @@ public class VacinaTable extends TableTemplate<VacinaAplicada> {
             case Constantes.VACINA:
                 return vacinaAplicadas.get(rowIndex).getVacina().getNome();
             case Constantes.SALA:
-                return vacinaAplicadas.get(rowIndex).getSala().getNumero();
+                return vacinaAplicadas.get(rowIndex).getSala().getSala().getNumero();
             case Constantes.DATA:
-                return Utils.dateToString(vacinaAplicadas.get(rowIndex).getData());
+                return DataUtils.dateToString(vacinaAplicadas.get(rowIndex).getSala().getData());
             case Constantes.APLICADA:
                 return vacinaAplicadas.get(rowIndex).isAplicada() ? "Sim" : "Não";
             default:

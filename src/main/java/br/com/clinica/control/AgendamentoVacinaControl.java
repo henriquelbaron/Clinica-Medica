@@ -5,17 +5,17 @@
  */
 package br.com.clinica.control;
 
-import br.com.clinica.dao.banco.impl.EnfermeiroDaoImpl;
+import br.com.clinica.dao.banco.impl.OcupacaoSalaDaoImpl;
 import br.com.clinica.dao.banco.impl.SalaDaoImpl;
 import br.com.clinica.dao.banco.impl.VacinaAplicadaDaoImpl;
 import br.com.clinica.dao.banco.impl.VacinaDaoImpl;
-import br.com.clinica.domain.Enfermeiro;
-import br.com.clinica.domain.Paciente;
+import br.com.clinica.domain.OcupacaoSala;
 import br.com.clinica.domain.Sala;
 import br.com.clinica.domain.Vacina;
 import br.com.clinica.domain.VacinaAplicada;
 import br.com.clinica.util.SendMessenger;
-import br.com.clinica.util.Utils;
+import br.com.clinica.util.DataUtils;
+import br.com.clinica.validation.Validator;
 import br.com.clinica.view.AgendamentoVacinaDialog;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
@@ -28,6 +28,7 @@ public class AgendamentoVacinaControl {
 
     private AgendamentoVacinaDialog dlg;
     private VacinaAplicada vacinaAplicada;
+    private OcupacaoSala ocupacaoSala;
 
     public AgendamentoVacinaControl(AgendamentoVacinaDialog aThis, VacinaAplicada va) {
         this.dlg = aThis;
@@ -46,33 +47,51 @@ public class AgendamentoVacinaControl {
         if (UserLogado.getENFERMEIRO() != null) {
             vacinaAplicada.setEnfermeiro(UserLogado.getENFERMEIRO());
         }
-        vacinaAplicada.setVacina((Vacina) dlg.cbVacina.getSelectedItem());
-        vacinaAplicada.setSala((Sala) dlg.cbSala.getSelectedItem());
-        vacinaAplicada.setDataAgendamento(new Date(System.currentTimeMillis()));
-        vacinaAplicada.setData(Utils.stringToDate(dlg.jDateChooser1.getDate(), dlg.tfHora.getText()));
-        vacinaAplicada.setAplicada(dlg.checkBox.isSelected());
-        if (vacinaAplicada.getId() == null) {
-            if (new VacinaAplicadaDaoImpl().salvar(vacinaAplicada)) {
-                SendMessenger.success(dlg.checkBox.isSelected() ? "Vacina Aplicada!" : "Vacina Agendada!");
-                close();
-            }
-        } else {
-            if (new VacinaAplicadaDaoImpl().editar(vacinaAplicada)) {
-                SendMessenger.success("Vacina aplicada!");
-                close();
+        if (verificaOcupacaoSala()) {
+            vacinaAplicada.setVacina((Vacina) dlg.cbVacina.getSelectedItem());
+            vacinaAplicada.setDataAgendamento(DataUtils.dataAtual());
+            vacinaAplicada.setAplicada(dlg.checkBox.isSelected());
+            ocupacaoSala.setVacina(vacinaAplicada);
+            vacinaAplicada.setSala(ocupacaoSala);
+            if (vacinaAplicada.getId() == null) {
+                if (new VacinaAplicadaDaoImpl().salvar(vacinaAplicada)) {
+                    SendMessenger.success(dlg.checkBox.isSelected() ? "Vacina Aplicada!" : "Vacina Agendada!");
+                    close();
+                }
+            } else {
+                if (new VacinaAplicadaDaoImpl().editar(vacinaAplicada)) {
+                    SendMessenger.success("Vacina aplicada!");
+                    close();
+                }
             }
         }
-
-        SendMessenger.error("Verifique os campos!");
     }
 
     public void aplicarAgoraAction() {
-        dlg.tfHora.setText(Utils.horaAtual());
+        dlg.tfHora.setText(DataUtils.horaAtualString());
         dlg.jDateChooser1.setDate(new Date(System.currentTimeMillis()));
     }
 
     private void close() {
         dlg.dispose();
+    }
+
+    private boolean verificaOcupacaoSala() {
+        if (dlg.jDateChooser1.getDate() != null && Validator.validarHora(dlg.tfHora.getText())) {
+            Sala sala = (Sala) dlg.cbSala.getSelectedItem();
+            Date data = DataUtils.stringToDate(dlg.jDateChooser1.getDate(), dlg.tfHora.getText());
+            if (new OcupacaoSalaDaoImpl().getOcupacaoSala(sala, data)) {
+                ocupacaoSala = new OcupacaoSala();
+                ocupacaoSala.setData(data);
+                ocupacaoSala.setSala(sala);
+                return true;
+            } else {
+                SendMessenger.error("Sala ocupada neste horario!");
+            }
+        } else {
+            SendMessenger.error("Preencha os campos corretamente!");
+        }
+        return false;
     }
 
     private void loadConfig() {

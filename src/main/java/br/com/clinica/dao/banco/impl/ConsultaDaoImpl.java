@@ -4,7 +4,7 @@ import br.com.clinica.dao.banco.ConnectionFactory;
 import br.com.clinica.dao.banco.GenericDAO;
 import br.com.clinica.domain.Consulta;
 import br.com.clinica.domain.Medico;
-import br.com.clinica.util.Utils;
+import br.com.clinica.util.DataUtils;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -47,7 +47,7 @@ public class ConsultaDaoImpl extends GenericDAO<Consulta> {
             Query q = sessao.createQuery(hql);
             q.setParameter("idMedico", idMedico);
             q.setParameter("data", data);
-            q.setParameter("amanha", Utils.addDiaData(data, 1));
+            q.setParameter("amanha", DataUtils.addDiaData(data, 1));
             return (List<Consulta>) q.getResultList();
         } catch (RuntimeException erro) {
             throw erro;

@@ -25,6 +25,17 @@ public class ExameDaoImplTest {
 //    @Ignore
     public void testSomeMethod() {
         dao.salvar(new Exame("Sangue", ""));
+        dao.salvar(new Exame("Raio X", ""));
+        dao.salvar(new Exame("Tomografia", ""));
+        dao.salvar(new Exame("Ressônancia Magnética", ""));
+        dao.salvar(new Exame("Sangue", ""));
+        dao.salvar(new Exame("Ultra-sonografia", ""));
+        dao.salvar(new Exame("Hemograma", ""));
+        dao.salvar(new Exame("Urina", ""));
+        dao.salvar(new Exame("Fezes", ""));
+        dao.salvar(new Exame("HIV", ""));
+        dao.salvar(new Exame("Sífilis", ""));
+        dao.salvar(new Exame("Glicemia em Jejum", ""));
     }
 
 }

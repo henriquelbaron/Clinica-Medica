@@ -2,7 +2,7 @@ package br.com.clinica.domain.tables;
 
 import br.com.clinica.domain.PlantaoEnfermeiro;
 import br.com.clinica.domain.PlantaoMedico;
-import br.com.clinica.util.Utils;
+import br.com.clinica.util.DataUtils;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,14 +41,14 @@ public class PlantaoTable extends TableTemplate<Object> {
             pm = (PlantaoMedico) plantaos.get(rowIndex);
             nome = pm.getMedico().getNome();
             identificar = pm.getMedico().getCrm();
-            data = Utils.dateHoraToString(pm.getPlantao().getData());
+            data = DataUtils.dateHoraToString(pm.getPlantao().getData());
             funcao = "Médico";
         }
         if (plantaos.get(rowIndex) instanceof PlantaoEnfermeiro) {
             pe = (PlantaoEnfermeiro) plantaos.get(rowIndex);
             nome = pe.getEnfermeiro().getNome();
             identificar = pe.getEnfermeiro().getCorenCofen();
-            data = Utils.dateHoraToString(pe.getPlantao().getData());
+            data = DataUtils.dateHoraToString(pe.getPlantao().getData());
             funcao = "Enfermeiro";
         }
         switch (columnIndex) {

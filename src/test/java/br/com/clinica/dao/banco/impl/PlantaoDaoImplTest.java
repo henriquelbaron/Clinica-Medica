@@ -3,7 +3,7 @@ package br.com.clinica.dao.banco.impl;
 
 import br.com.clinica.domain.Medico;
 import br.com.clinica.domain.Plantao;
-import br.com.clinica.util.Utils;
+import br.com.clinica.util.DataUtils;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -26,8 +26,8 @@ public class PlantaoDaoImplTest {
     @Test
     @Ignore
     public void save() {
-        dao.salvar(new Plantao(Utils.stringToDate("1/07/2019", "07:00")));
-        dao.salvar(new Plantao(Utils.stringToDate("2/07/2019", "19:00")));
+        dao.salvar(new Plantao(DataUtils.stringToDate("1/07/2019", "07:00")));
+        dao.salvar(new Plantao(DataUtils.stringToDate("2/07/2019", "19:00")));
     }
 
     @Test
@@ -36,7 +36,7 @@ public class PlantaoDaoImplTest {
 //        List<Medico> medicos = dao.getPlantoesDia(new Date(System.currentTimeMillis()));
 //        List<Medico> medicos = dao.getPlantoesMedicos();
 //        List<Plantao> plantaos = dao.getPlantoesMedicos();
-        List<Plantao> plantaos = dao.getPlantoesDia(Utils.stringToDate("12/07/2019"));
+        List<Plantao> plantaos = dao.getPlantoesDia(DataUtils.stringToDate("12/07/2019"));
         for (Plantao plantao : plantaos) {
 //            for (Medico medico : plantao.getMedicos()) {
 //                System.out.println(plantao.getData());

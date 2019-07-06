@@ -8,7 +8,7 @@ package br.com.clinica.control;
 import br.com.clinica.dao.banco.impl.ExamePacienteDaoImpl;
 import br.com.clinica.domain.ExamePaciente;
 import br.com.clinica.util.SendMessenger;
-import br.com.clinica.util.Utils;
+import br.com.clinica.util.DataUtils;
 import br.com.clinica.view.PacienteExameDialog;
 
 /**
@@ -36,10 +36,10 @@ public class ExamePacienteControl {
 
     private void loadConfig() {
         dlg.lblExame.setText("Exame de " + ep.getExame().getNome());
-        dlg.lblData.setText(Utils.dateHoraToString(ep.getData()));
-        dlg.lblAgendado.setText(Utils.dateHoraToString(ep.getDataAgendamento()));
+        dlg.lblData.setText(DataUtils.dateHoraToString(ep.getSala().getData()));
+        dlg.lblAgendado.setText(DataUtils.dateHoraToString(ep.getDataAgendamento()));
         dlg.lblPaciente.setText(ep.getPaciente().getNome());
-        dlg.lblSala.setText(ep.getSala().getNumero());
+        dlg.lblSala.setText(ep.getSala().getSala().getNumero());
         if (ep.getMedico() != null) {
             dlg.lblResponsavel.setText("Dr(a). " + ep.getMedico().getNome());
         }

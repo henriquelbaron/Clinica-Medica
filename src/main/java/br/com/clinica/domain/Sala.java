@@ -28,16 +28,10 @@ public class Sala implements Serializable {
 
     private String descrição;
 
-    @OneToMany(mappedBy = "sala", targetEntity = ExamePaciente.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<ExamePaciente> exames;
-
-    @OneToMany(mappedBy = "sala", targetEntity = Consulta.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Consulta> consultas;
-
-    @OneToMany(mappedBy = "sala", targetEntity = VacinaAplicada.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<VacinaAplicada> vacinas;
-
     private int prioridade;
+
+    @OneToMany(mappedBy = "sala", targetEntity = OcupacaoSala.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<OcupacaoSala> ocupacaoSalas;
 
     @ManyToOne
     @JoinColumn(name = "idFuncao")
@@ -46,17 +40,18 @@ public class Sala implements Serializable {
     public Sala() {
     }
 
-    public Sala(String numero, int prioridade) {
+    public Sala(String numero, int prioridade, Funcao funcao) {
         this.numero = numero;
         this.prioridade = prioridade;
+        this.funcao = funcao;
     }
 
-    public List<VacinaAplicada> getVacinas() {
-        return vacinas;
+    public List<OcupacaoSala> getOcupacaoSalas() {
+        return ocupacaoSalas;
     }
 
-    public void setVacinas(List<VacinaAplicada> vacinas) {
-        this.vacinas = vacinas;
+    public void setOcupacaoSalas(List<OcupacaoSala> ocupacaoSalas) {
+        this.ocupacaoSalas = ocupacaoSalas;
     }
 
     public String getDescrição() {
@@ -81,22 +76,6 @@ public class Sala implements Serializable {
 
     public void setNumero(String numero) {
         this.numero = numero;
-    }
-
-    public List<ExamePaciente> getExames() {
-        return exames;
-    }
-
-    public void setExames(List<ExamePaciente> exames) {
-        this.exames = exames;
-    }
-
-    public List<Consulta> getConsultas() {
-        return consultas;
-    }
-
-    public void setConsultas(List<Consulta> consultas) {
-        this.consultas = consultas;
     }
 
     public int getPrioridade() {

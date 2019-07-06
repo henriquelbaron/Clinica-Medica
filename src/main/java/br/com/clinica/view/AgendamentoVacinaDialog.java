@@ -52,11 +52,30 @@ public class AgendamentoVacinaDialog extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Agendamento de Vacinas");
+        setResizable(false);
 
         lblIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/question.png"))); // NOI18N
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/surgery-room.png"))); // NOI18N
         jLabel6.setText("Sala");
+
+        jDateChooser1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jDateChooser1FocusLost(evt);
+            }
+        });
+        jDateChooser1.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                jDateChooser1InputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+        });
+        jDateChooser1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jDateChooser1KeyReleased(evt);
+            }
+        });
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/check.png"))); // NOI18N
         jButton1.setText("Confirmar");
@@ -104,9 +123,21 @@ public class AgendamentoVacinaDialog extends javax.swing.JDialog {
             ex.printStackTrace();
         }
         tfHora.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tfHora.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                tfHoraInputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+        });
         tfHora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfHoraActionPerformed(evt);
+            }
+        });
+        tfHora.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfHoraKeyReleased(evt);
             }
         });
 
@@ -202,6 +233,21 @@ public class AgendamentoVacinaDialog extends javax.swing.JDialog {
     private void checkBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkBoxItemStateChanged
         control.aplicarAgoraAction();
     }//GEN-LAST:event_checkBoxItemStateChanged
+
+    private void jDateChooser1InputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_jDateChooser1InputMethodTextChanged
+    }//GEN-LAST:event_jDateChooser1InputMethodTextChanged
+
+    private void tfHoraInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_tfHoraInputMethodTextChanged
+    }//GEN-LAST:event_tfHoraInputMethodTextChanged
+
+    private void jDateChooser1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jDateChooser1KeyReleased
+    }//GEN-LAST:event_jDateChooser1KeyReleased
+
+    private void jDateChooser1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jDateChooser1FocusLost
+    }//GEN-LAST:event_jDateChooser1FocusLost
+
+    private void tfHoraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfHoraKeyReleased
+    }//GEN-LAST:event_tfHoraKeyReleased
     /**
      * @param args the command line arguments
      */

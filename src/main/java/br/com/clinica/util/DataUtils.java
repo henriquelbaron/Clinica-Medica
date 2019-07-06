@@ -17,7 +17,7 @@ import javax.swing.JInternalFrame;
  *
  * @author henrique
  */
-public class Utils {
+public class DataUtils {
 
     private static final String dataFormat = "dd/MM/yyyy";
     private static final String dataHoraFormat = "dd/MM/yyyy HH:mm";
@@ -61,6 +61,13 @@ public class Utils {
         return c.getTime();
     }
 
+    public static Date addMinutosData(Date data, int minutos) {
+        Calendar c = Calendar.getInstance();
+        c.setTime(data);
+        c.add(Calendar.MINUTE, minutos);
+        return c.getTime();
+    }
+
     public static String dateHoraToString(Date data) {
         return new SimpleDateFormat(dataHoraFormat).format(data);
     }
@@ -83,16 +90,24 @@ public class Utils {
         }
     }
 
-    public static String horaAtual() {
+    public static String horaAtualString() {
         return new SimpleDateFormat(horaFormat).format(new Date().getTime());
     }
 
-    public static String dataAtual() {
+    public static String dataAtualString() {
         return new SimpleDateFormat(dataFormat).format(new Date().getTime());
     }
 
-    public static boolean dateBeforeToday(Date date) {
-        return false;
+    public static Date dataAtual() {
+        return new Date(System.currentTimeMillis());
+    }
+
+    public static boolean dateAfterToday(Date date) {
+        return date.after(new Date(System.currentTimeMillis()));
+    }
+
+    public static boolean dateAfterTomorrow(Date date) {
+        return date.after(addDiaData(date, 1));
     }
 
     public static void centralizarInternalFrame(JInternalFrame frame, JDesktopPane desktopPane) {

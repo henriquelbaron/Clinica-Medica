@@ -35,7 +35,7 @@ public class MedicoDaoImplTest {
     }
 
     @Test
-    @Ignore
+//    @Ignore
     public void save() {
         for (int i = 0; i < 10; i++) {
 
@@ -50,14 +50,19 @@ public class MedicoDaoImplTest {
             medico.setTipoSanguineo("O+");
             medico.setTelefone("48996850323");
             medico.setCrm("123456" + i);
-            medico.setEspecialidade(especialidadeDaoImpl.buscar(1));
+            Usuario u = new Usuario();
+            u.setLogin("jose"+i);
+            u.setSenha("123");
+            u.setMedico(medico);
+            medico.setUsuario(u);
+            medico.setEspecialidade(especialidadeDaoImpl.buscar(85));
 //        medico.setPlantaos(new PlantaoDaoImpl().listar());
             dao.salvar(medico);
         }
     }
 
     @Test
-//    @Ignore
+    @Ignore
     public void saveTest() {
         medico = new Medico();
         Especialidade e = new Especialidade("Ortopedista", "");

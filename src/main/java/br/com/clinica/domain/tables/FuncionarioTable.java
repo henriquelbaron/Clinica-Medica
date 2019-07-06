@@ -9,7 +9,7 @@ import br.com.clinica.domain.Atendente;
 import br.com.clinica.domain.Enfermeiro;
 import br.com.clinica.domain.Medico;
 import br.com.clinica.domain.Pessoa;
-import br.com.clinica.util.Utils;
+import br.com.clinica.util.DataUtils;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,7 +65,7 @@ public class FuncionarioTable extends TableTemplate<Pessoa> {
             case Constantes.NOME:
                 return pessoa.get(rowIndex).getNome();
             case Constantes.NASCIMENTO:
-                return Utils.dateToString(pessoa.get(rowIndex).getDataNascimento());
+                return DataUtils.dateToString(pessoa.get(rowIndex).getDataNascimento());
             case Constantes.TELEFONE:
                 return pessoa.get(rowIndex).getTelefone();
             case Constantes.IDENTIFICADOR:

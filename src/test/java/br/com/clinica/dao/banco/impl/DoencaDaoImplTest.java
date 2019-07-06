@@ -7,6 +7,8 @@ package br.com.clinica.dao.banco.impl;
 
 import br.com.clinica.domain.Doenca;
 import br.com.clinica.domain.Paciente;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import org.junit.Test;

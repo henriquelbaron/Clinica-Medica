@@ -2,7 +2,7 @@ package br.com.clinica.domain.tables;
 
 import br.com.clinica.domain.Consulta;
 import br.com.clinica.domain.Paciente;
-import br.com.clinica.util.Utils;
+import br.com.clinica.util.DataUtils;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,11 +41,11 @@ public class ConsultaTable extends TableTemplate<Consulta> {
             case Constantes.PACIENTE:
                 return paciente.getNome();
             case Constantes.SALA:
-                return consultas.get(rowIndex).getSala().getNumero();
+                return consultas.get(rowIndex).getSala().getSala().getNumero();
             case Constantes.DATA:
-                return Utils.dateToString(consultas.get(rowIndex).getData());
+                return DataUtils.dateToString(consultas.get(rowIndex).getSala().getData());
             case Constantes.AGENDAMENTO:
-                return Utils.dateToString(consultas.get(rowIndex).getDataAgendamento());
+                return DataUtils.dateToString(consultas.get(rowIndex).getDataAgendamento());
             case Constantes.CONTATO:
                 return paciente.getTelefones().size() > 0 ? paciente.getTelefones().get(0) : "";
             default:

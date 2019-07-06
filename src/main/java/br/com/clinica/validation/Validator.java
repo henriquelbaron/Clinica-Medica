@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -6,6 +7,8 @@
 package br.com.clinica.validation;
 
 import br.com.clinica.view.FuncionarioCRUDDialog;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
@@ -26,14 +29,6 @@ public class Validator {
         return !str.trim().isEmpty();
     }
 
-    public static boolean cpfValidator(String str) {
-        return false;
-    }
-
-    public static boolean cepValidator(String str) {
-        return false;
-    }
-
     public static boolean emailValidator(String str) {
         return true;
     }
@@ -45,9 +40,15 @@ public class Validator {
         return true;
     }
 
-    public static boolean dateIsBefore(Date data) {
-        LocalDate date = data.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        return date.isBefore(LocalDate.now());
+    public static boolean validarHora(String hora) {
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        sdf.setLenient(false);
+        try {
+            sdf.parse(hora);
+        } catch (ParseException e) {
+            return false;
+        }
+        return true;
     }
 
     public static boolean validSaveFuncionario(FuncionarioCRUDDialog dlg) {

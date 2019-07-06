@@ -8,6 +8,7 @@ package br.com.clinica.domain;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,6 +16,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -30,10 +32,6 @@ public class ExamePaciente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date data;
 
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
@@ -61,9 +59,9 @@ public class ExamePaciente implements Serializable {
     @JoinColumn(name = "idEnfermeiro")
     private Enfermeiro enfermeiro;
 
-    @ManyToOne
-    @JoinColumn(name = "idSala", nullable = false)
-    private Sala sala;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idOcupacaoSala", nullable = false)
+    private OcupacaoSala ocupacaoSala;
 
     public Exame getExame() {
         return exame;
@@ -95,14 +93,6 @@ public class ExamePaciente implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
     }
 
     public String getResultado() {
@@ -137,12 +127,12 @@ public class ExamePaciente implements Serializable {
         this.enfermeiro = enfermeiro;
     }
 
-    public Sala getSala() {
-        return sala;
+    public OcupacaoSala getSala() {
+        return ocupacaoSala;
     }
 
-    public void setSala(Sala sala) {
-        this.sala = sala;
+    public void setSala(OcupacaoSala sala) {
+        this.ocupacaoSala = sala;
     }
 
     @Override
