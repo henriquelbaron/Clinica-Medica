@@ -7,6 +7,7 @@
 package br.com.clinica.validation;
 
 import br.com.clinica.view.FuncionarioCRUDDialog;
+import java.awt.Color;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -14,6 +15,7 @@ import java.time.ZoneId;
 import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JTextField;
 
 /**
  *
@@ -34,7 +36,7 @@ public class Validator {
     }
 
     public static boolean stringLenghtValidator(String str, int lenght) {
-        if (str.trim().length() <= lenght) {
+        if (str.trim().length() < lenght) {
             return false;
         }
         return true;
@@ -61,7 +63,7 @@ public class Validator {
         return true;
     }
 
-    public boolean isValidCPF(String cpf) {
+    public static boolean isValidCPF(String cpf) {
         if (!cpf.isEmpty()) {
             if (cpf.matches("[0-9]{11}") || cpf.matches("([0-9]{3}+[\\.]{1}+[0-9]{3}+[\\.]{1}+[0-9]{3}+[\\-]{1}+[0-9]{2})")) {
                 cpf = cpf.replaceAll("[^0-9]", "");
@@ -91,7 +93,7 @@ public class Validator {
     }
 
     public static boolean isValidEmail(String email) {
-        if (email != null && email.length() > 0) {
+        if (email != null && email.length() > 10) {
             String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
             Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
             Matcher matcher = pattern.matcher(email);
@@ -101,4 +103,28 @@ public class Validator {
         }
         return false;
     }
+
+    public static boolean isValidCep(String cep) {
+        cep = cep.replaceAll("[^0-9]", "");
+        if (cep != null && cep.trim().length() >= 8) {
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean validarCampos(JTextField tf) {
+        boolean valido = true;
+        if (tf.getName().contains("cep")) {
+            valido = isValidCep(tf.getText());
+        }
+        if (tf.getName().contains("Cpf")) {
+            valido = isValidCPF(tf.getText());
+        }
+        if (tf.getName().contains("email")) {
+            valido = isValidEmail(tf.getText());
+        }
+        tf.setForeground(valido ? Color.white : Color.red);
+        return valido;
+    }
+
 }

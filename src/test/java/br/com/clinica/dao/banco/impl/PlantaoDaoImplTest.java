@@ -1,4 +1,3 @@
-
 package br.com.clinica.dao.banco.impl;
 
 import br.com.clinica.domain.Medico;
@@ -24,7 +23,7 @@ public class PlantaoDaoImplTest {
     }
 
     @Test
-    @Ignore
+//    @Ignore
     public void save() {
         dao.salvar(new Plantao(DataUtils.stringToDate("1/07/2019", "07:00")));
         dao.salvar(new Plantao(DataUtils.stringToDate("2/07/2019", "19:00")));
@@ -33,20 +32,10 @@ public class PlantaoDaoImplTest {
     @Test
     @Ignore
     public void plantaoDoDia() {
-//        List<Medico> medicos = dao.getPlantoesDia(new Date(System.currentTimeMillis()));
-//        List<Medico> medicos = dao.getPlantoesMedicos();
-//        List<Plantao> plantaos = dao.getPlantoesMedicos();
-        List<Plantao> plantaos = dao.getPlantoesDia(DataUtils.stringToDate("12/07/2019"));
-        for (Plantao plantao : plantaos) {
-//            for (Medico medico : plantao.getMedicos()) {
-//                System.out.println(plantao.getData());
-//                System.out.println(medico.getNome());
-//            }
-        }
     }
 
     @Test
-//    @Ignore
+    @Ignore
     public void adicionarMedicosPlantao() {
         MedicoDaoImpl medicoDaoImpl = new MedicoDaoImpl();
         Set<Medico> medicos = new HashSet();

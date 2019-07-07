@@ -27,7 +27,8 @@ public class Paciente extends Pessoa implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @OneToMany(mappedBy = "paciente", orphanRemoval = true, targetEntity = Telefone.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "paciente", orphanRemoval = true, targetEntity = Telefone.class,fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @Fetch(value = FetchMode.SELECT)
     private List<Telefone> telefones;
 
     @ManyToMany(fetch = FetchType.EAGER)

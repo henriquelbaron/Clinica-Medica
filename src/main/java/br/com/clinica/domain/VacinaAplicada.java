@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.clinica.domain;
 
 import java.io.Serializable;
@@ -33,7 +28,7 @@ public class VacinaAplicada implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column(nullable = false)
+    @Column
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataAgendamento;
 
@@ -44,7 +39,7 @@ public class VacinaAplicada implements Serializable {
     private Paciente paciente;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idOcupacaoSala", nullable = false)
+    @JoinColumn(name = "idOcupacaoSala")
     private OcupacaoSala ocupacaoSala;
 
     @ManyToOne(cascade = CascadeType.ALL)

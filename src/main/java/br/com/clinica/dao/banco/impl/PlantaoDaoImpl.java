@@ -8,11 +8,33 @@ import br.com.clinica.domain.Plantao;
 import br.com.clinica.util.DataUtils;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 import javax.persistence.Query;
 import org.hibernate.Session;
 
 public class PlantaoDaoImpl extends GenericDAO<Plantao> {
+
+    public boolean plantaoExiste(Date data) {
+        Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
+        try {
+            Query q = sessao.createQuery("FROM Plantao as p WHERE p.data BETWEEN :data AND :proxData");
+            q.setParameter("data", data);
+            q.setParameter("proxData", DataUtils.addMinutoHoraData(data, 59, 11));
+            return !q.getResultList().isEmpty();
+        } catch (RuntimeException e) {
+            throw e;
+        }
+    }
+
+    public Plantao buscarPlantao(Date data) {
+        Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
+        try {
+            Query q = sessao.createQuery("FROM Plantao as p WHERE p.data = :data");
+            q.setParameter("data", data);
+            return (Plantao)q.getSingleResult();
+        } catch (RuntimeException e) {
+            return null;
+        }
+    }
 
     public List<Plantao> getPlantoesDia(Date dataDesejada) {
         Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();

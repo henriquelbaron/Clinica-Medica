@@ -49,6 +49,10 @@ public class Medico extends Pessoa implements Serializable {
     public Medico() {
     }
 
+    public void addPlantao(PlantaoMedico pm) {
+        plantaos.add(pm);
+    }
+
     public Set<PlantaoMedico> getPlantaos() {
         return plantaos;
     }

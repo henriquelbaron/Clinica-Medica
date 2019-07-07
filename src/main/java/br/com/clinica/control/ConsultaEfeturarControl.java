@@ -7,7 +7,6 @@ package br.com.clinica.control;
 
 import br.com.clinica.dao.banco.impl.ConsultaDaoImpl;
 import br.com.clinica.domain.Consulta;
-import br.com.clinica.domain.Doenca;
 import br.com.clinica.domain.Remedio;
 import br.com.clinica.util.SendMessenger;
 import br.com.clinica.validation.Validator;
@@ -21,11 +20,11 @@ import javax.swing.DefaultListModel;
  * @author Henrique Baron
  */
 public class ConsultaEfeturarControl {
-    
+
     private final EfeturarConsulta dlg;
     private final Consulta consulta;
     private DefaultListModel<Remedio> remedioList;
-    
+
     public ConsultaEfeturarControl(EfeturarConsulta aThis, Consulta consulta) {
         this.dlg = aThis;
         this.consulta = consulta;
@@ -33,7 +32,7 @@ public class ConsultaEfeturarControl {
         dlg.listRemedio.setModel(remedioList);
         dlg.lblPaciente.setText(consulta.getPaciente().getNome());
     }
-    
+
     public void finalizarAction() {
         if (SendMessenger.confirmAction("Encerrar Consulta?") == 0) {
             consulta.setDiagnostico(dlg.checkBox.isSelected() ? "Não Compareceu" : dlg.tfDescricao.getText());
@@ -51,7 +50,7 @@ public class ConsultaEfeturarControl {
             }
         }
     }
-    
+
     public void addRemedioAction() {
         String tfRemedio = dlg.tfRemedio.getText();
         if (Validator.stringValidator(tfRemedio)) {
@@ -64,12 +63,12 @@ public class ConsultaEfeturarControl {
             SendMessenger.error("Nome do Remédio Necessario!");
         }
     }
-    
+
     public void removeRemedioAction() {
         int index = dlg.listRemedio.getSelectedIndex();
         if (index >= 0) {
             remedioList.remove(index);
         }
     }
-    
+
 }

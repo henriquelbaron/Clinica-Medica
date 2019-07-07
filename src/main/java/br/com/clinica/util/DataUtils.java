@@ -70,6 +70,11 @@ public class DataUtils {
         return c.getTime();
     }
 
+    public static Date addMinutoHoraData(Date data, int horas, int minutos) {
+        data = addHorasData(data, horas);
+        return addMinutosData(data, minutos);
+    }
+
     public static String dateHoraToString(Date data) {
         return new SimpleDateFormat(dataHoraFormat).format(data);
     }

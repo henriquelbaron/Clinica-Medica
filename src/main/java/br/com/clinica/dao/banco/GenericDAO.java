@@ -5,8 +5,11 @@
  */
 package br.com.clinica.dao.banco;
 
+import br.com.clinica.domain.Enfermeiro;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -48,8 +51,10 @@ public class GenericDAO<Entidade> {
     public List<Entidade> listar() {
         Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
         try {
-            Criteria consulta = sessao.createCriteria(classe);
-            List<Entidade> resultado = consulta.list();
+            CriteriaBuilder builder = sessao.getCriteriaBuilder();
+            CriteriaQuery<Entidade> criteria = builder.createQuery(classe);
+            criteria.from(classe);
+            List<Entidade> resultado = sessao.createQuery(criteria).getResultList();
             return resultado;
         } catch (RuntimeException erro) {
             throw erro;

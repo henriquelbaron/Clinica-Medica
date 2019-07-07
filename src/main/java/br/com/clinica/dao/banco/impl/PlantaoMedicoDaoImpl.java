@@ -7,6 +7,7 @@ package br.com.clinica.dao.banco.impl;
 
 import br.com.clinica.dao.banco.ConnectionFactory;
 import br.com.clinica.dao.banco.GenericDAO;
+import br.com.clinica.domain.Medico;
 import br.com.clinica.domain.PlantaoMedico;
 import br.com.clinica.util.DataUtils;
 import java.util.Date;
@@ -19,6 +20,18 @@ import org.hibernate.Session;
  * @author Henrique Baron
  */
 public class PlantaoMedicoDaoImpl extends GenericDAO<PlantaoMedico> {
+
+    public boolean medicoHasPlantao(Medico medico, Date data) {
+        Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
+        try {
+            Query q = sessao.createQuery("FROM PlantaoMedico as pm WHERE pm.medico.id = :medico AND pm.plantao.data = :data");
+            q.setParameter("medico", medico.getId());
+            q.setParameter("data", data);
+            return q.getResultList().isEmpty();
+        } catch (Exception e) {
+            throw e;
+        }
+    }
 
     public List<PlantaoMedico> getPlantoesMedicoDia(Date dataDesejada) {
         Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
