@@ -53,6 +53,7 @@ public class AgendamentoVacinaControl {
             vacinaAplicada.setAplicada(dlg.checkBox.isSelected());
             ocupacaoSala.setVacina(vacinaAplicada);
             vacinaAplicada.setSala(ocupacaoSala);
+            vacinaAplicada.setAplicada(true);
             if (vacinaAplicada.getId() == null) {
                 if (new VacinaAplicadaDaoImpl().salvar(vacinaAplicada)) {
                     SendMessenger.success(dlg.checkBox.isSelected() ? "Vacina Aplicada!" : "Vacina Agendada!");
@@ -100,7 +101,6 @@ public class AgendamentoVacinaControl {
         if (vacinaAplicada.getId() != null) {
             dlg.cbSala.setSelectedItem(vacinaAplicada.getSala());
             dlg.cbVacina.setSelectedItem(vacinaAplicada.getVacina());
-            dlg.checkBox.setSelected(true);
             aplicarAgoraAction();
         }
         if (UserLogado.getENFERMEIRO() == null) {

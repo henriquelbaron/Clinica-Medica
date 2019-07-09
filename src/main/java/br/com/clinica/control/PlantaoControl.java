@@ -22,6 +22,8 @@ import br.com.clinica.util.SendMessenger;
 import br.com.clinica.view.InternalFramePlantao;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 /**
  *
@@ -74,11 +76,22 @@ public class PlantaoControl {
                     pe.setEnfermeiro(e);
                     pe.setPlantao(plantao);
                     pEnfermeiroDao.salvar(pe);
-                }else{
+                } else {
                     SendMessenger.error("O funcionario ja possui plantão nesta data!");
                 }
             }
             loadTable();
+        }
+    }
+
+    public void listenerJData() {
+        table.clearTable();
+        Date data = iFrame.jDateChooser2.getDate();
+        for (PlantaoMedico object : pMedicoDao.getPlantoesMedicoDia(data)) {
+            table.addRow(object);
+        }
+        for (PlantaoEnfermeiro object : pEnfermeiroDao.getPlantoesEnfermeiroDia(data)) {
+            table.addRow(object);
         }
     }
 
@@ -103,5 +116,30 @@ public class PlantaoControl {
         iFrame.tabelaPlantao.setModel(table);
         cbFuncionario = new DefaultComboBoxModel(new MedicoDaoImpl().listar().toArray());
         iFrame.cbFuncionario.setModel(cbFuncionario);
+        iFrame.tfPesquisa.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                table.clearTable();
+                String nome = iFrame.tfPesquisa.getText();
+                if (nome.trim().length() == 0) {
+                    loadTable();
+                } else {
+                    for (PlantaoMedico plantaoMedico : pMedicoDao.findPlantaoMedicoPorNome(nome)) {
+                        table.addRow(plantaoMedico);
+                    }
+                    for (PlantaoEnfermeiro object : pEnfermeiroDao.findPlantaoEnfermeiroPorNome(nome)) {
+                        table.addRow(object);
+                    }
+                }
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+            }
+        });
     }
 }

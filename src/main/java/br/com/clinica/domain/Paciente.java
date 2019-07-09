@@ -27,7 +27,7 @@ public class Paciente extends Pessoa implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @OneToMany(mappedBy = "paciente", orphanRemoval = true, targetEntity = Telefone.class,fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "paciente", orphanRemoval = true, targetEntity = Telefone.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @Fetch(value = FetchMode.SELECT)
     private List<Telefone> telefones;
 
@@ -36,26 +36,19 @@ public class Paciente extends Pessoa implements Serializable {
             joinColumns = @JoinColumn(name = "idPaciente"),
             inverseJoinColumns = @JoinColumn(name = "idDoenca"))
     @Fetch(value = FetchMode.SUBSELECT)
-    private Set<Doenca> doencas;
+    private List<Doenca> doencas;
 
     @OneToMany(mappedBy = "paciente", targetEntity = Consulta.class, fetch = FetchType.LAZY)
     private List<Consulta> consultas;
 
     @OneToMany(mappedBy = "paciente", targetEntity = ExamePaciente.class, fetch = FetchType.LAZY)
-    private Set<ExamePaciente> examePacientes;
+    private List<ExamePaciente> examePacientes;
 
-    @OneToMany(mappedBy = "paciente", targetEntity = VacinaAplicada.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "paciente", orphanRemoval = true, targetEntity = VacinaAplicada.class, fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @Fetch(value = FetchMode.SUBSELECT)
     private Set<VacinaAplicada> vacinaAplicada;
 
     public Paciente() {
-    }
-
-    public Set<VacinaAplicada> getVacinaAplicada() {
-        return vacinaAplicada;
-    }
-
-    public void setVacinaAplicada(Set<VacinaAplicada> vacinaAplicada) {
-        this.vacinaAplicada = vacinaAplicada;
     }
 
     public Integer getId() {
@@ -74,14 +67,6 @@ public class Paciente extends Pessoa implements Serializable {
         this.telefones = telefones;
     }
 
-    public Set<Doenca> getDoencas() {
-        return doencas;
-    }
-
-    public void setDoencas(Set<Doenca> doencas) {
-        this.doencas = doencas;
-    }
-
     public List<Consulta> getConsultas() {
         return consultas;
     }
@@ -90,12 +75,28 @@ public class Paciente extends Pessoa implements Serializable {
         this.consultas = consultas;
     }
 
-    public Set<ExamePaciente> getExamePacientes() {
+    public List<Doenca> getDoencas() {
+        return doencas;
+    }
+
+    public void setDoencas(List<Doenca> doencas) {
+        this.doencas = doencas;
+    }
+
+    public List<ExamePaciente> getExamePacientes() {
         return examePacientes;
     }
 
-    public void setExamePacientes(Set<ExamePaciente> examePacientes) {
+    public void setExamePacientes(List<ExamePaciente> examePacientes) {
         this.examePacientes = examePacientes;
+    }
+
+    public Set<VacinaAplicada> getVacinaAplicada() {
+        return vacinaAplicada;
+    }
+
+    public void setVacinaAplicada(Set<VacinaAplicada> vacinaAplicada) {
+        this.vacinaAplicada = vacinaAplicada;
     }
 
     public String getNome() {
@@ -157,7 +158,12 @@ public class Paciente extends Pessoa implements Serializable {
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 37 * hash + Objects.hashCode(this.id);
+        hash = 41 * hash + Objects.hashCode(this.id);
+        hash = 41 * hash + Objects.hashCode(this.telefones);
+        hash = 41 * hash + Objects.hashCode(this.doencas);
+        hash = 41 * hash + Objects.hashCode(this.consultas);
+        hash = 41 * hash + Objects.hashCode(this.examePacientes);
+        hash = 41 * hash + Objects.hashCode(this.vacinaAplicada);
         return hash;
     }
 
@@ -174,6 +180,21 @@ public class Paciente extends Pessoa implements Serializable {
         }
         final Paciente other = (Paciente) obj;
         if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        if (!Objects.equals(this.telefones, other.telefones)) {
+            return false;
+        }
+        if (!Objects.equals(this.doencas, other.doencas)) {
+            return false;
+        }
+        if (!Objects.equals(this.consultas, other.consultas)) {
+            return false;
+        }
+        if (!Objects.equals(this.examePacientes, other.examePacientes)) {
+            return false;
+        }
+        if (!Objects.equals(this.vacinaAplicada, other.vacinaAplicada)) {
             return false;
         }
         return true;

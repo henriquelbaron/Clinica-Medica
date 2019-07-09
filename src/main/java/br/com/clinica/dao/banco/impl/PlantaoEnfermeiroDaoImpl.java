@@ -9,6 +9,7 @@ import br.com.clinica.dao.banco.ConnectionFactory;
 import br.com.clinica.dao.banco.GenericDAO;
 import br.com.clinica.domain.Enfermeiro;
 import br.com.clinica.domain.PlantaoEnfermeiro;
+import br.com.clinica.domain.PlantaoMedico;
 import br.com.clinica.util.DataUtils;
 import java.util.Date;
 import java.util.List;
@@ -20,6 +21,17 @@ import org.hibernate.Session;
  * @author Henrique Baron
  */
 public class PlantaoEnfermeiroDaoImpl extends GenericDAO<PlantaoEnfermeiro> {
+
+    public List<PlantaoEnfermeiro> findPlantaoEnfermeiroPorNome(String nome) {
+        Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
+        try {
+            Query q = sessao.createQuery("FROM PlantaoEnfermeiro as pm WHERE pm.enfermeiro.nome like :nome");
+            q.setParameter("nome", "%" + nome + "%");
+            return (List<PlantaoEnfermeiro>) q.getResultList();
+        } catch (RuntimeException e) {
+            throw e;
+        }
+    }
 
     public boolean enfermeiroHasPlantao(Enfermeiro enfermeiro, Date data) {
         Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
@@ -36,7 +48,7 @@ public class PlantaoEnfermeiroDaoImpl extends GenericDAO<PlantaoEnfermeiro> {
     public List<PlantaoEnfermeiro> getPlantoesEnfermeiroDia(Date dataDesejada) {
         Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
         try {
-            Query q = sessao.createQuery("Select pm from PlantaoEnfermeiro as pm WHERE p.data BETWEEN :data AND :amanha");
+            Query q = sessao.createQuery("FROM PlantaoEnfermeiro as pm WHERE pm.data BETWEEN :data AND :amanha");
             q.setParameter("data", dataDesejada);
             q.setParameter("amanha", DataUtils.addDiaData(dataDesejada, 1));
             return (List<PlantaoEnfermeiro>) q.getResultList();

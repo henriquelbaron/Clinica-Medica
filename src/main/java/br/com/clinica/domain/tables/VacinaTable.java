@@ -51,9 +51,11 @@ public class VacinaTable extends TableTemplate<VacinaAplicada> {
             case Constantes.VACINA:
                 return vacinaAplicadas.get(rowIndex).getVacina().getNome();
             case Constantes.SALA:
-                return vacinaAplicadas.get(rowIndex).getSala().getSala().getNumero();
+                return vacinaAplicadas.get(rowIndex).getSala() != null 
+                        ? vacinaAplicadas.get(rowIndex).getSala().getSala() : "";
             case Constantes.DATA:
-                return DataUtils.dateToString(vacinaAplicadas.get(rowIndex).getSala().getData());
+                return vacinaAplicadas.get(rowIndex).getSala() != null
+                        ? DataUtils.dateToString(vacinaAplicadas.get(rowIndex).getSala().getData()) : "";
             case Constantes.APLICADA:
                 return vacinaAplicadas.get(rowIndex).isAplicada() ? "Sim" : "Não";
             default:

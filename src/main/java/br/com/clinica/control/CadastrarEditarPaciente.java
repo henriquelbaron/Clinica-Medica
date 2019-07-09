@@ -20,7 +20,9 @@ import br.com.clinica.domain.tables.TelefoneTable;
 import br.com.clinica.util.SendMessenger;
 import br.com.clinica.validation.Validator;
 import br.com.clinica.view.PacienteCRUDDialog;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
@@ -132,7 +134,7 @@ public class CadastrarEditarPaciente {
         p.getEndereco().setLocalidade(dlg.tfCidade.getText());
         p.getEndereco().setUF(dlg.tfEstado.getText());
         p.getEndereco().setCep(dlg.tfCep.getText());
-        Set<Doenca> doencas = new HashSet();
+        List<Doenca> doencas = new ArrayList();
         for (int i = 0; i < doencasList.size(); i++) {
             doencas.add(doencasList.getElementAt(i));
         }

@@ -43,7 +43,7 @@ public class VacinaControl {
     }
 
     public void pesquisarData() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     public void excluirAplicacao() {
@@ -52,7 +52,8 @@ public class VacinaControl {
             vacinaAplicada = table.getRow(rowTable);
             vacinaAplicada.setAplicada(true);
             if (new VacinaAplicadaDaoImpl().editar(vacinaAplicada)) {
-                SendMessenger.success("Savo com sucesso");
+                SendMessenger.success("Excluido!");
+                table.removeRow(rowTable);
             }
         } else {
             SendMessenger.error("Selecio a Vacina que deseja aplicar!");

@@ -21,6 +21,17 @@ import org.hibernate.Session;
  */
 public class PlantaoMedicoDaoImpl extends GenericDAO<PlantaoMedico> {
 
+    public List<PlantaoMedico> findPlantaoMedicoPorNome(String nome) {
+        Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
+        try {
+            Query q = sessao.createQuery("FROM PlantaoMedico as pm WHERE pm.medico.nome like :nome");
+            q.setParameter("nome", "%" + nome + "%");
+            return (List<PlantaoMedico>) q.getResultList();
+        } catch (RuntimeException e) {
+            throw e;
+        }
+    }
+
     public boolean medicoHasPlantao(Medico medico, Date data) {
         Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
         try {
@@ -36,7 +47,7 @@ public class PlantaoMedicoDaoImpl extends GenericDAO<PlantaoMedico> {
     public List<PlantaoMedico> getPlantoesMedicoDia(Date dataDesejada) {
         Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
         try {
-            Query q = sessao.createQuery("Select pm from PlantaoMedico as pm WHERE p.data BETWEEN :data AND :amanha");
+            Query q = sessao.createQuery("FROM PlantaoMedico as pm WHERE pm.data BETWEEN :data AND :amanha");
             q.setParameter("data", dataDesejada);
             q.setParameter("amanha", DataUtils.addDiaData(dataDesejada, 1));
             return (List<PlantaoMedico>) q.getResultList();

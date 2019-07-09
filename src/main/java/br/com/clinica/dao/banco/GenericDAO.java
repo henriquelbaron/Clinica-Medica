@@ -5,7 +5,6 @@
  */
 package br.com.clinica.dao.banco;
 
-import br.com.clinica.domain.Enfermeiro;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import javax.persistence.criteria.CriteriaBuilder;
