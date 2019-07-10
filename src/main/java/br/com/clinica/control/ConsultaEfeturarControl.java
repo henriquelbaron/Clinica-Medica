@@ -60,7 +60,7 @@ public class ConsultaEfeturarControl {
             remedio.setNome(tfRemedio);
             remedioList.addElement(remedio);
         } else {
-            SendMessenger.error("Nome do Remédio Necessario!");
+            SendMessenger.error("Nome do Remédio Necessário!");
         }
     }
 

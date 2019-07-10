@@ -13,11 +13,14 @@ import br.com.clinica.util.Utils;
  */
 public class InternalFrameResultado extends javax.swing.JInternalFrame {
 
+    boolean jaAtivo;
+
     /**
      * Creates new form InternalFrameResltado
      */
     public InternalFrameResultado() {
         initComponents();
+        jaAtivo = false;
     }
 
     /**
@@ -130,7 +133,7 @@ public class InternalFrameResultado extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusGained
-        Utils.campoPesquisa(jTextField1);
+        Utils.campoPesquisa(jTextField1, jaAtivo);
     }//GEN-LAST:event_jTextField1FocusGained
 
 

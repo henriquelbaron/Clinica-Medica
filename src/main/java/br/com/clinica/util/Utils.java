@@ -17,10 +17,13 @@ import javax.swing.JTextField;
  */
 public class Utils {
 
-    public static void campoPesquisa(JTextField tf) {
-        tf.setEditable(true);
-        tf.setText("");
-        tf.setForeground(Color.BLACK);
+    public static void campoPesquisa(JTextField tf, boolean jaAtivo) {
+        if (!jaAtivo) {
+            tf.setEditable(true);
+            tf.setText("");
+            tf.setForeground(Color.BLACK);
+           
+        }
     }
 
     public static void centralizarInternalFrame(JInternalFrame frame, JDesktopPane desktopPane) {

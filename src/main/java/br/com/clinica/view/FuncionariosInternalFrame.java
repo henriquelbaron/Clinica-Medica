@@ -19,10 +19,12 @@ public class FuncionariosInternalFrame extends javax.swing.JInternalFrame {
      * Creates new form FuncionariosInternalFrame
      */
     private FuncionariosControl control;
+    boolean jaAtivo;
 
     public FuncionariosInternalFrame(JFrame pai) {
         initComponents();
         control = new FuncionariosControl(this, pai);
+        jaAtivo = false;
     }
 
     /**
@@ -226,7 +228,7 @@ public class FuncionariosInternalFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tabelaFuncionarioMouseReleased
 
     private void tfPesquisarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfPesquisarFocusGained
-        Utils.campoPesquisa(tfPesquisar);
+        Utils.campoPesquisa(tfPesquisar, jaAtivo);
     }//GEN-LAST:event_tfPesquisarFocusGained
 
 

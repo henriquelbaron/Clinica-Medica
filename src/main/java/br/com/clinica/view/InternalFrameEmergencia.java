@@ -5,6 +5,7 @@
  */
 package br.com.clinica.view;
 
+import br.com.clinica.control.EmergenciaControl;
 /**
  *
  * @author Luiza Mistro
@@ -14,8 +15,11 @@ public class InternalFrameEmergencia extends javax.swing.JInternalFrame {
     /**
      * Creates new form InternalFrameEmergencia
      */
+    private EmergenciaControl control;
+
     public InternalFrameEmergencia() {
         initComponents();
+        control = new EmergenciaControl();
     }
 
     /**
@@ -36,7 +40,6 @@ public class InternalFrameEmergencia extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
@@ -63,7 +66,7 @@ public class InternalFrameEmergencia extends javax.swing.JInternalFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Em atendimento", "Em espera", "Em cirurgia" }));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -143,7 +146,7 @@ public class InternalFrameEmergencia extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    public static final javax.swing.JComboBox<String> jComboBox2 = new javax.swing.JComboBox<>();
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

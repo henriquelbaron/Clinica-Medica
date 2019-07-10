@@ -16,6 +16,8 @@ import br.com.clinica.domain.tables.FuncionarioTable;
 import br.com.clinica.util.SendMessenger;
 import br.com.clinica.view.FuncionarioCRUDDialog;
 import br.com.clinica.view.FuncionariosInternalFrame;
+import java.util.List;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 
 /**
@@ -32,6 +34,10 @@ public class FuncionariosControl {
     private Medico medico;
     private Enfermeiro enfermeiro;
     private int flag;
+
+    public FuncionariosControl() {
+        this.frame = null;
+    }
 
     public FuncionariosControl(FuncionariosInternalFrame iFrame, JFrame pai) {
         this.frame = pai;

@@ -18,11 +18,13 @@ public class ConsultasDialog extends javax.swing.JDialog {
      * Creates new form ConsultasDialog
      */
     private ConsultaControl control;
+    boolean jaAtivo;
 
     public ConsultasDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         control = new ConsultaControl(parent, this);
+        jaAtivo = false;
     }
 
     /**
@@ -168,7 +170,7 @@ public class ConsultasDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void tfPesquisarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfPesquisarFocusGained
-        Utils.campoPesquisa(tfPesquisar);
+        Utils.campoPesquisa(tfPesquisar, jaAtivo);
     }//GEN-LAST:event_tfPesquisarFocusGained
 
     /**

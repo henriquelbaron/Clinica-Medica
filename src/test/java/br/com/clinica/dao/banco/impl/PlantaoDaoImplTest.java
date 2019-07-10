@@ -35,7 +35,7 @@ public class PlantaoDaoImplTest {
     }
 
     @Test
-    @Ignore
+//    @Ignore
     public void adicionarMedicosPlantao() {
         MedicoDaoImpl medicoDaoImpl = new MedicoDaoImpl();
         Set<Medico> medicos = new HashSet();

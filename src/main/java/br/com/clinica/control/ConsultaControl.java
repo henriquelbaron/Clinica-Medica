@@ -6,14 +6,17 @@
 package br.com.clinica.control;
 
 import br.com.clinica.dao.banco.impl.ConsultaDaoImpl;
+import br.com.clinica.dao.banco.impl.MedicoDaoImpl;
 import br.com.clinica.domain.Consulta;
 import br.com.clinica.domain.Medico;
 import br.com.clinica.domain.tables.ConsultaTable;
 import br.com.clinica.util.SendMessenger;
 import br.com.clinica.view.ConsultasDialog;
 import br.com.clinica.view.EfeturarConsulta;
+import br.com.clinica.view.InternalFrameEmergencia;
 import java.awt.Frame;
 import java.util.Date;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -26,6 +29,7 @@ public class ConsultaControl {
     private ConsultaTable table;
     private Consulta consulta;
     private Medico medico;
+    private DefaultComboBoxModel cbFuncionario;
 
     public ConsultaControl(Frame parent, ConsultasDialog aThis) {
         this.dlg = aThis;
@@ -73,6 +77,11 @@ public class ConsultaControl {
         }
         dlg.tableConsulta.setModel(table);
         dlg.lblMedico.setText(medico.getNome());
+    }
+
+    private void loadComboBox() {
+        cbFuncionario = new DefaultComboBoxModel(new MedicoDaoImpl().listar().toArray());
+        InternalFrameEmergencia.jComboBox2.setModel(cbFuncionario);
     }
 
 }

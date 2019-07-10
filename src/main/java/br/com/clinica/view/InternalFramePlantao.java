@@ -15,6 +15,7 @@ import br.com.clinica.util.Utils;
  */
 public class InternalFramePlantao extends javax.swing.JInternalFrame {
 
+    boolean jaAtivo;
     /**
      * Creates new form InternalFramePlantao
      */
@@ -23,6 +24,7 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
     public InternalFramePlantao() {
         initComponents();
         control = new PlantaoControl(this);
+        jaAtivo = false;
     }
 
     /**
@@ -248,7 +250,7 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_rbMedicoItemStateChanged
 
     private void tfPesquisaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfPesquisaFocusGained
-        Utils.campoPesquisa(tfPesquisa);
+        Utils.campoPesquisa(tfPesquisa, jaAtivo);
     }//GEN-LAST:event_tfPesquisaFocusGained
 
     private void tfPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPesquisaActionPerformed

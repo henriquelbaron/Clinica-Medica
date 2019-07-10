@@ -17,6 +17,7 @@ import java.awt.Color;
 public class TelaLogin extends javax.swing.JFrame {
 
     LoginControl control;
+    boolean jaAtivo;
 
     /**
      *
@@ -26,6 +27,7 @@ public class TelaLogin extends javax.swing.JFrame {
         initComponents();
         ConnectionFactory.getFabricaDeSessoes();
         control = new LoginControl(this);
+        jaAtivo = false;
     }
 
     /**
@@ -166,11 +168,14 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_lblEsqueciSenhaMouseClicked
 
     private void tfEmailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfEmailMouseClicked
-        Utils.campoPesquisa(tfEmail);
+        Utils.campoPesquisa(tfEmail, jaAtivo);
+        jaAtivo = true;
     }//GEN-LAST:event_tfEmailMouseClicked
 
     private void tfSenhaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfSenhaMouseClicked
-        Utils.campoPesquisa(tfSenha);
+        jaAtivo = false;
+        Utils.campoPesquisa(tfSenha, jaAtivo);
+        jaAtivo = true;
     }//GEN-LAST:event_tfSenhaMouseClicked
     /**
      * @param args the command line arguments

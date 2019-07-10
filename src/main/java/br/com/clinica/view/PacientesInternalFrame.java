@@ -19,10 +19,12 @@ public class PacientesInternalFrame extends javax.swing.JInternalFrame {
      * Creates new form RealizarConsultaInternalFrame
      */
     private PacienteControl control;
+    boolean jaAtivo;
 
     public PacientesInternalFrame(JFrame frame) {
         initComponents();
         control = new PacienteControl(this, frame);
+        jaAtivo = false;
     }
 
     /**
@@ -234,7 +236,7 @@ public class PacientesInternalFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void tfPesquisarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfPesquisarFocusGained
-        Utils.campoPesquisa(tfPesquisar);
+        Utils.campoPesquisa(tfPesquisar, jaAtivo);
     }//GEN-LAST:event_tfPesquisarFocusGained
 
     private void tfPesquisarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfPesquisarMouseClicked

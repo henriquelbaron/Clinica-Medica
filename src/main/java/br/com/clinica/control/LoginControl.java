@@ -5,13 +5,7 @@
  */
 package br.com.clinica.control;
 
-import br.com.clinica.dao.banco.impl.AtendenteDaoImp;
-import br.com.clinica.dao.banco.impl.EnfermeiroDaoImpl;
-import br.com.clinica.dao.banco.impl.MedicoDaoImpl;
 import br.com.clinica.dao.banco.impl.UsuarioDaoImpl;
-import br.com.clinica.domain.Atendente;
-import br.com.clinica.domain.Enfermeiro;
-import br.com.clinica.domain.Medico;
 import br.com.clinica.domain.Pessoa;
 import br.com.clinica.domain.Usuario;
 import br.com.clinica.validation.Validator;
