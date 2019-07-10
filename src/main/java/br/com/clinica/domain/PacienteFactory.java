@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.clinica.dao.banco;
+package br.com.clinica.domain;
 
-import br.com.clinica.domain.Paciente;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,14 +14,14 @@ import java.util.List;
  */
 public class PacienteFactory {
 
-    private static List<Paciente> paciente = new ArrayList<>();
+    private static List<Consulta> paciente = new ArrayList<>();
 
     public static java.util.Collection geraColecao() {
         return paciente;
     }
 
-    public static void populaOjetosNoRelatório(List<Paciente> pacienteList) {
-        paciente = pacienteList;
+    public static void populaOjetosNoRelatório(List<Consulta> consultaList) {
+        paciente = consultaList;
     }
 
 }

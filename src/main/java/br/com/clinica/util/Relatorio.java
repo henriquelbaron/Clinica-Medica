@@ -10,9 +10,11 @@ import br.com.clinica.domain.Paciente;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.util.HashMap;
+import java.util.List;
 import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.view.JasperViewer;
 import org.bouncycastle.jce.provider.symmetric.AESMappings;
 import org.hibernate.Session;
@@ -23,24 +25,25 @@ import org.hibernate.Session;
  */
 public class Relatorio {
 
-
-    public static void chamarRelatorio(InputStream enderecoArq, HashMap parametros) {
+    public static void chamarRelatorio(InputStream enderecoArq, HashMap parametros, List<Object> objetos) {
         JasperPrint jasperPrint = null;
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(objetos);
         try {
-//            jasperPrint = JasperFillManager.fillReport(enderecoArq, parametros, con);
+            jasperPrint = JasperFillManager.fillReport(enderecoArq, parametros, dataSource);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro ao gerar relatório /n " + e);
+            e.printStackTrace();
 
         }
         JasperViewer.viewReport(jasperPrint, false); // false para não fechar a aplicação quando fechar o relatório.
 
     }
-
-    public HashMap criaHashmap(Paciente p) {
-        HashMap<String, Object> parametros = new HashMap<String, Object>();
-        parametros.put("idPaciente", p.getId());
-        return parametros;
-    }
+//
+//    public HashMap criaHashmap(Paciente p) {
+//        HashMap<String, Object> parametros = new HashMap<String, Object>();
+//        parametros.put("idPaciente", p.getId());
+//        return parametros;
+//    }
 }
 
 //Endereço de arquivo >> 

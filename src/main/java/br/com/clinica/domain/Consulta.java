@@ -137,4 +137,11 @@ public class Consulta implements Serializable {
         this.remedios = remedios;
     }
 
+    @Override
+    public String toString() {
+        return id + diagnostico;
+    }
+    
+    
+
 }
