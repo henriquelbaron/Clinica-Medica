@@ -6,6 +6,7 @@
 package br.com.clinica.view;
 
 import br.com.clinica.control.ExameControl;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 
 /**
@@ -36,7 +37,6 @@ public class InternalFrameExames extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableExame = new javax.swing.JTable();
@@ -51,6 +51,11 @@ public class InternalFrameExames extends javax.swing.JInternalFrame {
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/exit.png"))); // NOI18N
         jButton1.setText("Sair");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/medical-history.png"))); // NOI18N
         jButton3.setText("Resultado");
@@ -119,9 +124,13 @@ public class InternalFrameExames extends javax.swing.JInternalFrame {
         control.resultadoExame();
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    public static final javax.swing.JButton jButton1 = new javax.swing.JButton();
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;

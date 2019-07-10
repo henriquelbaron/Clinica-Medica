@@ -300,7 +300,7 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_rbMedicoItemStateChanged
 
     private void tfPesquisaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfPesquisaFocusGained
-        Utils.campoPesquisa(tfPesquisa);
+        Utils.campoPesquisa(tfPesquisa, jaAtivo);
     }//GEN-LAST:event_tfPesquisaFocusGained
 
     private void tfPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPesquisaActionPerformed
@@ -339,10 +339,6 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
     private void jDateChooser2ComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_jDateChooser2ComponentAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_jDateChooser2ComponentAdded
-
-    private void tfPesquisaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfPesquisaFocusGained
-        Utils.campoPesquisa(tfPesquisa, jaAtivo);
-    }
 
     private void btPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarActionPerformed
         control.buscarPorDataAction();
