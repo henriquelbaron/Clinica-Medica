@@ -22,6 +22,8 @@ public class PlantaoDaoImpl extends GenericDAO<Plantao> {
             return !q.getResultList().isEmpty();
         } catch (RuntimeException e) {
             throw e;
+        } finally {
+            sessao.close();
         }
     }
 
@@ -30,9 +32,11 @@ public class PlantaoDaoImpl extends GenericDAO<Plantao> {
         try {
             Query q = sessao.createQuery("FROM Plantao as p WHERE p.data = :data");
             q.setParameter("data", data);
-            return (Plantao)q.getSingleResult();
+            return (Plantao) q.getSingleResult();
         } catch (RuntimeException e) {
             return null;
+        } finally {
+            sessao.close();
         }
     }
 

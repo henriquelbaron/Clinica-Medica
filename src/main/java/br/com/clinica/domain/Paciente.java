@@ -26,7 +26,9 @@ public class Paciente extends Pessoa implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
+    
+    private String email;
+    
     @OneToMany(mappedBy = "paciente", orphanRemoval = true, targetEntity = Telefone.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @Fetch(value = FetchMode.SELECT)
     private List<Telefone> telefones;
@@ -44,7 +46,7 @@ public class Paciente extends Pessoa implements Serializable {
     @OneToMany(mappedBy = "paciente", targetEntity = ExamePaciente.class, fetch = FetchType.LAZY)
     private List<ExamePaciente> examePacientes;
 
-    @OneToMany(mappedBy = "paciente", orphanRemoval = true, targetEntity = VacinaAplicada.class, fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @OneToMany(mappedBy = "paciente", orphanRemoval = true, targetEntity = VacinaAplicada.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @Fetch(value = FetchMode.SUBSELECT)
     private Set<VacinaAplicada> vacinaAplicada;
 
@@ -97,6 +99,10 @@ public class Paciente extends Pessoa implements Serializable {
 
     public void setVacinaAplicada(Set<VacinaAplicada> vacinaAplicada) {
         this.vacinaAplicada = vacinaAplicada;
+    }
+
+    public void setVacinaAplicada(VacinaAplicada vacinaAplicada) {
+        this.vacinaAplicada.add(vacinaAplicada);
     }
 
     public String getNome() {

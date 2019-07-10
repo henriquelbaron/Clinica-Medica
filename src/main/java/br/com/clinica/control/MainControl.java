@@ -6,6 +6,7 @@
 package br.com.clinica.control;
 
 import br.com.clinica.domain.Pessoa;
+import br.com.clinica.util.Utils;
 import br.com.clinica.view.ConsultasDialog;
 import br.com.clinica.view.FuncionariosInternalFrame;
 import br.com.clinica.view.InternalFrameEmergencia;
@@ -52,6 +53,7 @@ public class MainControl {
                 pacientesInternalFrame.setVisible(true);
             }
         }
+        Utils.centralizarInternalFrame(pacientesInternalFrame, TelaPrincipal.painel);
     }
 
     public void ChamarTelaReservaSala() {

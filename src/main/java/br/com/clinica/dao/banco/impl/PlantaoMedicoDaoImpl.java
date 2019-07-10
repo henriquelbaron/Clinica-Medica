@@ -29,6 +29,8 @@ public class PlantaoMedicoDaoImpl extends GenericDAO<PlantaoMedico> {
             return (List<PlantaoMedico>) q.getResultList();
         } catch (RuntimeException e) {
             throw e;
+        } finally {
+            sessao.close();
         }
     }
 
@@ -41,13 +43,16 @@ public class PlantaoMedicoDaoImpl extends GenericDAO<PlantaoMedico> {
             return q.getResultList().isEmpty();
         } catch (Exception e) {
             throw e;
+        } finally {
+            sessao.close();
         }
     }
 
     public List<PlantaoMedico> getPlantoesMedicoDia(Date dataDesejada) {
         Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
         try {
-            Query q = sessao.createQuery("FROM PlantaoMedico as pm WHERE pm.data BETWEEN :data AND :amanha");
+            dataDesejada = DataUtils.zerarHoras(dataDesejada);
+            Query q = sessao.createQuery("FROM PlantaoMedico as pm WHERE pm.plantao.data BETWEEN :data AND :amanha");
             q.setParameter("data", dataDesejada);
             q.setParameter("amanha", DataUtils.addDiaData(dataDesejada, 1));
             return (List<PlantaoMedico>) q.getResultList();

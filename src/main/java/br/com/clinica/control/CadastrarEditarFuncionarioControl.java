@@ -86,8 +86,6 @@ public class CadastrarEditarFuncionarioControl {
     }
 
     public void saveAction() {
-        usuario.setLogin(dlg.tfEmail.getText());
-        usuario.setSenha(String.valueOf(dlg.tfSenha.getPassword()));
         boolean salvo = false;
         if (Validator.validSaveFuncionario(dlg)) {
             switch (flag) {
@@ -104,14 +102,14 @@ public class CadastrarEditarFuncionarioControl {
                     salvo = atendente.getId() == null ? atendenteDao.salvar(populateAtendente()) : atendenteDao.editar(populateAtendente());
                     break;
             }
+            if (salvo) {
+                SendMessenger.success("Salvo com Sucesso!");
+                close();
+            } else {
+                SendMessenger.error("Erro ao Salvar!");
+            }
         } else {
             SendMessenger.error("Preencha corretamente os Campos!");
-        }
-        if (salvo) {
-            SendMessenger.success("Salvo com Sucesso!");
-            close();
-        } else {
-            SendMessenger.error("Erro ao Salvar!");
         }
     }
 
@@ -123,7 +121,6 @@ public class CadastrarEditarFuncionarioControl {
     }
 
     private Enfermeiro populateEnfermeiro() {
-        usuario.setEnfermeiro(enfermeiro);
         enfermeiro.setCorenCofen(dlg.tfCRMCorenCofen.getText());
         enfermeiro.setEspecialidade((Especialidade) dlg.cbEspecialidade.getSelectedItem());
         enfermeiro.setTipoSanguineo(dlg.cbSangue.getSelectedItem().toString());
@@ -131,8 +128,12 @@ public class CadastrarEditarFuncionarioControl {
         enfermeiro.setDataNascimento(dlg.jDateChooser1.getDate());
         enfermeiro.setTelefone(dlg.tfTelefone.getText());
         enfermeiro.setCpf(dlg.tfCPF.getText());
-        enfermeiro.setEmail(dlg.tfEmail.getText());
         enfermeiro.setSexo((Sexo) dlg.cbSexo.getSelectedItem());
+        if (enfermeiro.getUsuario() == null) {
+            enfermeiro.setUsuario(new Usuario());
+        }
+        enfermeiro.getUsuario().setLogin(dlg.tfEmail.getText());
+        enfermeiro.getUsuario().setSenha(String.valueOf(dlg.tfSenha.getPassword()));
         if (enfermeiro.getEndereco() == null) {
             enfermeiro.setEndereco(new Endereco());
         }
@@ -148,7 +149,6 @@ public class CadastrarEditarFuncionarioControl {
     }
 
     private Medico populateMedico() {
-        usuario.setMedico(medico);
         medico.setCrm(dlg.tfCRMCorenCofen.getText());
         medico.setEspecialidade((Especialidade) dlg.cbEspecialidade.getSelectedItem());
         medico.setTipoSanguineo(dlg.cbSangue.getSelectedItem().toString());
@@ -156,8 +156,12 @@ public class CadastrarEditarFuncionarioControl {
         medico.setDataNascimento(dlg.jDateChooser1.getDate());
         medico.setTelefone(dlg.tfTelefone.getText());
         medico.setCpf(dlg.tfCPF.getText());
-        medico.setEmail(dlg.tfEmail.getText());
         medico.setSexo((Sexo) dlg.cbSexo.getSelectedItem());
+        if (medico.getUsuario() == null) {
+            medico.setUsuario(new Usuario());
+        }
+        medico.getUsuario().setSenha(String.valueOf(dlg.tfSenha.getPassword()));
+        medico.getUsuario().setLogin(dlg.tfEmail.getText());
         if (medico.getEndereco() == null) {
             medico.setEndereco(new Endereco());
         }
@@ -172,14 +176,17 @@ public class CadastrarEditarFuncionarioControl {
     }
 
     private Atendente populateAtendente() {
-        usuario.setAtendente(atendente);
         atendente.setTipoSanguineo(dlg.cbSangue.getSelectedItem().toString());
         atendente.setNome(dlg.tfNome.getText());
         atendente.setDataNascimento(dlg.jDateChooser1.getDate());
         atendente.setTelefone(dlg.tfTelefone.getText());
         atendente.setCpf(dlg.tfCPF.getText());
-        atendente.setEmail(dlg.tfEmail.getText());
         atendente.setSexo((Sexo) dlg.cbSexo.getSelectedItem());
+        if (atendente.getUsuario() == null) {
+            atendente.setUsuario(new Usuario());
+        }
+        atendente.getUsuario().setLogin(dlg.tfEmail.getText());
+        atendente.getUsuario().setSenha(String.valueOf(dlg.tfSenha.getPassword()));
         if (atendente.getEndereco() == null) {
             atendente.setEndereco(new Endereco());
         }

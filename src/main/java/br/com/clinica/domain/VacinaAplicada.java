@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import org.hibernate.annotations.Type;
 
 /**
  *
@@ -32,7 +33,7 @@ public class VacinaAplicada implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataAgendamento;
 
-    private boolean aplicada;
+    private Boolean aplicada;
 
     @ManyToOne
     @JoinColumn(name = "idPaciente", nullable = false)

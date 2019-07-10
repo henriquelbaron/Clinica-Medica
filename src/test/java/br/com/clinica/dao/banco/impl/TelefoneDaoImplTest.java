@@ -27,7 +27,7 @@ public class TelefoneDaoImplTest {
      * Test of getTelefonesPaciente method, of class TelefoneDaoImpl.
      */
     @Test
-//    @Ignore
+    @Ignore
     public void testGetTelefonesPaciente() {
         PacienteDaoImpl pacienteDaoImpl = new PacienteDaoImpl();
         for (Telefone t : dao.getTelefonesPaciente(37)) {
@@ -36,7 +36,7 @@ public class TelefoneDaoImplTest {
     }
 
     @Test
-//    @Ignore
+    @Ignore
     public void listar() {
         for (Telefone telefone : dao.listar()) {
             System.out.println(telefone.getPaciente().getNome());

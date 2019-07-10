@@ -44,19 +44,15 @@ public class AtendenteDaoImpTest {
 //    @Ignore
     public void salvar() {
 
-        atendente.setNome("Henrique");
+        atendente.setNome(Testes.nomeAleatorio());
         atendente.setCpf("186.402.484-32");
         atendente.setDataNascimento(new Date(System.currentTimeMillis()));
         atendente.setSexo(Sexo.MASCULINO);
-        atendente.setEmail("henrique1@gmail.com");
         atendente.setEndereco(new Endereco("88131-743", "Braulina Goulart", "48", "RioGrande", "", "SC"));
         atendente.setTipoSanguineo("O+");
         atendente.setTelefone("48990323");
-        Usuario usuario = new Usuario();
-        usuario.setLogin("atendente");
-        usuario.setSenha("123");
-        usuario.setAtendente(atendente);
-        atendente.setUsuario(usuario);
+        atendente.setUsuario(new Usuario("atendente", "123"));
+
 //        medico.setPlantaos(new PlantaoDaoImpl().listar());
         dao.salvar(atendente);
     }

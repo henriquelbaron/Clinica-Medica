@@ -6,7 +6,6 @@
 package br.com.clinica.control;
 
 import br.com.clinica.dao.banco.impl.ExamePacienteDaoImpl;
-import br.com.clinica.domain.Exame;
 import br.com.clinica.domain.ExamePaciente;
 import br.com.clinica.domain.tables.ExameTable;
 import br.com.clinica.view.PacienteExameDialog;
@@ -41,8 +40,10 @@ public class ExameControl {
     public void resultadoExame() {
         int rowTable = iFrame.tableExame.getSelectedRow();
         if (rowTable >= 0) {
-            PacienteExameDialog dlg = new PacienteExameDialog(frame, true,table.getRow(rowTable));
+            ExamePaciente exame =table.getRow(rowTable);
+            PacienteExameDialog dlg = new PacienteExameDialog(frame, true,exame);
             dlg.setVisible(true);
+            table.updateRow(exame, rowTable);
         }
     }
 

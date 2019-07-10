@@ -144,9 +144,8 @@ public class CadastrarEditarPaciente {
             VacinaAplicada va = new VacinaAplicada();
             va.setVacina(vacinasList.getElementAt(i));
             va.setPaciente(paciente);
-            vacinas.add(va);
+            p.setVacinaAplicada(va);
         }
-        p.setVacinaAplicada(vacinas);
         p.setTelefones(table.getTelefones());
         return p;
     }

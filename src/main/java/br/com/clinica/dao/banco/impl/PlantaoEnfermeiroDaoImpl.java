@@ -9,7 +9,6 @@ import br.com.clinica.dao.banco.ConnectionFactory;
 import br.com.clinica.dao.banco.GenericDAO;
 import br.com.clinica.domain.Enfermeiro;
 import br.com.clinica.domain.PlantaoEnfermeiro;
-import br.com.clinica.domain.PlantaoMedico;
 import br.com.clinica.util.DataUtils;
 import java.util.Date;
 import java.util.List;
@@ -30,6 +29,8 @@ public class PlantaoEnfermeiroDaoImpl extends GenericDAO<PlantaoEnfermeiro> {
             return (List<PlantaoEnfermeiro>) q.getResultList();
         } catch (RuntimeException e) {
             throw e;
+        } finally {
+            sessao.close();
         }
     }
 
@@ -42,13 +43,16 @@ public class PlantaoEnfermeiroDaoImpl extends GenericDAO<PlantaoEnfermeiro> {
             return q.getResultList().isEmpty();
         } catch (Exception e) {
             throw e;
+        } finally {
+            sessao.close();
         }
     }
 
     public List<PlantaoEnfermeiro> getPlantoesEnfermeiroDia(Date dataDesejada) {
         Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
         try {
-            Query q = sessao.createQuery("FROM PlantaoEnfermeiro as pm WHERE pm.data BETWEEN :data AND :amanha");
+            dataDesejada = DataUtils.zerarHoras(dataDesejada);
+            Query q = sessao.createQuery("FROM PlantaoEnfermeiro as pm WHERE pm.plantao.data BETWEEN :data AND :amanha");
             q.setParameter("data", dataDesejada);
             q.setParameter("amanha", DataUtils.addDiaData(dataDesejada, 1));
             return (List<PlantaoEnfermeiro>) q.getResultList();

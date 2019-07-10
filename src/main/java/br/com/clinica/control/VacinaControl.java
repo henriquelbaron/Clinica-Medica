@@ -43,18 +43,16 @@ public class VacinaControl {
     }
 
     public void pesquisarData() {
-        
+
     }
 
     public void excluirAplicacao() {
         rowTable = iFrame.tableVacina.getSelectedRow();
         if (rowTable >= 0) {
             vacinaAplicada = table.getRow(rowTable);
-            vacinaAplicada.setAplicada(true);
-            if (new VacinaAplicadaDaoImpl().editar(vacinaAplicada)) {
-                SendMessenger.success("Excluido!");
-                table.removeRow(rowTable);
-            }
+            new VacinaAplicadaDaoImpl().excluir(vacinaAplicada);
+            SendMessenger.success("Excluido!");
+            table.removeRow(rowTable);
         } else {
             SendMessenger.error("Selecio a Vacina que deseja aplicar!");
         }

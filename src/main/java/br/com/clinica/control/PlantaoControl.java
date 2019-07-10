@@ -84,7 +84,7 @@ public class PlantaoControl {
         }
     }
 
-    public void listenerJData() {
+    public void buscarPorDataAction() {
         table.clearTable();
         Date data = iFrame.jDateChooser2.getDate();
         for (PlantaoMedico object : pMedicoDao.getPlantoesMedicoDia(data)) {

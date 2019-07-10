@@ -41,21 +41,16 @@ public class MedicoDaoImplTest {
 
             medico = new Medico();
 
-            medico.setNome("João" + i);
+            medico.setNome(Testes.nomeAleatorio());
             medico.setCpf("186.402.484-2" + i);
             medico.setDataNascimento(new Date(System.currentTimeMillis()));
             medico.setSexo(Sexo.MASCULINO);
-            medico.setEmail("jose" + i);
             medico.setEndereco(new Endereco("88131-743", "Braulina Goulart", "48", "RioGrande", "", "SC"));
             medico.setTipoSanguineo("O+");
             medico.setTelefone("48996850323");
             medico.setCrm("123456" + i);
-            Usuario u = new Usuario();
-            u.setLogin("jose"+i);
-            u.setSenha("123");
-            u.setMedico(medico);
-            medico.setUsuario(u);
-            medico.setEspecialidade(especialidadeDaoImpl.buscar(85));
+            medico.setUsuario(new Usuario("medico" + i, "123"));
+            medico.setEspecialidade(especialidadeDaoImpl.buscar(38 + i));
 //        medico.setPlantaos(new PlantaoDaoImpl().listar());
             dao.salvar(medico);
         }
@@ -71,17 +66,12 @@ public class MedicoDaoImplTest {
         medico.setCpf("186.402.484-32");
         medico.setDataNascimento(new Date(System.currentTimeMillis()));
         medico.setSexo(Sexo.MASCULINO);
-        medico.setEmail("henrique");
         medico.setEndereco(new Endereco("88131-743", "Braulina Goulart", "48", "RioGrande", "", "SC"));
         medico.setTipoSanguineo("O+");
         medico.setTelefone("48990323");
         medico.setCrm("2313");
         medico.setEspecialidade(e);
-        Usuario usuario = new Usuario();
-        usuario.setLogin("henrique1");
-        usuario.setSenha("123");
-        usuario.setMedico(medico);
-        medico.setUsuario(usuario);
+        medico.setUsuario(new Usuario("medicoh", "123"));
 //        medico.setPlantaos(new PlantaoDaoImpl().listar());
         dao.salvar(medico);
     }

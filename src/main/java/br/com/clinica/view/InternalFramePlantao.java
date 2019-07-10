@@ -111,6 +111,11 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
         });
 
         btPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/find-my-friend.png"))); // NOI18N
+        btPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btPesquisarActionPerformed(evt);
+            }
+        });
 
         btExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cross.png"))); // NOI18N
         btExcluir.setText("Excluir");
@@ -307,7 +312,6 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tfPesquisaKeyReleased
 
     private void jDateChooser2InputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_jDateChooser2InputMethodTextChanged
-        control.listenerJData();// TODO add your handling code here:
     }//GEN-LAST:event_jDateChooser2InputMethodTextChanged
 
     private void tfPesquisaInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_tfPesquisaInputMethodTextChanged
@@ -317,7 +321,6 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tfPesquisaCaretPositionChanged
 
     private void jDateChooser2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jDateChooser2FocusLost
-        control.listenerJData();        // TODO add your handling code here:
     }//GEN-LAST:event_jDateChooser2FocusLost
 
     private void jDateChooser2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jDateChooser2FocusGained
@@ -328,12 +331,15 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jDateChooser2PropertyChange
 
     private void jDateChooser2VetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_jDateChooser2VetoableChange
-        control.listenerJData();        // TODO add your handling code here:
     }//GEN-LAST:event_jDateChooser2VetoableChange
 
     private void jDateChooser2ComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_jDateChooser2ComponentAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_jDateChooser2ComponentAdded
+
+    private void btPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarActionPerformed
+        control.buscarPorDataAction();
+    }//GEN-LAST:event_btPesquisarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

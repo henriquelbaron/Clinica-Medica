@@ -15,7 +15,7 @@
         <property name="connection.password"></property>
 
         <!-- Pool de Conexões -->
-        <property name="connection.pool_size">2</property>
+        <property name="connection.pool_size">5</property>
         
         <property name="connection.autocommit">true</property>   
 
@@ -33,7 +33,7 @@
 
         <!-- Cria as tabelas do banco de dados -->
         <!--create/validate/update-->
-        <property name="hbm2ddl.auto">update</property>
+        <property name="hbm2ddl.auto">validate</property>
         <property name="hibernate.query.substitutions">true 1, false 0</property>
 		
         <!-- Mapeamento das entidades -->

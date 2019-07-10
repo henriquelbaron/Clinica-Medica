@@ -5,15 +5,10 @@
  */
 package br.com.clinica.util;
 
-import java.awt.Color;
-import java.awt.Dimension;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import javax.swing.JDesktopPane;
-import javax.swing.JInternalFrame;
-import javax.swing.JTextField;
 
 /**
  *
@@ -68,6 +63,15 @@ public class DataUtils {
         c.setTime(data);
         c.add(Calendar.MINUTE, minutos);
         return c.getTime();
+    }
+
+    public static Date zerarHoras(Date data) {
+        try {
+            sdf = new SimpleDateFormat(dataFormat);
+            return sdf.parse(sdf.format(data));
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public static Date addMinutoHoraData(Date data, int horas, int minutos) {
