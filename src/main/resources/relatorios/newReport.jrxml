@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ae8b8fb1-444d-4ae8-9bee-97598794d7e2">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="48"/>
+	<property name="ireport.y" value="0"/>
 	<queryString>
 		<![CDATA[select * from consulta]]>
 	</queryString>
@@ -44,10 +44,6 @@
 	</background>
 	<title>
 		<band height="79" splitType="Stretch">
-			<image>
-				<reportElement x="154" y="0" width="230" height="60" uuid="d26866d2-2280-43ca-ae77-3475ec284e0a"/>
-				<imageExpression><![CDATA["C:\\Users\\55489\\Documents\\GitHub\\Clinica-Medica\\src\\main\\resources\\Aspekpqn.jpg"]]></imageExpression>
-			</image>
 			<textField pattern="dd/MM/yyyy HH.mm.ss">
 				<reportElement x="455" y="0" width="100" height="20" uuid="a1bfaf6c-21c0-4acd-84dc-31a691017e7c"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
@@ -55,7 +51,7 @@
 		</band>
 	</title>
 	<columnHeader>
-		<band height="83" splitType="Stretch">
+		<band height="69" splitType="Stretch">
 			<textField isBlankWhenNull="true">
 				<reportElement x="3" y="35" width="73" height="20" uuid="50de680a-426b-4c7c-8258-ba9b03f81faf"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
@@ -91,6 +87,21 @@
 				<textElement textAlignment="Center"/>
 				<text><![CDATA[Especialidade]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="76" y="35" width="100" height="20" uuid="54a863ee-d597-47a4-9fc2-204b68beb9f7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{dataAgendamento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="315" y="35" width="143" height="20" uuid="19a62dc0-f75f-44a5-957f-41228ef0a644"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{medico}.getNome()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="458" y="35" width="97" height="20" uuid="9e73f478-2a2f-4b52-b8b8-04a7b6ce67f6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{especialidade}]]></textFieldExpression>
+			</textField>
 		</band>
 	</columnHeader>
 	<detail>

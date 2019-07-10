@@ -34,6 +34,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuItem1 = new javax.swing.JMenuItem();
+        MenuMedicoProntuario = new javax.swing.JMenuItem();
+        MenuMedicoExame = new javax.swing.JMenuItem();
         menuPaciente = new javax.swing.JMenuItem();
         menuFuncionario = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
@@ -83,16 +85,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         menuMedico.add(MenuMedicoExame);
-
-        MenuMedicoReceita.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
-        MenuMedicoReceita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cure (1).png"))); // NOI18N
-        MenuMedicoReceita.setText("Receitas");
-        MenuMedicoReceita.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenuMedicoReceitaActionPerformed(evt);
-            }
-        });
-        menuMedico.add(MenuMedicoReceita);
 
         jMenuBar1.add(menuMedico);
 
@@ -187,14 +179,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void MenuMedicoProntuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuMedicoProntuarioActionPerformed
-        control.chamarTelaProntuario();
-    }//GEN-LAST:event_MenuMedicoProntuarioActionPerformed
-
-    private void MenuMedicoExameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuMedicoExameActionPerformed
-        control.chamarTelaExame();
-    }//GEN-LAST:event_MenuMedicoExameActionPerformed
-
     private void menuPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPacienteActionPerformed
         control.chamarTelaPacientes();
     }//GEN-LAST:event_menuPacienteActionPerformed
@@ -215,12 +199,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
         control.chamarTelaListagemVacina();
     }//GEN-LAST:event_MenuVacinaAplicacaoActionPerformed
 
-    private void MenuMedicoReceitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuMedicoReceitaActionPerformed
-    }//GEN-LAST:event_MenuMedicoReceitaActionPerformed
-
     private void MenuConsultaReservaSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuConsultaReservaSalaActionPerformed
         control.ChamarTelaReservaSala();
     }//GEN-LAST:event_MenuConsultaReservaSalaActionPerformed
+
+    private void MenuMedicoExameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuMedicoExameActionPerformed
+        control.chamarTelaExame();
+    }//GEN-LAST:event_MenuMedicoExameActionPerformed
+
+    private void MenuMedicoProntuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuMedicoProntuarioActionPerformed
+        control.chamarTelaProntuario();
+    }//GEN-LAST:event_MenuMedicoProntuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -259,9 +248,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static final javax.swing.JMenuItem MenuConsultaReservaSala = new javax.swing.JMenuItem();
-    public static final javax.swing.JMenuItem MenuMedicoExame = new javax.swing.JMenuItem();
-    public static final javax.swing.JMenuItem MenuMedicoProntuario = new javax.swing.JMenuItem();
-    public static final javax.swing.JMenuItem MenuMedicoReceita = new javax.swing.JMenuItem();
+    private javax.swing.JMenuItem MenuMedicoExame;
+    private javax.swing.JMenuItem MenuMedicoProntuario;
     public static final javax.swing.JMenuItem MenuVacinaAplicacao = new javax.swing.JMenuItem();
     public static final javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
     private javax.swing.JMenu jMenu5;
