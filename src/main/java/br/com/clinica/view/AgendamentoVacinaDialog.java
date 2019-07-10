@@ -6,7 +6,6 @@
 package br.com.clinica.view;
 
 import br.com.clinica.control.AgendamentoVacinaControl;
-import br.com.clinica.domain.Enfermeiro;
 import br.com.clinica.domain.Sala;
 import br.com.clinica.domain.Vacina;
 import br.com.clinica.domain.VacinaAplicada;

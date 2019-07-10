@@ -5,9 +5,7 @@ import br.com.clinica.dao.banco.GenericDAO;
 import br.com.clinica.domain.Paciente;
 import java.util.List;
 import javax.persistence.Query;
-import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.criterion.Restrictions;
 
 public class PacienteDaoImpl extends GenericDAO<Paciente> {
 

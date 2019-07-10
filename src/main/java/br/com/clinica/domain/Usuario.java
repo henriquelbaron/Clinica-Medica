@@ -6,18 +6,11 @@
 package br.com.clinica.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 /**
  *
@@ -33,19 +26,17 @@ public class Usuario implements Serializable {
     private Integer id;
     @Column(nullable = false, unique = true)
     private String login;
+
     @Column(nullable = false)
     private String senha;
-    @OneToOne
-    @JoinColumn(name = "idMedico")
-    private Medico medico;
 
-    @OneToOne
-    @JoinColumn(name = "idEnfermeiro")
-    private Enfermeiro enfermeiro;
+    public Usuario() {
+    }
 
-    @OneToOne
-    @JoinColumn(name = "idAtendente")
-    private Atendente atendente;
+    public Usuario(String login, String senha) {
+        this.login = login;
+        this.senha = senha;
+    }
 
     public Integer getId() {
         return id;
@@ -69,30 +60,6 @@ public class Usuario implements Serializable {
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }
-
-    public Medico getMedico() {
-        return medico;
-    }
-
-    public void setMedico(Medico medico) {
-        this.medico = medico;
-    }
-
-    public Enfermeiro getEnfermeiro() {
-        return enfermeiro;
-    }
-
-    public void setEnfermeiro(Enfermeiro enfermeiro) {
-        this.enfermeiro = enfermeiro;
-    }
-
-    public Atendente getAtendente() {
-        return atendente;
-    }
-
-    public void setAtendente(Atendente atendente) {
-        this.atendente = atendente;
     }
 
 }

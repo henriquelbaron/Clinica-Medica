@@ -43,7 +43,7 @@ public class ConsultaDaoImpl extends GenericDAO<Consulta> {
     public List<Consulta> consultaDoMedicoData(int idMedico, Date data) {
         Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
         try {
-            String hql = "Select c from Consulta as c WHERE c.medico.id= :idMedico AND c.realizada = 0 AND c.data BETWEEN :data AND :amanha";
+            String hql = "Select c from Consulta as c WHERE c.medico.id= :idMedico AND c.realizada = 0 AND c.ocupacaoSala.data BETWEEN :data AND :amanha";
             Query q = sessao.createQuery(hql);
             q.setParameter("idMedico", idMedico);
             q.setParameter("data", data);

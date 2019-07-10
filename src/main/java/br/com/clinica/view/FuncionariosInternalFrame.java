@@ -54,7 +54,6 @@ public class FuncionariosInternalFrame extends javax.swing.JInternalFrame {
         setTitle("Gerenciamento de Funcionarios");
         setMinimumSize(new java.awt.Dimension(679, 498));
         setPreferredSize(new java.awt.Dimension(679, 498));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         groupB.add(rbMedico);
         rbMedico.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
@@ -69,7 +68,6 @@ public class FuncionariosInternalFrame extends javax.swing.JInternalFrame {
                 rbMedicoActionPerformed(evt);
             }
         });
-        getContentPane().add(rbMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 110, -1));
 
         groupB.add(rbEnfermeira);
         rbEnfermeira.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
@@ -84,7 +82,6 @@ public class FuncionariosInternalFrame extends javax.swing.JInternalFrame {
                 rbEnfermeiraActionPerformed(evt);
             }
         });
-        getContentPane().add(rbEnfermeira, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, 130, -1));
 
         groupB.add(rbAtendente);
         rbAtendente.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
@@ -99,21 +96,16 @@ public class FuncionariosInternalFrame extends javax.swing.JInternalFrame {
                 rbAtendenteActionPerformed(evt);
             }
         });
-        getContentPane().add(rbAtendente, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, 130, -1));
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/doctor (1).png"))); // NOI18N
-        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nurse.png"))); // NOI18N
-        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, -1));
 
         jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/avatar.png"))); // NOI18N
-        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/id-card.png"))); // NOI18N
         jLabel13.setText("Funcionario:");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, -1, -1));
 
         btAdicionarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital.png"))); // NOI18N
         btAdicionarPaciente.setToolTipText("Adicionar paciente");
@@ -122,7 +114,6 @@ public class FuncionariosInternalFrame extends javax.swing.JInternalFrame {
                 btAdicionarPacienteActionPerformed(evt);
             }
         });
-        getContentPane().add(btAdicionarPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 48, 70, 50));
 
         tfPesquisar.setEditable(false);
         tfPesquisar.setForeground(new java.awt.Color(102, 102, 102));
@@ -137,7 +128,6 @@ public class FuncionariosInternalFrame extends javax.swing.JInternalFrame {
                 tfPesquisarKeyReleased(evt);
             }
         });
-        getContentPane().add(tfPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 580, 44));
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cross.png"))); // NOI18N
         jButton3.setToolTipText("Excluir Sala Selecionada");
@@ -146,7 +136,6 @@ public class FuncionariosInternalFrame extends javax.swing.JInternalFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(594, 407, -1, -1));
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edit (1).png"))); // NOI18N
         jButton5.setToolTipText("Editar Sala Selecionada");
@@ -155,10 +144,8 @@ public class FuncionariosInternalFrame extends javax.swing.JInternalFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(536, 407, -1, -1));
 
         lblFuncionario.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-        getContentPane().add(lblFuncionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 407, 385, 36));
 
         tabelaFuncionario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -178,7 +165,71 @@ public class FuncionariosInternalFrame extends javax.swing.JInternalFrame {
         });
         jScrollPane3.setViewportView(tabelaFuncionario);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 646, 295));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addComponent(jLabel20)
+                .addGap(8, 8, 8)
+                .addComponent(rbMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jLabel21)
+                .addGap(8, 8, 8)
+                .addComponent(rbEnfermeira, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel24)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(rbAtendente, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(tfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(btAdicionarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 646, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jLabel13)
+                .addGap(2, 2, 2)
+                .addComponent(lblFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(jButton5)
+                .addGap(6, 6, 6)
+                .addComponent(jButton3))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel20)
+                    .addComponent(rbMedico)
+                    .addComponent(jLabel21)
+                    .addComponent(rbEnfermeira)
+                    .addComponent(jLabel24)
+                    .addComponent(rbAtendente))
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(tfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btAdicionarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(2, 2, 2)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel13))
+                    .addComponent(lblFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5)
+                    .addComponent(jButton3)))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

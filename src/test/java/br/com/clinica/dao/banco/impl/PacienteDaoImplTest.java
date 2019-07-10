@@ -12,9 +12,8 @@ import br.com.clinica.domain.Sexo;
 import br.com.clinica.domain.Telefone;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -37,7 +36,7 @@ public class PacienteDaoImplTest {
     public void testFindPaciente() {
         for (int i = 0; i < 10; i++) {
             Paciente paciente = new Paciente();
-            paciente.setNome("amanda" + i);
+            paciente.setNome(Testes.nomeAleatorio());
             paciente.setCpf("000.200.191-2" + i);
             paciente.setDataNascimento(new Date(System.currentTimeMillis()));
             paciente.setSexo(Sexo.MASCULINO);
@@ -48,19 +47,15 @@ public class PacienteDaoImplTest {
             telefones.add(new Telefone(paciente, "(48)996850323", "Celular", "João", "Irmão", true));
             telefones.add(new Telefone(paciente, "(48)996850323", "Celular", "Henrique", "Pai", true));
             paciente.setTelefones(telefones);
-            Set<Doenca> doencas = new HashSet();
-            doencas.add(new DoencaDaoImpl().buscar(1));
-            paciente.setDoencas(doencas);
+//            List<Doenca> doencas = new ArrayList();
+//            doencas.add(new DoencaDaoImpl().buscar(1));
+//            paciente.setDoencas(doencas);
             dao.salvar(paciente);
         }
     }
 
-//    @Test
+    @Test
     public void listarPoTermo() {
-        List<Paciente> pacientes = dao.listar();
-        for (Paciente paciente : pacientes) {
-            System.out.println(paciente.getTelefones());
-        }
     }
 
 }

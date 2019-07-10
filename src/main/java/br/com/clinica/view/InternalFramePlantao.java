@@ -15,11 +15,12 @@ import br.com.clinica.util.Utils;
  */
 public class InternalFramePlantao extends javax.swing.JInternalFrame {
 
-    boolean jaAtivo;
     /**
      * Creates new form InternalFramePlantao
      */
     private PlantaoControl control;
+
+    boolean jaAtivo;
 
     public InternalFramePlantao() {
         initComponents();
@@ -93,13 +94,31 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
                 tfPesquisaFocusGained(evt);
             }
         });
+        tfPesquisa.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                tfPesquisaInputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+                tfPesquisaCaretPositionChanged(evt);
+            }
+        });
         tfPesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfPesquisaActionPerformed(evt);
             }
         });
+        tfPesquisa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfPesquisaKeyReleased(evt);
+            }
+        });
 
         btPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/find-my-friend.png"))); // NOI18N
+        btPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btPesquisarActionPerformed(evt);
+            }
+        });
 
         btExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cross.png"))); // NOI18N
         btExcluir.setText("Excluir");
@@ -142,6 +161,37 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/doctor (1).png"))); // NOI18N
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nurse.png"))); // NOI18N
+
+        jDateChooser2.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                jDateChooser2ComponentAdded(evt);
+            }
+        });
+        jDateChooser2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jDateChooser2FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jDateChooser2FocusLost(evt);
+            }
+        });
+        jDateChooser2.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                jDateChooser2InputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+        });
+        jDateChooser2.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jDateChooser2PropertyChange(evt);
+            }
+        });
+        jDateChooser2.addVetoableChangeListener(new java.beans.VetoableChangeListener() {
+            public void vetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {
+                jDateChooser2VetoableChange(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setText("Período");
@@ -250,7 +300,7 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_rbMedicoItemStateChanged
 
     private void tfPesquisaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfPesquisaFocusGained
-        Utils.campoPesquisa(tfPesquisa, jaAtivo);
+        Utils.campoPesquisa(tfPesquisa);
     }//GEN-LAST:event_tfPesquisaFocusGained
 
     private void tfPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPesquisaActionPerformed
@@ -260,6 +310,43 @@ public class InternalFramePlantao extends javax.swing.JInternalFrame {
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
         control.adicionarPlantao();        // TODO add your handling code here:
     }//GEN-LAST:event_btSalvarActionPerformed
+
+    private void tfPesquisaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPesquisaKeyReleased
+    }//GEN-LAST:event_tfPesquisaKeyReleased
+
+    private void jDateChooser2InputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_jDateChooser2InputMethodTextChanged
+    }//GEN-LAST:event_jDateChooser2InputMethodTextChanged
+
+    private void tfPesquisaInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_tfPesquisaInputMethodTextChanged
+    }//GEN-LAST:event_tfPesquisaInputMethodTextChanged
+
+    private void tfPesquisaCaretPositionChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_tfPesquisaCaretPositionChanged
+    }//GEN-LAST:event_tfPesquisaCaretPositionChanged
+
+    private void jDateChooser2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jDateChooser2FocusLost
+    }//GEN-LAST:event_jDateChooser2FocusLost
+
+    private void jDateChooser2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jDateChooser2FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jDateChooser2FocusGained
+
+    private void jDateChooser2PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jDateChooser2PropertyChange
+    }//GEN-LAST:event_jDateChooser2PropertyChange
+
+    private void jDateChooser2VetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_jDateChooser2VetoableChange
+    }//GEN-LAST:event_jDateChooser2VetoableChange
+
+    private void jDateChooser2ComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_jDateChooser2ComponentAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jDateChooser2ComponentAdded
+
+    private void tfPesquisaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfPesquisaFocusGained
+        Utils.campoPesquisa(tfPesquisa, jaAtivo);
+    }
+
+    private void btPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarActionPerformed
+        control.buscarPorDataAction();
+    }//GEN-LAST:event_btPesquisarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

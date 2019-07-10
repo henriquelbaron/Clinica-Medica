@@ -36,7 +36,7 @@ public class EnfermeiroDaoImplTest {
      * Test of enfermeiroLogar method, of class EnfermeiroDaoImpl.
      */
     @Test
-    @Ignore
+//    @Ignore
     public void testEnfermeiroLogar() {
         for (int i = 0; i < 10; i++) {
 
@@ -46,41 +46,33 @@ public class EnfermeiroDaoImplTest {
             enfermeiro.setCpf("186.402.484-2" + i);
             enfermeiro.setDataNascimento(new Date(System.currentTimeMillis()));
             enfermeiro.setSexo(Sexo.MASCULINO);
-            enfermeiro.setEmail("jose" + i);
             enfermeiro.setEndereco(new Endereco("88131-743", "Braulina Goulart", "48", "RioGrande", "", "SC"));
             enfermeiro.setTipoSanguineo("O+");
             enfermeiro.setTelefone("48996850323");
             enfermeiro.setCorenCofen("123456" + i);
-            enfermeiro.setEspecialidade(especialidadeDaoImpl.buscar(1));
+            enfermeiro.setEspecialidade(especialidadeDaoImpl.buscar(38+i));
 //        enferemeiro.setPlantaos(new PlantaoDaoImpl().listar());
-  Usuario u = new Usuario();
-  u.setEnfermeiro(enfermeiro);
-  u.setLogin("");
-  u.setSenha("");
+            enfermeiro.setUsuario(new Usuario("enfermeiro" + i, "123"));
             dao.salvar(enfermeiro);
         }
     }
 
     @Test
-//    @Ignore
+    @Ignore
     public void saveTest() {
         enfermeiro = new Enfermeiro();
         enfermeiro.setNome("Henrique");
         enfermeiro.setCpf("186.402.484-32");
         enfermeiro.setDataNascimento(new Date(System.currentTimeMillis()));
         enfermeiro.setSexo(Sexo.MASCULINO);
-        enfermeiro.setEmail("henrique1@gmail.com");
         enfermeiro.setEndereco(new Endereco("88131-743", "Braulina Goulart", "48", "RioGrande", "", "SC"));
         enfermeiro.setTipoSanguineo("O+");
         enfermeiro.setTelefone("48990323");
         enfermeiro.setCorenCofen("2313");
-        enfermeiro.setEspecialidade(especialidadeDaoImpl.buscar(1));
-        
-        Usuario usuario = new Usuario();
-        usuario.setLogin("3213123123");
-        usuario.setSenha("123");
-        usuario.setEnfermeiro(enfermeiro);
-        enfermeiro.setUsuario(usuario);
+        enfermeiro.setEspecialidade(especialidadeDaoImpl.buscar(38));
+
+        enfermeiro.setUsuario(new Usuario("enfermeiro", "123"));
+
 //        medico.setPlantaos(new PlantaoDaoImpl().listar());
         dao.salvar(enfermeiro);
     }

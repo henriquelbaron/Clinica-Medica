@@ -7,10 +7,8 @@ package br.com.clinica.dao.banco.impl;
 
 import br.com.clinica.domain.Doenca;
 import br.com.clinica.domain.Paciente;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.Test;
 
 /**
@@ -28,13 +26,10 @@ public class DoencaDaoImplTest {
 
     @Test
     public void testSomeMethod() {
-        Paciente paciente = new Paciente();
-        Set<Doenca> doencas = new HashSet();
-        for (Doenca doenca : doencas) {
-            doencas.add(dao.buscar(1));
-        }
-        paciente.setDoencas(doencas);
-        new PacienteDaoImpl().salvar(paciente);
+        dao.salvar(new Doenca("Pressão Alta"));
+        dao.salvar(new Doenca("Diabete"));
+        dao.salvar(new Doenca("Hipertenção"));
+        dao.salvar(new Doenca("Fibromialgia"));
     }
 
 }

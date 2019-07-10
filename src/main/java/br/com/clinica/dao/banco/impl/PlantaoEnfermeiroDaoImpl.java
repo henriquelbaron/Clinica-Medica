@@ -21,6 +21,19 @@ import org.hibernate.Session;
  */
 public class PlantaoEnfermeiroDaoImpl extends GenericDAO<PlantaoEnfermeiro> {
 
+    public List<PlantaoEnfermeiro> findPlantaoEnfermeiroPorNome(String nome) {
+        Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
+        try {
+            Query q = sessao.createQuery("FROM PlantaoEnfermeiro as pm WHERE pm.enfermeiro.nome like :nome");
+            q.setParameter("nome", "%" + nome + "%");
+            return (List<PlantaoEnfermeiro>) q.getResultList();
+        } catch (RuntimeException e) {
+            throw e;
+        } finally {
+            sessao.close();
+        }
+    }
+
     public boolean enfermeiroHasPlantao(Enfermeiro enfermeiro, Date data) {
         Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
         try {
@@ -30,13 +43,16 @@ public class PlantaoEnfermeiroDaoImpl extends GenericDAO<PlantaoEnfermeiro> {
             return q.getResultList().isEmpty();
         } catch (Exception e) {
             throw e;
+        } finally {
+            sessao.close();
         }
     }
 
     public List<PlantaoEnfermeiro> getPlantoesEnfermeiroDia(Date dataDesejada) {
         Session sessao = ConnectionFactory.getFabricaDeSessoes().openSession();
         try {
-            Query q = sessao.createQuery("Select pm from PlantaoEnfermeiro as pm WHERE p.data BETWEEN :data AND :amanha");
+            dataDesejada = DataUtils.zerarHoras(dataDesejada);
+            Query q = sessao.createQuery("FROM PlantaoEnfermeiro as pm WHERE pm.plantao.data BETWEEN :data AND :amanha");
             q.setParameter("data", dataDesejada);
             q.setParameter("amanha", DataUtils.addDiaData(dataDesejada, 1));
             return (List<PlantaoEnfermeiro>) q.getResultList();

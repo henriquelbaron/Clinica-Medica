@@ -23,7 +23,6 @@ public class Doenca implements Serializable {
     @Column(nullable = false)
     private String nome;
     private String descricao;
-    private String medicacao;
 
     @ManyToMany(mappedBy = "doencas", targetEntity = Paciente.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Paciente> pacientes;
@@ -31,10 +30,13 @@ public class Doenca implements Serializable {
     public Doenca() {
     }
 
-    public Doenca(String nome, String descricao, String medicacao) {
+    public Doenca(String nome) {
+        this.nome = nome;
+    }
+
+    public Doenca(String nome, String descricao) {
         this.nome = nome;
         this.descricao = descricao;
-        this.medicacao = medicacao;
     }
 
     public Integer getId() {
@@ -61,14 +63,6 @@ public class Doenca implements Serializable {
         this.descricao = descricao;
     }
 
-    public String getMedicacao() {
-        return medicacao;
-    }
-
-    public void setMedicacao(String medicacao) {
-        this.medicacao = medicacao;
-    }
-
     public List<Paciente> getPacientes() {
         return pacientes;
     }
@@ -78,9 +72,15 @@ public class Doenca implements Serializable {
     }
 
     @Override
+    public String toString() {
+        return nome;
+    }
+
+    @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 23 * hash + Objects.hashCode(this.id);
+        int hash = 5;
+        hash = 37 * hash + Objects.hashCode(this.id);
+        hash = 37 * hash + Objects.hashCode(this.nome);
         return hash;
     }
 
@@ -96,15 +96,13 @@ public class Doenca implements Serializable {
             return false;
         }
         final Doenca other = (Doenca) obj;
+        if (!Objects.equals(this.nome, other.nome)) {
+            return false;
+        }
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
         return true;
-    }
-
-    @Override
-    public String toString() {
-        return nome;
     }
 
 }

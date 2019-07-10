@@ -43,17 +43,16 @@ public class VacinaControl {
     }
 
     public void pesquisarData() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 
     public void excluirAplicacao() {
         rowTable = iFrame.tableVacina.getSelectedRow();
         if (rowTable >= 0) {
             vacinaAplicada = table.getRow(rowTable);
-            vacinaAplicada.setAplicada(true);
-            if (new VacinaAplicadaDaoImpl().editar(vacinaAplicada)) {
-                SendMessenger.success("Savo com sucesso");
-            }
+            new VacinaAplicadaDaoImpl().excluir(vacinaAplicada);
+            SendMessenger.success("Excluido!");
+            table.removeRow(rowTable);
         } else {
             SendMessenger.error("Selecio a Vacina que deseja aplicar!");
         }

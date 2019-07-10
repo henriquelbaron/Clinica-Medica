@@ -133,14 +133,6 @@ public class Medico extends Pessoa implements Serializable {
         this.cpf = cpf;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public Endereco getEndereco() {
         return endereco;
     }

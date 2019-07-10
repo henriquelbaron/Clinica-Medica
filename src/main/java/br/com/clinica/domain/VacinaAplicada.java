@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import org.hibernate.annotations.Type;
 
 /**
  *
@@ -32,9 +33,9 @@ public class VacinaAplicada implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataAgendamento;
 
-    private boolean aplicada;
+    private Boolean aplicada;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "idPaciente", nullable = false)
     private Paciente paciente;
 
@@ -123,8 +124,11 @@ public class VacinaAplicada implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 89 * hash + Objects.hashCode(this.id);
+        int hash = 3;
+        hash = 97 * hash + Objects.hashCode(this.id);
+        hash = 97 * hash + Objects.hashCode(this.dataAgendamento);
+        hash = 97 * hash + (this.aplicada ? 1 : 0);
+        hash = 97 * hash + Objects.hashCode(this.vacina);
         return hash;
     }
 
@@ -140,7 +144,16 @@ public class VacinaAplicada implements Serializable {
             return false;
         }
         final VacinaAplicada other = (VacinaAplicada) obj;
+        if (this.aplicada != other.aplicada) {
+            return false;
+        }
         if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        if (!Objects.equals(this.dataAgendamento, other.dataAgendamento)) {
+            return false;
+        }
+        if (!Objects.equals(this.vacina, other.vacina)) {
             return false;
         }
         return true;

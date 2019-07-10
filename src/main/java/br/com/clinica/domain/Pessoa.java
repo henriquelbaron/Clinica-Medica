@@ -24,9 +24,6 @@ public class Pessoa {
     @Column(length = 14, nullable = false, unique = true)
     protected String cpf;
 
-    @Column(nullable = false, unique = true)
-    protected String email;
-
     @Column(length = 15)
     protected String telefone;
 

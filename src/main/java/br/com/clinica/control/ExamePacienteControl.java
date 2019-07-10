@@ -16,16 +16,16 @@ import br.com.clinica.view.PacienteExameDialog;
  * @author Henrique Baron
  */
 public class ExamePacienteControl {
-
+    
     private PacienteExameDialog dlg;
     private ExamePaciente ep;
-
+    
     public ExamePacienteControl(PacienteExameDialog aThis, ExamePaciente ep) {
         this.dlg = aThis;
         this.ep = ep;
         loadConfig();
     }
-
+    
     public void save() {
         ep.setResultado(dlg.tfResultado.getText());
         if (new ExamePacienteDaoImpl().editar(ep)) {
@@ -33,13 +33,14 @@ public class ExamePacienteControl {
             dlg.dispose();
         }
     }
-
+    
     private void loadConfig() {
         dlg.lblExame.setText("Exame de " + ep.getExame().getNome());
         dlg.lblData.setText(DataUtils.dateHoraToString(ep.getSala().getData()));
         dlg.lblAgendado.setText(DataUtils.dateHoraToString(ep.getDataAgendamento()));
         dlg.lblPaciente.setText(ep.getPaciente().getNome());
         dlg.lblSala.setText(ep.getSala().getSala().getNumero());
+        dlg.tfResultado.setText(ep.getResultado());
         if (ep.getMedico() != null) {
             dlg.lblResponsavel.setText("Dr(a). " + ep.getMedico().getNome());
         }
@@ -47,5 +48,5 @@ public class ExamePacienteControl {
             dlg.lblResponsavel.setText("Enfermeiro(a) " + ep.getEnfermeiro().getNome());
         }
     }
-
+    
 }
