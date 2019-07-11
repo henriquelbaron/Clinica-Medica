@@ -2,6 +2,7 @@ package br.com.clinica.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -26,9 +27,9 @@ public class Paciente extends Pessoa implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    
+
     private String email;
-    
+
     @OneToMany(mappedBy = "paciente", orphanRemoval = true, targetEntity = Telefone.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @Fetch(value = FetchMode.SELECT)
     private List<Telefone> telefones;
@@ -102,6 +103,9 @@ public class Paciente extends Pessoa implements Serializable {
     }
 
     public void setVacinaAplicada(VacinaAplicada vacinaAplicada) {
+        if (this.vacinaAplicada == null) {
+            this.vacinaAplicada = new HashSet<>();
+        }
         this.vacinaAplicada.add(vacinaAplicada);
     }
 

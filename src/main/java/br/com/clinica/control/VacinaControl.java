@@ -37,9 +37,16 @@ public class VacinaControl {
             vacinaAplicada = table.getRow(rowTable);
             AgendamentoVacinaDialog dlg = new AgendamentoVacinaDialog(frame, true, vacinaAplicada);
             dlg.setVisible(true);
+            table.updateRow(vacinaAplicada, rowTable);
         } else {
             SendMessenger.error("Selecione a Vacina que deseja aplicar!");
         }
+    }
+
+    public void aplicaVacinaAgora() {
+        AgendamentoVacinaDialog dlg = new AgendamentoVacinaDialog(frame, true, new VacinaAplicada());
+        dlg.setVisible(true);
+        loadConfig();
     }
 
     public void pesquisarData() {
@@ -60,7 +67,7 @@ public class VacinaControl {
 
     private void loadConfig() {
         table = new VacinaTable();
-        for (VacinaAplicada naoAplicada : new VacinaAplicadaDaoImpl().listar()) {
+        for (VacinaAplicada naoAplicada : new VacinaAplicadaDaoImpl().naoAplicadas()) {
             table.addRow(naoAplicada);
         }
         iFrame.tableVacina.setModel(table);

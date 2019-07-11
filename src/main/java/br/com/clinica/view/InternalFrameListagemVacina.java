@@ -21,7 +21,7 @@ public class InternalFrameListagemVacina extends javax.swing.JInternalFrame {
 
     public InternalFrameListagemVacina(JFrame frame) {
         initComponents();
-        control  = new VacinaControl(this,frame);
+        control = new VacinaControl(this, frame);
     }
 
     /**
@@ -130,15 +130,15 @@ public class InternalFrameListagemVacina extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-control.aplicarVacina();        // TODO add your handling code here:
+        control.aplicarVacina();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-control.pesquisarData();        // TODO add your handling code here:
+        control.pesquisarData();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-control.excluirAplicacao();        // TODO add your handling code here:
+        control.excluirAplicacao();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
 

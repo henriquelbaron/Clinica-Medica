@@ -29,7 +29,7 @@ public class PlantaoMedico implements Serializable {
     private Integer id;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "idMedico")
+    @JoinColumn(name = "idMedico", nullable = false)
     private Medico medico;
 
     @ManyToOne(fetch = FetchType.EAGER)
