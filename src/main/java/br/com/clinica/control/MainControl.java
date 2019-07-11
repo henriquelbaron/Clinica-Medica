@@ -117,7 +117,7 @@ public class MainControl {
     }
 
     public void chamarTelaProntuario() {
-        ConsultasDialog dlg = new ConsultasDialog(frame, true);
+        ConsultasDialog dlg = new ConsultasDialog(frame, false);
         dlg.setVisible(true);
     }
 

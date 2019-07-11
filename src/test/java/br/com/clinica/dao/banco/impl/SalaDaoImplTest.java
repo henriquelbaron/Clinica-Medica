@@ -37,8 +37,8 @@ public class SalaDaoImplTest {
     @Test
 //    @Ignore
     public void testSomeMethod() {
-        dao.salvar(new Sala("201",  new FuncaoDaoImpl().buscar(245)));
-        dao.salvar(new Sala("202",  new FuncaoDaoImpl().buscar(246)));
+        dao.salvar(new Sala("201", new FuncaoDaoImpl().buscar(245)));
+        dao.salvar(new Sala("202", new FuncaoDaoImpl().buscar(246)));
         dao.salvar(new Sala("203", new FuncaoDaoImpl().buscar(247)));
         dao.salvar(new Sala("204", new FuncaoDaoImpl().buscar(244)));
         dao.salvar(new Sala("205", new FuncaoDaoImpl().buscar(247)));
