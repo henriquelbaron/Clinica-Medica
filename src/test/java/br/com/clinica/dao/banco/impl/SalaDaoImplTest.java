@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Ignore;
 
 /**
  *
@@ -36,6 +37,7 @@ public class SalaDaoImplTest {
     }
 
     @Test
+//    @Ignore
     public void testSomeMethod() {
         dao.salvar(new Sala("1", 0, funcao));
         dao.salvar(new Sala("2", 0, funcao));

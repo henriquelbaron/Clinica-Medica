@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Ignore;
 
 /**
  *
@@ -32,6 +33,7 @@ public class VacinaDaoImplTest {
     }
 
     @Test
+    @Ignore
     public void testSomeMethod() {
         dao.salvar(new Vacina("Tetano", ""));
         dao.salvar(new Vacina("Difteria", ""));

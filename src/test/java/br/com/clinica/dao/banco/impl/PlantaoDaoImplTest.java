@@ -23,7 +23,7 @@ public class PlantaoDaoImplTest {
     }
 
     @Test
-//    @Ignore
+    @Ignore
     public void save() {
         dao.salvar(new Plantao(DataUtils.stringToDate("1/07/2019", "07:00")));
         dao.salvar(new Plantao(DataUtils.stringToDate("2/07/2019", "19:00")));
@@ -35,7 +35,7 @@ public class PlantaoDaoImplTest {
     }
 
     @Test
-//    @Ignore
+    @Ignore
     public void adicionarMedicosPlantao() {
         MedicoDaoImpl medicoDaoImpl = new MedicoDaoImpl();
         Set<Medico> medicos = new HashSet();

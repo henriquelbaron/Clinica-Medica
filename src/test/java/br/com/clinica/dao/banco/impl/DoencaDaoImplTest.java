@@ -9,6 +9,7 @@ import br.com.clinica.domain.Doenca;
 import br.com.clinica.domain.Paciente;
 import java.util.ArrayList;
 import java.util.List;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -25,6 +26,7 @@ public class DoencaDaoImplTest {
     }
 
     @Test
+    @Ignore
     public void testSomeMethod() {
         dao.salvar(new Doenca("Pressão Alta"));
         dao.salvar(new Doenca("Diabete"));
