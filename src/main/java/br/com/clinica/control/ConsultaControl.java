@@ -9,6 +9,7 @@ import br.com.clinica.dao.banco.impl.ConsultaDaoImpl;
 import br.com.clinica.dao.banco.impl.MedicoDaoImpl;
 import br.com.clinica.domain.Consulta;
 import br.com.clinica.domain.Medico;
+import br.com.clinica.domain.PacienteFactory;
 import br.com.clinica.domain.tables.ConsultaTable;
 import br.com.clinica.util.SendMessenger;
 import br.com.clinica.view.ConsultasDialog;
@@ -16,6 +17,7 @@ import br.com.clinica.view.EfeturarConsulta;
 import br.com.clinica.view.InternalFrameEmergencia;
 import java.awt.Frame;
 import java.util.Date;
+import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -30,12 +32,22 @@ public class ConsultaControl {
     private Consulta consulta;
     private Medico medico;
     private DefaultComboBoxModel cbFuncionario;
+    ConsultaDaoImpl consultaDaoImpl;
+    List<Consulta> consultas;
 
     public ConsultaControl(Frame parent, ConsultasDialog aThis) {
         this.dlg = aThis;
         this.frame = parent;
         medico = UserLogado.getMEDICO();
         loadConfig();
+        consultaDaoImpl = new ConsultaDaoImpl();
+        consultas = consultaDaoImpl.listar();
+    }
+
+    public void chamarRelatório() {
+        PacienteFactory.populaOjetosNoRelatório(consultas);
+        ControlRelatorio controlRelatorio = new ControlRelatorio();
+        controlRelatorio.chamarRelatorioDestinatario(consultas);
     }
 
     public void tableClickListener() {
