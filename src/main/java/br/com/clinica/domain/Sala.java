@@ -28,9 +28,7 @@ public class Sala implements Serializable {
 
     private String descrição;
 
-    private int prioridade;
-
-    @OneToMany(mappedBy = "sala", targetEntity = OcupacaoSala.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "sala", targetEntity = OcupacaoSala.class)
     private List<OcupacaoSala> ocupacaoSalas;
 
     @ManyToOne
@@ -40,9 +38,8 @@ public class Sala implements Serializable {
     public Sala() {
     }
 
-    public Sala(String numero, int prioridade, Funcao funcao) {
+    public Sala(String numero, Funcao funcao) {
         this.numero = numero;
-        this.prioridade = prioridade;
         this.funcao = funcao;
     }
 
@@ -78,14 +75,6 @@ public class Sala implements Serializable {
         this.numero = numero;
     }
 
-    public int getPrioridade() {
-        return prioridade;
-    }
-
-    public void setPrioridade(int prioridade) {
-        this.prioridade = prioridade;
-    }
-
     public Funcao getFuncao() {
         return funcao;
     }
@@ -97,7 +86,8 @@ public class Sala implements Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 59 * hash + Objects.hashCode(this.id);
+        hash = 89 * hash + Objects.hashCode(this.id);
+        hash = 89 * hash + Objects.hashCode(this.numero);
         return hash;
     }
 
@@ -113,12 +103,16 @@ public class Sala implements Serializable {
             return false;
         }
         final Sala other = (Sala) obj;
+        if (!Objects.equals(this.numero, other.numero)) {
+            return false;
+        }
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
         return true;
     }
 
+    
     @Override
     public String toString() {
         return numero;

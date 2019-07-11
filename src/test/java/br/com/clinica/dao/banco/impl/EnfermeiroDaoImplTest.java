@@ -36,7 +36,7 @@ public class EnfermeiroDaoImplTest {
      * Test of enfermeiroLogar method, of class EnfermeiroDaoImpl.
      */
     @Test
-//    @Ignore
+    @Ignore
     public void testEnfermeiroLogar() {
         for (int i = 0; i < 10; i++) {
 

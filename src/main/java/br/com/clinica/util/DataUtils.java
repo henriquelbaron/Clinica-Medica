@@ -7,6 +7,10 @@ package br.com.clinica.util;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.time.format.ResolverStyle;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -85,6 +89,7 @@ public class DataUtils {
 
     public static String dateToString(Date data) {
         sdf = new SimpleDateFormat(dataFormat);
+        sdf.setLenient(false);
         return sdf.format(data);
     }
 
@@ -119,5 +124,19 @@ public class DataUtils {
 
     public static boolean dateAfterTomorrow(Date date) {
         return date.after(addDiaData(date, 1));
+    }
+
+    public static boolean isValidDate(String strDate) {
+        String dateFormat = "dd/MM/uuuu";
+
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter
+                .ofPattern(dateFormat)
+                .withResolverStyle(ResolverStyle.STRICT);
+        try {
+            LocalDate date = LocalDate.parse(strDate, dateTimeFormatter);
+            return true;
+        } catch (DateTimeParseException e) {
+            return false;
+        }
     }
 }

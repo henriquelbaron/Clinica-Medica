@@ -32,7 +32,7 @@ public class PacienteDaoImplTest {
      * Test of findPaciente method, of class PacienteDaoImpl.
      */
     @Test
-//    @Ignore
+    @Ignore
     public void testFindPaciente() {
         for (int i = 0; i < 10; i++) {
             Paciente paciente = new Paciente();

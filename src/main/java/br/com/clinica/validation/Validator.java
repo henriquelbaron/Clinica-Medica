@@ -6,15 +6,21 @@
  */
 package br.com.clinica.validation;
 
+import br.com.clinica.util.DataUtils;
+import br.com.clinica.util.SendMessenger;
+import br.com.clinica.util.Utils;
 import br.com.clinica.view.FuncionarioCRUDDialog;
+import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JFormattedTextField;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 /**
@@ -42,22 +48,22 @@ public class Validator {
         return true;
     }
 
+    public static boolean isValidNome(String nome) {
+        if (!stringValidator(nome)) {
+            return false;
+        }
+        if (!nome.matches("^[a-zA-Z\\u00C0-\\u017F´]+\\s+[a-zA-Z\\u00C0-\\u017F´]{0,}$")) {
+            return false;
+        }
+        return true;
+    }
+
     public static boolean validarHora(String hora) {
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
         sdf.setLenient(false);
         try {
             sdf.parse(hora);
         } catch (ParseException e) {
-            return false;
-        }
-        return true;
-    }
-
-    public static boolean validSaveFuncionario(FuncionarioCRUDDialog dlg) {
-        if (!stringValidator(dlg.tfNome.getText())) {
-            return false;
-        }
-        if (!stringLenghtValidator(dlg.tfEmail.getText(), 10)) {
             return false;
         }
         return true;
@@ -105,26 +111,57 @@ public class Validator {
     }
 
     public static boolean isValidCep(String cep) {
-        cep = cep.replaceAll("[^0-9]", "");
-        if (cep != null && cep.trim().length() >= 8) {
+        if (cep != null && cep.matches("\\d{5}-\\d{3}")) {
             return true;
         }
         return false;
     }
 
-    public static boolean validarCampos(JTextField tf) {
+    public static boolean isValidFields(JFormattedTextField cpf, JFormattedTextField cep, JTextField nome, JTextField email, JDateChooser nascimento) {
         boolean valido = true;
-        if (tf.getName().contains("cep")) {
-            valido = isValidCep(tf.getText());
+        Utils.colorirTf(email, true);
+        Utils.colorirTf(cep, true);
+        Utils.colorirTf(nome, true);
+        Utils.colorirTf(cpf, true);
+        List<String> campos = new ArrayList<>();
+        if (!isValidCPF(cpf.getText())) {
+            campos.add(cpf.getName());
+            valido = false;
+            Utils.colorirTf(cpf, false);
         }
-        if (tf.getName().contains("Cpf")) {
-            valido = isValidCPF(tf.getText());
+        if (!isValidCep(cep.getText())) {
+            campos.add(cep.getName());
+            valido = false;
+            Utils.colorirTf(cep, false);
         }
-        if (tf.getName().contains("email")) {
-            valido = isValidEmail(tf.getText());
+        if (!isValidNome(nome.getText())) {
+            campos.add(nome.getName() + " Completo!");
+            valido = false;
+            Utils.colorirTf(nome, false);
         }
-        tf.setForeground(valido ? Color.white : Color.red);
+        if (!isValidEmail(email.getText())) {
+            campos.add(email.getName());
+            valido = false;
+            Utils.colorirTf(email, false);
+        }
+        if (nascimento.getDate() == null) {
+            campos.add(nascimento.getName());
+            valido = false;
+        }
+        if (!valido) {
+            String mensagem = "Campos Inválidos: \n";
+            for (String campo : campos) {
+                mensagem += campo + "\n";
+            }
+            SendMessenger.error(mensagem);
+        }
         return valido;
     }
 
+    public static boolean isValidConfirmarSenha(JPasswordField senha, JPasswordField confirmar) {
+        if (String.valueOf(senha).equals(String.valueOf(confirmar))) {
+            return true;
+        }
+        return false;
+    }
 }

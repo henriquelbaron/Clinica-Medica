@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -95,10 +96,12 @@ public class CadastrarEditarPaciente {
     }
 
     public void salvarAction() {
-        if (paciente.getId() != null) {
-            alterar();
-        } else {
-            salvar();
+        if (Validator.isValidFields(dlg.tfCPF, dlg.tfCep, dlg.tfNome, dlg.tfEmail, dlg.jDateChooser1)) {
+            if (paciente.getId() != null) {
+                alterar();
+            } else {
+                salvar();
+            }
         }
     }
 
@@ -139,7 +142,9 @@ public class CadastrarEditarPaciente {
             doencas.add(doencasList.getElementAt(i));
         }
         p.setDoencas(doencas);
-        Set<VacinaAplicada> vacinas = new HashSet();
+        if (p.getVacinaAplicada() == null) {
+            p.setVacinaAplicada(new HashSet());
+        }
         for (int i = 0; i < vacinasList.size(); i++) {
             VacinaAplicada va = new VacinaAplicada();
             va.setVacina(vacinasList.getElementAt(i));

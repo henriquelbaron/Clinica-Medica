@@ -8,6 +8,8 @@ package br.com.clinica.dao.banco.impl;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import org.junit.Ignore;
+import org.junit.Test;
 
 /**
  *

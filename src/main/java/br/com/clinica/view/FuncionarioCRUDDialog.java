@@ -78,11 +78,14 @@ public class FuncionarioCRUDDialog extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Funcionario");
 
+        jDateChooser1.setName("Data Nascimento"); // NOI18N
+
         try {
             tfCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        tfCPF.setName("Cpf"); // NOI18N
 
         jLabel15.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel15.setText("Bairro");
@@ -92,6 +95,7 @@ public class FuncionarioCRUDDialog extends javax.swing.JDialog {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        tfCep.setName("Cep"); // NOI18N
         tfCep.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tfCepKeyReleased(evt);
@@ -128,6 +132,8 @@ public class FuncionarioCRUDDialog extends javax.swing.JDialog {
                 cbSangueActionPerformed(evt);
             }
         });
+
+        tfEmail.setName("Email"); // NOI18N
 
         jLabel19.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel19.setText("Confirmar senha");
@@ -185,6 +191,7 @@ public class FuncionarioCRUDDialog extends javax.swing.JDialog {
         jLabel12.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel12.setText("Senha");
 
+        tfNome.setName("Nome"); // NOI18N
         tfNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfNomeActionPerformed(evt);

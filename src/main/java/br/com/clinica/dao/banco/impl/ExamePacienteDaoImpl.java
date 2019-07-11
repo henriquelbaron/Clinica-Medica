@@ -8,7 +8,6 @@ package br.com.clinica.dao.banco.impl;
 import br.com.clinica.dao.banco.ConnectionFactory;
 import br.com.clinica.dao.banco.GenericDAO;
 import br.com.clinica.domain.ExamePaciente;
-import br.com.clinica.domain.VacinaAplicada;
 import java.util.List;
 import javax.persistence.Query;
 import org.hibernate.Session;

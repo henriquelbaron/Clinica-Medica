@@ -33,9 +33,7 @@ public class SalaControl {
 
     private void loadConfig() {
         table = new SalaTable();
-        for (Sala sala1 : new SalaDaoImpl().listar()) {
-            table.addRow(sala1);
-        }
+        refreshTable();
         iFrame.tableSala.setModel(table);
         iFrame.cbFuncao.setModel(new DefaultComboBoxModel(new FuncaoDaoImpl().listar().toArray()));
     }
@@ -54,6 +52,7 @@ public class SalaControl {
             } else {
                 alterar();
             }
+            refreshTable();
         } else {
             SendMessenger.error("O campo Sala é obrigatorio!");
         }
@@ -65,8 +64,8 @@ public class SalaControl {
             iFrame.tfDescricao.setText("");
             iFrame.tfNome.setText("");
             SendMessenger.success("Salvo com sucesso!");
-            sala = null;
         }
+        sala = null;
     }
 
     private void alterar() {
@@ -75,8 +74,8 @@ public class SalaControl {
             iFrame.tfDescricao.setText("");
             iFrame.tfNome.setText("");
             SendMessenger.success("Alterado com sucesso!");
-            sala = null;
         }
+        sala = null;
     }
 
     public void deleteAction() {
@@ -97,6 +96,13 @@ public class SalaControl {
             iFrame.tfDescricao.setText(sala.getDescrição());
             iFrame.tfNome.setText(sala.getNumero());
             iFrame.cbFuncao.setSelectedItem(sala.getFuncao());
+        }
+    }
+
+    private void refreshTable() {
+        table.clearTable();
+        for (Sala sala1 : new SalaDaoImpl().listar()) {
+            table.addRow(sala1);
         }
     }
 }

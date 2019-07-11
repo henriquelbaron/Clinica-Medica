@@ -32,7 +32,7 @@ public class VacinaAplicada implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataAgendamento;
 
-    private Boolean aplicada;
+    private Boolean aplicada = false;
 
     @ManyToOne
     @JoinColumn(name = "idPaciente", nullable = false)
@@ -126,7 +126,6 @@ public class VacinaAplicada implements Serializable {
         int hash = 3;
         hash = 97 * hash + Objects.hashCode(this.id);
         hash = 97 * hash + Objects.hashCode(this.dataAgendamento);
-        hash = 97 * hash + (this.aplicada ? 1 : 0);
         hash = 97 * hash + Objects.hashCode(this.vacina);
         return hash;
     }

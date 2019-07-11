@@ -90,7 +90,7 @@
 			<textField>
 				<reportElement x="76" y="35" width="100" height="20" uuid="54a863ee-d597-47a4-9fc2-204b68beb9f7"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{dataAgendamento}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{dataAgendamento}.toString()]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="315" y="35" width="143" height="20" uuid="19a62dc0-f75f-44a5-957f-41228ef0a644"/>

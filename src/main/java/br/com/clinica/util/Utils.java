@@ -8,6 +8,7 @@ package br.com.clinica.util;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JDesktopPane;
+import javax.swing.JFormattedTextField;
 import javax.swing.JInternalFrame;
 import javax.swing.JTextField;
 
@@ -22,7 +23,6 @@ public class Utils {
             tf.setEditable(true);
             tf.setText("");
             tf.setForeground(Color.BLACK);
-           
         }
     }
 
@@ -31,6 +31,14 @@ public class Utils {
         Dimension jInternalFrameSize = frame.getSize();
         frame.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
                 (desktopSize.height - jInternalFrameSize.height) / 2);
+    }
+
+    public static void colorirTf(JTextField tf, boolean valido) {
+        tf.setBackground(valido ? Color.white : Color.red);
+    }
+
+    public static void colorirTf(JFormattedTextField tf, boolean valido) {
+        tf.setBackground(valido ? Color.white : Color.red);
     }
 
 }

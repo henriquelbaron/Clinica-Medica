@@ -10,7 +10,6 @@ import br.com.clinica.domain.Sala;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -36,17 +35,18 @@ public class SalaDaoImplTest {
     }
 
     @Test
+//    @Ignore
     public void testSomeMethod() {
-        dao.salvar(new Sala("1", 0, funcao));
-        dao.salvar(new Sala("2", 0, funcao));
-        dao.salvar(new Sala("3", 0, funcao));
-        dao.salvar(new Sala("4", 0, funcao));
-        dao.salvar(new Sala("5", 0, funcao));
-        dao.salvar(new Sala("5", 0, funcao));
-        dao.salvar(new Sala("7", 0, funcao));
-        dao.salvar(new Sala("8", 0, funcao));
-        dao.salvar(new Sala("9", 0, funcao));
-        dao.salvar(new Sala("10", 0, funcao));
+        dao.salvar(new Sala("1", funcao));
+        dao.salvar(new Sala("2",  funcao));
+        dao.salvar(new Sala("3", funcao));
+        dao.salvar(new Sala("4", funcao));
+        dao.salvar(new Sala("5", funcao));
+        dao.salvar(new Sala("5", funcao));
+        dao.salvar(new Sala("7", funcao));
+        dao.salvar(new Sala("8", funcao));
+        dao.salvar(new Sala("9", funcao));
+        dao.salvar(new Sala("10", funcao));
     }
 
 }

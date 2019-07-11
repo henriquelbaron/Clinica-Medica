@@ -41,7 +41,7 @@ public class AtendenteDaoImpTest {
     }
 
     @Test
-//    @Ignore
+    @Ignore
     public void salvar() {
 
         atendente.setNome(Testes.nomeAleatorio());

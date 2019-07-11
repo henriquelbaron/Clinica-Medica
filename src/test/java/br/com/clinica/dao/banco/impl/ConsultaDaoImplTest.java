@@ -15,6 +15,8 @@ import br.com.clinica.domain.Remedio;
 import br.com.clinica.domain.Sala;
 import br.com.clinica.util.DataUtils;
 import java.util.List;
+import org.junit.Ignore;
+import org.junit.Test;
 
 /**
  *
@@ -30,6 +32,8 @@ public class ConsultaDaoImplTest {
     List<Remedio> remedios;
     OcupacaoSala sala;
 
+    @Test
+    @Ignore
     public void saveTeste() {
         consulta = new Consulta();
 

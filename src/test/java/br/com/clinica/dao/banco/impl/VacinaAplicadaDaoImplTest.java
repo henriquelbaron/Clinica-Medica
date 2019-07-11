@@ -8,6 +8,7 @@ package br.com.clinica.dao.banco.impl;
 import br.com.clinica.domain.VacinaAplicada;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Ignore;
 
 /**
  *
@@ -22,6 +23,7 @@ public class VacinaAplicadaDaoImplTest {
     }
 
     @Test
+    @Ignore
     public void testSomeMethod() {
         VacinaAplicada vacina = new VacinaAplicada();
         vacina.setVacina(new VacinaDaoImpl().buscar(1));

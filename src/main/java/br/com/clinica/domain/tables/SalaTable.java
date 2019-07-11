@@ -23,11 +23,10 @@ public class SalaTable extends TableTemplate<Sala> {
 
     static class Constantes {
 
-        private static final String[] COLUNAS = {"Nome", "Descrição", "Função", "Prioridade"};
+        private static final String[] COLUNAS = {"Nome", "Descrição", "Função"};
         private static final int SALA = 0;
         private static final int DESCRICAO = 1;
         private static final int FUNCAO = 2;
-        private static final int PRIORIDADE = 3;
     }
 
     @Override
@@ -39,8 +38,6 @@ public class SalaTable extends TableTemplate<Sala> {
                 return salas.get(rowIndex).getDescrição();
             case Constantes.FUNCAO:
                 return salas.get(rowIndex).getFuncao();
-            case Constantes.PRIORIDADE:
-                return salas.get(rowIndex).getPrioridade();
             default:
                 return null;
         }

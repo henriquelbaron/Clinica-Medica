@@ -115,6 +115,7 @@ public class PacienteCRUDDialog extends javax.swing.JDialog {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        tfCPF.setName("Cpf"); // NOI18N
 
         cbVacina.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -207,6 +208,8 @@ public class PacienteCRUDDialog extends javax.swing.JDialog {
             }
         });
 
+        jDateChooser1.setName("Data de Nacimento"); // NOI18N
+
         jLabel19.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel19.setText("N°");
 
@@ -231,6 +234,8 @@ public class PacienteCRUDDialog extends javax.swing.JDialog {
         jLabel11.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel11.setText("Doenças");
 
+        tfNome.setName("Nome"); // NOI18N
+
         cbSangue.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "O+", "O-", "B+", "B-", "A+", "A-", "AB+", "AB-" }));
         cbSangue.setToolTipText("");
         cbSangue.addActionListener(new java.awt.event.ActionListener() {
@@ -252,6 +257,8 @@ public class PacienteCRUDDialog extends javax.swing.JDialog {
                 btAddTelefone1ActionPerformed(evt);
             }
         });
+
+        tfEmail.setName("Email"); // NOI18N
 
         jLabel13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel13.setText("Vacinas");
@@ -275,6 +282,7 @@ public class PacienteCRUDDialog extends javax.swing.JDialog {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        tfCep.setName("Cep"); // NOI18N
         tfCep.setPreferredSize(new java.awt.Dimension(12, 27));
         tfCep.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

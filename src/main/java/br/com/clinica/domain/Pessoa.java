@@ -21,7 +21,7 @@ public class Pessoa {
     @Temporal(TemporalType.DATE)
     protected Date dataNascimento;
 
-    @Column(length = 14, nullable = false, unique = true)
+    @Column(length = 14, nullable = false)
     protected String cpf;
 
     @Column(length = 15)

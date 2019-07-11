@@ -18,6 +18,8 @@ public class SalaDaoImpl extends GenericDAO<Sala> {
         } catch (Exception e) {
             System.out.println("Erro ao listar Salas");
             return null;
+        } finally {
+            session.close();
         }
     }
 }

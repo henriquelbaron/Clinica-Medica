@@ -7,7 +7,6 @@ package br.com.clinica.dao.banco.impl;
 
 import br.com.clinica.domain.Exame;
 import org.junit.Test;
-import org.junit.Ignore;
 
 /**
  *
