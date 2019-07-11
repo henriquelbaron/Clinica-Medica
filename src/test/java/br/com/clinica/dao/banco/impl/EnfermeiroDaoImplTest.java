@@ -7,8 +7,6 @@ package br.com.clinica.dao.banco.impl;
 
 import br.com.clinica.domain.Endereco;
 import br.com.clinica.domain.Enfermeiro;
-import br.com.clinica.domain.Especialidade;
-import br.com.clinica.domain.Medico;
 import br.com.clinica.domain.Sexo;
 import br.com.clinica.domain.Usuario;
 import java.util.Date;
@@ -36,23 +34,20 @@ public class EnfermeiroDaoImplTest {
      * Test of enfermeiroLogar method, of class EnfermeiroDaoImpl.
      */
     @Test
-    @Ignore
+//    @Ignore
     public void testEnfermeiroLogar() {
         for (int i = 0; i < 10; i++) {
-
             enfermeiro = new Enfermeiro();
-
-            enfermeiro.setNome("Maria" + i);
-            enfermeiro.setCpf("186.402.484-2" + i);
+            enfermeiro.setNome(Testes.nomeAleatorio());
+            enfermeiro.setCpf("186.402.484-3" + i);
             enfermeiro.setDataNascimento(new Date(System.currentTimeMillis()));
             enfermeiro.setSexo(Sexo.MASCULINO);
-            enfermeiro.setEndereco(new Endereco("88131-743", "Braulina Goulart", "48", "RioGrande", "", "SC"));
+            enfermeiro.setEndereco(new Endereco("88131-743", "Braulina Goulart", "48", "RioGrande", "Palhoça", "SC"));
             enfermeiro.setTipoSanguineo("O+");
             enfermeiro.setTelefone("48996850323");
-            enfermeiro.setCorenCofen("123456" + i);
-            enfermeiro.setEspecialidade(especialidadeDaoImpl.buscar(38+i));
-//        enferemeiro.setPlantaos(new PlantaoDaoImpl().listar());
-            enfermeiro.setUsuario(new Usuario("enfermeiro" + i, "123"));
+            enfermeiro.setCorenCofen("12346" + i);
+            enfermeiro.setEspecialidade(especialidadeDaoImpl.buscar(1 + i));
+            enfermeiro.setUsuario(new Usuario("enfermeiroo" + i, "123"));
             dao.salvar(enfermeiro);
         }
     }

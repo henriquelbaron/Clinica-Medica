@@ -32,6 +32,8 @@ public class DoencaDaoImplTest {
         dao.salvar(new Doenca("Diabete"));
         dao.salvar(new Doenca("Hipertenção"));
         dao.salvar(new Doenca("Fibromialgia"));
+        dao.salvar(new Doenca("Trombose"));
+        dao.salvar(new Doenca("Hepatite"));
     }
 
 }

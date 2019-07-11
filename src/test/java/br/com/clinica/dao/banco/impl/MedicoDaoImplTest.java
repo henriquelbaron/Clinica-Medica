@@ -38,9 +38,7 @@ public class MedicoDaoImplTest {
 //    @Ignore
     public void save() {
         for (int i = 0; i < 10; i++) {
-
             medico = new Medico();
-
             medico.setNome(Testes.nomeAleatorio());
             medico.setCpf("186.402.484-2" + i);
             medico.setDataNascimento(new Date(System.currentTimeMillis()));
@@ -48,9 +46,9 @@ public class MedicoDaoImplTest {
             medico.setEndereco(new Endereco("88131-743", "Braulina Goulart", "48", "RioGrande", "", "SC"));
             medico.setTipoSanguineo("O+");
             medico.setTelefone("48996850323");
-            medico.setCrm("123456" + i);
-            medico.setUsuario(new Usuario("medico" + i, "123"));
-            medico.setEspecialidade(especialidadeDaoImpl.buscar(38 + i));
+            medico.setCrm("12345" + i);
+            medico.setUsuario(new Usuario("medicoo" + i, "123"));
+            medico.setEspecialidade(especialidadeDaoImpl.buscar(1 + i));
 //        medico.setPlantaos(new PlantaoDaoImpl().listar());
             dao.salvar(medico);
         }

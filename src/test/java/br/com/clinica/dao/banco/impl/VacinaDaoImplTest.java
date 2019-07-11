@@ -33,7 +33,7 @@ public class VacinaDaoImplTest {
     }
 
     @Test
-    @Ignore
+//    @Ignore
     public void testSomeMethod() {
         dao.salvar(new Vacina("Tetano", ""));
         dao.salvar(new Vacina("Difteria", ""));
