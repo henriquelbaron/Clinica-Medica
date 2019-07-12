@@ -77,6 +77,7 @@ public class ConsultaControl {
             consulta = table.getRow(rowTable);
             EfeturarConsulta dialog = new EfeturarConsulta(frame, true, consulta);
             dialog.setVisible(true);
+            loadConfig();
         } else {
             SendMessenger.error("Selecione uma Consulta");
         }

@@ -11,6 +11,7 @@ import br.com.clinica.domain.tables.VacinaTable;
 import br.com.clinica.util.SendMessenger;
 import br.com.clinica.view.AgendamentoVacinaDialog;
 import br.com.clinica.view.InternalFrameListagemVacina;
+import java.util.List;
 import javax.swing.JFrame;
 
 /**
@@ -50,7 +51,9 @@ public class VacinaControl {
     }
 
     public void pesquisarData() {
-
+        for (VacinaAplicada vacina : new VacinaAplicadaDaoImpl().vacinaPorData(iFrame.jDateChooser1.getDate())) {
+            table.addRow(vacina);
+        }
     }
 
     public void excluirAplicacao() {
