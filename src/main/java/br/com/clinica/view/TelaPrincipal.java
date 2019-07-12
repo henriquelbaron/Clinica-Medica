@@ -34,8 +34,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuItem1 = new javax.swing.JMenuItem();
-        MenuMedicoProntuario = new javax.swing.JMenuItem();
-        MenuMedicoExame = new javax.swing.JMenuItem();
         menuPaciente = new javax.swing.JMenuItem();
         menuFuncionario = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
@@ -248,8 +246,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static final javax.swing.JMenuItem MenuConsultaReservaSala = new javax.swing.JMenuItem();
-    private javax.swing.JMenuItem MenuMedicoExame;
-    private javax.swing.JMenuItem MenuMedicoProntuario;
+    public static final javax.swing.JMenuItem MenuMedicoExame = new javax.swing.JMenuItem();
+    public static final javax.swing.JMenuItem MenuMedicoProntuario = new javax.swing.JMenuItem();
     public static final javax.swing.JMenuItem MenuVacinaAplicacao = new javax.swing.JMenuItem();
     public static final javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
     private javax.swing.JMenu jMenu5;

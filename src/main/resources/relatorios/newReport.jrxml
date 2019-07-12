@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ae8b8fb1-444d-4ae8-9bee-97598794d7e2">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="760" pageHeight="960" columnWidth="760" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="ae8b8fb1-444d-4ae8-9bee-97598794d7e2">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.x" value="133"/>
 	<property name="ireport.y" value="0"/>
 	<queryString>
 		<![CDATA[select * from consulta]]>
@@ -43,13 +43,13 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="87" splitType="Stretch">
+		<band height="86" splitType="Stretch">
 			<textField pattern="dd/MM/yyyy HH.mm.ss">
-				<reportElement x="455" y="0" width="100" height="20" uuid="a1bfaf6c-21c0-4acd-84dc-31a691017e7c"/>
+				<reportElement x="660" y="0" width="100" height="20" uuid="a1bfaf6c-21c0-4acd-84dc-31a691017e7c"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<image>
-				<reportElement x="161" y="20" width="230" height="60" uuid="5561bd94-3a9f-46cd-a02f-7fb1e4d2009e"/>
+				<reportElement x="262" y="20" width="230" height="60" uuid="5561bd94-3a9f-46cd-a02f-7fb1e4d2009e"/>
 				<imageExpression><![CDATA["C:\\Users\\55489\\Documents\\GitHub\\Clinica-Medica\\src\\main\\resources\\Aspekpqn.jpg"]]></imageExpression>
 			</image>
 		</band>
@@ -57,79 +57,101 @@
 	<columnHeader>
 		<band height="22" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="73" height="20" uuid="b098a2f7-d588-44c6-b2af-5b08ac98635e"/>
-				<textElement textAlignment="Center"/>
+				<reportElement x="0" y="0" width="43" height="20" uuid="b098a2f7-d588-44c6-b2af-5b08ac98635e"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
 				<text><![CDATA[ID]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="77" y="0" width="96" height="20" uuid="26fcf114-131b-45a4-b0b3-22797adffcda"/>
-				<textElement textAlignment="Center"/>
+				<reportElement x="248" y="2" width="117" height="20" uuid="26fcf114-131b-45a4-b0b3-22797adffcda"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
 				<text><![CDATA[Data]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="177" y="0" width="135" height="20" uuid="1d4777a1-cd28-442b-8cef-96c85e430e4f"/>
-				<textElement textAlignment="Center" verticalAlignment="Top"/>
+				<reportElement x="365" y="2" width="135" height="20" uuid="1d4777a1-cd28-442b-8cef-96c85e430e4f"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="12" isBold="true"/>
+				</textElement>
 				<text><![CDATA[Diagnóstico]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="316" y="0" width="139" height="20" uuid="5d70db0f-b786-4d73-a332-0ac1d8ee49cf"/>
-				<textElement textAlignment="Center"/>
+				<reportElement x="504" y="0" width="139" height="20" uuid="5d70db0f-b786-4d73-a332-0ac1d8ee49cf"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true" isItalic="false"/>
+				</textElement>
 				<text><![CDATA[Médico]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="459" y="0" width="92" height="20" uuid="667ce4f1-4522-4f89-b868-5ea9557b0b6e"/>
-				<textElement textAlignment="Center"/>
+				<reportElement x="640" y="0" width="120" height="20" uuid="667ce4f1-4522-4f89-b868-5ea9557b0b6e"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
 				<text><![CDATA[Especialidade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="43" y="2" width="205" height="20" uuid="e8c25c41-96ff-4ae7-b916-03ef0d4f990e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Paciente]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="32" splitType="Stretch">
+		<band height="47" splitType="Stretch">
 			<textField isBlankWhenNull="true">
-				<reportElement x="0" y="11" width="73" height="20" uuid="50de680a-426b-4c7c-8258-ba9b03f81faf"/>
+				<reportElement x="0" y="11" width="43" height="20" uuid="50de680a-426b-4c7c-8258-ba9b03f81faf"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="173" y="11" width="139" height="20" uuid="69f2d736-03c3-4a09-831b-ab16f6e21911"/>
+				<reportElement x="365" y="3" width="139" height="43" uuid="69f2d736-03c3-4a09-831b-ab16f6e21911"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{diagnostico}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="73" y="11" width="100" height="20" uuid="54a863ee-d597-47a4-9fc2-204b68beb9f7"/>
+				<reportElement x="250" y="14" width="115" height="20" uuid="54a863ee-d597-47a4-9fc2-204b68beb9f7"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{dataAgendamento}.toString()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{dataAgendamento}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="312" y="11" width="143" height="20" uuid="19a62dc0-f75f-44a5-957f-41228ef0a644"/>
+				<reportElement x="504" y="11" width="143" height="20" uuid="19a62dc0-f75f-44a5-957f-41228ef0a644"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{medico}.getNome()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="455" y="11" width="100" height="20" uuid="9e73f478-2a2f-4b52-b8b8-04a7b6ce67f6"/>
+				<reportElement x="643" y="11" width="117" height="20" uuid="9e73f478-2a2f-4b52-b8b8-04a7b6ce67f6"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{especialidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="45" y="3" width="205" height="43" uuid="63f5b2fc-706f-4317-a231-ead7acb19210"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{paciente}.getNome()]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
 	<pageFooter>
-		<band height="111" splitType="Stretch">
+		<band height="89" splitType="Stretch">
 			<image>
-				<reportElement x="145" y="29" width="230" height="60" uuid="18f0e306-6d6f-44d8-b99c-62d6d440f556"/>
+				<reportElement x="274" y="13" width="230" height="60" uuid="18f0e306-6d6f-44d8-b99c-62d6d440f556"/>
 				<imageExpression><![CDATA["C:\\Users\\55489\\Documents\\GitHub\\Clinica-Medica\\src\\main\\resources\\Aspekpqn.jpg"]]></imageExpression>
 			</image>
 			<textField>
-				<reportElement x="435" y="91" width="80" height="20" uuid="cd25a3b7-4707-4128-99af-1eb726478c52"/>
+				<reportElement x="640" y="69" width="80" height="20" uuid="cd25a3b7-4707-4128-99af-1eb726478c52"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="515" y="91" width="40" height="20" uuid="4638985c-6c16-41a8-9ff6-b3b50e7583b7"/>
+				<reportElement x="720" y="69" width="40" height="20" uuid="4638985c-6c16-41a8-9ff6-b3b50e7583b7"/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="5" splitType="Stretch"/>
+		<band splitType="Stretch"/>
 	</summary>
 </jasperReport>
