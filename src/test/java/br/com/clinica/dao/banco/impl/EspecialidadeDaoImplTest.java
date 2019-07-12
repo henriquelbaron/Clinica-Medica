@@ -22,7 +22,7 @@ public class EspecialidadeDaoImplTest {
     }
 
     @Test
-//    @Ignore
+    @Ignore
     public void save() {
         dao.salvar(new Especialidade("Cirurgia Geral", "Faz Cirurgia"));
         dao.salvar(new Especialidade("Obstétrica", ""));

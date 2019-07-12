@@ -9,6 +9,7 @@ import br.com.clinica.domain.Funcao;
 import br.com.clinica.domain.Sala;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -35,7 +36,7 @@ public class SalaDaoImplTest {
     }
 
     @Test
-//    @Ignore
+    @Ignore
     public void testSomeMethod() {
         dao.salvar(new Sala("201", new FuncaoDaoImpl().buscar(245)));
         dao.salvar(new Sala("202", new FuncaoDaoImpl().buscar(246)));

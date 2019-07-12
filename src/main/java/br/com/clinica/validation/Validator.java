@@ -159,9 +159,14 @@ public class Validator {
     }
 
     public static boolean isValidConfirmarSenha(JPasswordField senha, JPasswordField confirmar) {
-        if (String.valueOf(senha).equals(String.valueOf(confirmar))) {
+        if (String.valueOf(senha.getPassword()).equals(String.valueOf(confirmar.getPassword()))) {
+            senha.setBackground(Color.WHITE);
+            confirmar.setBackground(Color.WHITE);
             return true;
         }
+        senha.setBackground(Color.red);
+        confirmar.setBackground(Color.red);
+        SendMessenger.error("Senhas Não Conferem!");
         return false;
     }
 }

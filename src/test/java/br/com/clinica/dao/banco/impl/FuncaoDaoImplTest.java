@@ -21,7 +21,7 @@ public class FuncaoDaoImplTest {
         dao = new FuncaoDaoImpl();
     }
 
-    @Test
+//    @Test
     public void testSomeMethod() {
         dao.salvar(new Funcao("Consultório"));
         dao.salvar(new Funcao("Aplicação de Vacinas"));

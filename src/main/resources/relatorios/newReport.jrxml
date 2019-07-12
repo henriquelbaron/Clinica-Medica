@@ -48,10 +48,6 @@
 				<reportElement x="455" y="0" width="100" height="20" uuid="a1bfaf6c-21c0-4acd-84dc-31a691017e7c"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
-			<image>
-				<reportElement x="161" y="20" width="230" height="60" uuid="5561bd94-3a9f-46cd-a02f-7fb1e4d2009e"/>
-				<imageExpression><![CDATA["C:\\Users\\55489\\Documents\\GitHub\\Clinica-Medica\\src\\main\\resources\\Aspekpqn.jpg"]]></imageExpression>
-			</image>
 		</band>
 	</title>
 	<columnHeader>
@@ -84,7 +80,7 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="32" splitType="Stretch">
+		<band height="43" splitType="Stretch">
 			<textField isBlankWhenNull="true">
 				<reportElement x="0" y="11" width="73" height="20" uuid="50de680a-426b-4c7c-8258-ba9b03f81faf"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
@@ -114,10 +110,6 @@
 	</detail>
 	<pageFooter>
 		<band height="111" splitType="Stretch">
-			<image>
-				<reportElement x="145" y="29" width="230" height="60" uuid="18f0e306-6d6f-44d8-b99c-62d6d440f556"/>
-				<imageExpression><![CDATA["C:\\Users\\55489\\Documents\\GitHub\\Clinica-Medica\\src\\main\\resources\\Aspekpqn.jpg"]]></imageExpression>
-			</image>
 			<textField>
 				<reportElement x="435" y="91" width="80" height="20" uuid="cd25a3b7-4707-4128-99af-1eb726478c52"/>
 				<textElement textAlignment="Right"/>

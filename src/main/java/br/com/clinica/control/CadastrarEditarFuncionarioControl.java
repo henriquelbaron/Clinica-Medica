@@ -29,7 +29,7 @@ import javax.swing.DefaultComboBoxModel;
  * @author henrique
  */
 public class CadastrarEditarFuncionarioControl {
-    
+
     private FuncionarioCRUDDialog dlg;
     private Atendente atendente;
     private Medico medico;
@@ -37,12 +37,12 @@ public class CadastrarEditarFuncionarioControl {
     private Endereco endereco;
     private Usuario usuario;
     private int flag;
-    
+
     public CadastrarEditarFuncionarioControl(FuncionarioCRUDDialog dlg, Pessoa obj) {
         this.dlg = dlg;
         loadConfig(obj);
     }
-    
+
     private void loadConfig(Pessoa obj) {
         dlg.cbSexo.setModel(new DefaultComboBoxModel(Sexo.values()));
         dlg.cbEspecialidade.setModel(new DefaultComboBoxModel(new EspecialidadeDaoImpl().listar().toArray()));
@@ -74,7 +74,7 @@ public class CadastrarEditarFuncionarioControl {
             }
         }
     }
-    
+
     public void keyReleasedCep() {
         if (Validator.isValidCep(dlg.tfCep.getText())) {
             endereco = EnderecoDaoServer.getEndereco(dlg.tfCep.getText());
@@ -84,7 +84,7 @@ public class CadastrarEditarFuncionarioControl {
             dlg.tfEstado.setText(endereco.getUF());
         }
     }
-    
+
     public void saveAction() {
         boolean salvo = false;
         if (Validator.isValidFields(dlg.tfCPF, dlg.tfCep, dlg.tfNome, dlg.tfEmail, dlg.jDateChooser1)
@@ -111,14 +111,14 @@ public class CadastrarEditarFuncionarioControl {
             }
         }
     }
-    
+
     private void setViseble(boolean b) {
         dlg.cbEspecialidade.setVisible(b);
         dlg.tfCRMCorenCofen.setVisible(b);
         dlg.lblCorenCRM.setVisible(b);
         dlg.lblEspecialidade.setVisible(b);
     }
-    
+
     private Enfermeiro populateEnfermeiro() {
         enfermeiro.setCorenCofen(dlg.tfCRMCorenCofen.getText());
         enfermeiro.setEspecialidade((Especialidade) dlg.cbEspecialidade.getSelectedItem());
@@ -143,10 +143,10 @@ public class CadastrarEditarFuncionarioControl {
         enfermeiro.getEndereco().setBairro(dlg.tfBairro.getText());
         enfermeiro.getEndereco().setLocalidade(dlg.tfCidade.getText());
         enfermeiro.getEndereco().setUF(dlg.tfEstado.getText());
-        
+
         return enfermeiro;
     }
-    
+
     private Medico populateMedico() {
         medico.setCrm(dlg.tfCRMCorenCofen.getText());
         medico.setEspecialidade((Especialidade) dlg.cbEspecialidade.getSelectedItem());
@@ -173,7 +173,7 @@ public class CadastrarEditarFuncionarioControl {
         medico.getEndereco().setUF(dlg.tfEstado.getText());
         return medico;
     }
-    
+
     private Atendente populateAtendente() {
         atendente.setTipoSanguineo(dlg.cbSangue.getSelectedItem().toString());
         atendente.setNome(dlg.tfNome.getText());
@@ -198,11 +198,11 @@ public class CadastrarEditarFuncionarioControl {
         atendente.getEndereco().setUF(dlg.tfEstado.getText());
         return atendente;
     }
-    
+
     public void close() {
         dlg.dispose();
     }
-    
+
     private void loadEnfermeiro() {
         dlg.tfNome.setText(enfermeiro.getNome());
         dlg.jDateChooser1.setDate(enfermeiro.getDataNascimento());
@@ -221,9 +221,9 @@ public class CadastrarEditarFuncionarioControl {
         dlg.tfEstado.setText(enfermeiro.getEndereco().getUF());
         dlg.tfNumero.setText(enfermeiro.getEndereco().getNumero());
         dlg.tfComplemento.setText(enfermeiro.getEndereco().getComplemento());
-        
+
     }
-    
+
     private void loadMedico() {
         dlg.tfNome.setText(medico.getNome());
         dlg.jDateChooser1.setDate(medico.getDataNascimento());
@@ -243,7 +243,7 @@ public class CadastrarEditarFuncionarioControl {
         dlg.tfNumero.setText(medico.getEndereco().getNumero());
         dlg.tfComplemento.setText(medico.getEndereco().getComplemento());
     }
-    
+
     private void loadAtendente() {
         dlg.tfNome.setText(atendente.getNome());
         dlg.jDateChooser1.setDate(atendente.getDataNascimento());
@@ -261,14 +261,8 @@ public class CadastrarEditarFuncionarioControl {
         dlg.tfNumero.setText(atendente.getEndereco().getNumero());
         dlg.tfComplemento.setText(atendente.getEndereco().getComplemento());
     }
-    
+
     public void confirmSenhaFocusLost() {
-        if (!Validator.isValidConfirmarSenha(dlg.tfSenha, dlg.tfConfirmarSenha)) {
-            dlg.tfConfirmarSenha.setBackground(Color.red);
-            dlg.tfSenha.setBackground(Color.red);
-        } else {
-            dlg.tfConfirmarSenha.setBackground(Color.WHITE);
-            dlg.tfSenha.setBackground(Color.WHITE);
-        }
+        Validator.isValidConfirmarSenha(dlg.tfSenha, dlg.tfConfirmarSenha);
     }
 }

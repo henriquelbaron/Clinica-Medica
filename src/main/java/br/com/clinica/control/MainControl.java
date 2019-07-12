@@ -69,6 +69,7 @@ public class MainControl {
                 sala.setVisible(true);
             }
         }
+        Utils.centralizarInternalFrame(sala, TelaPrincipal.painel);
     }
 
     public void ChamarTelaListaExame() {
@@ -84,6 +85,7 @@ public class MainControl {
                 listaExames.setVisible(true);
             }
         }
+        Utils.centralizarInternalFrame(listaExames, TelaPrincipal.painel);
     }
 
     public void ChamarTelaEmergencia() {
@@ -99,6 +101,7 @@ public class MainControl {
                 emergencia.setVisible(true);
             }
         }
+        Utils.centralizarInternalFrame(emergencia, TelaPrincipal.painel);
     }
 
     public void chamarTelaExame() {
@@ -114,6 +117,7 @@ public class MainControl {
                 exames.setVisible(true);
             }
         }
+        Utils.centralizarInternalFrame(exames, TelaPrincipal.painel);
     }
 
     public void chamarTelaProntuario() {
@@ -134,6 +138,7 @@ public class MainControl {
                 listarVacina.setVisible(true);
             }
         }
+        Utils.centralizarInternalFrame(listarVacina, TelaPrincipal.painel);
     }
 
     public void chamarTelaPlantao() {
@@ -149,6 +154,7 @@ public class MainControl {
                 plantao.setVisible(true);
             }
         }
+        Utils.centralizarInternalFrame(plantao, TelaPrincipal.painel);
     }
 
     public void chamarTelaCadastroFuncionario() {
@@ -164,6 +170,7 @@ public class MainControl {
                 cadastroFuncionario.setVisible(true);
             }
         }
+        Utils.centralizarInternalFrame(cadastroFuncionario, TelaPrincipal.painel);
     }
 
 }

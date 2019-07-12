@@ -86,12 +86,16 @@ public class PlantaoControl {
 
     public void buscarPorDataAction() {
         table.clearTable();
-        Date data = iFrame.jDateChooser2.getDate();
-        for (PlantaoMedico object : pMedicoDao.getPlantoesMedicoDia(data)) {
-            table.addRow(object);
-        }
-        for (PlantaoEnfermeiro object : pEnfermeiroDao.getPlantoesEnfermeiroDia(data)) {
-            table.addRow(object);
+        if (iFrame.jDateChooser2.getDate() == null && iFrame.tfPesquisa.getText().equals("")) {
+            loadTable();
+        } else {
+            Date data = iFrame.jDateChooser2.getDate();
+            for (PlantaoMedico object : pMedicoDao.getPlantoesMedicoDia(data)) {
+                table.addRow(object);
+            }
+            for (PlantaoEnfermeiro object : pEnfermeiroDao.getPlantoesEnfermeiroDia(data)) {
+                table.addRow(object);
+            }
         }
     }
 

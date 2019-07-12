@@ -35,7 +35,7 @@ public class MedicoDaoImplTest {
     }
 
     @Test
-//    @Ignore
+    @Ignore
     public void save() {
         for (int i = 0; i < 10; i++) {
             medico = new Medico();

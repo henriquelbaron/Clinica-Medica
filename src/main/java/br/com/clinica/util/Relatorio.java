@@ -5,10 +5,7 @@
  */
 package br.com.clinica.util;
 
-import br.com.clinica.dao.banco.ConnectionFactory;
-import br.com.clinica.domain.Paciente;
 import java.io.InputStream;
-import java.sql.Connection;
 import java.util.HashMap;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -16,8 +13,6 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.view.JasperViewer;
-import org.bouncycastle.jce.provider.symmetric.AESMappings;
-import org.hibernate.Session;
 
 /**
  *
@@ -38,13 +33,4 @@ public class Relatorio {
         JasperViewer.viewReport(jasperPrint, false); // false para não fechar a aplicação quando fechar o relatório.
 
     }
-//
-//    public HashMap criaHashmap(Paciente p) {
-//        HashMap<String, Object> parametros = new HashMap<String, Object>();
-//        parametros.put("idPaciente", p.getId());
-//        return parametros;
-//    }
 }
-
-//Endereço de arquivo >> 
-// InputStream jasperFile = getClass().getResourceAsStream("/reports/destinatariosList.jasper");

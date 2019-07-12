@@ -26,7 +26,6 @@ public class ExameControl {
         this.iFrame = aThis;
         this.frame = frame;
         loadConfig();
-
     }
 
     private void loadConfig() {

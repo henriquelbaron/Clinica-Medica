@@ -6,6 +6,7 @@
 package br.com.clinica.dao.banco.impl;
 
 import br.com.clinica.domain.Exame;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -21,7 +22,7 @@ public class ExameDaoImplTest {
     }
 
     @Test
-//    @Ignore
+    @Ignore
     public void testSomeMethod() {
         dao.salvar(new Exame("Sangue", ""));
         dao.salvar(new Exame("Raio X", ""));
